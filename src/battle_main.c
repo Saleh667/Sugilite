@@ -3045,6 +3045,7 @@ void SwitchInClearSetData(void)
     gLastHitBy[gActiveBattler] = 0xFF;
 
     gBattleStruct->lastTakenMove[gActiveBattler] = 0;
+    gBattleStruct->sameMoveTurns[gActiveBattler] = 0;
     gBattleStruct->lastTakenMoveFrom[gActiveBattler][0] = 0;
     gBattleStruct->lastTakenMoveFrom[gActiveBattler][1] = 0;
     gBattleStruct->lastTakenMoveFrom[gActiveBattler][2] = 0;
@@ -3130,6 +3131,7 @@ void FaintClearSetData(void)
     gLastHitBy[gActiveBattler] = 0xFF;
 
     gBattleStruct->choicedMove[gActiveBattler] = 0;
+    gBattleStruct->sameMoveTurns[gActiveBattler] = 0;
     gBattleStruct->lastTakenMove[gActiveBattler] = 0;
     gBattleStruct->lastTakenMoveFrom[gActiveBattler][0] = 0;
     gBattleStruct->lastTakenMoveFrom[gActiveBattler][1] = 0;
@@ -3688,8 +3690,7 @@ u8 IsRunningFromBattleImpossible(void)
         return 2;
     }
 
-    if ((gBattleMons[gActiveBattler].status2 & (STATUS2_ESCAPE_PREVENTION | STATUS2_WRAPPED))
-        || (gStatuses3[gActiveBattler] & STATUS3_ROOTED))
+    if (!CanBattlerEscape(gActiveBattler))
     {
         gBattleCommunication[MULTISTRING_CHOOSER] = 0;
         return 1;
@@ -3865,9 +3866,8 @@ static void HandleTurnActionSelectionState(void)
                     break;
                 case B_ACTION_SWITCH:
                     *(gBattleStruct->field_58 + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
-                    if (gBattleMons[gActiveBattler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION)
-                        || gBattleTypeFlags & BATTLE_TYPE_ARENA
-                        || gStatuses3[gActiveBattler] & STATUS3_ROOTED)
+                    if (gBattleTypeFlags & BATTLE_TYPE_ARENA
+                        || !CanBattlerEscape(gActiveBattler))
                     {
                         BtlController_EmitChoosePokemon(0, PARTY_ACTION_CANT_SWITCH, PARTY_SIZE, ABILITY_NONE, gBattleStruct->field_60[gActiveBattler]);
                     }
@@ -4011,7 +4011,7 @@ static void HandleTurnActionSelectionState(void)
                             RecordedBattle_ClearBattlerAction(gActiveBattler, 1);
                             gBattleCommunication[gActiveBattler] = STATE_SELECTION_SCRIPT;
                             *(gBattleStruct->selectionScriptFinished + gActiveBattler) = FALSE;
-                            gBattleResources->bufferB[gActiveBattler][1] = 0;
+                            gBattleResources->bufferB[gActiveBattler][1] = B_ACTION_USE_MOVE;
                             *(gBattleStruct->stateIdAfterSelScript + gActiveBattler) = STATE_WAIT_ACTION_CHOSEN;
                             return;
                         }
@@ -4146,7 +4146,7 @@ static void HandleTurnActionSelectionState(void)
         case STATE_SELECTION_SCRIPT_MAY_RUN:
             if (*(gBattleStruct->selectionScriptFinished + gActiveBattler))
             {
-                if (gBattleResources->bufferB[gActiveBattler][1] == 13)
+                if (gBattleResources->bufferB[gActiveBattler][1] == B_ACTION_NOTHING_FAINTED)
                 {
                     gHitMarker |= HITMARKER_RUN;
                     gChosenActionByBattler[gActiveBattler] = B_ACTION_RUN;
@@ -4254,6 +4254,8 @@ u32 GetBattlerTotalSpeedStat(u8 battlerId)
         speed = (speed * 150) / 100;
     else if (ability == ABILITY_SURGE_SURFER && gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN)
         speed *= 2;
+    else if (ability == ABILITY_SLOW_START && gDisableStructs[battlerId].slowStartTimer != 0)
+        speed /= 2;
 
     // stat stages
     speed *= gStatStageRatios[gBattleMons[battlerId].statStages[STAT_SPEED]][0];
@@ -4309,7 +4311,7 @@ s8 GetMovePriority(u32 battlerId, u16 move)
     priority = gBattleMoves[move].priority;
     if (GetBattlerAbility(battlerId) == ABILITY_GALE_WINGS
         && gBattleMoves[move].type == TYPE_FLYING
-        && (B_GALE_WINGS == GEN_6 || BATTLER_MAX_HP(battlerId)))
+        && (B_GALE_WINGS <= GEN_6 || BATTLER_MAX_HP(battlerId)))
     {
         priority++;
     }
@@ -4617,7 +4619,11 @@ static void CheckFocusPunch_ClearVarsBeforeTurnStarts(void)
     gCurrentActionFuncId = gActionsByTurnOrder[0];
     gBattleStruct->dynamicMoveType = 0;
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+    {
         gBattleStruct->ateBoost[i] = FALSE;
+        gSpecialStatuses[i].gemBoost = FALSE;
+    }
+
     gBattleMainFunc = RunTurnActionsFunctions;
     gBattleCommunication[3] = 0;
     gBattleCommunication[4] = 0;
@@ -4966,20 +4972,24 @@ void SetTypeBeforeUsingMove(u16 move, u8 battlerAtk)
     if (move == MOVE_STRUGGLE)
         return;
 
+    gBattleStruct->dynamicMoveType = 0;
+    gBattleStruct->ateBoost[battlerAtk] = 0;
+    gSpecialStatuses[battlerAtk].gemBoost = 0;
+
     if (gBattleMoves[move].effect == EFFECT_WEATHER_BALL)
     {
         if (WEATHER_HAS_EFFECT)
         {
             if (gBattleWeather & WEATHER_RAIN_ANY)
-                *(&gBattleStruct->dynamicMoveType) = TYPE_WATER | 0x80;
+                gBattleStruct->dynamicMoveType = TYPE_WATER | 0x80;
             else if (gBattleWeather & WEATHER_SANDSTORM_ANY)
-                *(&gBattleStruct->dynamicMoveType) = TYPE_ROCK | 0x80;
+                gBattleStruct->dynamicMoveType = TYPE_ROCK | 0x80;
             else if (gBattleWeather & WEATHER_SUN_ANY)
-                *(&gBattleStruct->dynamicMoveType) = TYPE_FIRE | 0x80;
+                gBattleStruct->dynamicMoveType = TYPE_FIRE | 0x80;
             else if (gBattleWeather & WEATHER_HAIL_ANY)
-                *(&gBattleStruct->dynamicMoveType) = TYPE_ICE | 0x80;
+                gBattleStruct->dynamicMoveType = TYPE_ICE | 0x80;
             else
-                *(&gBattleStruct->dynamicMoveType) = TYPE_NORMAL | 0x80;
+                gBattleStruct->dynamicMoveType = TYPE_NORMAL | 0x80;
         }
     }
     else if (gBattleMoves[move].effect == EFFECT_HIDDEN_POWER)
@@ -5055,6 +5065,11 @@ void SetTypeBeforeUsingMove(u16 move, u8 battlerAtk)
         gBattleStruct->dynamicMoveType = 0x80 | TYPE_NORMAL;
         gBattleStruct->ateBoost[battlerAtk] = 1;
     }
+    else if (gBattleMoves[move].flags & FLAG_SOUND
+             && attackerAbility == ABILITY_LIQUID_VOICE)
+    {
+        gBattleStruct->dynamicMoveType = 0x80 | TYPE_WATER;
+    }
 
     // Check if a gem should activate.
     GET_MOVE_TYPE(move, moveType);
@@ -5068,7 +5083,7 @@ void SetTypeBeforeUsingMove(u16 move, u8 battlerAtk)
 
 static void HandleAction_UseMove(void)
 {
-    u32 side, moveType, var = 4;
+    u32 i, side, moveType, var = 4;
 
     gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
     if (gBattleStruct->field_91 & gBitTable[gBattlerAttacker] || !IsBattlerAlive(gBattlerAttacker))
@@ -5316,6 +5331,10 @@ static void HandleAction_UseMove(void)
     if (gBattleTypeFlags & BATTLE_TYPE_ARENA)
         BattleArena_AddMindPoints(gBattlerAttacker);
 
+    // Record HP of each battler
+    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+        gBattleStruct->hpBefore[i] = gBattleMons[i].hp;
+
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }
 
@@ -5538,7 +5557,7 @@ static void HandleAction_Run(void)
         }
         else
         {
-            if (gBattleMons[gBattlerAttacker].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
+            if (!CanBattlerEscape(gBattlerAttacker))
             {
                 gBattleCommunication[MULTISTRING_CHOOSER] = 4;
                 gBattlescriptCurrInstr = BattleScript_PrintFailedToRunString;
@@ -5659,8 +5678,7 @@ static void HandleAction_NothingIsFainted(void)
     gCurrentTurnActionNumber++;
     gCurrentActionFuncId = gActionsByTurnOrder[gCurrentTurnActionNumber];
     gHitMarker &= ~(HITMARKER_DESTINYBOND | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_ATTACKSTRING_PRINTED
-                    | HITMARKER_NO_PPDEDUCT | HITMARKER_IGNORE_SAFEGUARD | HITMARKER_IGNORE_ON_AIR
-                    | HITMARKER_IGNORE_UNDERGROUND | HITMARKER_IGNORE_UNDERWATER | HITMARKER_x100000
+                    | HITMARKER_NO_PPDEDUCT | HITMARKER_IGNORE_SAFEGUARD | HITMARKER_x100000
                     | HITMARKER_OBEYS | HITMARKER_x10 | HITMARKER_SYNCHRONISE_EFFECT
                     | HITMARKER_CHARGING | HITMARKER_x4000000);
 }
@@ -5672,8 +5690,7 @@ static void HandleAction_ActionFinished(void)
     gCurrentActionFuncId = gActionsByTurnOrder[gCurrentTurnActionNumber];
     SpecialStatusesClear();
     gHitMarker &= ~(HITMARKER_DESTINYBOND | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_ATTACKSTRING_PRINTED
-                    | HITMARKER_NO_PPDEDUCT | HITMARKER_IGNORE_SAFEGUARD | HITMARKER_IGNORE_ON_AIR
-                    | HITMARKER_IGNORE_UNDERGROUND | HITMARKER_IGNORE_UNDERWATER | HITMARKER_x100000
+                    | HITMARKER_NO_PPDEDUCT | HITMARKER_IGNORE_SAFEGUARD | HITMARKER_x100000
                     | HITMARKER_OBEYS | HITMARKER_x10 | HITMARKER_SYNCHRONISE_EFFECT
                     | HITMARKER_CHARGING | HITMARKER_x4000000);
 
