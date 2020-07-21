@@ -791,7 +791,7 @@ static const struct BgTemplate sPokedex_BgTemplate[] =
         .mapBaseIndex = 12,
         .screenSize = 0,
         .paletteMode = 0,
-        .priority = 0,
+        .priority = 3,
         .baseTile = 0
     },
     {
@@ -800,7 +800,7 @@ static const struct BgTemplate sPokedex_BgTemplate[] =
         .mapBaseIndex = 13,
         .screenSize = 0,
         .paletteMode = 0,
-        .priority = 1,
+        .priority = 0,
         .baseTile = 0
     },
     {
@@ -814,11 +814,11 @@ static const struct BgTemplate sPokedex_BgTemplate[] =
     },
     {
         .bg = 3,
-        .charBaseIndex = 0,
+        .charBaseIndex = 17,
         .mapBaseIndex = 15,
         .screenSize = 0,
         .paletteMode = 0,
-        .priority = 3,
+        .priority = 1,
         .baseTile = 0
     }
 };
@@ -874,7 +874,7 @@ static const struct BgTemplate sInfoScreen_BgTemplate[] =
         .mapBaseIndex = 14,
         .screenSize = 0,
         .paletteMode = 0,
-        .priority = 1,
+        .priority = 2,
         .baseTile = 0
     },
     {
@@ -883,7 +883,7 @@ static const struct BgTemplate sInfoScreen_BgTemplate[] =
         .mapBaseIndex = 15,
         .screenSize = 0,
         .paletteMode = 0,
-        .priority = 2,
+        .priority = 1,
         .baseTile = 0
     }
 };
@@ -2064,13 +2064,14 @@ static bool8 LoadPokedexListPage(u8 page)
         SetBgTilemapBuffer(2, AllocZeroed(0x800));
         SetBgTilemapBuffer(1, AllocZeroed(0x800));
         SetBgTilemapBuffer(0, AllocZeroed(0x800));
-        DecompressAndLoadBgGfxUsingHeap(3, gPokedexMenu_Gfx, 0x2000, 0, 0);
+        DecompressAndLoadBgGfxUsingHeap(1, gPokedexMenu_Gfx, 0x14A0, 0, 0);
+        DecompressAndLoadBgGfxUsingHeap(3, gPokedexMenuUnderlay_Gfx, 0x2000, 0, 0);
         CopyToBgTilemapBuffer(1, gPokedexList_Tilemap, 0, 0);
         CopyToBgTilemapBuffer(3, gPokedexListUnderlay_Tilemap, 0, 0);
-        if (page == PAGE_MAIN)
+        /*if (page == PAGE_MAIN)
             CopyToBgTilemapBuffer(0, gPokedexStartMenuMain_Tilemap, 0, 0x280);
         else
-            CopyToBgTilemapBuffer(0, gPokedexStartMenuSearchResults_Tilemap, 0, 0x280);
+            CopyToBgTilemapBuffer(0, gPokedexStartMenuSearchResults_Tilemap, 0, 0x280);*/
         ResetPaletteFade();
         if (page == PAGE_MAIN)
             sPokedexView->isSearchResults = FALSE;

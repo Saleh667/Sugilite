@@ -45,6 +45,7 @@
 #include "save_location.h"
 #include "script.h"
 #include "script_pokemon_util_80F87D8.h"
+#include "script_pokemon_80F8.h"
 #include "secret_base.h"
 #include "sound.h"
 #include "start_menu.h"
@@ -1542,6 +1543,14 @@ void CB2_NewGame(void)
     NewGameInitData();
     ResetInitialPlayerAvatarState();
     PlayTimeCounter_Start();
+    
+    FlagSet(FLAG_SYS_POKEMON_GET);
+    FlagSet(FLAG_SYS_POKEDEX_GET);
+    
+    ScriptGiveMon(SPECIES_TREECKO, 5, 0, 0, 0, 0);
+    ScriptGiveMon(SPECIES_TORCHIC, 5, 0, 0, 0, 0);
+    ScriptGiveMon(SPECIES_MUDKIP, 5, 0, 0, 0, 0);
+    
     ScriptContext1_Init();
     ScriptContext2_Disable();
     gFieldCallback = ExecuteTruckSequence;
