@@ -1729,3 +1729,43 @@ gTilesetPalettes_UnionRoom:: @ 8395678
 	.align 2
 gTilesetTiles_UnionRoom:: @ 8395878
 	.incbin "data/tilesets/secondary/union_room/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_Kurosiba::
+	.incbin "data/tilesets/secondary/kurosiba/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/kurosiba/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/kurosiba/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/kurosiba/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/kurosiba/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/kurosiba/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/kurosiba/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/kurosiba/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/kurosiba/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/kurosiba/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/kurosiba/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/kurosiba/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/kurosiba/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_Kurosiba::
+	.incbin "data/tilesets/secondary/kurosiba/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_Outside::
+	.incbin "data/tilesets/primary/outside/palettes/00.gbapal"
+	.incbin "data/tilesets/primary/outside/palettes/01.gbapal"
+	.incbin "data/tilesets/primary/outside/palettes/02.gbapal"
+	.incbin "data/tilesets/primary/outside/palettes/03.gbapal"
+	.incbin "data/tilesets/primary/outside/palettes/04.gbapal"
+	.incbin "data/tilesets/primary/outside/palettes/05.gbapal"
+	.incbin "data/tilesets/primary/outside/palettes/06.gbapal"
+	.incbin "data/tilesets/primary/outside/palettes/07.gbapal"
+	.incbin "data/tilesets/primary/outside/palettes/08.gbapal"
+	.incbin "data/tilesets/primary/outside/palettes/09.gbapal"
+	.incbin "data/tilesets/primary/outside/palettes/10.gbapal"
+	.incbin "data/tilesets/primary/outside/palettes/11.gbapal"
+	.incbin "data/tilesets/primary/outside/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_Outside::
+	.incbin "data/tilesets/primary/outside/tiles.4bpp.lz"
