@@ -287,10 +287,10 @@ static void DrawMetatile(s32 metatileLayerType, u16 *metatiles, u16 offset)
         gBGTilemapBuffers2[offset + 0x20] = metatiles[10];
         gBGTilemapBuffers2[offset + 0x21] = metatiles[11];
     }
-    
-    schedule_bg_copy_tilemap_to_vram(1);
-    schedule_bg_copy_tilemap_to_vram(2);
-    schedule_bg_copy_tilemap_to_vram(3);
+
+    ScheduleBgCopyTilemapToVram(1);
+    ScheduleBgCopyTilemapToVram(2);
+    ScheduleBgCopyTilemapToVram(3);
 }
 
 static s32 MapPosToBgTilemapOffset(struct FieldCameraOffset *cameraOffset, s32 x, s32 y)
