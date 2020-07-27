@@ -256,6 +256,11 @@
 #define METATILE_InsideShip_IntactDoor_Bottom_Locked    0x233
 #define METATILE_InsideShip_IntactDoor_Bottom_Unlocked  0x22B
 
+// gTileset_Kurosiba
+#define METATILE_Kurosiba_Door_KurosibaHouseOne  0x221
+#define METATILE_Kurosiba_Door_KurosibaHouseTwo  0x250
+#define METATILE_Kurosiba_Door_KurosibaLab       0x22E
+
 // gTileset_Lavaridge
 #define METATILE_Lavaridge_AshGrass             0x207
 #define METATILE_Lavaridge_CaveEntrance_Bottom  0x25E
