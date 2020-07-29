@@ -24,6 +24,7 @@ static void (*sSecondaryTilesetAnimCallback)(u16);
 static void _InitPrimaryTilesetAnimation(void);
 static void _InitSecondaryTilesetAnimation(void);
 static void TilesetAnim_General(u16);
+static void TilesetAnim_Outside(u16);
 static void TilesetAnim_Building(u16);
 static void TilesetAnim_Rustboro(u16);
 static void TilesetAnim_Dewford(u16);
@@ -523,6 +524,19 @@ const u16 tileset_anims_space_10[7808] = {};
 const u16 gTilesetAnims_Unused2_Frame0[] = INCBIN_U16("data/tilesets/secondary/unused_2/0.4bpp");
 const u16 tileset_anims_space_11[224] = {};
 
+const u16 gTilesetAnims_Outside_Flower_Frame1[] = INCBIN_U16("data/tilesets/primary/outside/anim/flower/1.4bpp");
+const u16 gTilesetAnims_Outside_Flower_Frame0[] = INCBIN_U16("data/tilesets/primary/outside/anim/flower/0.4bpp");
+const u16 gTilesetAnims_Outside_Flower_Frame2[] = INCBIN_U16("data/tilesets/primary/outside/anim/flower/2.4bpp");
+const u16 gTilesetAnims_Outside_Flower_Frame3[] = INCBIN_U16("data/tilesets/primary/outside/anim/flower/3.4bpp");
+const u16 tileset_anims_space_12[16] = {};
+
+const u16 *const gTilesetAnims_Outside_Flower[] = {
+    gTilesetAnims_Outside_Flower_Frame0,
+    gTilesetAnims_Outside_Flower_Frame1,
+    gTilesetAnims_Outside_Flower_Frame2,
+    gTilesetAnims_Outside_Flower_Frame3
+};
+
 const u16 gTilesetAnims_Unused2_Frame1[] = INCBIN_U16("data/tilesets/secondary/unused_2/1.4bpp");
 
 const u16 *const gTilesetAnims_BattlePyramid_Torch[] = {
@@ -622,6 +636,13 @@ void InitTilesetAnim_General(void)
     sPrimaryTilesetAnimCallback = TilesetAnim_General;
 }
 
+void InitTilesetAnim_Outside(void)
+{
+    sPrimaryTilesetAnimCounter = 0;
+    sPrimaryTilesetAnimCounterMax = 256;
+    sPrimaryTilesetAnimCallback = TilesetAnim_Outside;
+}
+
 void InitTilesetAnim_Building(void)
 {
     sPrimaryTilesetAnimCounter = 0;
@@ -641,6 +662,18 @@ static void TilesetAnim_General(u16 timer)
         QueueAnimTiles_General_Waterfall(timer >> 4);
     if (timer % 16 == 4)
         QueueAnimTiles_General_LandWaterEdge(timer >> 4);
+}
+
+static void QueueAnimTiles_Outside_Flower(u16 timer)
+{
+    u16 i = timer % 4;
+    AppendTilesetAnimToBuffer(gTilesetAnims_Outside_Flower[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x1)), 0x80);
+}
+
+static void TilesetAnim_Outside(u16 timer)
+{
+    if (timer % 16 == 0)
+        QueueAnimTiles_Outside_Flower(timer >> 4);
 }
 
 static void TilesetAnim_Building(u16 timer)
