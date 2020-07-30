@@ -537,6 +537,61 @@ const u16 *const gTilesetAnims_Outside_Flower[] = {
     gTilesetAnims_Outside_Flower_Frame3
 };
 
+const u16 gTilesetAnims_Outside_Water_Frame1[] = INCBIN_U16("data/tilesets/primary/outside/anim/water/1.4bpp");
+const u16 gTilesetAnims_Outside_Water_Frame0[] = INCBIN_U16("data/tilesets/primary/outside/anim/water/0.4bpp");
+const u16 gTilesetAnims_Outside_Water_Frame2[] = INCBIN_U16("data/tilesets/primary/outside/anim/water/2.4bpp");
+const u16 gTilesetAnims_Outside_Water_Frame3[] = INCBIN_U16("data/tilesets/primary/outside/anim/water/3.4bpp");
+const u16 gTilesetAnims_Outside_Water_Frame4[] = INCBIN_U16("data/tilesets/primary/outside/anim/water/4.4bpp");
+const u16 gTilesetAnims_Outside_Water_Frame5[] = INCBIN_U16("data/tilesets/primary/outside/anim/water/5.4bpp");
+const u16 gTilesetAnims_Outside_Water_Frame6[] = INCBIN_U16("data/tilesets/primary/outside/anim/water/6.4bpp");
+const u16 gTilesetAnims_Outside_Water_Frame7[] = INCBIN_U16("data/tilesets/primary/outside/anim/water/7.4bpp");
+const u16 tileset_anims_space_13[16] = {};
+
+const u16 *const gTilesetAnims_Outside_Water[] = {
+    gTilesetAnims_Outside_Water_Frame0,
+    gTilesetAnims_Outside_Water_Frame1,
+    gTilesetAnims_Outside_Water_Frame2,
+    gTilesetAnims_Outside_Water_Frame3,
+    gTilesetAnims_Outside_Water_Frame4,
+    gTilesetAnims_Outside_Water_Frame5,
+    gTilesetAnims_Outside_Water_Frame6,
+    gTilesetAnims_Outside_Water_Frame7
+};
+
+const u16 gTilesetAnims_Outside_Water_Dark_Frame1[] = INCBIN_U16("data/tilesets/primary/outside/anim/water_dark/1.4bpp");
+const u16 gTilesetAnims_Outside_Water_Dark_Frame0[] = INCBIN_U16("data/tilesets/primary/outside/anim/water_dark/0.4bpp");
+const u16 gTilesetAnims_Outside_Water_Dark_Frame2[] = INCBIN_U16("data/tilesets/primary/outside/anim/water_dark/2.4bpp");
+const u16 gTilesetAnims_Outside_Water_Dark_Frame3[] = INCBIN_U16("data/tilesets/primary/outside/anim/water_dark/3.4bpp");
+const u16 gTilesetAnims_Outside_Water_Dark_Frame4[] = INCBIN_U16("data/tilesets/primary/outside/anim/water_dark/4.4bpp");
+const u16 gTilesetAnims_Outside_Water_Dark_Frame5[] = INCBIN_U16("data/tilesets/primary/outside/anim/water_dark/5.4bpp");
+const u16 gTilesetAnims_Outside_Water_Dark_Frame6[] = INCBIN_U16("data/tilesets/primary/outside/anim/water_dark/6.4bpp");
+const u16 gTilesetAnims_Outside_Water_Dark_Frame7[] = INCBIN_U16("data/tilesets/primary/outside/anim/water_dark/7.4bpp");
+const u16 tileset_anims_space_14[16] = {};
+
+const u16 *const gTilesetAnims_Outside_Water_Dark[] = {
+    gTilesetAnims_Outside_Water_Dark_Frame0,
+    gTilesetAnims_Outside_Water_Dark_Frame1,
+    gTilesetAnims_Outside_Water_Dark_Frame2,
+    gTilesetAnims_Outside_Water_Dark_Frame3,
+    gTilesetAnims_Outside_Water_Dark_Frame4,
+    gTilesetAnims_Outside_Water_Dark_Frame5,
+    gTilesetAnims_Outside_Water_Dark_Frame6,
+    gTilesetAnims_Outside_Water_Dark_Frame7
+};
+
+const u16 gTilesetAnims_Outside_Waterfall_Frame1[] = INCBIN_U16("data/tilesets/primary/outside/anim/waterfall/1.4bpp");
+const u16 gTilesetAnims_Outside_Waterfall_Frame0[] = INCBIN_U16("data/tilesets/primary/outside/anim/waterfall/0.4bpp");
+const u16 gTilesetAnims_Outside_Waterfall_Frame2[] = INCBIN_U16("data/tilesets/primary/outside/anim/waterfall/2.4bpp");
+const u16 gTilesetAnims_Outside_Waterfall_Frame3[] = INCBIN_U16("data/tilesets/primary/outside/anim/waterfall/3.4bpp");
+const u16 tileset_anims_space_15[16] = {};
+
+const u16 *const gTilesetAnims_Outside_Waterfall[] = {
+    gTilesetAnims_Outside_Waterfall_Frame0,
+    gTilesetAnims_Outside_Waterfall_Frame1,
+    gTilesetAnims_Outside_Waterfall_Frame2,
+    gTilesetAnims_Outside_Waterfall_Frame3
+};
+
 const u16 gTilesetAnims_Unused2_Frame1[] = INCBIN_U16("data/tilesets/secondary/unused_2/1.4bpp");
 
 const u16 *const gTilesetAnims_BattlePyramid_Torch[] = {
@@ -670,10 +725,34 @@ static void QueueAnimTiles_Outside_Flower(u16 timer)
     AppendTilesetAnimToBuffer(gTilesetAnims_Outside_Flower[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x1)), 0x80);
 }
 
+static void QueueAnimTiles_Outside_Water(u16 timer)
+{
+    u16 i = timer % 4;
+    AppendTilesetAnimToBuffer(gTilesetAnims_Outside_Water[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x183)), 0x80);
+}
+
+static void QueueAnimTiles_Outside_Water_Dark(u16 timer)
+{
+    u16 i = timer % 4;
+    AppendTilesetAnimToBuffer(gTilesetAnims_Outside_Water_Dark[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x173)), 0x80);
+}
+
+static void QueueAnimTiles_Outside_Waterfall(u16 timer)
+{
+    u16 i = timer % 4;
+    AppendTilesetAnimToBuffer(gTilesetAnims_Outside_Waterfall[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x1F0)), 0x180);
+}
+
 static void TilesetAnim_Outside(u16 timer)
 {
     if (timer % 16 == 0)
         QueueAnimTiles_Outside_Flower(timer >> 4);
+    if (timer % 16 == 0)
+        QueueAnimTiles_Outside_Water_Dark(timer >> 4);
+    if (timer % 16 == 0)
+        QueueAnimTiles_Outside_Water(timer >> 4);
+    if (timer % 16 == 0)
+        QueueAnimTiles_Outside_Waterfall(timer >> 4);
 }
 
 static void TilesetAnim_Building(u16 timer)
