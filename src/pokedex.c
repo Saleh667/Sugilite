@@ -316,7 +316,7 @@ static const struct OamData sOamData_ScrollBar =
     .matrixNum = 0,
     .size = SPRITE_SIZE(8x8),
     .tileNum = 0,
-    .priority = 1,
+    .priority = 0,
     .paletteNum = 0,
     .affineParam = 0
 };
@@ -809,7 +809,7 @@ static const struct BgTemplate sPokedex_BgTemplate[] =
         .mapBaseIndex = 14,
         .screenSize = 0,
         .paletteMode = 0,
-        .priority = 2,
+        .priority = 1,
         .baseTile = 0
     },
     {
@@ -818,7 +818,7 @@ static const struct BgTemplate sPokedex_BgTemplate[] =
         .mapBaseIndex = 15,
         .screenSize = 0,
         .paletteMode = 0,
-        .priority = 1,
+        .priority = 2,
         .baseTile = 0
     }
 };
@@ -2327,7 +2327,7 @@ static void PrintMonDexNumAndName(u8 windowId, u8 fontId, const u8* str, u8 left
 
     color[0] = TEXT_COLOR_TRANSPARENT;
     color[1] = TEXT_DYNAMIC_COLOR_6;
-    color[2] = TEXT_COLOR_LIGHT_GREY;
+    color[2] = 14;
     AddTextPrinterParameterized4(windowId, fontId, left * 8, (top * 8) + 1, 0, 0, color, -1, str);
 }
 
@@ -2781,21 +2781,21 @@ static void CreateInterfaceSprites(u8 page)
     gSprites[spriteId].sIsDownArrow = TRUE;
     gSprites[spriteId].vFlip = TRUE;
 
-    CreateSprite(&sScrollBarSpriteTemplate, 230, 20, 0);
+    CreateSprite(&sScrollBarSpriteTemplate, 228, 20, 1);
     // Start button
-    CreateSprite(&sInterfaceTextSpriteTemplate, 16, 120, 0);
+    CreateSprite(&sInterfaceTextSpriteTemplate, 68, 103, 0);
     // Menu text
-    spriteId = CreateSprite(&sInterfaceTextSpriteTemplate, 48, 120, 0);
+    spriteId = CreateSprite(&sInterfaceTextSpriteTemplate, 100, 103, 0);
     StartSpriteAnim(&gSprites[spriteId], 3);
     // Select button
-    spriteId = CreateSprite(&sInterfaceTextSpriteTemplate, 16, 144, 0);
+    spriteId = CreateSprite(&sInterfaceTextSpriteTemplate, 68, 127, 0);
     StartSpriteAnim(&gSprites[spriteId], 2);
     gSprites[spriteId].data[2] = 0x80;
     // Search text
-    spriteId = CreateSprite(&sInterfaceTextSpriteTemplate, 48, 144, 0);
+    spriteId = CreateSprite(&sInterfaceTextSpriteTemplate, 100, 127, 0);
     StartSpriteAnim(&gSprites[spriteId], 1);
 
-    spriteId = CreateSprite(&sRotatingPokeBallSpriteTemplate, 0, 80, 2);
+    /*spriteId = CreateSprite(&sRotatingPokeBallSpriteTemplate, 0, 80, 2);
     gSprites[spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
     gSprites[spriteId].oam.matrixNum = 30;
     gSprites[spriteId].data[0] = 30;
@@ -2805,7 +2805,7 @@ static void CreateInterfaceSprites(u8 page)
     gSprites[spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
     gSprites[spriteId].oam.matrixNum = 31;
     gSprites[spriteId].data[0] = 31;
-    gSprites[spriteId].data[1] = 128;
+    gSprites[spriteId].data[1] = 128;*/
 
     if (page == PAGE_MAIN)
     {
@@ -2814,14 +2814,14 @@ static void CreateInterfaceSprites(u8 page)
         if (!IsNationalPokedexEnabled())
         {
             // Seen text
-            CreateSprite(&sSeenOwnTextSpriteTemplate, 32, 40, 1);
+            CreateSprite(&sSeenOwnTextSpriteTemplate, 23, 106, 1);
             // Own text
-            spriteId = CreateSprite(&sSeenOwnTextSpriteTemplate, 32, 72, 1);
+            spriteId = CreateSprite(&sSeenOwnTextSpriteTemplate, 23, 130, 1);
             StartSpriteAnim(&gSprites[spriteId], 1);
 
             // Seen value - 100s
             drawNextDigit = FALSE;
-            spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 24, 48, 1);
+            spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 10, 106, 1);
             digitNum = sPokedexView->seenCount / 100;
             StartSpriteAnim(&gSprites[spriteId], digitNum);
             if (digitNum != 0)
@@ -2830,7 +2830,7 @@ static void CreateInterfaceSprites(u8 page)
                 gSprites[spriteId].invisible = TRUE;
 
             // Seen value - 10s
-            spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 32, 48, 1);
+            spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 18, 106, 1);
             digitNum = (sPokedexView->seenCount % 100) / 10;
             if (digitNum != 0 || drawNextDigit)
                 StartSpriteAnim(&gSprites[spriteId], digitNum);
@@ -2838,13 +2838,13 @@ static void CreateInterfaceSprites(u8 page)
                 gSprites[spriteId].invisible = TRUE;
 
             // Seen value - 1s
-            spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 40, 48, 1);
+            spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 26, 106, 1);
             digitNum = (sPokedexView->seenCount % 100) % 10;
             StartSpriteAnim(&gSprites[spriteId], digitNum);
 
             // Owned value - 100s
             drawNextDigit = FALSE;
-            spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 24, 80, 1);
+            spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 10, 130, 1);
             digitNum = sPokedexView->ownCount / 100;
             StartSpriteAnim(&gSprites[spriteId], digitNum);
             if (digitNum != 0)
@@ -2853,7 +2853,7 @@ static void CreateInterfaceSprites(u8 page)
                 gSprites[spriteId].invisible = TRUE;
 
             // Owned value - 10s
-            spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 32, 80, 1);
+            spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 18, 130, 1);
             digitNum = (sPokedexView->ownCount % 100) / 10;
             if (digitNum != 0 || drawNextDigit)
                 StartSpriteAnim(&gSprites[spriteId], digitNum);
@@ -2861,7 +2861,7 @@ static void CreateInterfaceSprites(u8 page)
                 gSprites[spriteId].invisible = TRUE;
 
             // Owned value - 1s
-            spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 40, 80, 1);
+            spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 26, 130, 1);
             digitNum = (sPokedexView->ownCount % 100) % 10;
             StartSpriteAnim(&gSprites[spriteId], digitNum);
         }
