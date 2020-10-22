@@ -37,7 +37,6 @@ MAKER_CODE  := 01
 REVISION    := 0
 MODERN      ?= 0
 PROJECT_NAME := pokesugilite
-SCRIPT := tools/poryscript/poryscript$(EXE)
 
 SHELL := /bin/bash -o pipefail
 
@@ -77,10 +76,26 @@ OBJ_DIR := build/$(PROJECT_NAME)_modern
 LIBPATH := -L "$(dir $(shell $(CC) -mthumb -print-file-name=libgcc.a))" -L "$(dir $(shell $(CC) -mthumb -print-file-name=libc.a))"
 endif
 
+CPPFLAGS := -iquote include -iquote $(GFLIB_SUBDIR) -Wno-trigraphs -DMODERN=$(MODERN)
+ifeq ($(MODERN),0)
+CPPFLAGS += -I tools/agbcc/include -I tools/agbcc
+endif
+
+LDFLAGS = -Map ../../$(MAP)
+
+LIB := $(LIBPATH) -lgcc -lc -L../../libagbsyscall -lagbsyscall
+
+SHA1 := $(shell { command -v sha1sum || command -v shasum; } 2>/dev/null) -c
+GFX := tools/gbagfx/gbagfx$(EXE)
+AIF := tools/aif2pcm/aif2pcm$(EXE)
+MID := tools/mid2agb/mid2agb$(EXE)
+SCANINC := tools/scaninc/scaninc$(EXE)
+PREPROC := tools/preproc/preproc$(EXE)
 RAMSCRGEN := tools/ramscrgen/ramscrgen$(EXE)
 FIX := tools/gbafix/gbafix$(EXE)
 MAPJSON := tools/mapjson/mapjson$(EXE)
 JSONPROC := tools/jsonproc/jsonproc$(EXE)
+SCRIPT := tools/poryscript/poryscript$(EXE)
 
 TOOLDIRS := $(filter-out tools/agbcc tools/binutils tools/poryscript,$(wildcard tools/*))
 TOOLBASE = $(TOOLDIRS:tools/%=%)
