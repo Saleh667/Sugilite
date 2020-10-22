@@ -36,6 +36,8 @@ GAME_CODE   := BPEE
 MAKER_CODE  := 01
 REVISION    := 0
 MODERN      ?= 0
+PROJECT_NAME := pokesugilite
+SCRIPT := tools/poryscript/poryscript$(EXE)
 
 SHELL := /bin/bash -o pipefail
 
@@ -64,38 +66,23 @@ ASFLAGS := -mcpu=arm7tdmi --defsym MODERN=$(MODERN)
 ifeq ($(MODERN),0)
 CC1             := tools/agbcc/bin/agbcc$(EXE)
 override CFLAGS += -mthumb-interwork -Wimplicit -Wparentheses -Werror -O2 -fhex-asm
-ROM := saleh_is_dumb.gba
-OBJ_DIR := build/emerald
+ROM := $(PROJECT_NAME).gba
+OBJ_DIR := build/$(PROJECT_NAME)
 LIBPATH := -L ../../tools/agbcc/lib
 else
 CC1              = $(shell $(CC) --print-prog-name=cc1) -quiet
 override CFLAGS += -mthumb -mthumb-interwork -O2 -mabi=apcs-gnu -mcpu=arm7tdmi -fno-toplevel-reorder -Wno-pointer-to-int-cast
-ROM := pokeemerald_modern.gba
-OBJ_DIR := build/modern
+ROM := $(PROJECT_NAME)_modern.gba
+OBJ_DIR := build/$(PROJECT_NAME)_modern
 LIBPATH := -L "$(dir $(shell $(CC) -mthumb -print-file-name=libgcc.a))" -L "$(dir $(shell $(CC) -mthumb -print-file-name=libc.a))"
 endif
 
-CPPFLAGS := -iquote include -iquote $(GFLIB_SUBDIR) -Wno-trigraphs -DMODERN=$(MODERN)
-ifeq ($(MODERN),0)
-CPPFLAGS += -I tools/agbcc/include -I tools/agbcc
-endif
-
-LDFLAGS = -Map ../../$(MAP)
-
-LIB := $(LIBPATH) -lgcc -lc -L../../libagbsyscall -lagbsyscall
-
-SHA1 := $(shell { command -v sha1sum || command -v shasum; } 2>/dev/null) -c
-GFX := tools/gbagfx/gbagfx$(EXE)
-AIF := tools/aif2pcm/aif2pcm$(EXE)
-MID := tools/mid2agb/mid2agb$(EXE)
-SCANINC := tools/scaninc/scaninc$(EXE)
-PREPROC := tools/preproc/preproc$(EXE)
 RAMSCRGEN := tools/ramscrgen/ramscrgen$(EXE)
 FIX := tools/gbafix/gbafix$(EXE)
 MAPJSON := tools/mapjson/mapjson$(EXE)
 JSONPROC := tools/jsonproc/jsonproc$(EXE)
 
-TOOLDIRS := $(filter-out tools/agbcc tools/binutils,$(wildcard tools/*))
+TOOLDIRS := $(filter-out tools/agbcc tools/binutils tools/poryscript,$(wildcard tools/*))
 TOOLBASE = $(TOOLDIRS:tools/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),tools/$(tool)/$(tool)$(EXE))
 
@@ -183,6 +170,7 @@ mostlyclean: tidy
 	rm -f $(DATA_ASM_SUBDIR)/maps/connections.inc $(DATA_ASM_SUBDIR)/maps/events.inc $(DATA_ASM_SUBDIR)/maps/groups.inc $(DATA_ASM_SUBDIR)/maps/headers.inc
 	find $(DATA_ASM_SUBDIR)/maps \( -iname 'connections.inc' -o -iname 'events.inc' -o -iname 'header.inc' \) -exec rm {} +
 	rm -f $(AUTO_GEN_TARGETS)
+	rm -f $(patsubst %.pory,%.inc,$(shell find data/ -type f -name '*.pory'))
 	@$(MAKE) clean -C berry_fix
 	@$(MAKE) clean -C libagbsyscall
 
@@ -207,6 +195,7 @@ include songs.mk
 %.png: ;
 %.pal: ;
 %.aif: ;
+%.pory: ;
 
 %.1bpp: %.png  ; $(GFX) $< $@
 %.4bpp: %.png  ; $(GFX) $< $@
@@ -219,6 +208,7 @@ include songs.mk
 $(CRY_SUBDIR)/cry_not_%.bin: $(CRY_SUBDIR)/cry_not_%.aif ; $(AIF) $< $@
 $(CRY_SUBDIR)/cry_%.bin: $(CRY_SUBDIR)/cry_%.aif ; $(AIF) $< $@ --compress
 sound/%.bin: sound/%.aif ; $(AIF) $< $@
+data/%.inc: data/%.pory; $(SCRIPT) -i $< -o $@ -fw tools/poryscript/font_widths.json
 
 
 ifeq ($(MODERN),0)
