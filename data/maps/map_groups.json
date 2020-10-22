@@ -93,7 +93,10 @@
     "Underwater_Route128",
     "Underwater_Route129",
     "Underwater_Route105",
-    "Underwater_Route125"
+    "Underwater_Route125",
+    "KurosibaTown",
+    "Route401",
+    "Route402"
   ],
   "gMapGroup1": [
     "LittlerootTown_BrendansHouse_1F",
@@ -621,6 +624,5 @@
   ],
   "gMapGroup33": [
     "Route124_DivingTreasureHuntersHouse"
-
   ]
 }
