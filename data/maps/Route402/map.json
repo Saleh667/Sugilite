@@ -17,16 +17,6 @@
       "direction": "down",
       "offset": 0,
       "map": "MAP_ROUTE401"
-    },
-    {
-      "direction": "up",
-      "offset": 20,
-      "map": "MAP_RUSTBORO_CITY"
-    },
-    {
-      "direction": "right",
-      "offset": 8,
-      "map": "MAP_PETALBURG_CITY"
     }
   ],
   "object_events": [
