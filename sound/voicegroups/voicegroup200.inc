@@ -1,13 +1,12 @@
 	.align 2
 voicegroup200:: @ 8F00000 Custom Voicegroup (Output Device Base Note, Duty Cycle, Atk, Dec, Sus, Rel)
-@ UPDATE THIS
 	voice_keysplit_all voicegroup201  @ 0
 	voice_keysplit voicegroup005, KeySplitTable1  @ 1
 	voice_directsound 60, 0, DirectSoundWaveData_steinway_b_piano, 255, 245, 0, 210  @ 2
 	voice_keysplit voicegroup005, KeySplitTable1  @ 3
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_detuned_ep1_low, 255, 249, 0, 188  @ 4
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_detuned_ep1_high, 255, 249, 0, 165  @ 5
-	voice_directsound 60, 0, Cry_Paras, 255, 248, 0, 165  @ 6
+	voice_keysplit voicegroup202, KeySplitTable6  @ 6
 	voice_directsound 60, 0, Cry_Paras, 255, 248, 0, 165  @ 7
 	voice_directsound 60, 0, Cry_Paras, 255, 210, 51, 216  @ 8
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 204, 51, 188  @ 9
@@ -15,7 +14,7 @@ voicegroup200:: @ 8F00000 Custom Voicegroup (Output Device Base Note, Duty Cycle
 	voice_directsound 60, 0, Cry_Paras, 255, 241, 0, 216  @ 11
 	voice_directsound 60, 0, Cry_Paras, 255, 235, 0, 188  @ 12
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204  @ 13
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 249, 0, 127  @ 14
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 249, 0, 242  @ 14
 	voice_keysplit voicegroup005, KeySplitTable1  @ 15
 	voice_directsound 60, 0, Cry_Paras, 255, 100, 232, 127  @ 16
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_organ2, 255, 127, 249, 165  @ 17
