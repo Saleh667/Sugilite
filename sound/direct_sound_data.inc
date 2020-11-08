@@ -4249,3 +4249,19 @@ DirectSoundWaveData_sd90_classical_whistle::
 	.align 2
 DirectSoundWaveData_sd90_enhanced_delay_shaku::
 	.incbin "sound/direct_sound_samples/sd90_enhanced_delay_shaku.bin"
+
+	.align 2
+DirectSoundWaveData_mlrpg3_harpsichord_49::
+	.incbin "sound/direct_sound_samples/mlrpg3_harpsichord_49.bin"
+
+	.align 2
+DirectSoundWaveData_mlrpg3_harpsichord_61::
+	.incbin "sound/direct_sound_samples/mlrpg3_harpsichord_61.bin"
+
+	.align 2
+DirectSoundWaveData_mlrpg3_harpsichord_79::
+	.incbin "sound/direct_sound_samples/mlrpg3_harpsichord_79.bin"
+
+	.align 2
+DirectSoundWaveData_mlrpg3_harpsichord_92::
+	.incbin "sound/direct_sound_samples/mlrpg3_harpsichord_92.bin"
