@@ -61,7 +61,7 @@ $(MID_SUBDIR)/mus_vs_kyogre_groudon.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G123 -V080 -P1
 
 $(MID_SUBDIR)/mus_vs_rival.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G124 -V080 -P1
+	$(MID) $< $@ -E -R$(STD_REVERB) -G200 -V127 -P1
 
 $(MID_SUBDIR)/mus_vs_regi.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G122 -V080 -P1
@@ -133,7 +133,7 @@ $(MID_SUBDIR)/mus_route122.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G021 -V080
 
 $(MID_SUBDIR)/mus_route101.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G011 -V080
+	$(MID) $< $@ -E -R$(STD_REVERB) -G200 -V127
 
 $(MID_SUBDIR)/mus_dummy.s: %.s: %.mid
 	$(MID) $< $@ -E -R40
@@ -517,7 +517,7 @@ $(MID_SUBDIR)/mus_rg_celadon.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G168 -V070
 
 $(MID_SUBDIR)/mus_rg_title.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G137 -V090
+	$(MID) $< $@ -E -R$(STD_REVERB) -G137 -V127
 
 $(MID_SUBDIR)/mus_rg_game_freak.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G181 -V075
