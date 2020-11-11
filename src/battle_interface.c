@@ -587,11 +587,20 @@ enum
 
 static const u16 sStatusIconColors[] =
 {
-    [PAL_STATUS_PSN] = RGB(24, 12, 24),
-    [PAL_STATUS_PAR] = RGB(23, 23, 3),
+    [PAL_STATUS_PSN] = RGB(23, 12, 23),
+    [PAL_STATUS_PAR] = RGB(31, 26, 0),
     [PAL_STATUS_SLP] = RGB(20, 20, 17),
     [PAL_STATUS_FRZ] = RGB(17, 22, 28),
-    [PAL_STATUS_BRN] = RGB(28, 14, 10),
+    [PAL_STATUS_BRN] = RGB(27, 14, 10),
+};
+
+static const u16 sStatusIconColors2[] =
+{
+    [PAL_STATUS_PSN] = RGB(24, 16, 24),
+    [PAL_STATUS_PAR] = RGB(31, 27, 11),
+    [PAL_STATUS_SLP] = RGB(22, 22, 19),
+    [PAL_STATUS_FRZ] = RGB(18, 23, 29),
+    [PAL_STATUS_BRN] = RGB(30, 17, 13),
 };
 
 static const struct WindowTemplate sHealthboxWindowTemplate = {0, 0, 0, 8, 2, 0, 0}; // width = 8, height = 2
@@ -861,7 +870,7 @@ static void SpriteCB_HealthBar(struct Sprite *sprite)
     {
     case 0:     // Singles Player Side
         sprite->pos1.x = gSprites[healthboxSpriteId].pos1.x + 19;
-        sprite->pos1.y = gSprites[healthboxSpriteId].pos1.y - 1;
+        sprite->pos1.y = gSprites[healthboxSpriteId].pos1.y - 2;
         break;
     case 1:     // Singles Opponent Side
         sprite->pos1.x = gSprites[healthboxSpriteId].pos1.x + 16;
@@ -982,7 +991,7 @@ void GetBattlerHealthboxCoords(u8 battler, s16 *x, s16 *y)
         if (GetBattlerSide(battler) != B_SIDE_PLAYER)
             *x = 44, *y = 30;
         else
-            *x = 158, *y = 88;
+            *x = 158, *y = 86;
     }
     else
     {
@@ -2152,7 +2161,7 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
             CpuCopy32(statusGfxPtr, (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + i) * TILE_SIZE_4BPP), 32);
 
         if (!gBattleSpritesDataPtr->battlerData[battlerId].hpNumbersNoBars)
-            CpuCopy32(GetHealthboxElementGfxPtr(HEALTHBOX_GFX_1), (void *)(OBJ_VRAM0 + gSprites[healthBarSpriteId].oam.tileNum * TILE_SIZE_4BPP), 64);
+            CpuCopy32(GetHealthboxElementGfxPtr(HEALTHBOX_GFX_1), (void *)(OBJ_VRAM0 + gSprites[healthBarSpriteId].oam.tileNum * TILE_SIZE_4BPP), 32);
 
         TryAddPokeballIconToHealthbox(healthboxSpriteId, TRUE);
         return;
@@ -2162,8 +2171,9 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
     pltAdder += battlerId + 12;
 
     FillPalette(sStatusIconColors[statusPalId], pltAdder + 0x100, 2);
+    FillPalette(sStatusIconColors2[statusPalId], pltAdder + 0x100 + 1, 2);
     CpuCopy16(gPlttBufferUnfaded + 0x100 + pltAdder, (void*)(OBJ_PLTT + pltAdder * 2), 2);
-    CpuCopy32(statusGfxPtr, (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder) * TILE_SIZE_4BPP), 96);
+    CpuCopy32(statusGfxPtr, (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + 1) * TILE_SIZE_4BPP), 32);
     if (IsDoubleBattle() == TRUE || GetBattlerSide(battlerId) == B_SIDE_OPPONENT)
     {
         if (!gBattleSpritesDataPtr->battlerData[battlerId].hpNumbersNoBars)
