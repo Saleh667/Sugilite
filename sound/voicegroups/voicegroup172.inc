@@ -1,6 +1,6 @@
 	.align 2
 voicegroup172:: @ 86AEB6C
-	voice_keysplit_all voicegroup002  @ 86AEB6C
+	voice_keysplit_all voicegroup001  @ 86AEB6C
 	voice_keysplit voicegroup005, KeySplitTable1  @ 86AEB78
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AEB84
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AEB90
@@ -35,7 +35,7 @@ voicegroup172:: @ 86AEB6C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AECEC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AECF8
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AED04
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AED10
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 253, 0, 149  @ 86AED10
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AED1C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AED28
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AED34
