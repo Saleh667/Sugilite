@@ -1052,7 +1052,7 @@ static void UpdateLvlInHealthbox(u8 healthboxSpriteId, u8 lvl)
     xPos = 4 * var1;
     xPos += var1;
 
-    windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(text, 0, xPos, 3, 5, &windowId);
+    windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(text, 0, xPos, 2, 5, &windowId);
     spriteTileNum = gSprites[healthboxSpriteId].oam.tileNum * TILE_SIZE_4BPP;
 
     if (GetBattlerSide(battler) == B_SIDE_PLAYER)
@@ -2048,15 +2048,15 @@ static void UpdateNickInHealthbox(u8 healthboxSpriteId, struct Pokemon *mon)
     {
     default:
         StringCopy(ptr, gText_DynColor2);
-        windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(gDisplayedStringBattle, 0, 0, 3, 5, &windowId);
+        windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(gDisplayedStringBattle, 0, 0, 2, 5, &windowId);
         break;
     case MON_MALE:
         StringCopy(ptr, gText_DynColor2Male);
-        windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(gDisplayedStringBattle, 0, 0, 3, 5, &windowId);
+        windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(gDisplayedStringBattle, 0, 0, 2, 5, &windowId);
         break;
     case MON_FEMALE:
         StringCopy(ptr, gText_DynColor1Female);
-        windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(gDisplayedStringBattle, 0, 0, 3, 5, &windowId);
+        windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(gDisplayedStringBattle, 0, 0, 2, 5, &windowId);
         break;
     }
 
