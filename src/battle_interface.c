@@ -873,8 +873,8 @@ static void SpriteCB_HealthBar(struct Sprite *sprite)
         sprite->pos1.y = gSprites[healthboxSpriteId].pos1.y - 2;
         break;
     case 1:     // Singles Opponent Side
-        sprite->pos1.x = gSprites[healthboxSpriteId].pos1.x + 16;
-        sprite->pos1.y = gSprites[healthboxSpriteId].pos1.y + 0;
+        sprite->pos1.x = gSprites[healthboxSpriteId].pos1.x - 8;
+        sprite->pos1.y = gSprites[healthboxSpriteId].pos1.y - 1;
         break;
     case 2:     // Doubles Player Side
         sprite->pos1.x = gSprites[healthboxSpriteId].pos1.x + 0;
@@ -2171,7 +2171,10 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
     pltAdder += battlerId + 12;
 
     FillPalette(sStatusIconColors[statusPalId], pltAdder + 0x100, 2);
-    FillPalette(sStatusIconColors2[statusPalId], pltAdder + 0x100 + 1, 2);
+    //Each color *was* going to be used for some anti-aliasing
+    //But it turns out there might not be enough palette space...
+    //TODO: Look into freeing up another palette somehow?
+    //FillPalette(sStatusIconColors2[statusPalId], pltAdder + 0x100 + 1, 2);
     CpuCopy16(gPlttBufferUnfaded + 0x100 + pltAdder, (void*)(OBJ_PLTT + pltAdder * 2), 2);
     CpuCopy32(statusGfxPtr, (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 32);
     if (IsDoubleBattle() == TRUE || GetBattlerSide(battlerId) == B_SIDE_OPPONENT)
