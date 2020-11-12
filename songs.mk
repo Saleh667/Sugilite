@@ -76,7 +76,7 @@ $(MID_SUBDIR)/mus_lilycove_museum.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G020 -V080
 
 $(MID_SUBDIR)/mus_encounter_brendan.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G067 -V078
+	$(MID) $< $@ -E -R$(STD_REVERB) -G067 -V127
 
 $(MID_SUBDIR)/mus_encounter_male.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G028 -V080
@@ -172,7 +172,7 @@ $(MID_SUBDIR)/mus_gym.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G013 -V080
 
 $(MID_SUBDIR)/mus_encounter_may.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G061 -V078
+	$(MID) $< $@ -E -R$(STD_REVERB) -G061 -V127
 
 $(MID_SUBDIR)/mus_encounter_female.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G053 -V072
@@ -244,7 +244,7 @@ $(MID_SUBDIR)/mus_fortree.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G032 -V080
 
 $(MID_SUBDIR)/mus_oldale.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G019 -V080
+	$(MID) $< $@ -E -R$(STD_REVERB) -G019 -V127
 
 $(MID_SUBDIR)/mus_mt_pyre_exterior.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G080 -V080
@@ -310,7 +310,7 @@ $(MID_SUBDIR)/mus_gsc_pewter.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -V080
 
 $(MID_SUBDIR)/mus_birch_lab.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G033 -V080
+	$(MID) $< $@ -E -R$(STD_REVERB) -G172 -V100
 
 $(MID_SUBDIR)/mus_abnormal_weather.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G089 -V080
