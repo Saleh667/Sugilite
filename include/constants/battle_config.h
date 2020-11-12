@@ -111,7 +111,7 @@
 #define NEW_LEECH_SEED_PARTICLE         TRUE    //update leech seed's animation particle
 #define NEW_HORN_ATTACK_PARTICLE        TRUE    //update horn attack's horn
 #define NEW_LEAF_PARTICLE               TRUE    // update leaf particle
-#define NEW_EMBER_PARTICLES             TRUE    //updates ember fire particle
+#define NEW_EMBER_PARTICLES             FALSE    //updates ember fire particle
 #define NEW_MEAN_LOOK_PARTICLE          TRUE    //update mean look eye
 #define NEW_TEETH_PARTICLE              TRUE    //update bite/crunch teeth particle
 #define NEW_HANDS_FEET_PARTICLE         TRUE    //update chop/kick/punch particles
