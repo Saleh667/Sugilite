@@ -2103,7 +2103,10 @@ static void TryAddPokeballIconToHealthbox(u8 healthboxSpriteId, bool8 noStatus)
         CpuFill32(0, (void*)(OBJ_VRAM0 + (gSprites[healthBarSpriteId].oam.tileNum + 8) * TILE_SIZE_4BPP), 32);
 }
 
-#define STATUS_ICON_OFFSET 1
+#define BATTLER_0_STATUS_ICON_OFFSET 1
+#define BATTLER_1_STATUS_ICON_OFFSET 33
+#define BATTLER_2_STATUS_ICON_OFFSET 0
+#define BATTLER_3_STATUS_ICON_OFFSET 0
 static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
 {
     s32 i;
@@ -2158,7 +2161,35 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
     {
         statusGfxPtr = GetHealthboxElementGfxPtr(HEALTHBOX_GFX_39);
 
-        CpuCopy32(statusGfxPtr, (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 32);
+        switch (battlerId)
+        {
+        case 0:
+            CpuCopy32(
+                statusGfxPtr, 
+                (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_0_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                32);
+            break;
+        case 1:
+            CpuCopy32(
+                statusGfxPtr, 
+                (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_1_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                32);
+            break;
+        case 2:
+            CpuCopy32(
+                statusGfxPtr, 
+                (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_2_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                32);
+            break;
+        case 3:
+            CpuCopy32(
+                statusGfxPtr, 
+                (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_3_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                32);
+            break;
+        default:
+            break;
+        }
 
         if (!gBattleSpritesDataPtr->battlerData[battlerId].hpNumbersNoBars)
             CpuCopy32(GetHealthboxElementGfxPtr(HEALTHBOX_GFX_1), (void *)(OBJ_VRAM0 + gSprites[healthBarSpriteId].oam.tileNum * TILE_SIZE_4BPP), 32);
@@ -2175,9 +2206,38 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
     //But it turns out there might not be enough palette space...
     //TODO: Look into freeing up another palette somehow?
     //FillPalette(sStatusIconColors2[statusPalId], pltAdder + 0x100 + 1, 2);
+
     CpuCopy16(gPlttBufferUnfaded + 0x100 + pltAdder, (void*)(OBJ_PLTT + pltAdder * 2), 2);
-    CpuCopy32(statusGfxPtr, (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 32);
-    if (IsDoubleBattle() == TRUE || GetBattlerSide(battlerId) == B_SIDE_OPPONENT)
+    switch (battlerId)
+    {
+    case 0:
+        CpuCopy32(
+            statusGfxPtr, 
+            (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_0_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+            32);
+        break;
+    case 1:
+        CpuCopy32(
+            statusGfxPtr, 
+            (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_1_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+            32);
+        break;
+    case 2:
+        CpuCopy32(
+            statusGfxPtr, 
+            (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_2_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+            32);
+        break;
+    case 3:
+        CpuCopy32(
+            statusGfxPtr, 
+            (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_3_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+            32);
+        break;
+    default:
+        break;
+    }
+    if (IsDoubleBattle() == TRUE)// || GetBattlerSide(battlerId) == B_SIDE_OPPONENT)
     {
         if (!gBattleSpritesDataPtr->battlerData[battlerId].hpNumbersNoBars)
         {
