@@ -1,6 +1,6 @@
 	.align 2
 voicegroup019:: @ 86799C4
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86799C4
+	voice_keysplit_all voicegroup201  @ 86799C4
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86799D0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86799DC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86799E8
