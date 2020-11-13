@@ -1137,14 +1137,15 @@ void UpdateHpTextInHealthbox(u8 healthboxSpriteId, s16 value, u8 maxOrCurrent)
             }
 
             ConvertIntToDecimalStringN(text + 6, value, STR_CONV_MODE_LEADING_ZEROS, 3);
-            RenderTextFont9(gMonSpritesGfxPtr->barFontGfx, 9, text);
-
+            RenderTextFont9(gMonSpritesGfxPtr->barFontGfx, 0, text);
+            /*
             for (i = 0; i < 3; i++)
             {
                 CpuCopy32(&gMonSpritesGfxPtr->barFontGfx[i * 64 + 32],
                           (void*)((OBJ_VRAM0) + TILE_SIZE_4BPP * (gSprites[healthboxSpriteId].oam.tileNum + var + i)),
                           0x20);
             }
+            */
         }
     }
 }
@@ -1313,6 +1314,17 @@ void SwapHpBarsWithHpText(void)
 {
     s32 i;
     u8 healthBarSpriteId;
+
+    //TODO:  Fix everything about this hp bar/text swap feature in double battles
+
+    //Seriously broken af and I can't figure out how to fix it.
+    //Mainly, the text is using the wrong palette slot entirely and there's
+    //a lot of CpuFills that overlap places we probably don't want it to.
+
+    //Sorry to the next developer who looks at this code, this return statement
+    //effectively disables the feature for now.
+    //  -Pyredrid
+    return;
 
     for (i = 0; i < gBattlersCount; i++)
     {
@@ -2103,10 +2115,15 @@ static void TryAddPokeballIconToHealthbox(u8 healthboxSpriteId, bool8 noStatus)
         CpuFill32(0, (void*)(OBJ_VRAM0 + (gSprites[healthBarSpriteId].oam.tileNum + 8) * TILE_SIZE_4BPP), 32);
 }
 
-#define BATTLER_0_STATUS_ICON_OFFSET 1
-#define BATTLER_1_STATUS_ICON_OFFSET 33
-#define BATTLER_2_STATUS_ICON_OFFSET 0
-#define BATTLER_3_STATUS_ICON_OFFSET 0
+#define BATTLER_0_SINGLES_STATUS_ICON_OFFSET 1
+#define BATTLER_1_SINGLES_STATUS_ICON_OFFSET 33
+#define BATTLER_2_SINGLES_STATUS_ICON_OFFSET 0
+#define BATTLER_3_SINGLES_STATUS_ICON_OFFSET 0
+
+#define BATTLER_0_DOUBLES_STATUS_ICON_OFFSET 33
+#define BATTLER_1_DOUBLES_STATUS_ICON_OFFSET 0
+#define BATTLER_2_DOUBLES_STATUS_ICON_OFFSET 33
+#define BATTLER_3_DOUBLES_STATUS_ICON_OFFSET 0
 static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
 {
     s32 i;
@@ -2161,35 +2178,71 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
     {
         statusGfxPtr = GetHealthboxElementGfxPtr(HEALTHBOX_GFX_39);
 
-        switch (battlerId)
+        if (IsDoubleBattle() == FALSE)
         {
-        case 0:
-            CpuCopy32(
-                statusGfxPtr, 
-                (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_0_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
-                32);
-            break;
-        case 1:
-            CpuCopy32(
-                statusGfxPtr, 
-                (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_1_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
-                32);
-            break;
-        case 2:
-            CpuCopy32(
-                statusGfxPtr, 
-                (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_2_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
-                32);
-            break;
-        case 3:
-            CpuCopy32(
-                statusGfxPtr, 
-                (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_3_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
-                32);
-            break;
-        default:
-            break;
+            switch (battlerId)
+            {
+            case 0:
+                CpuCopy32(
+                    statusGfxPtr, 
+                    (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_0_SINGLES_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                    32);
+                break;
+            case 1:
+                CpuCopy32(
+                    statusGfxPtr, 
+                    (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_1_SINGLES_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                    32);
+                break;
+            case 2:
+                CpuCopy32(
+                    statusGfxPtr, 
+                    (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_2_SINGLES_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                    32);
+                break;
+            case 3:
+                CpuCopy32(
+                    statusGfxPtr, 
+                    (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_3_SINGLES_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                    32);
+                break;
+            default:
+                break;
+            }
         }
+        else
+        {
+            switch (battlerId)
+            {
+            case 0:
+                CpuCopy32(
+                    statusGfxPtr, 
+                    (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_0_DOUBLES_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                    32);
+                break;
+            case 1:
+                CpuCopy32(
+                    statusGfxPtr, 
+                    (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_1_DOUBLES_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                    32);
+                break;
+            case 2:
+                CpuCopy32(
+                    statusGfxPtr, 
+                    (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_2_DOUBLES_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                    32);
+                break;
+            case 3:
+                CpuCopy32(
+                    statusGfxPtr, 
+                    (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_3_DOUBLES_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                    32);
+                break;
+            default:
+                break;
+            } 
+        }
+        
 
         if (!gBattleSpritesDataPtr->battlerData[battlerId].hpNumbersNoBars)
             CpuCopy32(GetHealthboxElementGfxPtr(HEALTHBOX_GFX_1), (void *)(OBJ_VRAM0 + gSprites[healthBarSpriteId].oam.tileNum * TILE_SIZE_4BPP), 32);
@@ -2208,35 +2261,72 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
     //FillPalette(sStatusIconColors2[statusPalId], pltAdder + 0x100 + 1, 2);
 
     CpuCopy16(gPlttBufferUnfaded + 0x100 + pltAdder, (void*)(OBJ_PLTT + pltAdder * 2), 2);
-    switch (battlerId)
+
+    if (IsDoubleBattle() == FALSE)
     {
-    case 0:
-        CpuCopy32(
-            statusGfxPtr, 
-            (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_0_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
-            32);
-        break;
-    case 1:
-        CpuCopy32(
-            statusGfxPtr, 
-            (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_1_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
-            32);
-        break;
-    case 2:
-        CpuCopy32(
-            statusGfxPtr, 
-            (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_2_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
-            32);
-        break;
-    case 3:
-        CpuCopy32(
-            statusGfxPtr, 
-            (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_3_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
-            32);
-        break;
-    default:
-        break;
+        switch (battlerId)
+        {
+        case 0:
+            CpuCopy32(
+                statusGfxPtr, 
+                (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_0_SINGLES_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                32);
+            break;
+        case 1:
+            CpuCopy32(
+                statusGfxPtr, 
+                (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_1_SINGLES_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                32);
+            break;
+        case 2:
+            CpuCopy32(
+                statusGfxPtr, 
+                (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_2_SINGLES_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                32);
+            break;
+        case 3:
+            CpuCopy32(
+                statusGfxPtr, 
+                (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_3_SINGLES_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                32);
+            break;
+        default:
+            break;
+        }
     }
+    else
+    {
+        switch (battlerId)
+        {
+        case 0:
+            CpuCopy32(
+                statusGfxPtr, 
+                (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_0_DOUBLES_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                32);
+            break;
+        case 1:
+            CpuCopy32(
+                statusGfxPtr, 
+                (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_1_DOUBLES_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                32);
+            break;
+        case 2:
+            CpuCopy32(
+                statusGfxPtr, 
+                (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_2_DOUBLES_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                32);
+            break;
+        case 3:
+            CpuCopy32(
+                statusGfxPtr, 
+                (void*)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + BATTLER_3_DOUBLES_STATUS_ICON_OFFSET) * TILE_SIZE_4BPP), 
+                32);
+            break;
+        default:
+            break;
+        }
+    }
+    /*
     if (IsDoubleBattle() == TRUE)// || GetBattlerSide(battlerId) == B_SIDE_OPPONENT)
     {
         if (!gBattleSpritesDataPtr->battlerData[battlerId].hpNumbersNoBars)
@@ -2245,6 +2335,7 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
             CpuCopy32(GetHealthboxElementGfxPtr(HEALTHBOX_GFX_65), (void*)(OBJ_VRAM0 + (gSprites[healthBarSpriteId].oam.tileNum + 1) * TILE_SIZE_4BPP), 32);
         }
     }
+    */
     TryAddPokeballIconToHealthbox(healthboxSpriteId, FALSE);
 }
 #undef STATUS_ICON_OFFSET
