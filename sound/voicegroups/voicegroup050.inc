@@ -9,7 +9,7 @@ voicegroup050:: @ 86826D0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682718
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682724
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682730
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 868273C
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 204, 51, 188  @ 868273C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682748
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682754
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682760
@@ -48,7 +48,7 @@ voicegroup050:: @ 86826D0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86828EC
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 242, 0, 242  @ 86828F8
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682904
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682910
+	voice_keysplit voicegroup006, KeySplitTable2  @ 8682910
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 868291C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682928
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682934
