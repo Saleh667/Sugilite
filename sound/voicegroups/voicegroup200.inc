@@ -25,7 +25,7 @@ voicegroup200:: @ 8F00000 Custom Voicegroup (Output Device Base Note, Duty Cycle
 	voice_directsound 60, 0, Cry_Paras, 128, 0, 255, 165  @ 22
 	voice_directsound 60, 0, Cry_Paras, 255, 253, 128, 127  @ 23
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 255, 249, 25, 76  @ 24
-	voice_directsound 60, 0, Cry_Paras, 255, 249, 25, 204  @ 25
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 255, 246, 12, 204  @ 25
 	voice_directsound 60, 0, Cry_Paras, 255, 235, 25, 188  @ 26
 	voice_directsound 60, 0, Cry_Paras, 255, 249, 25, 127  @ 27
 	voice_directsound 60, 0, Cry_Paras, 255, 0, 255, 127  @ 28

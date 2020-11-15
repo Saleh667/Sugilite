@@ -7,21 +7,21 @@ voicegroup201:: @ 8F00600 Custom Voicegroup Drumset
 	voice_directsound 60, 0, DirectSoundWaveData_unknown_snare, 255, 0, 255, 0  @ 4 E-2
 	voice_directsound 60, 0, DirectSoundWaveData_ethnic_flavours_ohtsuzumi, 255, 0, 255, 0  @ 5 F-2
 	voice_directsound 60, 0, DirectSoundWaveData_ethnic_flavours_hyoushigi, 255, 0, 255, 0  @ 6 F#-2
-	voice_directsound_no_resample 60, 64, DirectSoundWaveData_sc88pro_rnd_kick, 255, 0, 255, 242  @ 7 G-2
+	voice_directsound_no_resample 60, 64, DirectSoundWaveData_sc88pro_rnd_kick, 255, 0, 255, 242  @ 7 G-2 RSE Kick (C1)
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8 G#-2
-	voice_directsound_no_resample 60, 64, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 242  @ 9 A-2
-	voice_directsound_no_resample 60, 64, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127  @ 10 A#-2
-	voice_directsound_no_resample 60, 64, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 242  @ 11 B-2
-	voice_directsound 48, 44, DirectSoundWaveData_unused_sc55_tom, 255, 210, 77, 204  @ 12 C-1
-	voice_directsound 60, 79, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188  @ 13 C#-1
-	voice_directsound 51, 54, DirectSoundWaveData_unused_sc55_tom, 255, 216, 77, 204  @ 14 D-1
+	voice_directsound_no_resample 60, 64, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 242  @ 9 A-2 RSE Snare (same as G#1)
+	voice_directsound_no_resample 60, 64, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127  @ 10 A#-2 Clap (same as D#1)
+	voice_directsound_no_resample 60, 64, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 242  @ 11 B-2 Snare (same as E1)
+	voice_directsound 48, 44, DirectSoundWaveData_unused_sc55_tom, 255, 210, 77, 204  @ 12 C-1 RSE F Tom (F1)
+	voice_directsound 60, 79, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188  @ 13 C#-1 High Hat (same as F#1)
+	voice_directsound 51, 54, DirectSoundWaveData_unused_sc55_tom, 255, 216, 77, 204  @ 14 D-1 RSE G Tom (G1)
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 15 D#-1
-	voice_directsound 54, 64, DirectSoundWaveData_unused_sc55_tom, 255, 216, 77, 204  @ 16 E-1
-	voice_directsound 60, 79, DirectSoundWaveData_unknown_open_hihat, 255, 242, 141, 0  @ 17 F-1
-	voice_directsound 57, 69, DirectSoundWaveData_unused_sc55_tom, 255, 210, 77, 204  @ 18 F#-1
-	voice_directsound 60, 79, DirectSoundWaveData_unused_sc55_tom, 255, 204, 77, 204  @ 19 G-1
+	voice_directsound 54, 64, DirectSoundWaveData_unused_sc55_tom, 255, 216, 77, 204  @ 16 E-1 RSE A Tom (A1)
+	voice_directsound 60, 79, DirectSoundWaveData_unknown_open_hihat, 255, 141, 0, 188  @ 17 F-1 Pedal High Hat (G#1)
+	voice_directsound 57, 69, DirectSoundWaveData_unused_sc55_tom, 255, 210, 77, 204  @ 18 F#-1 RSE B Tom (B1)
+	voice_directsound 60, 79, DirectSoundWaveData_unused_sc55_tom, 255, 204, 77, 204  @ 19 G-1 RSE C Tom (C1)
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 20 G#-1
-	voice_directsound 62, 84, DirectSoundWaveData_unused_sc55_tom, 255, 204, 77, 204  @ 21 A-1
+	voice_directsound 62, 84, DirectSoundWaveData_unused_sc55_tom, 255, 204, 77, 204  @ 21 A-1 RSE D Tom (D2)
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 22 A#-1
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 23 B-1
 	voice_directsound_no_resample 70, 49, DirectSoundWaveData_unknown_bell, 255, 165, 103, 231  @ 24 C0
@@ -30,8 +30,8 @@ voicegroup201:: @ 8F00600 Custom Voicegroup Drumset
 	voice_directsound_no_resample 72, 64, DirectSoundWaveData_drum_and_percussion_kick, 255, 0, 255, 165  @ 27 D#0
 	voice_directsound_no_resample 64, 64, DirectSoundWaveData_sd90_solo_snare, 255, 226, 154, 165  @ 28 E0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 29 F0
-	voice_directsound_no_resample 30, 54, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 255, 246, 0, 216  @ 30 F#0
-	voice_directsound_no_resample 30, 64, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 8, 0, 255, 216  @ 31 G0
+	voice_directsound_no_resample 30, 54, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 255, 246, 0, 216  @ 30 F#0 (Sustained Crash)
+	voice_directsound_no_resample 30, 64, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 8, 0, 255, 216  @ 31 G0 (Reverse Cymbal)
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 32 G#0
 	voice_directsound_no_resample 72, 104, DirectSoundWaveData_sc88pro_mute_high_conga, 255, 0, 255, 0  @ 33 A0
 	voice_directsound_no_resample 72, 64, DirectSoundWaveData_unknown_snare, 255, 0, 255, 127  @ 34 A#0
