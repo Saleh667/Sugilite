@@ -8,12 +8,12 @@ voicegroup051:: @ 8682CD0
 	voice_square_1_alt 60, 0, 0, 2, 0, 3, 4, 1  @ 8682D0C
 	voice_square_2_alt 60, 0, 2, 1, 3, 4, 2  @ 8682D18
 	voice_square_1_alt 60, 0, 0, 2, 0, 3, 4, 1  @ 8682D24
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682D30
+	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4910, 0, 7, 15, 2  @ 8682D30
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682D3C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682D48
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682D54
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682D60
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682D6C
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204  @ 8682D6C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682D78
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682D84
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682D90
@@ -56,11 +56,11 @@ voicegroup051:: @ 8682CD0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682F4C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682F58
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682F64
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682F70
+	voice_keysplit voicegroup007, KeySplitTable3  @ 8682F70
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682F7C
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682F88
+	voice_keysplit voicegroup008, KeySplitTable4  @ 8682F88
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682F94
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682FA0
+	voice_keysplit voicegroup009, KeySplitTable5  @ 8682FA0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682FAC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682FB8
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8682FC4
