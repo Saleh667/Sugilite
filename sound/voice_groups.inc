@@ -44,7 +44,7 @@
 .include "sound/voicegroups/voicegroup043.inc"
 .include "sound/voicegroups/voicegroup044.inc"
 .include "sound/voicegroups/voicegroup045.inc"
-.include "sound/voicegroups/voicegroup046.inc"
+.include "sound/voicegroups/voicegroup046.inc" @ unused
 .include "sound/voicegroups/voicegroup047.inc"
 .include "sound/voicegroups/voicegroup048.inc"
 .include "sound/voicegroups/voicegroup049.inc"

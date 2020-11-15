@@ -43,7 +43,7 @@ $(MID_SUBDIR)/mus_vs_trainer.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G119 -V080 -P1
 
 $(MID_SUBDIR)/mus_vs_wild.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G117 -V080 -P1
+	$(MID) $< $@ -E -R$(STD_REVERB) -G117 -V110 -P1
 
 $(MID_SUBDIR)/mus_vs_aqua_magma_leader.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G126 -V080 -P1
@@ -163,7 +163,7 @@ $(MID_SUBDIR)/mus_slateport.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G079 -V070
 
 $(MID_SUBDIR)/mus_poke_mart.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G050 -V085
+	$(MID) $< $@ -E -R$(STD_REVERB) -G050 -V116
 
 $(MID_SUBDIR)/mus_oceanic_museum.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G023 -V080
@@ -196,7 +196,7 @@ $(MID_SUBDIR)/mus_dewford.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G073 -V078
 
 $(MID_SUBDIR)/mus_encounter_twins.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G095 -V075
+	$(MID) $< $@ -E -R$(STD_REVERB) -G095 -V125
 
 $(MID_SUBDIR)/mus_encounter_interviewer.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G099 -V062
@@ -322,7 +322,7 @@ $(MID_SUBDIR)/mus_c_comm_center.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -V080
 
 $(MID_SUBDIR)/mus_poke_center.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G046 -V092
+	$(MID) $< $@ -E -R$(STD_REVERB) -G200 -V127
 
 $(MID_SUBDIR)/mus_b_pyramid.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G106 -V079
