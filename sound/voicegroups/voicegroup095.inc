@@ -1,7 +1,7 @@
 	.align 2
 voicegroup095:: @ 869287C
 	voice_keysplit_all voicegroup001  @ 869287C
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692888
+	voice_keysplit voicegroup005, KeySplitTable1  @ 8692888
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692894
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86928A0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86928AC
@@ -13,7 +13,7 @@ voicegroup095:: @ 869287C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86928F4
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692900
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869290C
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692918
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 235  @ 8692918
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692924
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692930
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869293C
@@ -24,7 +24,7 @@ voicegroup095:: @ 869287C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692978
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692984
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692990
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 255, 249, 25, 76  @ 869299C
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 255, 249, 25, 204  @ 869299C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86929A8
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86929B4
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86929C0
@@ -35,7 +35,7 @@ voicegroup095:: @ 869287C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86929FC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692A08
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692A14
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692A20
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 253, 0, 188  @ 8692A20
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692A2C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692A38
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 252, 0, 115  @ 8692A44
