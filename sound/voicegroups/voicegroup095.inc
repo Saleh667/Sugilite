@@ -24,7 +24,7 @@ voicegroup095:: @ 869287C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692978
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692984
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692990
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 255, 249, 25, 204  @ 869299C
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 255, 249, 25, 210  @ 869299C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86929A8
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86929B4
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86929C0
@@ -82,7 +82,7 @@ voicegroup095:: @ 869287C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692C30
 	voice_square_1_alt 60, 0, 0, 1, 0, 1, 4, 1  @ 8692C3C
 	voice_square_2_alt 60, 0, 1, 0, 1, 4, 1  @ 8692C48
-	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4880, 0, 7, 15, 3  @ 8692C54
+	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4880, 0, 7, 15, 2  @ 8692C54
 	voice_square_2_alt 60, 0, 3, 0, 1, 4, 1  @ 8692C60
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692C6C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8692C78
