@@ -7,6 +7,7 @@
 #include "decompress.h"
 #include "event_data.h"
 #include "field_effect.h"
+#include "field_weather.h"
 #include "gpu_regs.h"
 #include "graphics.h"
 #include "international_string_util.h"
@@ -248,6 +249,11 @@ static void MainMenu_FormatSavegameTime(void);
 static void MainMenu_FormatSavegameBadges(void);
 static void NewGameBirchSpeech_CreateDialogueWindowBorder(u8, u8, u8, u8, u8, u8);
 
+//New intro sequence tasks:
+static void Task_NewGameBirchSpeech_WalkOutToCenterStage(u8 taskId);
+static void Task_NewGameBirchSpeech_Welcome(u8 taskId);
+static void Task_NewGameBirchSpeech_TurnOnSpotlight(u8 taskId);
+
 // .rodata
 
 static const u16 sBirchSpeechBgPals[][16] = {
@@ -255,9 +261,17 @@ static const u16 sBirchSpeechBgPals[][16] = {
     INCBIN_U16("graphics/birch_speech/bg1.gbapal")
 };
 
+//New intro sequence palettes for when the spotlight's off
+static const u16 sBirchSpeechBgLightsOffPals[][16] = {
+    INCBIN_U16("graphics/birch_speech/bg0_lights_off.gbapal"),
+    INCBIN_U16("graphics/birch_speech/bg1_lights_off.gbapal")
+};
+
 static const u32 sBirchSpeechShadowGfx[] = INCBIN_U32("graphics/birch_speech/shadow.4bpp.lz");
 static const u32 sBirchSpeechBgMap[] = INCBIN_U32("graphics/birch_speech/map.bin.lz");
 static const u16 sBirchSpeechBgGradientPal[] = INCBIN_U16("graphics/birch_speech/bg2.gbapal");
+//Also for when the spotlight's off
+static const u16 sBirchSpeechBgLightsOffGradientPal[] = INCBIN_U16("graphics/birch_speech/bg2_lights_off.gbapal");
 static const u16 sBirchSpeechPlatformBlackPal[] = {RGB_BLACK, RGB_BLACK, RGB_BLACK, RGB_BLACK, RGB_BLACK, RGB_BLACK, RGB_BLACK, RGB_BLACK};
 
 #define MENU_LEFT 2
@@ -1262,6 +1276,10 @@ static void HighlightSelectedMainMenuItem(u8 menuType, u8 selectedMenuItem, s16 
 #define tLotadSpriteId data[9]
 #define tBrendanSpriteId data[10]
 #define tMaySpriteId data[11]
+#define tBirchWalk1SpriteId data[12]
+#define tBirchWalk2SpriteId data[13]
+#define tBirchWalk3SpriteId data[14]
+#define tBirchLightsOutSpriteId data[15]
 
 static void Task_NewGameBirchSpeech_Init(u8 taskId)
 {
@@ -1278,8 +1296,9 @@ static void Task_NewGameBirchSpeech_Init(u8 taskId)
 
     LZ77UnCompVram(sBirchSpeechShadowGfx, (void*)VRAM);
     LZ77UnCompVram(sBirchSpeechBgMap, (void*)(BG_SCREEN_ADDR(7)));
-    LoadPalette(sBirchSpeechBgPals, 0, 64);
-    //LoadPalette(sBirchSpeechPlatformBlackPal, 1, 16);
+    //LoadPalette(sBirchSpeechBgPals, 0, 64);
+    LoadPalette(sBirchSpeechBgLightsOffPals, 0, 64);
+    LoadPalette(sBirchSpeechPlatformBlackPal, 1, 16);
     ScanlineEffect_Stop();
     ResetSpriteData();
     FreeAllSpritePalettes();
@@ -1287,13 +1306,100 @@ static void Task_NewGameBirchSpeech_Init(u8 taskId)
     AddBirchSpeechObjects(taskId);
     BeginNormalPaletteFade(0xFFFFFFFF, 0, 16, 0, RGB_BLACK);
     gTasks[taskId].tBG1HOFS = 0;
-    gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowBirch;
+    gTasks[taskId].func = Task_NewGameBirchSpeech_WalkOutToCenterStage;
     gTasks[taskId].tPlayerSpriteId = 0xFF;
     gTasks[taskId].data[3] = 0xFF;
-    gTasks[taskId].tTimer = 0xD8;
+    gTasks[taskId].tTimer = -30;
     PlayBGM(MUS_ROUTE122);
     ShowBg(0);
     ShowBg(1);
+}
+
+#define TIMING_PER_WALK_CYCLE_FRAME 12
+
+static void Task_NewGameBirchSpeech_WalkOutToCenterStage(u8 taskId)
+{
+    if (gTasks[taskId].tTimer < 136)
+    {
+        u8 spriteId;
+
+        gTasks[taskId].tTimer += 1;
+
+        if((gTasks[taskId].tTimer / TIMING_PER_WALK_CYCLE_FRAME) % 4 == 0){
+            spriteId = gTasks[taskId].tBirchWalk1SpriteId;
+            gSprites[gTasks[taskId].tBirchWalk1SpriteId].invisible = FALSE;
+            gSprites[gTasks[taskId].tBirchWalk2SpriteId].invisible = TRUE;
+            gSprites[gTasks[taskId].tBirchWalk3SpriteId].invisible = TRUE;
+        }
+        if((gTasks[taskId].tTimer / TIMING_PER_WALK_CYCLE_FRAME) % 4 == 1){
+            spriteId = gTasks[taskId].tBirchWalk2SpriteId;
+            gSprites[gTasks[taskId].tBirchWalk1SpriteId].invisible = TRUE;
+            gSprites[gTasks[taskId].tBirchWalk2SpriteId].invisible = FALSE;
+            gSprites[gTasks[taskId].tBirchWalk3SpriteId].invisible = TRUE;
+        }
+        if((gTasks[taskId].tTimer / TIMING_PER_WALK_CYCLE_FRAME) % 4 == 2){
+            spriteId = gTasks[taskId].tBirchWalk1SpriteId;
+            gSprites[gTasks[taskId].tBirchWalk1SpriteId].invisible = FALSE;
+            gSprites[gTasks[taskId].tBirchWalk2SpriteId].invisible = TRUE;
+            gSprites[gTasks[taskId].tBirchWalk3SpriteId].invisible = TRUE;
+        }
+        if((gTasks[taskId].tTimer / TIMING_PER_WALK_CYCLE_FRAME) % 4 == 3){
+            spriteId = gTasks[taskId].tBirchWalk3SpriteId;
+            gSprites[gTasks[taskId].tBirchWalk1SpriteId].invisible = TRUE;
+            gSprites[gTasks[taskId].tBirchWalk2SpriteId].invisible = TRUE;
+            gSprites[gTasks[taskId].tBirchWalk3SpriteId].invisible = FALSE;
+        }
+
+        gSprites[spriteId].pos1.x = gTasks[taskId].tTimer;
+        gSprites[spriteId].pos1.y = 60;
+        //gSprites[spriteId].oam.objMode = ST_OAM_OBJ_BLEND;
+    }
+    else
+    {
+        u8 spriteId;
+
+        spriteId = gTasks[taskId].tBirchLightsOutSpriteId;
+        gSprites[spriteId].pos1.x = 136;
+        gSprites[spriteId].pos1.y = 60;
+        gSprites[spriteId].invisible = FALSE;
+        gSprites[spriteId].oam.objMode = ST_OAM_OBJ_NORMAL;
+
+        gSprites[gTasks[taskId].tBirchWalk1SpriteId].invisible = TRUE;
+        gSprites[gTasks[taskId].tBirchWalk2SpriteId].invisible = TRUE;
+        gSprites[gTasks[taskId].tBirchWalk3SpriteId].invisible = TRUE;
+
+        gTasks[taskId].tTimer = 0;
+        gTasks[taskId].func = Task_NewGameBirchSpeech_TurnOnSpotlight;
+
+    }
+    
+}
+
+static void Task_NewGameBirchSpeech_TurnOnSpotlight(u8 taskId)
+{
+    if (gTasks[taskId].tTimer < 30)
+    {
+        gTasks[taskId].tTimer += 1;
+    }
+    else
+    {
+        u8 spriteId;
+
+        //Lights on!
+        LoadPalette(sBirchSpeechBgPals, 0, 64);
+        LoadPalette(sBirchSpeechBgGradientPal, 1, 16);
+        FadeScreen(FADE_FROM_WHITE, 8);
+        gTasks[taskId].func = Task_NewGameBirchSpeech_Welcome;
+
+        spriteId = gTasks[taskId].tBirchLightsOutSpriteId;
+        gSprites[spriteId].invisible = TRUE;
+
+        spriteId = gTasks[taskId].tBirchSpriteId;
+        gSprites[spriteId].pos1.x = 136;
+        gSprites[spriteId].pos1.y = 60;
+        gSprites[spriteId].invisible = FALSE;
+        gSprites[spriteId].oam.objMode = ST_OAM_OBJ_NORMAL;
+    }
 }
 
 static void Task_NewGameBirchSpeech_WaitToShowBirch(u8 taskId)
@@ -1341,6 +1447,19 @@ static void Task_NewGameBirchSpeech_WaitForSpriteFadeInWelcome(u8 taskId)
             gTasks[taskId].func = Task_NewGameBirchSpeech_ThisIsAPokemon;
         }
     }
+}
+static void Task_NewGameBirchSpeech_Welcome(u8 taskId)
+{
+    InitWindows(gNewGameBirchSpeechTextWindows);
+    LoadMainMenuWindowFrameTiles(0, 0xF3);
+    LoadMessageBoxGfx(0, 0xFC, 0xF0);
+    NewGameBirchSpeech_ShowDialogueWindow(0, 1);
+    PutWindowTilemap(0);
+    CopyWindowToVram(0, 2);
+    NewGameBirchSpeech_ClearWindow(0);
+    StringExpandPlaceholders(gStringVar4, gText_Birch_Welcome);
+    AddTextPrinterForMessage(1);
+    gTasks[taskId].func = Task_NewGameBirchSpeech_ThisIsAPokemon;
 }
 
 static void Task_NewGameBirchSpeech_ThisIsAPokemon(u8 taskId)
@@ -1891,22 +2010,55 @@ static void AddBirchSpeechObjects(u8 taskId)
     u8 lotadSpriteId;
     u8 brendanSpriteId;
     u8 maySpriteId;
+    //Used for having the professor walk out onto center stage
+    u8 birchWalk1SpriteId;
+    u8 birchWalk2SpriteId;
+    u8 birchWalk3SpriteId;
+    u8 birchLightsOutSpriteId;
+
+    birchWalk1SpriteId = AddNewGameBirchWalk1Object(0x88, 0x3C, 1);
+    gSprites[birchWalk1SpriteId].callback = SpriteCB_Null;
+    gSprites[birchWalk1SpriteId].oam.priority = 0;
+    gSprites[birchWalk1SpriteId].invisible = TRUE;
+    gTasks[taskId].tBirchWalk1SpriteId = birchWalk1SpriteId;
+
+    birchWalk2SpriteId = AddNewGameBirchWalk2Object(0x88, 0x3C, 1);
+    gSprites[birchWalk2SpriteId].callback = SpriteCB_Null;
+    gSprites[birchWalk2SpriteId].oam.priority = 0;
+    gSprites[birchWalk2SpriteId].invisible = TRUE;
+    gTasks[taskId].tBirchWalk2SpriteId = birchWalk2SpriteId;
+
+    birchWalk3SpriteId = AddNewGameBirchWalk3Object(0x88, 0x3C, 1);
+    gSprites[birchWalk3SpriteId].callback = SpriteCB_Null;
+    gSprites[birchWalk3SpriteId].oam.priority = 0;
+    gSprites[birchWalk3SpriteId].invisible = TRUE;
+    gTasks[taskId].tBirchWalk3SpriteId = birchWalk3SpriteId;
+
+    birchLightsOutSpriteId = AddNewGameBirchLightsOutObject(0x88, 0x3C, 1);
+    gSprites[birchLightsOutSpriteId].callback = SpriteCB_Null;
+    gSprites[birchLightsOutSpriteId].oam.priority = 0;
+    gSprites[birchLightsOutSpriteId].invisible = TRUE;
+    gTasks[taskId].tBirchLightsOutSpriteId = birchLightsOutSpriteId;
+
 
     birchSpriteId = AddNewGameBirchObject(0x88, 0x3C, 1);
     gSprites[birchSpriteId].callback = SpriteCB_Null;
     gSprites[birchSpriteId].oam.priority = 0;
     gSprites[birchSpriteId].invisible = TRUE;
     gTasks[taskId].tBirchSpriteId = birchSpriteId;
+
     lotadSpriteId = NewGameBirchSpeech_CreateLotadSprite(100, 0x4B);
     gSprites[lotadSpriteId].callback = SpriteCB_Null;
     gSprites[lotadSpriteId].oam.priority = 0;
     gSprites[lotadSpriteId].invisible = TRUE;
     gTasks[taskId].tLotadSpriteId = lotadSpriteId;
+
     brendanSpriteId = CreateTrainerSprite(FacilityClassToPicIndex(FACILITY_CLASS_BRENDAN), 120, 60, 0, &gDecompressionBuffer[0]);
     gSprites[brendanSpriteId].callback = SpriteCB_Null;
     gSprites[brendanSpriteId].invisible = TRUE;
     gSprites[brendanSpriteId].oam.priority = 0;
     gTasks[taskId].tBrendanSpriteId = brendanSpriteId;
+
     maySpriteId = CreateTrainerSprite(FacilityClassToPicIndex(FACILITY_CLASS_MAY), 120, 60, 0, &gDecompressionBuffer[0x800]);
     gSprites[maySpriteId].callback = SpriteCB_Null;
     gSprites[maySpriteId].invisible = TRUE;

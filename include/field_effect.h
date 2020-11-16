@@ -47,4 +47,10 @@ void FreeResourcesAndDestroySprite(struct Sprite *sprite, u8 spriteId);
 u8 CreateMonSprite_PicBox(u16 species, s16 x, s16 y, u8 subpriority);
 void StartEscapeRopeFieldEffect(void);
 
+//New intro sequence functions:
+u8 AddNewGameBirchLightsOutObject(s16, s16, u8);
+u8 AddNewGameBirchWalk1Object(s16 x, s16 y, u8 subpriority);
+u8 AddNewGameBirchWalk2Object(s16 x, s16 y, u8 subpriority);
+u8 AddNewGameBirchWalk3Object(s16 x, s16 y, u8 subpriority);
+
 #endif // GUARD_FIELD_EFFECTS_H

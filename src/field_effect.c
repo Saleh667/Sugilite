@@ -244,8 +244,13 @@ extern u8 *gFieldEffectScriptPointers[];
 extern const struct SpriteTemplate *const gFieldEffectObjectTemplatePointers[];
 
 static const u32 sNewGameBirch_Gfx[] = INCBIN_U32("graphics/birch_speech/birch.4bpp");
+static const u32 sNewGameBirchWalk1_Gfx[] = INCBIN_U32("graphics/birch_speech/birch_walk_1.4bpp");
+static const u32 sNewGameBirchWalk2_Gfx[] = INCBIN_U32("graphics/birch_speech/birch_walk_2.4bpp");
+static const u32 sNewGameBirchWalk3_Gfx[] = INCBIN_U32("graphics/birch_speech/birch_walk_3.4bpp");
 static const u32 sUnusedBirchBeauty[] = INCBIN_U32("graphics/unused/intro_birch_beauty.4bpp");
 static const u16 sNewGameBirch_Pal[16] = INCBIN_U16("graphics/birch_speech/birch.gbapal");
+//Used for the lights-out part of the new game sequence
+static const u16 sNewGameBirchLightsOut_Pal[16] = INCBIN_U16("graphics/birch_speech/birch_lightsout.gbapal");
 static const u32 sPokeballGlow_Gfx[] = INCBIN_U32("graphics/misc/pokeball_glow.4bpp");
 static const u16 sPokeballGlow_Pal[16] = INCBIN_U16("graphics/field_effects/palettes/pokeball_glow.gbapal");
 static const u32 sPokecenterMonitor0_Gfx[] = INCBIN_U32("graphics/misc/pokecenter_monitor/0.4bpp");
@@ -330,10 +335,29 @@ static const struct SpriteFrameImage sPicTable_NewGameBirch[] =
     obj_frame_tiles(sNewGameBirch_Gfx)
 };
 
+static const struct SpriteFrameImage sPicTable_NewGameBirchWalk1[] =
+{
+    obj_frame_tiles(sNewGameBirchWalk1_Gfx)
+};
+static const struct SpriteFrameImage sPicTable_NewGameBirchWalk2[] =
+{
+    obj_frame_tiles(sNewGameBirchWalk2_Gfx)
+};
+static const struct SpriteFrameImage sPicTable_NewGameBirchWalk3[] =
+{
+    obj_frame_tiles(sNewGameBirchWalk3_Gfx)
+};
+
 static const struct SpritePalette sSpritePalette_NewGameBirch =
 {
     .data = sNewGameBirch_Pal,
     .tag = 0x1006
+};
+
+static const struct SpritePalette sSpritePalette_NewGameBirchLightsOut =
+{
+    .data = sNewGameBirchLightsOut_Pal,
+    .tag = 0x1007
 };
 
 static const union AnimCmd sAnim_NewGameBirch[] =
@@ -354,6 +378,50 @@ static const struct SpriteTemplate sSpriteTemplate_NewGameBirch =
     .oam = &sOam_64x64,
     .anims = sAnimTable_NewGameBirch,
     .images = sPicTable_NewGameBirch,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy
+};
+static const struct SpriteTemplate sSpriteTemplate_NewGameBirchLightsOut =
+{
+    .tileTag = 0xFFFF,
+    .paletteTag = 0x1007,
+    .oam = &sOam_64x64,
+    .anims = sAnimTable_NewGameBirch,
+    .images = sPicTable_NewGameBirch,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy
+};
+
+//New intro walk cycle:
+//Going to be trying an interesting effect in the new game intro sequence....
+//...so each frame is its own sprite instead of doing a sprite sheet
+static const struct SpriteTemplate sSpriteTemplate_NewGameBirchWalk1 =
+{
+    .tileTag = 0xFFFF,
+    .paletteTag = 0x1007,
+    .oam = &sOam_64x64,
+    .anims = sAnimTable_NewGameBirch,
+    .images = sPicTable_NewGameBirchWalk1,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy
+};
+static const struct SpriteTemplate sSpriteTemplate_NewGameBirchWalk2 =
+{
+    .tileTag = 0xFFFF,
+    .paletteTag = 0x1007,
+    .oam = &sOam_64x64,
+    .anims = sAnimTable_NewGameBirch,
+    .images = sPicTable_NewGameBirchWalk2,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy
+};
+static const struct SpriteTemplate sSpriteTemplate_NewGameBirchWalk3 =
+{
+    .tileTag = 0xFFFF,
+    .paletteTag = 0x1007,
+    .oam = &sOam_64x64,
+    .anims = sAnimTable_NewGameBirch,
+    .images = sPicTable_NewGameBirchWalk3,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCallbackDummy
 };
@@ -900,6 +968,28 @@ u8 AddNewGameBirchObject(s16 x, s16 y, u8 subpriority)
 {
     LoadSpritePalette(&sSpritePalette_NewGameBirch);
     return CreateSprite(&sSpriteTemplate_NewGameBirch, x, y, subpriority);
+}
+u8 AddNewGameBirchLightsOutObject(s16 x, s16 y, u8 subpriority)
+{
+    LoadSpritePalette(&sSpritePalette_NewGameBirchLightsOut);
+    return CreateSprite(&sSpriteTemplate_NewGameBirchLightsOut, x, y, subpriority);
+}
+//All the walk cycle stuff happens in the lights-out section
+//so they all use the lights-out palette
+u8 AddNewGameBirchWalk1Object(s16 x, s16 y, u8 subpriority)
+{
+    LoadSpritePalette(&sSpritePalette_NewGameBirchLightsOut);
+    return CreateSprite(&sSpriteTemplate_NewGameBirchWalk1, x, y, subpriority);
+}
+u8 AddNewGameBirchWalk2Object(s16 x, s16 y, u8 subpriority)
+{
+    LoadSpritePalette(&sSpritePalette_NewGameBirchLightsOut);
+    return CreateSprite(&sSpriteTemplate_NewGameBirchWalk2, x, y, subpriority);
+}
+u8 AddNewGameBirchWalk3Object(s16 x, s16 y, u8 subpriority)
+{
+    LoadSpritePalette(&sSpritePalette_NewGameBirchLightsOut);
+    return CreateSprite(&sSpriteTemplate_NewGameBirchWalk3, x, y, subpriority);
 }
 
 u8 CreateMonSprite_PicBox(u16 species, s16 x, s16 y, u8 subpriority)
