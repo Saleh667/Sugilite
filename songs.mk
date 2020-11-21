@@ -13,7 +13,7 @@ $(MID_SUBDIR)/mus_route111.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G055 -V076
 
 $(MID_SUBDIR)/mus_encounter_suspicious.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G069 -V078
+	$(MID) $< $@ -E -R$(STD_REVERB) -G069 -V104
 
 $(MID_SUBDIR)/mus_b_arena.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G104 -V090
@@ -40,7 +40,7 @@ $(MID_SUBDIR)/mus_b_pike.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G112 -V092
 
 $(MID_SUBDIR)/mus_vs_trainer.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G119 -V080 -P1
+	$(MID) $< $@ -E -R$(STD_REVERB) -G119 -V127 -P1
 
 $(MID_SUBDIR)/mus_vs_wild.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G117 -V110 -P1
@@ -79,7 +79,7 @@ $(MID_SUBDIR)/mus_encounter_brendan.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G067 -V127
 
 $(MID_SUBDIR)/mus_encounter_male.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G028 -V080
+	$(MID) $< $@ -E -R$(STD_REVERB) -G028 -V127
 
 $(MID_SUBDIR)/mus_victory_road.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G075 -V076
@@ -106,7 +106,7 @@ $(MID_SUBDIR)/mus_encounter_champion.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G100 -V076
 
 $(MID_SUBDIR)/mus_petalburg_woods.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G018 -V080
+	$(MID) $< $@ -E -R$(STD_REVERB) -G101 -V127
 
 $(MID_SUBDIR)/mus_abandoned_ship.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G030 -V080
@@ -202,7 +202,7 @@ $(MID_SUBDIR)/mus_encounter_interviewer.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G099 -V062
 
 $(MID_SUBDIR)/mus_victory_trainer.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G058 -V091
+	$(MID) $< $@ -E -R$(STD_REVERB) -G058 -V127
 
 $(MID_SUBDIR)/mus_victory_wild.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G025 -V080
@@ -457,7 +457,7 @@ $(MID_SUBDIR)/mus_rg_poke_tower.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G165 -V090
 
 $(MID_SUBDIR)/mus_rg_poke_center.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G162 -V096
+	$(MID) $< $@ -E -R$(STD_REVERB) -G165 -V123
 
 $(MID_SUBDIR)/mus_rg_poke_flute.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G165 -V048 -P5
@@ -469,7 +469,7 @@ $(MID_SUBDIR)/mus_rg_jigglypuff.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G135 -V068 -P5
 
 $(MID_SUBDIR)/mus_rg_encounter_rival.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G174 -V079
+	$(MID) $< $@ -E -R$(STD_REVERB) -G027 -V127
 
 $(MID_SUBDIR)/mus_rg_rival_exit.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G174 -V079
@@ -535,7 +535,7 @@ $(MID_SUBDIR)/mus_rg_vs_deoxys.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G185 -V080
 
 $(MID_SUBDIR)/mus_rg_vs_gym_leader.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G155 -V090
+	$(MID) $< $@ -E -R$(STD_REVERB) -G121 -V123
 
 $(MID_SUBDIR)/mus_rg_vs_champion.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G158 -V090
@@ -544,7 +544,7 @@ $(MID_SUBDIR)/mus_rg_vs_mewtwo.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G157 -V090
 
 $(MID_SUBDIR)/mus_rg_vs_trainer.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G156 -V090
+	$(MID) $< $@ -E -R$(STD_REVERB) -G200 -V127
 
 $(MID_SUBDIR)/mus_rg_vs_wild.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G157 -V090

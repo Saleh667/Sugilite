@@ -16,7 +16,7 @@
 .include "sound/voicegroups/voicegroup015.inc"
 .include "sound/voicegroups/voicegroup016.inc"
 .include "sound/voicegroups/voicegroup017.inc"
-.include "sound/voicegroups/voicegroup018.inc"
+.include "sound/voicegroups/voicegroup018.inc" @ unused
 .include "sound/voicegroups/voicegroup019.inc"
 .include "sound/voicegroups/voicegroup020.inc"
 .include "sound/voicegroups/voicegroup021.inc"
@@ -154,8 +154,8 @@
 .include "sound/voicegroups/voicegroup152.inc"
 .include "sound/voicegroups/voicegroup153.inc"
 .include "sound/voicegroups/voicegroup154.inc"
-.include "sound/voicegroups/voicegroup155.inc"
-.include "sound/voicegroups/voicegroup156.inc"
+.include "sound/voicegroups/voicegroup155.inc" @ unused
+.include "sound/voicegroups/voicegroup156.inc" @ unused
 .include "sound/voicegroups/voicegroup157.inc"
 .include "sound/voicegroups/voicegroup158.inc"
 .include "sound/voicegroups/voicegroup159.inc"
