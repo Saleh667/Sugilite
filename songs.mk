@@ -202,7 +202,7 @@ $(MID_SUBDIR)/mus_encounter_interviewer.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G099 -V062
 
 $(MID_SUBDIR)/mus_victory_trainer.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G058 -V127
+	$(MID) $< $@ -E -R$(STD_REVERB) -G058 -V091
 
 $(MID_SUBDIR)/mus_victory_wild.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G025 -V080
