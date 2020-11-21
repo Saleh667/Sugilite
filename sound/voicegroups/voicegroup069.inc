@@ -13,7 +13,7 @@ voicegroup069:: @ 8689474
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86894EC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86894F8
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8689504
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8689510
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204  @ 8689510
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 868951C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8689528
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8689534
@@ -47,7 +47,7 @@ voicegroup069:: @ 8689474
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8689684
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 226, 0, 38  @ 8689690
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 868969C
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86896A8
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 246, 0, 204  @ 86896A8
 	voice_keysplit voicegroup006, KeySplitTable2  @ 86896B4
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86896C0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86896CC
@@ -80,8 +80,8 @@ voicegroup069:: @ 8689474
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8689810
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 868981C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8689828
-	voice_square_1_alt 60, 0, 0, 0, 0, 1, 4, 1  @ 8689834
-	voice_square_2_alt 60, 0, 0, 0, 1, 4, 1  @ 8689840
+	voice_square_2_alt 60, 0, 3, 0, 2, 4, 2  @ 8689834
+	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4890, 0, 4, 0, 2  @ 8689840
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 868984C
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4890, 0, 7, 15, 3  @ 8689858
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8689864
