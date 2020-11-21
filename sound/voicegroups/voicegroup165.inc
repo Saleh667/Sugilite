@@ -50,7 +50,7 @@ voicegroup165:: @ 86AC538
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AC76C
 	voice_keysplit voicegroup006, KeySplitTable2  @ 86AC778
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AC784
-	voice_square_1_alt 60, 0, 0, 2, 0, 2, 10, 1  @ 86AC790
+	voice_square_1_alt 60, 0, 0, 2, 2, 0, 6, 1  @ 86AC790
 	voice_square_2_alt 60, 0, 2, 0, 2, 6, 6  @ 86AC79C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AC7A8
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AC7B4
