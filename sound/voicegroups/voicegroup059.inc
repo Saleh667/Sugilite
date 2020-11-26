@@ -36,7 +36,7 @@ voicegroup059:: @ 8685A48
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8685BD4
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8685BE0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8685BEC
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8685BF8
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 235, 128, 115  @ 8685BF8
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8685C04
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8685C10
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8685C1C
