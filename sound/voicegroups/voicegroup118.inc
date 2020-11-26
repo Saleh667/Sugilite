@@ -7,8 +7,8 @@ voicegroup118:: @ 869A82C
 	voice_square_2 60, 0, 0, 0, 1, 7, 1  @ 869A85C
 	voice_square_1 60, 0, 0, 0, 0, 1, 7, 1  @ 869A868
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A874
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A880
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A88C
+	voice_square_2 60, 0, 2, 0, 4, 0, 1  @ 869A880
+	voice_square_1 60, 0, 0, 2, 0, 4, 0, 1  @ 869A88C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A898
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A8A4
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A8B0
@@ -56,7 +56,7 @@ voicegroup118:: @ 869A82C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869AAA8
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869AAB4
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869AAC0
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869AACC
+	voice_keysplit voicegroup007, KeySplitTable3  @ 869AACC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869AAD8
 	voice_keysplit voicegroup008, KeySplitTable4  @ 869AAE4
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869AAF0
@@ -80,11 +80,11 @@ voicegroup118:: @ 869A82C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869ABC8
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869ABD4
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869ABE0
-	voice_square_2 60, 0, 2, 0, 1, 7, 1  @ 869ABEC
+	voice_square_1 60, 0, 0, 1, 0, 1, 7, 1  @ 869AC04
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4850, 0, 7, 15, 2  @ 869ABF8
-	voice_square_1 60, 0, 0, 2, 0, 1, 7, 1  @ 869AC04
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869AC10
-	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4880, 0, 7, 15, 2  @ 869AC1C
+	voice_square_2 60, 0, 1, 1, 0, 7, 1  @ 869ABEC
+	voice_square_2 60, 0, 1, 0, 1, 7, 1  @ 869AC10
+	voice_square_1 60, 0, 0, 3, 1, 0, 7, 1  @ 869AC1C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869AC28
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869AC34
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869AC40
