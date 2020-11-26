@@ -1315,15 +1315,14 @@ static void Task_NewGameBirchSpeech_Init(u8 taskId)
     ShowBg(1);
 }
 
-#define TIMING_PER_WALK_CYCLE_FRAME 12
+#define TIMING_PER_WALK_CYCLE_FRAME 14
+//#define INTERPOLATE_WALK_CYCLE
 
 static void Task_NewGameBirchSpeech_WalkOutToCenterStage(u8 taskId)
 {
-    if (gTasks[taskId].tTimer < 136)
+    if (gTasks[taskId].tTimer < 108)
     {
         u8 spriteId;
-
-        gTasks[taskId].tTimer += 1;
 
         if((gTasks[taskId].tTimer / TIMING_PER_WALK_CYCLE_FRAME) % 4 == 0){
             spriteId = gTasks[taskId].tBirchWalk1SpriteId;
@@ -1350,9 +1349,16 @@ static void Task_NewGameBirchSpeech_WalkOutToCenterStage(u8 taskId)
             gSprites[gTasks[taskId].tBirchWalk3SpriteId].invisible = FALSE;
         }
 
-        gSprites[spriteId].pos1.x = gTasks[taskId].tTimer;
+#ifdef INTERPOLATE_WALK_CYCLE
+        if(gTasks[taskId].tTimer % TIMING_PER_WALK_CYCLE_FRAME == 0 || gTasks[taskId].tTimer == -30){
+            gSprites[spriteId].pos1.x = (gTasks[taskId].tTimer * -1) + 240;
+        }
+#else
+        gSprites[spriteId].pos1.x = (gTasks[taskId].tTimer * -1) + 240;
+#endif
         gSprites[spriteId].pos1.y = 60;
-        //gSprites[spriteId].oam.objMode = ST_OAM_OBJ_BLEND;
+
+        gTasks[taskId].tTimer += 1;
     }
     else
     {
@@ -1374,6 +1380,9 @@ static void Task_NewGameBirchSpeech_WalkOutToCenterStage(u8 taskId)
     }
     
 }
+
+#undef TIMING_PER_WALK_CYCLE_FRAME
+#undef INTERPOLATE_WALK_CYCLE
 
 static void Task_NewGameBirchSpeech_TurnOnSpotlight(u8 taskId)
 {
