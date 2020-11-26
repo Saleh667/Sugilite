@@ -7,7 +7,7 @@ $(MID_SUBDIR)/mus_aqua_magma_hideout.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G076 -V084
 
 $(MID_SUBDIR)/mus_encounter_aqua.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G065 -V086
+	$(MID) $< $@ -E -R$(STD_REVERB) -G059 -V080
 
 $(MID_SUBDIR)/mus_route111.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G055 -V076
@@ -49,7 +49,7 @@ $(MID_SUBDIR)/mus_vs_aqua_magma_leader.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G126 -V080 -P1
 
 $(MID_SUBDIR)/mus_vs_aqua_magma.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G118 -V080 -P1
+	$(MID) $< $@ -E -R$(STD_REVERB) -G118 -V127 -P1
 
 $(MID_SUBDIR)/mus_vs_gym_leader.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G120 -V080 -P1
@@ -472,7 +472,7 @@ $(MID_SUBDIR)/mus_rg_encounter_rival.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G027 -V127
 
 $(MID_SUBDIR)/mus_rg_rival_exit.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G174 -V079
+	$(MID) $< $@ -E -R$(STD_REVERB) -G200 -V100
 
 $(MID_SUBDIR)/mus_rg_encounter_rocket.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G142 -V096

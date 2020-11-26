@@ -63,7 +63,7 @@
 .include "sound/voicegroups/voicegroup062.inc"
 .include "sound/voicegroups/voicegroup063.inc"
 .include "sound/voicegroups/voicegroup064.inc"
-.include "sound/voicegroups/voicegroup065.inc"
+.include "sound/voicegroups/voicegroup065.inc" @ unused
 .include "sound/voicegroups/voicegroup066.inc"
 .include "sound/voicegroups/voicegroup067.inc"
 .include "sound/voicegroups/voicegroup068.inc"
