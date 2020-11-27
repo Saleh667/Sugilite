@@ -187,7 +187,7 @@ $(MID_SUBDIR)/mus_route119.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G048 -V096
 
 $(MID_SUBDIR)/mus_encounter_intense.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G062 -V078
+	$(MID) $< $@ -E -R$(STD_REVERB) -G069 -V127
 
 $(MID_SUBDIR)/mus_weather_groudon.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G090 -V050
@@ -238,7 +238,7 @@ $(MID_SUBDIR)/mus_sealed_chamber.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G084 -V100
 
 $(MID_SUBDIR)/mus_petalburg.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G015 -V080
+	$(MID) $< $@ -E -R$(STD_REVERB) -G165 -V127
 
 $(MID_SUBDIR)/mus_fortree.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G032 -V080
@@ -475,7 +475,7 @@ $(MID_SUBDIR)/mus_rg_rival_exit.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G200 -V100
 
 $(MID_SUBDIR)/mus_rg_encounter_rocket.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G142 -V096
+	$(MID) $< $@ -E -R$(STD_REVERB) -G165 -V125
 
 $(MID_SUBDIR)/mus_rg_ss_anne.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G163 -V090
