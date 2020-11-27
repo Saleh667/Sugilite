@@ -12,8 +12,8 @@
 .include "sound/voicegroups/voicegroup011.inc" @ unused
 .include "sound/voicegroups/voicegroup012.inc"
 .include "sound/voicegroups/voicegroup013.inc"
-.include "sound/voicegroups/voicegroup014.inc" @ unused
-.include "sound/voicegroups/voicegroup015.inc"
+.include "sound/voicegroups/voicegroup014.inc"
+.include "sound/voicegroups/voicegroup015.inc" @ unused
 .include "sound/voicegroups/voicegroup016.inc"
 .include "sound/voicegroups/voicegroup017.inc"
 .include "sound/voicegroups/voicegroup018.inc" @ unused
