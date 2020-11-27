@@ -1,6 +1,6 @@
 	.align 2
 voicegroup069:: @ 8689474
-	voice_keysplit_all voicegroup001  @ 8689474
+	voice_keysplit_all voicegroup002  @ 8689474
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8689480
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 868948C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8689498
@@ -29,7 +29,7 @@ voicegroup069:: @ 8689474
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86895AC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86895B8
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86895C4
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86895D0
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_overdrive_guitar, 255, 0, 255, 204  @ 86895D0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86895DC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86895E8
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86895F4
@@ -81,7 +81,7 @@ voicegroup069:: @ 8689474
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 868981C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8689828
 	voice_square_2_alt 60, 0, 3, 0, 2, 4, 2  @ 8689834
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 868984C
+	voice_square_1 60, 0, 0, 3, 0, 2, 4, 2  @ 868984C
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4890, 0, 4, 0, 2  @ 8689840
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4890, 0, 7, 15, 3  @ 8689858
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8689864
