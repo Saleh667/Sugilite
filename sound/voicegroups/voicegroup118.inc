@@ -7,8 +7,8 @@ voicegroup118:: @ 869A82C
 	voice_square_2 60, 0, 0, 0, 1, 7, 1  @ 869A85C
 	voice_square_1 60, 0, 0, 0, 0, 1, 7, 1  @ 869A868
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A874
-	voice_square_2 60, 0, 2, 0, 4, 0, 1  @ 869A880
-	voice_square_1 60, 0, 0, 2, 0, 4, 0, 1  @ 869A88C
+	voice_square_2 60, 0, 2, 0, 4, 0, 2  @ 869A880
+	voice_square_1 60, 0, 0, 2, 0, 4, 0, 2  @ 869A88C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A898
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A8A4
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A8B0
