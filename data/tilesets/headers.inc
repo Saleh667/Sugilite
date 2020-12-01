@@ -852,3 +852,14 @@ gTileset_Outside::
 	.4byte gMetatiles_Outside
 	.4byte gMetatileAttributes_Outside
 	.4byte InitTilesetAnim_Outside
+
+	.align 2
+gTileset_Indoors::
+	.byte TRUE @ is compressed
+	.byte FALSE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_Indoors
+	.4byte gTilesetPalettes_Indoors
+	.4byte gMetatiles_Indoors
+	.4byte gMetatileAttributes_Indoors
+	.4byte NULL

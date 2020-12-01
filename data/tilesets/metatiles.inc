@@ -572,3 +572,10 @@ gMetatiles_Outside::
 	.align 1
 gMetatileAttributes_Outside::
 	.incbin "data/tilesets/primary/outside/metatile_attributes.bin"
+	.align 1
+gMetatiles_Indoors::
+	.incbin "data/tilesets/primary/indoors/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_Indoors::
+	.incbin "data/tilesets/primary/indoors/metatile_attributes.bin"

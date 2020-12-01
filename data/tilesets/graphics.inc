@@ -1769,3 +1769,23 @@ gTilesetPalettes_Outside::
 	.align 2
 gTilesetTiles_Outside::
 	.incbin "data/tilesets/primary/outside/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_Indoors::
+	.incbin "data/tilesets/primary/indoors/palettes/00.gbapal"
+	.incbin "data/tilesets/primary/indoors/palettes/01.gbapal"
+	.incbin "data/tilesets/primary/indoors/palettes/02.gbapal"
+	.incbin "data/tilesets/primary/indoors/palettes/03.gbapal"
+	.incbin "data/tilesets/primary/indoors/palettes/04.gbapal"
+	.incbin "data/tilesets/primary/indoors/palettes/05.gbapal"
+	.incbin "data/tilesets/primary/indoors/palettes/06.gbapal"
+	.incbin "data/tilesets/primary/indoors/palettes/07.gbapal"
+	.incbin "data/tilesets/primary/indoors/palettes/08.gbapal"
+	.incbin "data/tilesets/primary/indoors/palettes/09.gbapal"
+	.incbin "data/tilesets/primary/indoors/palettes/10.gbapal"
+	.incbin "data/tilesets/primary/indoors/palettes/11.gbapal"
+	.incbin "data/tilesets/primary/indoors/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_Indoors::
+	.incbin "data/tilesets/primary/indoors/tiles.4bpp.lz"
