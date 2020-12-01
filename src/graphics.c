@@ -661,7 +661,15 @@ const u32 gUnusedTilemap_BasicFrame[] = INCBIN_U32("graphics/unused/basic_frame.
 
 // Battle Interface
 
-const u16 gBattleInterface_BallStatusBarPal[] = INCBIN_U16("graphics/battle_interface/ball_status_bar.gbapal");
+//Pyredrid:  So i have no fricking clue what GF was doing here.  It might have been some
+//              weird optimization in their build pipeline, or some junior dev being
+//              clever.  In any case, I've changed this to use a seperate file for the
+//              pallete of most ui elements.  Should be easier for non-technical people
+//              to work with I hope?  In any case, yea, healthboxes, the ball status bar,
+//              etc. all use the battle_ui_palette.pal file now.
+
+//const u16 gBattleInterface_BallStatusBarPal[] = INCBIN_U16("graphics/battle_interface/ball_status_bar.gbapal");
+const u16 gBattleInterface_BallStatusBarPal[] = INCBIN_U16("graphics/battle_interface/battle_ui_palette.gbapal");
 
 const u16 gBattleInterface_BallDisplayPal[] = INCBIN_U16("graphics/battle_interface/ball_display.gbapal");
 
