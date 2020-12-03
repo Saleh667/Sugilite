@@ -4434,7 +4434,7 @@
     {
       "id": "LAYOUT_ROUTE402",
       "name": "Route402_Layout",
-      "width": 60,
+      "width": 66,
       "height": 20,
       "primary_tileset": "gTileset_Outside",
       "secondary_tileset": "gTileset_Kurosiba",
