@@ -32,7 +32,7 @@ voicegroup002:: @ 8676148
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86762A4
 	voice_directsound_no_resample 30, 54, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 255, 246, 0, 216  @ 86762B0
 	voice_directsound_no_resample 30, 64, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 8, 0, 255, 216  @ 86762BC
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86762C8
+	voice_directsound 48, 0, DirectSoundWaveData_sc88pro_timpani_with_snare, 255, 246, 0, 226  @ 86762C8
 	voice_directsound_no_resample 72, 104, DirectSoundWaveData_sc88pro_mute_high_conga, 255, 0, 255, 0  @ 86762D4
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86762E0
 	voice_directsound_no_resample 72, 94, DirectSoundWaveData_sc88pro_open_low_conga, 255, 0, 255, 0  @ 86762EC
