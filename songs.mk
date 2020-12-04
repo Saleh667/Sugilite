@@ -133,7 +133,7 @@ $(MID_SUBDIR)/mus_route122.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G021 -V080
 
 $(MID_SUBDIR)/mus_route101.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G200 -V127
+	$(MID) $< $@ -E -R$(STD_REVERB) -G200 -V100
 
 $(MID_SUBDIR)/mus_dummy.s: %.s: %.mid
 	$(MID) $< $@ -E -R40
@@ -472,7 +472,7 @@ $(MID_SUBDIR)/mus_rg_encounter_rival.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G027 -V127
 
 $(MID_SUBDIR)/mus_rg_rival_exit.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G200 -V100
+	$(MID) $< $@ -E -R$(STD_REVERB) -G200 -V108
 
 $(MID_SUBDIR)/mus_rg_encounter_rocket.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G165 -V125
@@ -610,7 +610,7 @@ $(MID_SUBDIR)/mus_credits.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G101 -V100
 
 $(MID_SUBDIR)/mus_title.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G059 -V090
+	$(MID) $< $@ -E -R$(STD_REVERB) -G059 -V127
 
 $(MID_SUBDIR)/mus_fallarbor.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G083 -V100
