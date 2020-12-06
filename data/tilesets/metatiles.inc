@@ -579,3 +579,17 @@ gMetatiles_Indoors::
 	.align 1
 gMetatileAttributes_Indoors::
 	.incbin "data/tilesets/primary/indoors/metatile_attributes.bin"
+	.align 1
+gMetatiles_Ivywood::
+	.incbin "data/tilesets/secondary/ivywood/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_Ivywood::
+	.incbin "data/tilesets/secondary/ivywood/metatile_attributes.bin"
+	.align 1
+gMetatiles_darkwoods::
+	.incbin "data/tilesets/secondary/darkwoods/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_darkwoods::
+	.incbin "data/tilesets/secondary/darkwoods/metatile_attributes.bin"

@@ -863,3 +863,25 @@ gTileset_Indoors::
 	.4byte gMetatiles_Indoors
 	.4byte gMetatileAttributes_Indoors
 	.4byte NULL
+
+	.align 2
+gTileset_Ivywood::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_Ivywood
+	.4byte gTilesetPalettes_Ivywood
+	.4byte gMetatiles_Ivywood
+	.4byte gMetatileAttributes_Ivywood
+	.4byte NULL
+
+	.align 2
+gTileset_darkwoods::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_darkwoods
+	.4byte gTilesetPalettes_darkwoods
+	.4byte gMetatiles_darkwoods
+	.4byte gMetatileAttributes_darkwoods
+	.4byte NULL

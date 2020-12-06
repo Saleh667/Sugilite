@@ -1789,3 +1789,43 @@ gTilesetPalettes_Indoors::
 	.align 2
 gTilesetTiles_Indoors::
 	.incbin "data/tilesets/primary/indoors/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_Ivywood::
+	.incbin "data/tilesets/secondary/ivywood/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/ivywood/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/ivywood/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/ivywood/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/ivywood/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/ivywood/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/ivywood/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/ivywood/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/ivywood/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/ivywood/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/ivywood/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/ivywood/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/ivywood/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_Ivywood::
+	.incbin "data/tilesets/secondary/ivywood/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_darkwoods::
+	.incbin "data/tilesets/secondary/darkwoods/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/darkwoods/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/darkwoods/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/darkwoods/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/darkwoods/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/darkwoods/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/darkwoods/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/darkwoods/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/darkwoods/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/darkwoods/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/darkwoods/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/darkwoods/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/darkwoods/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_darkwoods::
+	.incbin "data/tilesets/secondary/darkwoods/tiles.4bpp.lz"
