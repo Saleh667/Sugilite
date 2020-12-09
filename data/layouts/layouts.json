@@ -4437,7 +4437,7 @@
       "width": 66,
       "height": 20,
       "primary_tileset": "gTileset_Outside",
-      "secondary_tileset": "gTileset_Kurosiba",
+      "secondary_tileset": "gTileset_Ivywood",
       "border_filepath": "data/layouts/Route402/border.bin",
       "blockdata_filepath": "data/layouts/Route402/map.bin"
     },
@@ -4450,6 +4450,16 @@
       "secondary_tileset": "gTileset_Kurosiba",
       "border_filepath": "data/layouts/TilesetTestIndoors/border.bin",
       "blockdata_filepath": "data/layouts/TilesetTestIndoors/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEST_MAP",
+      "name": "TestMap_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Outside",
+      "secondary_tileset": "gTileset_Ivywood",
+      "border_filepath": "data/layouts/TestMap/border.bin",
+      "blockdata_filepath": "data/layouts/TestMap/map.bin"
     }
   ]
 }

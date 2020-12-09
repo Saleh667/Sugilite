@@ -62,6 +62,7 @@
 #define MAP_KUROSIBA_TOWN       (57 | (0 << 8))
 #define MAP_ROUTE401            (58 | (0 << 8))
 #define MAP_ROUTE402            (59 | (0 << 8))
+#define MAP_TEST_MAP            (60 | (0 << 8))
 
 // Map Group 1
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
