@@ -1070,3 +1070,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/TilesetTestIndoors/scripts.inc"
 
 	.include "data/maps/TestMap/scripts.inc"
+
+	.include "data/maps/IvywoodTown/scripts.inc"
