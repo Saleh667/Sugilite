@@ -1,6 +1,6 @@
 	.align 2
 voicegroup021:: @ 867A1D4
-	voice_keysplit_all voicegroup001  @ 867A1D4
+	voice_keysplit_all voicegroup201  @ 867A1D4
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 867A1E0
 	voice_square_2_alt 60, 0, 3, 0, 2, 0, 0  @ 867A1EC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 867A1F8
@@ -14,7 +14,7 @@ voicegroup021:: @ 867A1D4
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 867A258
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 867A264
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 867A270
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 867A27C
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 216, 90, 242  @ 867A27C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 867A288
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 867A294
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 867A2A0
