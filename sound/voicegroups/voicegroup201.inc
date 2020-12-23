@@ -33,7 +33,7 @@ voicegroup201:: @ 8F00600 Custom Voicegroup Drumset
 	voice_directsound_no_resample 30, 75, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 255, 246, 0, 216  @ 30 F#0 (Sustained Crash)
 	voice_directsound_no_resample 30, 64, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 8, 0, 255, 216  @ 31 G0 (Reverse Cymbal)
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 32 G#0
-	voice_directsound_no_resample 72, 104, DirectSoundWaveData_sc88pro_mute_high_conga, 255, 0, 255, 0  @ 33 A0
+	voice_directsound 57, 34, DirectSoundWaveData_sc88pro_mute_high_conga, 255, 0, 255, 0  @ 33 A0
 	voice_directsound_no_resample 72, 64, DirectSoundWaveData_unknown_snare, 255, 0, 255, 127  @ 34 A#0
 	voice_directsound 60, 64, DirectSoundWaveData_drum_and_percussion_kick, 255, 0, 255, 127  @ 35 B0
 	voice_directsound 60, 64, DirectSoundWaveData_drum_and_percussion_kick, 255, 0, 255, 0  @ 36 C1
@@ -62,9 +62,9 @@ voicegroup201:: @ 8F00600 Custom Voicegroup Drumset
 	voice_directsound_no_resample 64, 54, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 255, 247, 0, 231  @ 59 B2
 	voice_directsound_no_resample 64, 69, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 5, 0, 255, 216  @ 60 C3
 	voice_directsound_no_resample 64, 94, DirectSoundWaveData_unused_heart_of_asia_indian_drum, 255, 0, 255, 0  @ 61 C#3
-	voice_directsound_no_resample 64, 34, DirectSoundWaveData_sc88pro_mute_high_conga, 255, 0, 255, 0  @ 62 D3
-	voice_directsound_no_resample 64, 34, DirectSoundWaveData_sc88pro_open_low_conga, 255, 0, 255, 0  @ 63 D#3
-	voice_directsound_no_resample 64, 90, DirectSoundWaveData_sc88pro_open_low_conga, 255, 0, 255, 0  @ 64 E3
+	voice_directsound_no_resample 72, 104, DirectSoundWaveData_sc88pro_mute_high_conga, 255, 0, 255, 0  @ 62 D3
+	voice_directsound 64, 64, DirectSoundWaveData_sc88pro_open_low_conga, 255, 0, 255, 0  @ 63 D#3
+	voice_directsound_no_resample 72, 90, DirectSoundWaveData_sc88pro_open_low_conga, 255, 0, 255, 0  @ 64 E3
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 65 F3
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 66 F#3
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 67 G3
