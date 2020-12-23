@@ -10,7 +10,7 @@ $(MID_SUBDIR)/mus_encounter_aqua.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G059 -V080
 
 $(MID_SUBDIR)/mus_route111.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G055 -V076
+	$(MID) $< $@ -E -R$(STD_REVERB) -G055 -V136
 
 $(MID_SUBDIR)/mus_encounter_suspicious.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G069 -V104

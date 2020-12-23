@@ -4265,3 +4265,7 @@ DirectSoundWaveData_mlrpg3_harpsichord_79::
 	.align 2
 DirectSoundWaveData_mlrpg3_harpsichord_92::
 	.incbin "sound/direct_sound_samples/mlrpg3_harpsichord_92.bin"
+
+	.align 2
+DirectSoundWaveData_superstarsaga_ocarina::
+	.incbin "sound/direct_sound_samples/superstarsaga_ocarina.bin"
