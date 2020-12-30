@@ -126,6 +126,24 @@
 	create_movement_action figure_8
 	create_movement_action fly_up
 	create_movement_action fly_down
+	create_movement_action emote_music
+	create_movement_action emote_idea
+	create_movement_action emote_sweat
+	create_movement_action emote_happy
+	create_movement_action emote_angry
+	create_movement_action emote_circle
+	create_movement_action emote_x
+	create_movement_action emote_fist
+	create_movement_action emote_peace
+	create_movement_action emote_hand
+	create_movement_action emote_drooling
+	create_movement_action emote_flex
+	create_movement_action emote_devilish
+	create_movement_action emote_defeat
+	create_movement_action emote_anguish
+	create_movement_action emote_ellipsis
+	create_movement_action emote_gloom
+	
 
 	enum_start 0xfe
 	create_movement_action step_end

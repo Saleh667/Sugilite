@@ -72,6 +72,91 @@ gFieldEffectScriptPointers:: @ 82DB9D4
 	.4byte gFieldEffectScript_RayquazaSpotlight         @ FLDEFF_RAYQUAZA_SPOTLIGHT
 	.4byte gFieldEffectScript_DestroyDeoxysRock         @ FLDEFF_DESTROY_DEOXYS_ROCK
 	.4byte gFieldEffectScript_MoveDeoxysRock            @ FLDEFF_MOVE_DEOXYS_ROCK
+	.4byte gFieldEffectScript_MusicalNoteIcon
+	.4byte gFieldEffectScript_LightbulbIcon
+	.4byte gFieldEffectScript_WaterDropletIcon
+	.4byte gFieldEffectScript_HappyIcon
+	.4byte gFieldEffectScript_AngryIcon
+	.4byte gFieldEffectScript_CircleIcon
+	.4byte gFieldEffectScript_XIcon
+	.4byte gFieldEffectScript_FistIcon
+	.4byte gFieldEffectScript_PeaceIcon
+	.4byte gFieldEffectScript_HandIcon
+	.4byte gFieldEffectScript_DroolingIcon
+	.4byte gFieldEffectScript_FlexIcon
+	.4byte gFieldEffectScript_DevilishIcon
+	.4byte gFieldEffectScript_DefeatIcon
+	.4byte gFieldEffectScript_AnguishIcon
+	.4byte gFieldEffectScript_EllipsisIcon
+	.4byte gFieldEffectScript_GloomIcon
+	
+gFieldEffectScript_GloomIcon::
+	field_eff_callnative FldEff_GloomIcon
+	field_eff_end
+	
+gFieldEffectScript_EllipsisIcon::
+	field_eff_callnative FldEff_EllipsisIcon
+	field_eff_end
+	
+gFieldEffectScript_AnguishIcon::
+	field_eff_callnative FldEff_AnguishIcon
+	field_eff_end
+	
+gFieldEffectScript_DefeatIcon::
+	field_eff_callnative FldEff_DefeatIcon
+	field_eff_end
+	
+gFieldEffectScript_DevilishIcon::
+	field_eff_callnative FldEff_DevilishIcon
+	field_eff_end
+	
+gFieldEffectScript_FlexIcon::
+	field_eff_callnative FldEff_FlexIcon
+	field_eff_end
+	
+gFieldEffectScript_DroolingIcon::
+	field_eff_callnative FldEff_DroolingIcon
+	field_eff_end
+	
+gFieldEffectScript_HandIcon::
+	field_eff_callnative FldEff_HandIcon
+	field_eff_end
+	
+gFieldEffectScript_PeaceIcon::
+	field_eff_callnative FldEff_PeaceIcon
+	field_eff_end
+	
+gFieldEffectScript_FistIcon::
+	field_eff_callnative FldEff_FistIcon
+	field_eff_end
+	
+gFieldEffectScript_XIcon::
+	field_eff_callnative FldEff_XIcon
+	field_eff_end
+	
+gFieldEffectScript_CircleIcon::
+	field_eff_callnative FldEff_CircleIcon
+	field_eff_end
+	
+gFieldEffectScript_AngryIcon::
+	field_eff_callnative FldEff_AngryIcon
+	field_eff_end
+	
+gFieldEffectScript_HappyIcon::
+	field_eff_callnative FldEff_HappyIcon
+	field_eff_end
+	
+gFieldEffectScript_WaterDropletIcon::
+	field_eff_callnative FldEff_WaterDropletIcon
+	field_eff_end
+	
+gFieldEffectScript_LightbulbIcon::
+	field_eff_callnative FldEff_LightbulbIcon
+	field_eff_end
+	
+gFieldEffectScript_MusicalNoteIcon::
+	field_eff_callnative FldEff_MusicalNoteIcon
+	field_eff_end
 
 gFieldEffectScript_ExclamationMarkIcon1:: @ 82DBAE0
 	field_eff_callnative FldEff_ExclamationMarkIcon

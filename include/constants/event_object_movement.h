@@ -241,6 +241,23 @@
 #define MOVEMENT_ACTION_FIGURE_8                        0x9B
 #define MOVEMENT_ACTION_FLY_UP                          0x9C
 #define MOVEMENT_ACTION_FLY_DOWN                        0x9D
+#define MOVEMENT_ACTION_EMOTE_MUSIC                     0x9E
+#define MOVEMENT_ACTION_EMOTE_IDEA                      0x9F
+#define MOVEMENT_ACTION_EMOTE_SWEAT                     0xA0
+#define MOVEMENT_ACTION_EMOTE_HAPPY                     0xA1
+#define MOVEMENT_ACTION_EMOTE_ANGRY                     0xA2
+#define MOVEMENT_ACTION_EMOTE_CIRCLE                    0xA3
+#define MOVEMENT_ACTION_EMOTE_X                         0xA4
+#define MOVEMENT_ACTION_EMOTE_FIST                      0xA5
+#define MOVEMENT_ACTION_EMOTE_PEACE                     0xA6
+#define MOVEMENT_ACTION_EMOTE_HAND                      0xA7
+#define MOVEMENT_ACTION_EMOTE_DROOLING                  0xA8
+#define MOVEMENT_ACTION_EMOTE_FLEX                      0xA9
+#define MOVEMENT_ACTION_EMOTE_DEVILISH                  0xAA
+#define MOVEMENT_ACTION_EMOTE_DEFEAT                    0xAB
+#define MOVEMENT_ACTION_EMOTE_ANGUISH                   0xAC
+#define MOVEMENT_ACTION_EMOTE_ELLIPSIS                  0xAD
+#define MOVEMENT_ACTION_EMOTE_GLOOM                     0xAE
 
 #define MOVEMENT_ACTION_STEP_END 0xFE
 

@@ -20,8 +20,10 @@
 #include "constants/field_effects.h"
 #include "constants/trainer_types.h"
 
+#define OBJ_EVENT_PAL_TAG_EMOTES 0x1124
+
 extern const struct SpritePalette sObjectEventSpritePalettes[];
-extern const struct SpritePalette gObjectEventPalette0;
+extern const struct SpritePalette gEmotesPalette;
 
 // this file's functions
 static u8 CheckTrainer(u8 objectEventId);
@@ -31,6 +33,7 @@ static void TrainerApproachPlayer(struct ObjectEvent *trainerObj, u8 range);
 static void Task_RunTrainerSeeFuncList(u8 taskId);
 static void Task_DestroyTrainerApproachTask(u8 taskId);
 static void SetIconSpriteData(struct Sprite *sprite, u16 fldEffId, u8 spriteAnimNum);
+static void CreateEmoteIcon(u16 iconId, u8 animId);
 
 static u8 GetTrainerApproachDistanceSouth(struct ObjectEvent *trainerObj, s16 range, s16 x, s16 y);
 static u8 GetTrainerApproachDistanceNorth(struct ObjectEvent *trainerObj, s16 range, s16 x, s16 y);
@@ -63,9 +66,7 @@ bool8 gTrainerApproachedPlayer;
 EWRAM_DATA u8 gApproachingTrainerId = 0;
 
 // const rom data
-static const u8 sEmotion_ExclamationMarkGfx[] = INCBIN_U8("graphics/misc/emotion_exclamation.4bpp");
-static const u8 sEmotion_QuestionMarkGfx[] = INCBIN_U8("graphics/misc/emotion_question.4bpp");
-static const u8 sEmotion_HeartGfx[] = INCBIN_U8("graphics/misc/emotion_heart.4bpp");
+static const u8 sEmotes[] = INCBIN_U8("graphics/misc/emotes.4bpp");
 
 static u8 (*const sDirectionalApproachDistanceFuncs[])(struct ObjectEvent *trainerObj, s16 range, s16 x, s16 y) =
 {
@@ -116,62 +117,241 @@ static const struct OamData sOamData_Icons =
     .affineParam = 0,
 };
 
-static const struct SpriteFrameImage sSpriteImageTable_ExclamationQuestionMark[] =
+static const struct SpriteFrameImage sSpriteImageTable_Emotes[] =
 {
     {
-        .data = sEmotion_ExclamationMarkGfx,
+        .data = sEmotes, //exclamation
         .size = 0x80
     },
     {
-        .data = sEmotion_QuestionMarkGfx,
+        .data = sEmotes + 0x80, //question mark
         .size = 0x80
-    }
-};
-
-static const struct SpriteFrameImage sSpriteImageTable_HeartIcon[] =
-{
+    },
     {
-        .data = sEmotion_HeartGfx,
-        .size = 0x80
+        .data = sEmotes + 0x100, //heart
+	.size = 0x80
+    },
+    {
+        .data = sEmotes + 0x180, //musical note
+	.size = 0x80
+    },
+    {
+        .data = sEmotes + 0x200, //idea
+	.size = 0x80
+    },
+    {
+        .data = sEmotes + 0x280, //droplet
+	.size = 0x80
+    },
+    {
+        .data = sEmotes + 0x300, //happy
+	.size = 0x80
+    },
+    {
+        .data = sEmotes + 0x380, //angery
+	.size = 0x80
+    },
+    {
+        .data = sEmotes + 0x400, //circle
+	.size = 0x80
+    },
+    {
+        .data = sEmotes + 0x480, //x
+	.size = 0x80
+    },
+    {
+        .data = sEmotes + 0x500, //fist
+	.size = 0x80
+    },
+    {
+        .data = sEmotes + 0x580, //peace
+	.size = 0x80
+    },
+    {
+        .data = sEmotes + 0x600, //hand
+	.size = 0x80
+    },
+    {
+        .data = sEmotes + 0x680, //drooling
+	.size = 0x80
+    },
+    {
+        .data = sEmotes + 0x700, //mooscles
+	.size = 0x80
+    },
+    {
+        .data = sEmotes + 0x780, //devilish
+	.size = 0x80
+    },
+    {
+        .data = sEmotes + 0x800, //defeated
+	.size = 0x80
+    },
+    {
+        .data = sEmotes + 0x880, //anguish
+	.size = 0x80
+    },
+    {
+        .data = sEmotes + 0x900, //tripledot
+	.size = 0x80
+    },
+    {
+        .data = sEmotes + 0x980, //reality sinks in
+	.size = 0x80
     }
 };
 
-static const union AnimCmd sSpriteAnim_Icons1[] =
+static const union AnimCmd sSpriteAnim_Exclamation[] =
 {
     ANIMCMD_FRAME(0, 60),
     ANIMCMD_END
 };
 
-static const union AnimCmd sSpriteAnim_Icons2[] =
+static const union AnimCmd sSpriteAnim_QuestionMark[] =
 {
     ANIMCMD_FRAME(1, 60),
     ANIMCMD_END
 };
 
+static const union AnimCmd sSpriteAnim_Heart[] =
+{
+    ANIMCMD_FRAME(2, 60),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_MusicalNote[] =
+{
+    ANIMCMD_FRAME(3, 60),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_Lightbulb[] =
+{
+    ANIMCMD_FRAME(4, 60),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_Sweat[] =
+{
+    ANIMCMD_FRAME(5, 60),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_Happy[] =
+{
+    ANIMCMD_FRAME(6, 60),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_Angry[] =
+{
+    ANIMCMD_FRAME(7, 60),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_Circle[] =
+{
+    ANIMCMD_FRAME(8, 60),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_X[] =
+{
+    ANIMCMD_FRAME(9, 60),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_Fist[] =
+{
+    ANIMCMD_FRAME(10, 60),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_Peace[] =
+{
+    ANIMCMD_FRAME(11, 60),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_Hand[] =
+{
+    ANIMCMD_FRAME(12, 60),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_Drooling[] =
+{
+    ANIMCMD_FRAME(13, 60),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_Flex[] =
+{
+    ANIMCMD_FRAME(14, 60),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_Devilish[] =
+{
+    ANIMCMD_FRAME(15, 60),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_Defeat[] =
+{
+    ANIMCMD_FRAME(16, 60),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_Anguish[] =
+{
+    ANIMCMD_FRAME(17, 60),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_Ellipsis[] =
+{
+    ANIMCMD_FRAME(18, 60),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_Gloom[] =
+{
+    ANIMCMD_FRAME(19, 60),
+    ANIMCMD_END
+};
+
 static const union AnimCmd *const sSpriteAnimTable_Icons[] =
 {
-    sSpriteAnim_Icons1,
-    sSpriteAnim_Icons2
+    sSpriteAnim_Exclamation,
+    sSpriteAnim_QuestionMark,
+    sSpriteAnim_Heart,
+    sSpriteAnim_MusicalNote,
+    sSpriteAnim_Lightbulb,
+    sSpriteAnim_Sweat,
+    sSpriteAnim_Happy,
+    sSpriteAnim_Angry,
+    sSpriteAnim_Circle,
+    sSpriteAnim_X,
+    sSpriteAnim_Fist,
+    sSpriteAnim_Peace,
+    sSpriteAnim_Hand,
+    sSpriteAnim_Drooling,
+    sSpriteAnim_Flex,
+    sSpriteAnim_Devilish,
+    sSpriteAnim_Defeat,
+    sSpriteAnim_Anguish,
+    sSpriteAnim_Ellipsis,
+    sSpriteAnim_Gloom
 };
 
-static const struct SpriteTemplate sSpriteTemplate_ExclamationQuestionMark =
+static const struct SpriteTemplate sSpriteTemplate_Emotes =
 {
     .tileTag = 0xffff,
-    .paletteTag = 0x1100,   ////LoadObjectEventPalette(OBJ_EVENT_PAL_TAG_8)
+    .paletteTag = OBJ_EVENT_PAL_TAG_EMOTES,
     .oam = &sOamData_Icons,
     .anims = sSpriteAnimTable_Icons,
-    .images = sSpriteImageTable_ExclamationQuestionMark,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCB_TrainerIcons
-};
-
-static const struct SpriteTemplate sSpriteTemplate_HeartIcon =
-{
-    .tileTag = 0xffff,
-    .paletteTag = 0x1004,
-    .oam = &sOamData_Icons,
-    .anims = sSpriteAnimTable_Icons,
-    .images = sSpriteImageTable_HeartIcon,
+    .images = sSpriteImageTable_Emotes,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCB_TrainerIcons
 };
@@ -672,59 +852,162 @@ void TryPrepareSecondApproachingTrainer(void)
 #define sData4      data[4]
 #define sFldEffId   data[7]
 
+void CreateEmoteIcon(u16 iconId, u8 animId)
+{
+    u8 spriteId;
+    
+    LoadObjectEventPalette(OBJ_EVENT_PAL_TAG_EMOTES);
+    UpdatePaletteGammaType(IndexOfSpritePaletteTag(OBJ_EVENT_PAL_TAG_EMOTES), GAMMA_ALT);
+    //UpdateSpritePaletteWithWeather(IndexOfSpritePaletteTag(OBJ_EVENT_PAL_TAG_EMOTES));
+    spriteId = CreateSpriteAtEnd(&sSpriteTemplate_Emotes, 0, 0, 0x52);
+    
+    if (spriteId != MAX_SPRITES)
+        SetIconSpriteData(&gSprites[spriteId], iconId, animId);
+}
+
 u8 FldEff_ExclamationMarkIcon(void)
 {
-    u8 spriteId, paletteNum;
-
-    LoadObjectEventPalette(0x1100); //LoadObjectEventPalette(OBJ_EVENT_PAL_TAG_8)
-    UpdatePaletteGammaType(IndexOfSpritePaletteTag(0x1100), GAMMA_ALT);
-    UpdateSpritePaletteWithWeather(IndexOfSpritePaletteTag(0x1100));
-    spriteId = CreateSpriteAtEnd(&sSpriteTemplate_ExclamationQuestionMark, 0, 0, 0x52);
-
-    if (spriteId != MAX_SPRITES)
-        SetIconSpriteData(&gSprites[spriteId], FLDEFF_EXCLAMATION_MARK_ICON, 0);
-
+    CreateEmoteIcon(FLDEFF_EXCLAMATION_MARK_ICON, 0);
+    
     return 0;
 }
 
 u8 FldEff_QuestionMarkIcon(void)
 {
-    u8 spriteId;
-    
-    LoadObjectEventPalette(0x1100); //LoadObjectEventPalette(OBJ_EVENT_PAL_TAG_8)
-    UpdatePaletteGammaType(IndexOfSpritePaletteTag(0x1100), GAMMA_ALT);
-    UpdateSpritePaletteWithWeather(IndexOfSpritePaletteTag(0x1100));
-
-    spriteId = CreateSpriteAtEnd(&sSpriteTemplate_ExclamationQuestionMark, 0, 0, 0x52);
-
-    if (spriteId != MAX_SPRITES)
-        SetIconSpriteData(&gSprites[spriteId], FLDEFF_QUESTION_MARK_ICON, 1);
+    CreateEmoteIcon(FLDEFF_QUESTION_MARK_ICON, 1);
 
     return 0;
 }
 
 u8 FldEff_HeartIcon(void)
 {
-    u8 spriteId;
+    CreateEmoteIcon(FLDEFF_HEART_ICON, 2);
 
-    LoadSpritePalette(&gObjectEventPalette0);
-    UpdatePaletteGammaType(IndexOfSpritePaletteTag(0x1004), GAMMA_ALT);
-    UpdateSpritePaletteWithWeather(IndexOfSpritePaletteTag(0x1004));
-    spriteId = CreateSpriteAtEnd(&sSpriteTemplate_HeartIcon, 0, 0, 0x52);
+    return 0;
+}
 
-    if (spriteId != MAX_SPRITES)
-    {
-        struct Sprite *sprite = &gSprites[spriteId];
+u8 FldEff_MusicalNoteIcon(void)
+{
+    CreateEmoteIcon(FLDEFF_MUSICAL_NOTE_ICON, 3);
 
-        SetIconSpriteData(sprite, FLDEFF_HEART_ICON, 0);
-        sprite->oam.paletteNum = 2;
-    }
+    return 0;
+}
+
+u8 FldEff_LightbulbIcon(void)
+{
+    CreateEmoteIcon(FLDEFF_LIGHTBULB_ICON, 4);
+
+    return 0;
+}
+
+u8 FldEff_WaterDropletIcon(void)
+{
+    CreateEmoteIcon(FLDEFF_WATER_DROPLET_ICON, 5);
+
+    return 0;
+}
+
+u8 FldEff_HappyIcon(void)
+{
+    CreateEmoteIcon(FLDEFF_HAPPY_ICON, 6);
+
+    return 0;
+}
+
+u8 FldEff_AngryIcon(void)
+{
+    CreateEmoteIcon(FLDEFF_ANGRY_ICON, 7);
+
+    return 0;
+}
+
+u8 FldEff_CircleIcon(void)
+{
+    CreateEmoteIcon(FLDEFF_CIRCLE_ICON, 8);
+
+    return 0;
+}
+
+u8 FldEff_XIcon(void)
+{
+    CreateEmoteIcon(FLDEFF_X_ICON, 9);
+
+    return 0;
+}
+
+u8 FldEff_FistIcon(void)
+{
+    CreateEmoteIcon(FLDEFF_FIST_ICON, 10);
+
+    return 0;
+}
+
+u8 FldEff_PeaceIcon(void)
+{
+    CreateEmoteIcon(FLDEFF_PEACE_ICON, 11);
+
+    return 0;
+}
+
+u8 FldEff_HandIcon(void)
+{
+    CreateEmoteIcon(FLDEFF_HAND_ICON, 12);
+
+    return 0;
+}
+
+u8 FldEff_DroolingIcon(void)
+{
+    CreateEmoteIcon(FLDEFF_DROOLING_ICON, 13);
+
+    return 0;
+}
+
+u8 FldEff_FlexIcon(void)
+{
+    CreateEmoteIcon(FLDEFF_FLEX_ICON, 14);
+
+    return 0;
+}
+
+u8 FldEff_DevilishIcon(void)
+{
+    CreateEmoteIcon(FLDEFF_DEVILISH_ICON, 15);
+
+    return 0;
+}
+
+u8 FldEff_DefeatIcon(void)
+{
+    CreateEmoteIcon(FLDEFF_DEFEAT_ICON, 16);
+
+    return 0;
+}
+
+u8 FldEff_AnguishIcon(void)
+{
+    CreateEmoteIcon(FLDEFF_ANGUISH_ICON, 17);
+
+    return 0;
+}
+
+u8 FldEff_EllipsisIcon(void)
+{
+    CreateEmoteIcon(FLDEFF_ELLIPSIS, 18);
+
+    return 0;
+}
+
+u8 FldEff_GloomIcon(void)
+{
+    CreateEmoteIcon(FLDEFF_GLOOM_ICON, 19);
 
     return 0;
 }
 
 static void SetIconSpriteData(struct Sprite *sprite, u16 fldEffId, u8 spriteAnimNum)
 {
+    sprite->oam.paletteNum = IndexOfSpritePaletteTag(OBJ_EVENT_PAL_TAG_EMOTES);
     sprite->oam.priority = 1;
     sprite->coordOffsetEnabled = 1;
 

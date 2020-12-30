@@ -20,9 +20,28 @@ bool8 CheckForTrainersWantingBattle(void);
 void sub_80B4578(struct ObjectEvent *var);
 void EndTrainerApproach(void);
 void TryPrepareSecondApproachingTrainer(void);
+
 u8 FldEff_ExclamationMarkIcon(void);
 u8 FldEff_QuestionMarkIcon(void);
 u8 FldEff_HeartIcon(void);
+u8 FldEff_MusicalNoteIcon(void);
+u8 FldEff_LightbulbIcon(void);
+u8 FldEff_WaterDropletIcon(void);
+u8 FldEff_HappyIcon(void);
+u8 FldEff_AngryIcon(void);
+u8 FldEff_CircleIcon(void);
+u8 FldEff_XIcon(void);
+u8 FldEff_FistIcon(void);
+u8 FldEff_PeaceIcon(void);
+u8 FldEff_HandIcon(void);
+u8 FldEff_DroolingIcon(void);
+u8 FldEff_FlexIcon(void);
+u8 FldEff_DevilishIcon(void);
+u8 FldEff_DefeatIcon(void);
+u8 FldEff_AnguishIcon(void);
+u8 FldEff_EllipsisIcon(void);
+u8 FldEff_GloomIcon(void);
+
 u8 GetCurrentApproachingTrainerObjectEventId(void);
 u8 GetChosenApproachingTrainerObjectEventId(u8 arrayId);
 void PlayerFaceTrainerAfterBattle(void);

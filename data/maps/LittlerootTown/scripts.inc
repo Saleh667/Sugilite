@@ -42,6 +42,9 @@ LittlerootTown_MapScripts:: @ 81E7DCB
 LittlerootTown_OnTransition: @ 81E7DDB
 	setflag FLAG_VISITED_LITTLEROOT_TOWN
 	call Common_EventScript_SetupRivalGfxId
+	end
+
+/*
 	compare VAR_LITTLEROOT_INTRO_STATE, 2
 	call_if_eq LittlerootTown_EventScript_MoveMomToMaysDoor
 	call_if_unset FLAG_RESCUED_BIRCH, LittlerootTown_EventScript_SetTwinPos
@@ -60,6 +63,7 @@ LittlerootTown_OnTransition: @ 81E7DDB
 	compare VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2
 	call_if_eq LittlerootTown_EventScript_LeftLabAfterDexUpgrade
 	end
+*/
 
 LittlerootTown_EventScript_LeftLabAfterDexUpgrade:: @ 81E7E45
 	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3
@@ -959,6 +963,175 @@ LittlerootTown_EventScript_GiveRunningShoes:: @ 81E8693
 	closemessage
 	delay 30
 	return
+	
+EventScript_EmoteTest::
+	lock
+	applymovement 0x1, Movement_EmoteTest_Exclamation
+	message Text_EmoteExclamation
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_QuestionMark
+	message Text_EmoteQuestionMark
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_Heart
+	message Text_EmoteHeart
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_Music
+	message Text_EmoteMusic
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_Idea
+	message Text_EmoteIdea
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_Sweat
+	message Text_EmoteSweat
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_Happy
+	message Text_EmoteHappy
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_Angry
+	message Text_EmoteAngry
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_Circle
+	message Text_EmoteCircle
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_X
+	message Text_EmoteX
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_Fist
+	message Text_EmoteFist
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_Peace
+	message Text_EmotePeace
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_Hand
+	message Text_EmoteHand
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_Drooling
+	message Text_EmoteDrooling
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_Flex
+	message Text_EmoteFlex
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_Devilish
+	message Text_EmoteDevilish
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_Defeat
+	message Text_EmoteDefeat
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_Anguish
+	message Text_EmoteAnguish
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_Ellipsis
+	message Text_EmoteEllipsis
+	waitmessage
+	delay 0x30
+	applymovement 0x1, Movement_EmoteTest_Gloom
+	message Text_EmoteGloom
+	waitmessage
+	delay 0x30
+	closemessage
+	delay 0x10
+	applymovement 0xFF, Movement_EmoteTest_Flex
+	waitmovement 0
+	release
+	end
+	
+Movement_EmoteTest_Gloom:
+	emote_gloom
+	step_end
+	
+Movement_EmoteTest_Ellipsis:
+	emote_ellipsis
+	step_end
+
+Movement_EmoteTest_Anguish:
+	emote_anguish
+	step_end
+	
+Movement_EmoteTest_Defeat:
+	emote_defeat
+	step_end
+	
+Movement_EmoteTest_Devilish:
+	emote_devilish
+	step_end
+	
+Movement_EmoteTest_Flex:
+	emote_flex
+	step_end
+	
+Movement_EmoteTest_Drooling:
+	emote_drooling
+	step_end
+	
+Movement_EmoteTest_Hand:
+	emote_hand
+	step_end
+	
+Movement_EmoteTest_Peace:
+	emote_peace
+	step_end
+	
+Movement_EmoteTest_Fist:
+	emote_fist
+	step_end
+	
+Movement_EmoteTest_X:
+	emote_x
+	step_end
+	
+Movement_EmoteTest_Circle:
+	emote_circle
+	step_end
+	
+Movement_EmoteTest_Angry:
+	emote_angry
+	step_end
+	
+Movement_EmoteTest_Happy:
+	emote_happy
+	step_end
+	
+Movement_EmoteTest_Sweat:
+	emote_sweat
+	step_end
+	
+Movement_EmoteTest_Idea:
+	emote_idea
+	step_end
+	
+Movement_EmoteTest_Music:
+	emote_music
+	step_end
+	
+Movement_EmoteTest_Exclamation:
+	emote_exclamation_mark
+	step_end
+	
+Movement_EmoteTest_QuestionMark:
+	emote_question_mark
+	step_end
+	
+Movement_EmoteTest_Heart:
+	emote_heart
+	step_end
 
 LittlerootTown_Text_OurNewHomeLetsGoInside: @ 81E86BC
 	.string "MOM: {PLAYER}, we're here, honey!\p"
@@ -1069,4 +1242,64 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab: @ 81E8DA2
 	.string "I gave you?\p"
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
+	
+Text_EmoteExclamation:
+	.string "exclamation$"
+	
+Text_EmoteQuestionMark:
+	.string "question mark$"
+	
+Text_EmoteHeart:
+	.string "heart$"
+	
+Text_EmoteMusic:
+	.string "musical note$"
+	
+Text_EmoteIdea:
+	.string "idea$"
+	
+Text_EmoteSweat:
+	.string "sweat$"
+	
+Text_EmoteHappy:
+	.string "happy$"
+	
+Text_EmoteAngry:
+	.string "angery$"
+	
+Text_EmoteCircle:
+	.string "circle tool$"
+	
+Text_EmoteX:
+	.string "malcolm x$"
+	
+Text_EmoteFist:
+	.string "shake fist at clouds$"
+	
+Text_EmotePeace:
+	.string "peace n luv maaaan$"
+	
+Text_EmoteHand:
+	.string "how many fingers?$"
+	
+Text_EmoteDrooling:
+	.string "booba$"
+	
+Text_EmoteFlex:
+	.string "mooscles$"
+	
+Text_EmoteDevilish:
+	.string "devilish$"
+	
+Text_EmoteDefeat:
+	.string "defeated again$"
+	
+Text_EmoteAnguish:
+	.string "anguish$"
+	
+Text_EmoteEllipsis:
+	.string "ellipsis$"
+	
+Text_EmoteGloom:
+	.string "gloom (not the pokémon)$"
 
