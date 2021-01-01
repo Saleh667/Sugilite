@@ -68,6 +68,23 @@
 #define FLDEFF_RAYQUAZA_SPOTLIGHT        64
 #define FLDEFF_DESTROY_DEOXYS_ROCK       65
 #define FLDEFF_MOVE_DEOXYS_ROCK          66
+#define FLDEFF_MUSICAL_NOTE_ICON         67
+#define FLDEFF_LIGHTBULB_ICON            68
+#define FLDEFF_WATER_DROPLET_ICON        69
+#define FLDEFF_HAPPY_ICON                70
+#define FLDEFF_ANGRY_ICON                71
+#define FLDEFF_CIRCLE_ICON               72
+#define FLDEFF_X_ICON                    73
+#define FLDEFF_FIST_ICON                 74
+#define FLDEFF_PEACE_ICON                75
+#define FLDEFF_HAND_ICON                 76
+#define FLDEFF_DROOLING_ICON             77
+#define FLDEFF_FLEX_ICON                 78
+#define FLDEFF_DEVILISH_ICON             79
+#define FLDEFF_DEFEAT_ICON               80
+#define FLDEFF_ANGUISH_ICON              81
+#define FLDEFF_ELLIPSIS                  82
+#define FLDEFF_GLOOM_ICON                83
 
 #define FLDEFFOBJ_SHADOW_S              0
 #define FLDEFFOBJ_SHADOW_M              1
