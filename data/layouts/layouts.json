@@ -576,7 +576,7 @@
       "name": "LittlerootTown_ProfessorBirchsLab_Layout",
       "width": 13,
       "height": 13,
-      "primary_tileset": "gTileset_Indoors",
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Lab",
       "border_filepath": "data/layouts/LittlerootTown_ProfessorBirchsLab/border.bin",
       "blockdata_filepath": "data/layouts/LittlerootTown_ProfessorBirchsLab/map.bin"
@@ -4414,7 +4414,7 @@
     {
       "id": "LAYOUT_KUROSIBA_TOWN",
       "name": "KurosibaTown_Layout",
-      "width": 26,
+      "width": 30,
       "height": 16,
       "primary_tileset": "gTileset_Outside",
       "secondary_tileset": "gTileset_Kurosiba",
@@ -4464,7 +4464,7 @@
     {
       "id": "LAYOUT_IVYWOOD_TOWN",
       "name": "IvywoodTown_Layout",
-      "width": 32,
+      "width": 34,
       "height": 32,
       "primary_tileset": "gTileset_Outside",
       "secondary_tileset": "gTileset_Ivywood",
