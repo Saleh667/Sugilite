@@ -62,7 +62,7 @@ static s16 GetReflectionVerticalOffset(struct ObjectEvent *objectEvent)
     return GetObjectEventGraphicsInfo(objectEvent->graphicsId)->height - 2;
 }
 
-#define OBJ_EVENT_PAL_TAG_10 0x1102
+#define OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION 0x1102
 
 void LoadObjectReflectionPalette(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
@@ -74,13 +74,14 @@ void LoadObjectReflectionPalette(struct ObjectEvent *objectEvent, struct Sprite 
         // When walking on a bridge high above water (Route 120), the reflection is a solid dark blue color.
         // This is so the sprite blends in with the dark water metatile underneath the bridge.
         sprite->data[2] = bridgeReflectionVerticalOffsets[bridgeType - 1];
-        LoadObjectEventPalette(OBJ_EVENT_PAL_TAG_10);
-        sprite->oam.paletteNum = IndexOfSpritePaletteTag(OBJ_EVENT_PAL_TAG_10);
+        LoadObjectEventPalette(OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION);
+        sprite->oam.paletteNum = IndexOfSpritePaletteTag(OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION);
         UpdatePaletteGammaType(sprite->oam.paletteNum, GAMMA_NORMAL);
         UpdateSpritePaletteWithWeather(sprite->oam.paletteNum);
     }
     else
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
         LoadSpecialReflectionPalette(sprite);
 =======
@@ -109,6 +110,9 @@ static void LoadObjectRegularReflectionPalette(struct ObjectEvent *objectEvent, 
         }
         UpdateSpritePaletteWithWeather(paletteIndex);
 >>>>>>> d2d961e4476ff6dc69e66cb91388fff1eb6f3bc8
+=======
+        LoadSpecialReflectionPalette(sprite);
+>>>>>>> ba88ce6cfe98986524ff51f64473cb8e8901b1b9
     }
 }
 
@@ -117,6 +121,9 @@ void LoadSpecialReflectionPalette(struct Sprite *sprite)
     struct SpritePalette reflectionPalette;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ba88ce6cfe98986524ff51f64473cb8e8901b1b9
     CpuCopy16(&gPlttBufferUnfaded[0x100 + sprite->oam.paletteNum * 16], gReflectionPaletteBuffer, 32);
     TintPalette_CustomTone(gReflectionPaletteBuffer, 16, Q_8_8(1.0), Q_8_8(1.0), Q_8_8(3.5));
     reflectionPalette.data = gReflectionPaletteBuffer;
@@ -125,6 +132,7 @@ void LoadSpecialReflectionPalette(struct Sprite *sprite)
     sprite->oam.paletteNum = IndexOfSpritePaletteTag(reflectionPalette.tag);
     UpdatePaletteGammaType(sprite->oam.paletteNum, GAMMA_ALT);
     UpdateSpritePaletteWithWeather(sprite->oam.paletteNum);
+<<<<<<< HEAD
 =======
     graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
     if (graphicsInfo->reflectionPaletteTag != OBJ_EVENT_PAL_TAG_NONE)
@@ -133,6 +141,8 @@ void LoadSpecialReflectionPalette(struct Sprite *sprite)
         UpdateSpritePaletteWithWeather(paletteNum);
     }
 >>>>>>> d2d961e4476ff6dc69e66cb91388fff1eb6f3bc8
+=======
+>>>>>>> ba88ce6cfe98986524ff51f64473cb8e8901b1b9
 }
 
 static void UpdateObjectReflectionSprite(struct Sprite *reflectionSprite)

@@ -745,7 +745,10 @@ static const u16 *const sObjectPaletteTagSets[] = {
     sObjectPaletteTags3,
 };
 
+<<<<<<< HEAD
 >>>>>>> d2d961e4476ff6dc69e66cb91388fff1eb6f3bc8
+=======
+>>>>>>> ba88ce6cfe98986524ff51f64473cb8e8901b1b9
 #include "data/object_events/berry_tree_graphics_tables.h"
 #include "data/field_effects/field_effect_objects.h"
 
@@ -1446,10 +1449,14 @@ static u8 TrySetupObjectEventSprite(struct ObjectEventTemplate *objectEventTempl
     objectEvent = &gObjectEvents[objectEventId];
     graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ba88ce6cfe98986524ff51f64473cb8e8901b1b9
     if (spriteTemplate->paletteTag != 0xFFFF)
     {
         LoadObjectEventPalette(spriteTemplate->paletteTag);
         UpdatePaletteGammaType(IndexOfSpritePaletteTag(spriteTemplate->paletteTag), GAMMA_ALT);
+<<<<<<< HEAD
 =======
     paletteSlot = graphicsInfo->paletteSlot;
     if (paletteSlot == 0)
@@ -1465,6 +1472,8 @@ static u8 TrySetupObjectEventSprite(struct ObjectEventTemplate *objectEventTempl
         paletteSlot -= 16;
         sub_808EAB0(graphicsInfo->paletteTag, paletteSlot);
 >>>>>>> d2d961e4476ff6dc69e66cb91388fff1eb6f3bc8
+=======
+>>>>>>> ba88ce6cfe98986524ff51f64473cb8e8901b1b9
     }
 
     if (objectEvent->movementType == MOVEMENT_TYPE_INVISIBLE)
@@ -1641,6 +1650,7 @@ u8 CreateObjectSprite(u8 graphicsId, u8 a1, s16 x, s16 y, u8 z, u8 direction)
         sprite->data[0] = a1;
         sprite->data[1] = z;
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (graphicsInfo->paletteSlot >= 16)
 =======
         if (graphicsInfo->paletteSlot == 10)
@@ -1649,6 +1659,9 @@ u8 CreateObjectSprite(u8 graphicsId, u8 a1, s16 x, s16 y, u8 z, u8 direction)
         }
         else if (graphicsInfo->paletteSlot >= 16)
 >>>>>>> d2d961e4476ff6dc69e66cb91388fff1eb6f3bc8
+=======
+        if (graphicsInfo->paletteSlot >= 16)
+>>>>>>> ba88ce6cfe98986524ff51f64473cb8e8901b1b9
         {
             sub_808EAB0(graphicsInfo->paletteTag, graphicsInfo->paletteSlot | 0xf0);
         }
@@ -1782,11 +1795,15 @@ static void sub_808E1B8(u8 objectEventId, s16 x, s16 y)
     MakeObjectTemplateFromObjectEventGraphicsInfoWithCallbackIndex(objectEvent->graphicsId, objectEvent->movementType, &spriteTemplate, &subspriteTables);
     spriteTemplate.images = &spriteFrameImage;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ba88ce6cfe98986524ff51f64473cb8e8901b1b9
     if (spriteTemplate.paletteTag != 0xFFFF)
     {
         LoadObjectEventPalette(spriteTemplate.paletteTag);
         UpdatePaletteGammaType(IndexOfSpritePaletteTag(spriteTemplate.paletteTag), GAMMA_ALT);
     }
+<<<<<<< HEAD
 =======
     *(u16 *)&spriteTemplate.paletteTag = 0xFFFF;
     paletteSlot = graphicsInfo->paletteSlot;
@@ -1805,6 +1822,8 @@ static void sub_808E1B8(u8 objectEventId, s16 x, s16 y)
     }
     *(u16 *)&spriteTemplate.paletteTag = 0xFFFF;
 >>>>>>> d2d961e4476ff6dc69e66cb91388fff1eb6f3bc8
+=======
+>>>>>>> ba88ce6cfe98986524ff51f64473cb8e8901b1b9
     spriteId = CreateSprite(&spriteTemplate, 0, 0, 0);
     if (spriteId != MAX_SPRITES)
     {
@@ -1871,12 +1890,15 @@ void ObjectEventSetGraphicsId(struct ObjectEvent *objectEvent, u8 graphicsId)
         PatchObjectPalette(graphicsInfo->paletteTag, graphicsInfo->paletteSlot);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     else if (paletteSlot == 10)
     {
         LoadSpecialObjectReflectionPalette(graphicsInfo->paletteTag, graphicsInfo->paletteSlot);
     }
 >>>>>>> d2d961e4476ff6dc69e66cb91388fff1eb6f3bc8
+=======
+>>>>>>> ba88ce6cfe98986524ff51f64473cb8e8901b1b9
     else if (paletteSlot >= 16)
     {
         paletteSlot -= 16;
@@ -1980,7 +2002,7 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u8 graphicsId)
     {
         graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
     }
-    
+
     return gObjectEventGraphicsInfoPointers[graphicsId];
 }
 
@@ -2130,6 +2152,7 @@ static u8 FindObjectEventPaletteIndexByTag(u16 tag)
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 void LoadPlayerObjectReflectionPalette(u16 tag, u8 slot)
 {
@@ -2163,6 +2186,8 @@ void LoadSpecialObjectReflectionPalette(u16 tag, u8 slot)
 }
 
 >>>>>>> d2d961e4476ff6dc69e66cb91388fff1eb6f3bc8
+=======
+>>>>>>> ba88ce6cfe98986524ff51f64473cb8e8901b1b9
 static void sub_808EAB0(u16 tag, u8 slot)
 {
     PatchObjectPalette(tag, slot);
@@ -2613,6 +2638,7 @@ void OverrideSecretBaseDecorationSpriteScript(u8 localId, u8 mapNum, u8 mapGroup
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 void InitObjectEventPalettes(u8 palSlot)
 {
@@ -2649,6 +2675,8 @@ u16 GetObjectPaletteTag(u8 palSlot)
 }
 
 >>>>>>> d2d961e4476ff6dc69e66cb91388fff1eb6f3bc8
+=======
+>>>>>>> ba88ce6cfe98986524ff51f64473cb8e8901b1b9
 movement_type_empty_callback(MovementType_None)
 movement_type_def(MovementType_WanderAround, gMovementTypeFuncs_WanderAround)
 

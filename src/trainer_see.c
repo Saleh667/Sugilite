@@ -24,6 +24,7 @@
 
 extern const struct SpritePalette sObjectEventSpritePalettes[];
 extern const struct SpritePalette gEmotesPalette;
+extern const struct SpritePalette gObjectEventPal_Npc1;
 
 // this file's functions
 static u8 CheckTrainer(u8 objectEventId);
