@@ -81,7 +81,34 @@ void LoadObjectReflectionPalette(struct ObjectEvent *objectEvent, struct Sprite 
     }
     else
     {
+<<<<<<< HEAD
         LoadSpecialReflectionPalette(sprite);
+=======
+        LoadObjectRegularReflectionPalette(objectEvent, sprite->oam.paletteNum);
+    }
+}
+
+static void LoadObjectRegularReflectionPalette(struct ObjectEvent *objectEvent, u8 paletteIndex)
+{
+    const struct ObjectEventGraphicsInfo *graphicsInfo;
+
+    graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
+    if (graphicsInfo->reflectionPaletteTag != OBJ_EVENT_PAL_TAG_NONE)
+    {
+        if (graphicsInfo->paletteSlot == 0)
+        {
+            LoadPlayerObjectReflectionPalette(graphicsInfo->paletteTag, paletteIndex);
+        }
+        else if (graphicsInfo->paletteSlot == 10)
+        {
+            LoadSpecialObjectReflectionPalette(graphicsInfo->paletteTag, paletteIndex);
+        }
+        else
+        {
+            PatchObjectPalette(GetObjectPaletteTag(paletteIndex), paletteIndex);
+        }
+        UpdateSpritePaletteWithWeather(paletteIndex);
+>>>>>>> d2d961e4476ff6dc69e66cb91388fff1eb6f3bc8
     }
 }
 
@@ -89,6 +116,7 @@ void LoadSpecialReflectionPalette(struct Sprite *sprite)
 {
     struct SpritePalette reflectionPalette;
 
+<<<<<<< HEAD
     CpuCopy16(&gPlttBufferUnfaded[0x100 + sprite->oam.paletteNum * 16], gReflectionPaletteBuffer, 32);
     TintPalette_CustomTone(gReflectionPaletteBuffer, 16, Q_8_8(1.0), Q_8_8(1.0), Q_8_8(3.5));
     reflectionPalette.data = gReflectionPaletteBuffer;
@@ -97,6 +125,14 @@ void LoadSpecialReflectionPalette(struct Sprite *sprite)
     sprite->oam.paletteNum = IndexOfSpritePaletteTag(reflectionPalette.tag);
     UpdatePaletteGammaType(sprite->oam.paletteNum, GAMMA_ALT);
     UpdateSpritePaletteWithWeather(sprite->oam.paletteNum);
+=======
+    graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
+    if (graphicsInfo->reflectionPaletteTag != OBJ_EVENT_PAL_TAG_NONE)
+    {
+        PatchObjectPalette(graphicsInfo->reflectionPaletteTag, paletteNum);
+        UpdateSpritePaletteWithWeather(paletteNum);
+    }
+>>>>>>> d2d961e4476ff6dc69e66cb91388fff1eb6f3bc8
 }
 
 static void UpdateObjectReflectionSprite(struct Sprite *reflectionSprite)

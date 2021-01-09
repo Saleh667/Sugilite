@@ -242,10 +242,10 @@
 // Battle move flags
 #define FLAG_MAKES_CONTACT          (1 << 0)
 #define FLAG_PROTECT_AFFECTED       (1 << 1)
-#define FLAG_MAGICCOAT_AFFECTED     (1 << 2)
+#define FLAG_MAGIC_COAT_AFFECTED    (1 << 2)
 #define FLAG_SNATCH_AFFECTED        (1 << 3)
 #define FLAG_MIRROR_MOVE_AFFECTED   (1 << 4)
-#define FLAG_KINGSROCK_AFFECTED     (1 << 5)
+#define FLAG_KINGS_ROCK_AFFECTED    (1 << 5)
 #define FLAG_HIGH_CRIT              (1 << 6)
 #define FLAG_RECKLESS_BOOST         (1 << 7)
 #define FLAG_IRON_FIST_BOOST        (1 << 8)
@@ -294,6 +294,7 @@
 
 // Evolution types
 #define EVO_MEGA_EVOLUTION                0xffff // Not an actual evolution, used to temporarily mega evolve in battle.
+#define EVO_MOVE_MEGA_EVOLUTION           0xfffe // Mega Evolution that checks for a move instead of held item.
 #define EVO_FRIENDSHIP                    1      // Pokémon levels up with friendship ≥ 220
 #define EVO_FRIENDSHIP_DAY                2      // Pokémon levels up during the day with friendship ≥ 220
 #define EVO_FRIENDSHIP_NIGHT              3      // Pokémon levels up at night with friendship ≥ 220
