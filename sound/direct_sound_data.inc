@@ -4269,3 +4269,39 @@ DirectSoundWaveData_mlrpg3_harpsichord_92::
 	.align 2
 DirectSoundWaveData_superstarsaga_ocarina::
 	.incbin "sound/direct_sound_samples/superstarsaga_ocarina.bin"
+
+	.align 2
+DirectSoundWaveData_alto_sax_55::
+	.incbin "sound/direct_sound_samples/alto_sax/alto_sax_55.bin"
+
+	.align 2
+DirectSoundWaveData_alto_sax_59::
+	.incbin "sound/direct_sound_samples/alto_sax/alto_sax_59.bin"
+
+	.align 2
+DirectSoundWaveData_alto_sax_62::
+	.incbin "sound/direct_sound_samples/alto_sax/alto_sax_62.bin"
+
+	.align 2
+DirectSoundWaveData_alto_sax_65::
+	.incbin "sound/direct_sound_samples/alto_sax/alto_sax_65.bin"
+
+	.align 2
+DirectSoundWaveData_alto_sax_69::
+	.incbin "sound/direct_sound_samples/alto_sax/alto_sax_69.bin"
+
+	.align 2
+DirectSoundWaveData_alto_sax_72::
+	.incbin "sound/direct_sound_samples/alto_sax/alto_sax_72.bin"
+
+	.align 2
+DirectSoundWaveData_alto_sax_74::
+	.incbin "sound/direct_sound_samples/alto_sax/alto_sax_74.bin"
+
+	.align 2
+DirectSoundWaveData_alto_sax_80::
+	.incbin "sound/direct_sound_samples/alto_sax/alto_sax_80.bin"
+
+	.align 2
+DirectSoundWaveData_alto_sax_85::
+	.incbin "sound/direct_sound_samples/alto_sax/alto_sax_85.bin"

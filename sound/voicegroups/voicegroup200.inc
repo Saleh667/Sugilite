@@ -65,7 +65,7 @@ voicegroup200:: @ 8F00000 Custom Voicegroup (Output Device Base Note, Duty Cycle
 	voice_directsound 60, 0, Cry_Paras, 255, 0, 255, 127  @ 62
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_60, 255, 0, 224, 165  @ 63
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 255, 0, 255, 165  @ 64
-	voice_directsound 60, 0, Cry_Paras, 255, 0, 255, 165  @ 65
+	voice_keysplit voicegroup203, KeySplitTable7  @ 65
 	voice_directsound 60, 0, Cry_Paras, 255, 240, 180, 165  @ 66
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tuba_39, 248, 127, 255, 165  @ 67
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 64, 0, 255, 127  @ 68
