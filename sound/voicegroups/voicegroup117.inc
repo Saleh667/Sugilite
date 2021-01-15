@@ -38,7 +38,7 @@ voicegroup117:: @ 869A454
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A5F8
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A604
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A610
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 252, 0, 115  @ 869A61C
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 253, 0, 149  @ 869A61C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A628
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A634
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A640
