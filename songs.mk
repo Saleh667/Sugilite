@@ -547,7 +547,7 @@ $(MID_SUBDIR)/mus_rg_vs_trainer.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G200 -V127
 
 $(MID_SUBDIR)/mus_rg_vs_wild.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G157 -V090
+	$(MID) $< $@ -E -R$(STD_REVERB) -G117 -V127
 
 $(MID_SUBDIR)/mus_rg_victory_gym_leader.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G171 -V090

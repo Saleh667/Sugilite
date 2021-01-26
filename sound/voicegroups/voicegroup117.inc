@@ -1,16 +1,16 @@
 	.align 2
 voicegroup117:: @ 869A454
 	voice_keysplit_all voicegroup002  @ 869A454
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A460
+	voice_keysplit_all voicegroup201  @ 869A460
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A46C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A478
 	voice_square_2 60, 0, 2, 0, 1, 1, 1  @ 869A484
 	voice_square_1 60, 0, 0, 2, 0, 1, 1, 1  @ 869A490
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A49C
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A4A8
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A4B4
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A4C0
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A4CC
+	voice_square_2 60, 0, 2, 0, 2, 3, 2  @ 869A484
+	voice_square_1 60, 0, 0, 2, 0, 2, 3, 2  @ 869A490
+	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4870, 0, 3, 7, 2  @ 869A4B4
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 0  @ 869A4C0
+	voice_noise_alt 60, 0, 0, 0, 2, 6, 0  @ 869A4CC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A4D8
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A4E4
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A4F0
@@ -21,7 +21,7 @@ voicegroup117:: @ 869A454
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A52C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A538
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A544
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A550
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 250, 255, 196  @ 869A550
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A55C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A568
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A574
@@ -38,7 +38,7 @@ voicegroup117:: @ 869A454
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A5F8
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A604
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A610
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A61C
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 253, 0, 149  @ 869A61C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A628
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A634
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A640
@@ -65,7 +65,8 @@ voicegroup117:: @ 869A454
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A73C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A748
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A754
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A760
+@	voice_keysplit voicegroup203, KeySplitTable7  @ 65
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 248, 0, 255, 127  @ 65
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A76C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A778
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869A784

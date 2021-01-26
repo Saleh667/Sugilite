@@ -32,7 +32,7 @@ voicegroup201:: @ 8F00600 Custom Voicegroup Drumset
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 29 F0
 	voice_directsound_no_resample 30, 75, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 255, 246, 0, 216  @ 30 F#0 (Sustained Crash)
 	voice_directsound_no_resample 30, 64, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 8, 0, 255, 216  @ 31 G0 (Reverse Cymbal)
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 32 G#0
+	voice_directsound 48, 0, DirectSoundWaveData_sc88pro_timpani_with_snare, 255, 254, 0, 226  @ 32 G#0
 	voice_directsound 57, 34, DirectSoundWaveData_sc88pro_mute_high_conga, 255, 0, 255, 0  @ 33 A0
 	voice_directsound_no_resample 72, 64, DirectSoundWaveData_unknown_snare, 255, 0, 255, 127  @ 34 A#0
 	voice_directsound 60, 64, DirectSoundWaveData_drum_and_percussion_kick, 255, 0, 255, 127  @ 35 B0
