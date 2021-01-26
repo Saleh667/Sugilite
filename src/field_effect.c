@@ -994,7 +994,7 @@ u8 AddNewGameBirchWalk3Object(s16 x, s16 y, u8 subpriority)
 
 u8 CreateMonSprite_PicBox(u16 species, s16 x, s16 y, u8 subpriority)
 {
-    s32 spriteId = CreateMonPicSprite_HandleDeoxys(species, 0, 0x8000, 1, x, y, 0, gMonPaletteTable[species].tag);
+    s32 spriteId = CreateMonPicSprite(species, 0, 0x8000, 1, x, y, 0, gMonPaletteTable[species].tag);
     PreservePaletteInWeather(IndexOfSpritePaletteTag(gMonPaletteTable[species].tag) + 0x10);
     if (spriteId == 0xFFFF)
         return MAX_SPRITES;
@@ -1005,7 +1005,7 @@ u8 CreateMonSprite_PicBox(u16 species, s16 x, s16 y, u8 subpriority)
 u8 CreateMonSprite_FieldMove(u16 species, u32 otId, u32 personality, s16 x, s16 y, u8 subpriority)
 {
     const struct CompressedSpritePalette *spritePalette = GetMonSpritePalStructFromOtIdPersonality(species, otId, personality);
-    u16 spriteId = CreateMonPicSprite_HandleDeoxys(species, otId, personality, 1, x, y, 0, spritePalette->tag);
+    u16 spriteId = CreateMonPicSprite(species, otId, personality, 1, x, y, 0, spritePalette->tag);
     PreservePaletteInWeather(IndexOfSpritePaletteTag(spritePalette->tag) + 0x10);
     if (spriteId == 0xFFFF)
         return MAX_SPRITES;
@@ -2689,7 +2689,7 @@ static void FieldMoveShowMonOutdoorsEffect_Init(struct Task *task)
 {
     task->data[11] = REG_WININ;
     task->data[12] = REG_WINOUT;
-    StoreWordInTwoHalfwords((u16 *)&task->data[13], (u32)gMain.vblankCallback);
+    StoreWordInTwoHalfwords(&task->data[13], (u32)gMain.vblankCallback);
     task->tWinHoriz = WIN_RANGE(DISPLAY_WIDTH, DISPLAY_WIDTH + 1);
     task->tWinVert = WIN_RANGE(DISPLAY_HEIGHT / 2, DISPLAY_HEIGHT / 2 + 1);
     task->tWinIn = WININ_WIN0_BG_ALL | WININ_WIN0_OBJ | WININ_WIN0_CLR;
@@ -3942,7 +3942,6 @@ bool8 FldEff_MoveDeoxysRock(struct Sprite* sprite)
 
 static void Task_MoveDeoxysRock(u8 taskId)
 {
-    // BUG: Possible divide by zero
     s16 *data = gTasks[taskId].data;
     struct Sprite *sprite = &gSprites[data[1]];
     switch (data[0])
@@ -3950,8 +3949,16 @@ static void Task_MoveDeoxysRock(u8 taskId)
         case 0:
             data[4] = sprite->pos1.x << 4;
             data[5] = sprite->pos1.y << 4;
-            data[6] = (data[2] * 16 - data[4]) / data[8];
-            data[7] = (data[3] * 16 - data[5]) / data[8];
+
+            // UB: Possible divide by zero
+            #ifdef UBFIX
+            #define DIVISOR (data[8] ? data[8] : 1);
+            #else
+            #define DIVISOR (data[8])
+            #endif
+
+            data[6] = (data[2] * 16 - data[4]) / DIVISOR;
+            data[7] = (data[3] * 16 - data[5]) / DIVISOR;
             data[0]++;
         case 1:
             if (data[8] != 0)

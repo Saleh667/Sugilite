@@ -104,7 +104,7 @@
 #define T2_READ_PTR(ptr) (void*) T2_READ_32(ptr)
 
 // Macros for checking the joypad
-#define TEST_BUTTON(field, button) ((field) & (button))
+#define TEST_BUTTON(field, button) ({(field) & (button);})
 #define JOY_NEW(button) TEST_BUTTON(gMain.newKeys,  button)
 #define JOY_HELD(button)  TEST_BUTTON(gMain.heldKeys, button)
 #define JOY_HELD_RAW(button) TEST_BUTTON(gMain.heldKeysRaw, button)
@@ -117,6 +117,13 @@
     if(v < 0) f += 65536.0f; \
     f;                       \
 })
+
+// Branch defines: Used by other branches to detect each other.
+// Each define must be here for each of RHH's branch you have pulled.
+// e.g. If you have both the battle_engine and pokemon_expansion branch,
+//      then both BATTLE_ENGINE and POKEMON_EXPANSION must be defined here.
+#define BATTLE_ENGINE
+#define POKEMON_EXPANSION
 
 #define ROUND_BITS_TO_BYTES(numBits)(((numBits) / 8) + (((numBits) % 8) ? 1 : 0))
 
@@ -333,11 +340,12 @@ struct BattleDomeTrainer
 };
 
 #define DOME_TOURNAMENT_TRAINERS_COUNT 16
+#define BATTLE_TOWER_RECORD_COUNT 5
 
 struct BattleFrontier
 {
     /*0x64C*/ struct EmeraldBattleTowerRecord towerPlayer;
-    /*0x738*/ struct EmeraldBattleTowerRecord towerRecords[5]; // From record mixing.
+    /*0x738*/ struct EmeraldBattleTowerRecord towerRecords[BATTLE_TOWER_RECORD_COUNT]; // From record mixing.
     /*0xBEB*/ struct BattleTowerInterview towerInterview;
     /*0xBEC*/ struct BattleTowerEReaderTrainer ereaderTrainer;
     /*0xCA8*/ u8 challengeStatus;
