@@ -1,9 +1,37 @@
 .set LOCALID_RIVAL, 1
 
 LittlerootTown_BrendansHouse_2F_MapScripts:: @ 81F83E3
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Kurosiba_Boy_House_OnFrame
 	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_BrendansHouse_2F_OnTransition
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, LittlerootTown_BrendansHouse_2F_OnWarp
 	.byte 0
+
+Kurosiba_Boy_House_OnFrame: @ 8228431
+	map_script_2 VAR_UNUSED_0x404E, 0, EventScript_Sugilite_Start_Boy
+	.2byte 0
+
+EventScript_Sugilite_Start_Boy::
+	msgbox Kurosiba_Intro_Boy1, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_FROM_BLACK	
+    applymovement  1, Movement_EmoteTest_Angry
+	waitmovement 0
+	msgbox Kurosiba_Intro_Boy2, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_EmoteTest_Gloom
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Player_OutOfBed_Movement
+	waitmovement 0
+	msgbox Kurosiba_Intro_Boy3, MSGBOX_DEFAULT
+	closemessage
+	applymovement 1, Eirika_Runs_Down_Stairs
+	waitmovement 0
+	playse SE_EXIT
+	removeobject 1
+	setvar VAR_UNUSED_0x404E, 1
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM
+	end
+
 
 LittlerootTown_BrendansHouse_2F_OnTransition: @ 81F83EE
 	compare VAR_LITTLEROOT_RIVAL_STATE, 2
@@ -138,6 +166,25 @@ LittlerootTown_BrendansHouse_2F_EventScript_MeetBrendanEast:: @ 81F8594
 	applymovement LOCALID_RIVAL, LittlerootTown_BrendansHouse_2F_Movement_BrendanWalkToPCEast
 	waitmovement 0
 	return
+
+Player_OutOfBed_Movement:
+	walk_right
+	step_end
+
+Eirika_Runs_Down_Stairs:
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	walk_fast_right
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	face_left
+	step_end
 
 LittlerootTown_BrendansHouse_2F_Movement_BrendanEnters: @ 81F85BC
 	walk_down
@@ -316,3 +363,20 @@ PlayersHouse_2F_Text_ItsAGameCube: @ 81F884F
 	.string "It's a Nintendo GameCube.\p"
 	.string "A Game Boy Advance is connected to\n"
 	.string "serve as the Controller.$"
+	
+Kurosiba_Intro_Boy1:
+	.string "...\p"
+	.string "...\p"
+	.string "???: ... Wake up! Come on!$"
+
+Kurosiba_Intro_Boy2:
+	.string "Eirika: We're gonna be late {PLAYER},\n"
+	.string "and I certainly don't want that!\p"
+	.string "If you're not gonna get up,\n"
+	.string "then I'm going without you.\p"
+	.string "Sheesh...$"
+
+Kurosiba_Intro_Boy3:
+	.string "Eirika: Rise and shine, sleepyhead.\n"
+	.string "Let's go, let's go!\p"
+	.string "It's time to get our first Pokémon!$"
