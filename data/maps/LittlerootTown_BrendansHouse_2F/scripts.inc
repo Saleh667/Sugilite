@@ -333,6 +333,18 @@ PlayersHouse_2F_EventScript_GameCube:: @ 81F865F
 	msgbox PlayersHouse_2F_Text_ItsAGameCube, MSGBOX_SIGN
 	end
 
+BeanBagChair_EventScript::
+	msgbox BeanBagChair_Text, MSGBOX_SIGN
+	end
+	
+PlayerToDoList_EventScript::
+	msgbox ToDoList_Text, MSGBOX_SIGN
+	end
+	
+PlayerTv_EventScript::
+	msgbox PlayerTv_Text, MSGBOX_SIGN
+	end
+	
 PlayersHouse_2F_Text_ClockIsStopped: @ 81F8668
 	.string "The clock is stopped…\p"
 	.string "Better set it and start it!$"
@@ -348,21 +360,18 @@ PlayersHouse_2F_Text_HowDoYouLikeYourRoom: @ 81F869A
 	.string "everything's all there on your desk.$"
 
 PlayersHouse_2F_Text_Notebook: @ 81F877F
-	.string "{PLAYER} flipped open the notebook.\p"
-	.string "ADVENTURE RULE NO. 1\n"
-	.string "Open the MENU with START.\p"
-	.string "ADVENTURE RULE NO. 2\n"
-	.string "Record your progress with SAVE.\p"
-	.string "The remaining pages are blank…$"
+	.string "A bookshelf with lots of books.\p"
+	.string "There are a lot of cimics and fashion\n"
+	.string "magazines.$"
 
 Common_Text_LookCloserAtMap: @ 81F8820
 	.string "{PLAYER} took a closer look at the\n"
 	.string "HOENN region map.$"
 
 PlayersHouse_2F_Text_ItsAGameCube: @ 81F884F
-	.string "It's a Nintendo GameCube.\p"
-	.string "A Game Boy Advance is connected to\n"
-	.string "serve as the Controller.$"
+	.string "A special Nintendo Swtich is on the floor.\n"
+	.string "It has a picture of three cute \l"
+	.string "characters.$"
 	
 Kurosiba_Intro_Boy1:
 	.string "...\p"
@@ -380,3 +389,17 @@ Kurosiba_Intro_Boy3:
 	.string "Eirika: Rise and shine, sleepyhead.\n"
 	.string "Let's go, let's go!\p"
 	.string "It's time to get our first Pokémon!$"
+
+BeanBagChair_Text:
+	.string "It's a bean bag. Pretty comfy to rest on!$"
+
+ToDoList_Text:
+	.string "Eirika's to do list: \n"
+	.string "Get a Pokémon\p"
+	.string "Get a Pokémon\n"
+	.string "Get a Pokémon\p"
+	.string "(Well, that's quite the list...)$"
+
+PlayerTv_Text:
+	.string "It's a curved screen TV.\n"
+	.string "Really good for playing games, right?$"
