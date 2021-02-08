@@ -361,7 +361,7 @@ PlayersHouse_2F_Text_HowDoYouLikeYourRoom: @ 81F869A
 
 PlayersHouse_2F_Text_Notebook: @ 81F877F
 	.string "A bookshelf with lots of books.\p"
-	.string "There are a lot of cimics and fashion\n"
+	.string "There are a lot of comics and fashion\n"
 	.string "magazines.$"
 
 Common_Text_LookCloserAtMap: @ 81F8820
