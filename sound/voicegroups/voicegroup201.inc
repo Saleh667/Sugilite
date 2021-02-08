@@ -46,7 +46,7 @@ voicegroup201:: @ 8F00600 Custom Voicegroup Drumset
 	voice_directsound 68, 34, DirectSoundWaveData_sd90_ambient_tom, 255, 0, 255, 226  @ 43 G1
 	voice_directsound_no_resample 60, 64, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 242  @ 44 G#1
 	voice_directsound 72, 44, DirectSoundWaveData_sd90_ambient_tom, 255, 0, 255, 226  @ 45 A1
-	voice_directsound 60, 79, DirectSoundWaveData_unknown_open_hihat, 255, 242, 141, 0  @ 46 A#1
+	voice_directsound 60, 79, DirectSoundWaveData_unknown_open_hihat, 255, 242, 141, 204  @ 46 A#1
 	voice_directsound 76, 84, DirectSoundWaveData_sd90_ambient_tom, 255, 0, 255, 226  @ 47 B1
 	voice_directsound 80, 94, DirectSoundWaveData_sd90_ambient_tom, 255, 0, 255, 226  @ 48 C2
 	voice_directsound_no_resample 33, 89, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 255, 235, 0, 231  @ 49 C#2
