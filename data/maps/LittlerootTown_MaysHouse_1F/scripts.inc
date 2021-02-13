@@ -15,8 +15,6 @@ LittlerootTown_MaysHouse_1F_OnLoad: @ 81F88B5
 	end
 
 LittlerootTown_MaysHouse_1F_EventScript_SetMovingBoxes:: @ 81F88CA
-	setmetatile 5, 4, METATILE_BrendansMaysHouse_MovingBox_Open, 1
-	setmetatile 5, 2, METATILE_BrendansMaysHouse_MovingBox_Closed, 1
 	return
 
 LittlerootTown_MaysHouse_1F_EventScript_CheckShowShoesManual:: @ 81F88DD
@@ -420,3 +418,21 @@ RivalsHouse_1F_Text_DoYouHavePokemon: @ 81F9262
 	.string "Hi, neighbor!\p"
 	.string "Do you already have your\n"
 	.string "own POKéMON?$"
+
+Neighbours_House_OldLady_EventScript::
+	msgbox Neighbours_House_OldLady_Text, MSGBOX_NPC
+	end
+
+Neighbours_House_OldLady_Text:
+	.string "Why hello there, dear.\n"
+	.string "Thank you so much for stopping by.\p"
+	.string "It's always nice having guests,\n"
+	.string "so make yourself at home.$"
+
+OldLady_Television_EventScript::
+	msgbox OldLady_Television_Text, MSGBOX_SIGN
+	end
+
+OldLady_Television_Text:
+	.string "Looks like there's nothing on TV\n"
+	.string "right now...$"

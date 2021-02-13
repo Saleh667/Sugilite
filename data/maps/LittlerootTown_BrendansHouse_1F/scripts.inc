@@ -15,8 +15,6 @@ LittlerootTown_BrendansHouse_1F_OnLoad: @ 81F7765
 	end
 
 LittlerootTown_BrendansHouse_1F_EventScript_SetMovingBoxes:: @ 81F777A
-	setmetatile 5, 4, METATILE_BrendansMaysHouse_MovingBox_Open, 1
-	setmetatile 5, 2, METATILE_BrendansMaysHouse_MovingBox_Closed, 1
 	return
 
 LittlerootTown_BrendansHouse_1F_EventScript_CheckShowShoesManual:: @ 81F778D
@@ -450,3 +448,122 @@ PlayersHouse_1F_Text_WhatColorDidTheySay: @ 81F8351
 PlayersHouse_1F_Text_StillUnknownPokemon: @ 81F83A1
 	.string "MOM: Well, isn't that something!\n"
 	.string "There are still unknown POKéMON.$"
+
+PlayersHouse_Eirika_Waiting::
+	lockall
+	msgbox PlayersHouse_Eirika_Waiting_Text, MSGBOX_DEFAULT
+	closemessage
+	applymovement 2, Rival_Leaves_House_Movement
+	waitmovement 0
+	playse SE_EXIT
+	setvar VAR_LITTLEROOT_RIVAL_STATE, 1
+	removeobject 2
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY
+	end
+
+Rival_Leaves_House_Movement:
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	delay_16
+	delay_16
+	step_end
+
+PlayersHouse_Eirika_Waiting_Text:
+	.string "Y'know what, I'll just meet you at the lab.\n"
+	.string "You're as slow as ever, {PLAYER}!$"
+
+PlayerHouse_MaidJinky_EventScript::
+	msgbox PlayerHouse_MaidJinky_GreetingText, MSGBOX_NPC
+	end
+
+PlayerHouse_MaidJinky_GreetingText:
+	.string "Safe Travels!\n"
+	.string "Say hello to Madame Stephanie!$"
+
+Cupboards_EventScript::
+	msgbox Cupboard_Message, MSGBOX_SIGN
+	end
+	
+Cupboard_Message:
+	.string "There seem to be a lot of antiques in \n"
+	.string "this cupbaord.\p"
+	.string "Better leave them as they are.$"
+
+Plants_EventScript::
+	msgbox Plants_Message, MSGBOX_SIGN
+
+Plants_Message:
+	.string "It's always nice to have plants around.\n"
+	.string "They keep the atmosphere fresh.$"
+
+KitchenSet_EventScript::
+	msgbox KitchenSet_Message, MSGBOX_SIGN
+	end
+	
+KitchenSet_Message:
+	.string "A state of the art kitchen set.\n"
+	.string "The oven and stove are electrical,\l"
+	.string "making cooking a bit easier.$"
+
+TrashCan_EventScript::
+	msgbox TrashCan_Message, MSGBOX_SIGN
+	end
+
+TrashCan_Message:
+	.string "It's a trash can full of food\n"
+	.string "packet and other residues.\p"
+	.string "Smells pretty bad!$"
+
+Bookshelves_EventScript::
+	msgbox Bookshelves_Message, MSGBOX_SIGN
+	end
+
+Bookshelves_Message:
+	.string "It's a bookshelf with a nice\n"
+	.string "assortment of books.$"
+
+MomsMessage_EventScript::
+	msgbox MomsMessage_Text, MSGBOX_SIGN
+	end
+
+MomsMessage_Text:
+	.string "Make sure to check your computer\n"
+	.string "before leaving.\p"
+	.string "Don't waste electricity!\p"
+	.string "- Love, Mom.$"
+
+MomsComputer_EventScript::
+	msgbox MomsComputer_Text, MSGBOX_SIGN
+	end
+
+MomsComputer_Text:
+	.string "Mom's computer.\p"
+	.string "It's locked with a password that\n"
+	.string "you don't know.\p"
+	.string "No messing around!$"
+
+MomsBookshelves_EventScript::
+	msgbox MomsBookshelves_Text, MSGBOX_SIGN
+	end
+
+MomsBookshelves_Text:
+	.string "A bookshelf with lots of books on\n"
+	.string "Pokémon research, organized in\l"
+	.string "alphabetical order!$"
+
+PlayersHouse_Fridge_EventScript::
+	msgbox PlayersHouse_Fridge_Text, MSGBOX_SIGN
+	end
+
+PlayersHouse_Fridge_Text:
+	.string "The fridge contains a lot of healthy\n"
+	.string "food.\p"
+	.string "There's a pack of opened yoghurt left\n"
+	.string "inside.\p"
+	.string "Who would do such a thing?$"

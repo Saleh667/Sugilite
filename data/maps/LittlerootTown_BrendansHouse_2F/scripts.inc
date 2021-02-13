@@ -17,10 +17,12 @@ EventScript_Sugilite_Start_Boy::
     applymovement  1, Movement_EmoteTest_Angry
 	waitmovement 0
 	msgbox Kurosiba_Intro_Boy2, MSGBOX_DEFAULT
-	closemessage
+	closemessage	
+	applymovement OBJ_EVENT_ID_PLAYER, Player_OutOfBed_Movement
+	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_EmoteTest_Gloom
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Player_OutOfBed_Movement
+	applymovement LOCALID_RIVAL, Common_Movement_Delay48
 	waitmovement 0
 	msgbox Kurosiba_Intro_Boy3, MSGBOX_DEFAULT
 	closemessage
@@ -34,6 +36,7 @@ EventScript_Sugilite_Start_Boy::
 
 
 LittlerootTown_BrendansHouse_2F_OnTransition: @ 81F83EE
+	call Common_EventScript_SetupRivalGfxId
 	compare VAR_LITTLEROOT_RIVAL_STATE, 2
 	call_if_lt LittlerootTown_BrendansHouse_2F_EventScript_CheckSetReadyToMeetBrendan
 	compare VAR_LITTLEROOT_RIVAL_STATE, 3
@@ -369,7 +372,7 @@ Common_Text_LookCloserAtMap: @ 81F8820
 	.string "HOENN region map.$"
 
 PlayersHouse_2F_Text_ItsAGameCube: @ 81F884F
-	.string "A special Nintendo Swtich is on the floor.\n"
+	.string "A special Nintendo Switch is on the floor.\n"
 	.string "It has a picture of three cute \l"
 	.string "characters.$"
 	

@@ -450,7 +450,7 @@ LittlerootTown_EventScript_BirchsHouseSignMale:: @ 81E81A9
 	return
 
 LittlerootTown_EventScript_PlayersHouseSignFemale:: @ 81E81B2
-	msgbox LittlerootTown_Text_PlayersHouse, MSGBOX_DEFAULT
+	msgbox LittlerootTown_Text_NeighboursHouse, MSGBOX_DEFAULT
 	return
 
 LittlerootTown_EventScript_GiveRunningShoesTrigger0:: @ 81E81BB
@@ -1229,8 +1229,11 @@ LittlerootTown_Text_ProfBirchsLab: @ 81E8D69
 LittlerootTown_Text_PlayersHouse: @ 81E8D83
 	.string "{PLAYER}'s HOUSE$"
 
+LittlerootTown_Text_NeighboursHouse:
+	.string "Neighbour's House$"
+
 LittlerootTown_Text_ProfBirchsHouse: @ 81E8D8E
-	.string "PROF. BIRCH'S HOUSE$"
+	.string "Professor's Lab$"
 
 LittlerootTown_Text_BirchSomethingToShowYouAtLab: @ 81E8DA2
 	.string "PROF. BIRCH: Well, well, {PLAYER}{KUN}!\n"
@@ -1303,3 +1306,10 @@ Text_EmoteEllipsis:
 Text_EmoteGloom:
 	.string "gloom (not the pokémon)$"
 
+KurosibaTown_Sign_EventScript::
+	msgbox KurosibaTown_Sign_Text, MSGBOX_SIGN
+	end
+
+KurosibaTown_Sign_Text:
+	.string "Kurosiba Town,\n"
+	.string "Where grass is dark and the breeze is fresh.$"
