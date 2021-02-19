@@ -328,13 +328,8 @@ LittlerootTown_Movement_TwinApproachPlayerLeft: @ 81E80D1
 	disable_jump_landing_ground_effect
 	jump_in_place_right
 	delay_8
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
 	walk_fast_up
-	walk_fast_up
-	walk_fast_left
+	walk_fast_right
 	face_down
 	step_end
 
@@ -343,14 +338,7 @@ LittlerootTown_Movement_TwinPushPlayerFromRoute: @ 81E80DF
 	step_end
 
 LittlerootTown_Movement_TwinReturnLeft: @ 81E80E1
-	walk_right
-	walk_down
-	walk_down
 	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_up
 	walk_in_place_fastest_down
 	step_end
 
@@ -376,18 +364,42 @@ LittlerootTown_Movement_TwinApproachPlayerRight: @ 81E810B
 	disable_jump_landing_ground_effect
 	jump_in_place_right
 	delay_8
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
 	walk_fast_up
-	walk_fast_up
+	walk_fast_right
 	walk_fast_right
 	face_down
 	step_end
 
 LittlerootTown_Movement_TwinReturnRight: @ 81E8118
 	walk_left
-	walk_down
+	walk_left
+	walk_in_place_fastest_down
+	step_end
+
+LittlerootTown_EventScript_NeedPokemonTriggerRightFar:: @ 81E80EF
+	lockall
+	applymovement LOCALID_TWIN, LittlerootTown_Movement_TwinApproachPlayerRightFar
+	waitmovement 0
+	call LittlerootTown_EventScript_DangerousWithoutPokemon
+	applymovement LOCALID_TWIN, LittlerootTown_Movement_TwinReturnRightFar
+	waitmovement 0
+	releaseall
+	end
+
+LittlerootTown_Movement_TwinApproachPlayerRightFar: @ 81E810B
+	face_right
+	delay_8
+	disable_jump_landing_ground_effect
+	jump_in_place_right
+	delay_8
+	walk_fast_up
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	face_down
+	step_end
+
+LittlerootTown_Movement_TwinReturnRightFar: @ 81E8118
 	walk_left
 	walk_left
 	walk_left
@@ -1194,13 +1206,12 @@ LittlerootTown_Text_BirchSpendsDaysInLab: @ 81E8B25
 	.string "at home?$"
 
 LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut: @ 81E8BB8
-	.string "Um, um, um!\p"
-	.string "If you go outside and go in the grass,\n"
-	.string "wild POKéMON will jump out!$"
+	.string "Hey!$"
 
 LittlerootTown_Text_DangerousIfYouDontHavePokemon: @ 81E8C07
-	.string "It's dangerous if you don't have\n"
-	.string "your own POKéMON.$"
+	.string "Best not to go out there without a \n"
+	.string "Pokémon\p"
+	.string "Be careful...$"
 
 LittlerootTown_Text_CanYouGoSeeWhatsHappening: @ 81E8C3A
 	.string "Um, hi!\p"

@@ -479,8 +479,21 @@ PlayersHouse_Eirika_Waiting_Text:
 	.string "You're as slow as ever, {PLAYER}!$"
 
 PlayerHouse_MaidJinky_EventScript::
+	goto_if_unset FLAG_RECEIVED_FRESH_WATER_JINKY, PlayersHouse_MaidJinky_FreshWater
 	msgbox PlayerHouse_MaidJinky_GreetingText, MSGBOX_NPC
 	end
+
+PlayersHouse_MaidJinky_FreshWater::
+	msgbox PlayerHouse_MaidJinky_FreshWater_Text, MSGBOX_NPC
+	giveitem ITEM_FRESH_WATER
+	setflag FLAG_RECEIVED_FRESH_WATER_JINKY
+	msgbox PlayerHouse_MaidJinky_GreetingText, MSGBOX_NPC
+	end
+
+PlayerHouse_MaidJinky_FreshWater_Text:
+	.string "Jinky: Oh, hello {PLAYER}!\n"
+	.string "Would you like a bottle of water for \l"
+	.string "your journey?$"
 
 PlayerHouse_MaidJinky_GreetingText:
 	.string "Safe Travels!\n"
