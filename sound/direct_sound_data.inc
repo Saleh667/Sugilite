@@ -4597,3 +4597,7 @@ DirectSoundWaveData_alto_sax_80::
 	.align 2
 DirectSoundWaveData_alto_sax_85::
 	.incbin "sound/direct_sound_samples/alto_sax/alto_sax_85.bin"
+
+	.align 2
+DirectSoundWaveData_voice_oohs_43::
+	.incbin "sound/direct_sound_samples/voice_oohs_43.bin"

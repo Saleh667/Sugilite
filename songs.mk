@@ -181,7 +181,7 @@ $(MID_SUBDIR)/mus_verdanturf.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G044 -V090
 
 $(MID_SUBDIR)/mus_rustboro.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G045 -V085
+	$(MID) $< $@ -E -R$(STD_REVERB) -G055 -V119
 
 $(MID_SUBDIR)/mus_route119.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G048 -V096
