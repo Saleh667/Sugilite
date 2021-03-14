@@ -80,10 +80,10 @@ voicegroup115:: @ 8699854
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8699BF0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8699BFC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8699C08
-	voice_square_1_alt 60, 0, 0, 1, 0, 2, 7, 2  @ 8699C14
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8699C20
-	voice_square_2_alt 60, 0, 0, 0, 1, 6, 0  @ 8699C2C
-	voice_square_2_alt 60, 0, 3, 0, 3, 6, 2  @ 8699C38
+	voice_square_2_alt 60, 0, 1, 0, 3, 3, 2  @ 80
+	voice_square_1 60, 0, 0, 3, 0, 3, 3, 2  @ 8699C20
+	voice_square_1_alt 60, 0, 1, 0, 0, 3, 6, 1  @ 8699C2C
+	voice_square_2_alt 60, 0, 3, 0, 3, 6, 1  @ 8699C38
 	voice_square_2_alt 60, 0, 0, 0, 2, 6, 5  @ 8699C44
 	voice_square_1_alt 60, 0, 0, 0, 0, 1, 6, 0  @ 8699C50
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8699C5C
@@ -126,6 +126,6 @@ voicegroup115:: @ 8699854
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8699E18
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8699E24
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 8699E30
-	voice_noise_alt 60, 0, 0, 0, 2, 6, 2  @ 8699E3C
+	voice_noise_alt 60, 0, 0, 0, 3, 0, 2  @ 8699E3C
 	voice_noise_alt 60, 0, 0, 0, 1, 6, 0  @ 8699E48
 
