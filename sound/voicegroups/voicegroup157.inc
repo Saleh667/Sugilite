@@ -10,7 +10,7 @@ voicegroup157:: @ 86A98BC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9910
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A991C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9928
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9934
+	voice_keysplit voicegroup204, KeySplitTable8  @ 86A9934
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9940
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A994C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9958
@@ -21,7 +21,7 @@ voicegroup157:: @ 86A98BC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9994
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A99A0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A99AC
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165  @ 86A99B8
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 128, 254, 180, 204  @ 86A99B8
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A99C4
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A99D0
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 255, 165, 128, 204  @ 86A99DC
@@ -46,8 +46,8 @@ voicegroup157:: @ 86A98BC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9AC0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9ACC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9AD8
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9AE4
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9AF0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 239, 19, 246  @ 86A9AE4
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 248, 0, 224  @ 86A9AF0
 	voice_keysplit voicegroup006, KeySplitTable2  @ 86A9AFC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9B08
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9B14
@@ -80,22 +80,22 @@ voicegroup157:: @ 86A98BC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9C58
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9C64
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9C70
-	voice_square_1_alt 60, 0, 0, 1, 0, 2, 7, 2  @ 86A9C7C
-	voice_square_2_alt 60, 0, 3, 0, 3, 3, 0  @ 86A9C88
-	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4890, 0, 3, 6, 5  @ 86A9C94
-	voice_square_1_alt 60, 0, 0, 0, 0, 2, 7, 2  @ 86A9CA0
-	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4830, 0, 7, 15, 0  @ 86A9CAC
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9CB8
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9CC4
-	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4880, 0, 7, 15, 0  @ 86A9CD0
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9CDC
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9CE8
+	voice_square_2_alt 60, 0, 2, 0, 2, 7, 2  @ 80
+	voice_square_2_alt 60, 0, 3, 0, 3, 7, 0  @ 86A9C88
+	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4890, 0, 3, 7, 3  @ 86A9C94
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 7, 3  @ 86A9CA0
+	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4880, 0, 7, 15, 1  @ 86A9CAC
+	voice_square_2 60, 0, 3, 0, 2, 7, 2  @ 86A9CB8
+	voice_square_1 60, 0, 0, 3, 0, 2, 7, 2  @ 86A9CC4
+	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4890, 0, 3, 7, 3  @ 86A9CD0
+	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B48C0, 0, 2, 12, 2  @ 86A9CDC
+	voice_square_2 60, 0, 2, 0, 3, 7, 3  @ 86A9CE8
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9CF4
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9D00
-	voice_square_2_alt 60, 0, 2, 0, 2, 6, 3  @ 86A9D0C
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9D18
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9D24
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9D30
+	voice_square_2_alt 60, 0, 2, 0, 3, 6, 3  @ 86A9D0C
+	voice_square_2 60, 0, 1, 0, 4, 7, 3  @ 86A9D18
+	voice_square_1_alt 60, 0, 0, 1, 0, 4, 7, 3  @ 86A9D24
+	voice_square_2 60, 0, 2, 0, 0, 12, 0 @ 86A9D30
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9D3C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9D48
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9D54
@@ -126,6 +126,6 @@ voicegroup157:: @ 86A98BC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9E80
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9E8C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86A9E98
-	voice_noise_alt 60, 0, 0, 0, 2, 6, 0  @ 86A9EA4
+	voice_noise_alt 60, 0, 0, 0, 2, 6, 1  @ 86A9EA4
 	voice_noise_alt 60, 0, 0, 0, 1, 6, 1  @ 86A9EB0
 
