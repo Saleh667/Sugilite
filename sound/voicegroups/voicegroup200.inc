@@ -11,7 +11,7 @@ voicegroup200:: @ 8F00000 Custom Voicegroup (Output Device Base Note, Duty Cycle
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 51, 249  @ 8
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 204, 51, 188  @ 9
 	voice_directsound 60, 0, DirectSoundWaveData_heart_of_asia_gamelan, 255, 246, 25, 127  @ 10
-	voice_directsound 60, 0, Cry_Paras, 255, 241, 0, 216  @ 11
+	voice_keysplit voicegroup204, KeySplitTable8  @ 11
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 226, 0, 196  @ 12
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204  @ 13
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 249, 0, 242  @ 14

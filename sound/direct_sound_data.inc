@@ -4601,3 +4601,11 @@ DirectSoundWaveData_alto_sax_85::
 	.align 2
 DirectSoundWaveData_voice_oohs_43::
 	.incbin "sound/direct_sound_samples/voice_oohs_43.bin"
+
+	.align 2
+DirectSoundWaveData_mlrpg3_musicbox_48::
+	.incbin "sound/direct_sound_samples/mlrpg3_musicbox_48.bin"
+
+	.align 2
+DirectSoundWaveData_mlrpg3_musicbox_60::
+	.incbin "sound/direct_sound_samples/mlrpg3_musicbox_60.bin"
