@@ -49,7 +49,7 @@ $(MID_SUBDIR)/mus_vs_aqua_magma_leader.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G126 -V080 -P1
 
 $(MID_SUBDIR)/mus_vs_aqua_magma.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G118 -V125 -P1
+	$(MID) $< $@ -E -R$(STD_REVERB) -G118 -V127 -P1
 
 $(MID_SUBDIR)/mus_vs_gym_leader.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G120 -V080 -P1
@@ -529,25 +529,25 @@ $(MID_SUBDIR)/mus_rg_union_room.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G132 -V090
 
 $(MID_SUBDIR)/mus_rg_vs_legend.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G157 -V090
+	$(MID) $< $@ -E -R$(STD_REVERB) -G157 -V090 -P1
 
 $(MID_SUBDIR)/mus_rg_vs_deoxys.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G185 -V080
+	$(MID) $< $@ -E -R$(STD_REVERB) -G185 -V080 -P1
 
 $(MID_SUBDIR)/mus_rg_vs_gym_leader.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G121 -V123
+	$(MID) $< $@ -E -R$(STD_REVERB) -G121 -V123 -P1
 
 $(MID_SUBDIR)/mus_rg_vs_champion.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G158 -V090
+	$(MID) $< $@ -E -R$(STD_REVERB) -G158 -V090 -P1
 
 $(MID_SUBDIR)/mus_rg_vs_mewtwo.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G157 -V117
+	$(MID) $< $@ -E -R$(STD_REVERB) -G157 -V117 -P1
 
 $(MID_SUBDIR)/mus_rg_vs_trainer.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G200 -V127
+	$(MID) $< $@ -E -R$(STD_REVERB) -G200 -V127 -P1
 
 $(MID_SUBDIR)/mus_rg_vs_wild.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G117 -V127
+	$(MID) $< $@ -E -R$(STD_REVERB) -G117 -V127 -P1
 
 $(MID_SUBDIR)/mus_rg_victory_gym_leader.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G171 -V090
@@ -622,10 +622,10 @@ $(MID_SUBDIR)/mus_follow_me.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G066 -V074
 
 $(MID_SUBDIR)/mus_vs_frontier_brain.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -V127
+	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -V127 -P1
 
 $(MID_SUBDIR)/mus_vs_mew.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G157 -V117
+	$(MID) $< $@ -E -R$(STD_REVERB) -G157 -V117 -P1
 
 $(MID_SUBDIR)/mus_vs_rayquaza.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G114 -V080 -P1
