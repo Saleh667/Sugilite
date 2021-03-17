@@ -360,6 +360,7 @@ DirectSoundWaveData_8740818::
 
 	.align 2
 DirectSoundWaveData_sc88pro_accordion::
+DirectSoundWaveData_sc88pro_accordion_duplicate::
 	.incbin "sound/direct_sound_samples/sc88pro_accordion.bin"
 
 	.align 2
@@ -4525,10 +4526,6 @@ DirectSoundWaveData_88F5FCC::
 	.align 2
 DirectSoundWaveData_88F6498::
 	.incbin "sound/direct_sound_samples/88F6498.bin"
-
-	.align 2
-DirectSoundWaveData_sc88pro_accordion_duplicate::
-	.incbin "sound/direct_sound_samples/sc88pro_accordion_duplicate.bin"
 
 	.align 2
 DirectSoundWaveData_steinway_b_piano::
