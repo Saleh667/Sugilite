@@ -454,7 +454,7 @@ $(MID_SUBDIR)/mus_rg_mt_moon.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G147 -V090
 
 $(MID_SUBDIR)/mus_rg_poke_tower.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G165 -V090
+	$(MID) $< $@ -E -R$(STD_REVERB) -G165 -V127
 
 $(MID_SUBDIR)/mus_rg_poke_center.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G165 -V123

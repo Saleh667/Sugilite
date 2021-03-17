@@ -85,9 +85,9 @@ voicegroup165:: @ 86AC538
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4890, 0, 7, 12, 1  @ 82
 	voice_square_1_alt 60, 0, 0, 2, 0, 4, 0, 1  @ 83
 	voice_square_2_alt 60, 0, 2, 0, 4, 0, 1  @ 84
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AC934
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AC940
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AC94C
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 3  @ 85
+	voice_square_2 60, 0, 2, 0, 0, 15, 3  @ 86
+	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_SquareWaveBass, 0, 7, 12, 0  @ 87
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AC958
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AC964
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86AC970
@@ -125,7 +125,7 @@ voicegroup165:: @ 86AC538
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86ACAF0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86ACAFC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86ACB08
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 86ACB14
+	voice_noise 60, 0, 0, 0, 3, 0, 1  @ 86ACB14
 	voice_noise_alt 60, 0, 0, 0, 1, 9, 0  @ 86ACB20
 	voice_noise_alt 60, 0, 0, 0, 1, 6, 1  @ 86ACB2C
 
