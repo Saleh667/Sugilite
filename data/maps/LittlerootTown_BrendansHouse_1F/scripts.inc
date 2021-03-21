@@ -505,7 +505,7 @@ Cupboards_EventScript::
 	
 Cupboard_Message:
 	.string "There seem to be a lot of antiques in \n"
-	.string "this cupbaord.\p"
+	.string "this cupboard.\p"
 	.string "Better leave them as they are.$"
 
 Plants_EventScript::
