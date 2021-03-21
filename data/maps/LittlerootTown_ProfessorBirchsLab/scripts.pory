@@ -1,15 +1,91 @@
+const LOCALID_STEPHANIE = 2
+const LOCALID_RIVAL = 3
+const LOCALID_BALL_IGNION = 4
+const LOCALID_BALL_JELLOSIS = 5
+const LOCALID_BALL_CYBIO = 6
+const LOCALID_SIMMERMAN = 7
+
+mapscripts LittlerootTown_ProfessorBirchsLab_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_BIRCH_LAB_STATE, 0 {
+            call(Common_EventScript_SetupRivalGfxId)
+            addobject(LOCALID_STEPHANIE)
+            addobject(LOCALID_RIVAL)
+            addobject(LOCALID_BALL_IGNION)
+            addobject(LOCALID_BALL_JELLOSIS)
+            addobject(LOCALID_BALL_CYBIO)
+            turnobject(LOCALID_STEPHANIE, DIR_SOUTH)
+            turnobject(LOCALID_RIVAL, DIR_SOUTH)
+            call(KurosibaTown_ProfessorsLab_EventScript_StarterSelection)
+        }   
+    ]
+}
+
+script KurosibaTown_ProfessorsLab_EventScript_StarterSelection {
+    lock
+    msgbox(format("???: Y'know, I think you're not gonna last long with a Pokémon. Just intuition, but hey, kids can make miracles happen, I guess!"))
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, KurosibaTown_ProfessorsLab_Movement_PlayerToOthers)
+    waitmovement(0)
+    applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteFist)
+    msgbox(format("Stephanie: Simmerman!"))
+    closemessage
+    msgbox(format("Simmerman: Okay fine, maybe that was a bit too much."))
+    checkplayergender
+    if (var(VAR_RESULT) == MALE) {
+        msgbox(format("Eirika: Ya think? Anyway, {PLAYER}! You're just in time!"))
+    }
+    else {
+        // TODO: add male rival dialog
+    }
+    msgbox(format("Stephanie: That's right! Are you ready to get your first Pokémon?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        msgbox(format("Stephanie: Great! Why don't you pick first then, honey?"))
+        checkplayergender
+        if (var(VAR_RESULT) == MALE) {
+            applymovement(LOCALID_RIVAL, Common_Movement_EmoteHappy)
+            msgbox(format("Eirika: Not fair, but sure! That's probably a good thing... for me!"))
+        }
+        else {
+            // TODO: add male rival dialog
+        }
+    }
+    else {
+        msgbox(format("Stephanie: There's no rush to make your first decision. So, think wisely."))
+        checkplayergender
+        if (var(VAR_RESULT) == MALE) {
+            applymovement(LOCALID_RIVAL, Common_Movement_EmoteCircle)
+            msgbox(format("Eirika: I suppose I should let you pick first, it's not the first time I have to do that anyway. I'm a nice sister that way, so yeah."))
+        }
+        else {
+            // TODO: add male rival dialog
+        }
+    }
+    closemessage
+    setvar(VAR_BIRCH_LAB_STATE, 1)
+    end
+}
+
+movement KurosibaTown_ProfessorsLab_Movement_PlayerToOthers {
+    walk_up
+    face_left
+    walk_left * 8
+}
+
+script LittlerootTown_ProfessorBirchsLab_EventScript_Aide {
+    lock
+    faceplayer
+    msgbox(format("Oh, hi {PLAYER}! I sure hope you've been eating and sleeping well. Going on a big adventure isn't easy if not."))
+    release
+    end
+}
+
+raw `
 .set LOCALID_AIDE, 1
 .set LOCALID_BIRCH, 2
-.set LOCALID_RIVAL, 3
 .set LOCALID_BALL_CYNDAQUIL, 4
 .set LOCALID_BALL_TOTODILE, 5
 .set LOCALID_BALL_CHIKORITA, 6
-
-LittlerootTown_ProfessorBirchsLab_MapScripts:: @ 81F9C91
-	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_ProfessorBirchsLab_OnTransition
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, LittlerootTown_ProfessorBirchsLab_OnWarp
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_ProfessorBirchsLab_OnFrame
-	.byte 0
 
 	@ State descriptions for VAR_DEX_UPGRADE_JOHTO_STARTER_STATE
 	@ 1: Beat Elite Four, Dex upgrade ready
@@ -284,17 +360,6 @@ LittlerootTown_ProfessorBirchsLab_Movement_PlayerEnterLabForJohtoStarter: @ 81F9
 	walk_up
 	walk_up
 	step_end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_Aide:: @ 81F9F84
-	lock
-	faceplayer
-	compare VAR_BIRCH_LAB_STATE, 3
-	goto_if_ge LittlerootTown_ProfessorBirchsLab_EventScript_AideReceivedStarter
-	goto_if_set FLAG_BIRCH_AIDE_MET, LittlerootTown_ProfessorBirchsLab_EventScript_AideAlreadyMet
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_BirchAwayOnFieldwork, MSGBOX_DEFAULT
-	setflag FLAG_BIRCH_AIDE_MET
-	release
-	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_AideAlreadyMet:: @ 81F9FA7
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_BirchIsntOneForDeskWork, MSGBOX_DEFAULT
@@ -1050,3 +1115,4 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall: @ 81FBD1A
 	.string "we meet. I'll be waiting!\p"
 	.string "… … … … … …\n"
 	.string "… … … … … Click!$"
+`

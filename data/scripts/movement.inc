@@ -98,3 +98,83 @@ Common_Movement_WalkUp2:: @ 82725CB
 	walk_up
 	walk_up
 	step_end
+
+Common_Movement_EmoteGloom:
+	emote_gloom
+	step_end
+	
+Common_Movement_EmoteEllipsis:
+	emote_ellipsis
+	step_end
+
+Common_Movement_EmoteAnguish:
+	emote_anguish
+	step_end
+	
+Common_Movement_EmoteDefeat:
+	emote_defeat
+	step_end
+	
+Common_Movement_EmoteDevilish:
+	emote_devilish
+	step_end
+	
+Common_Movement_EmoteFlex:
+	emote_flex
+	step_end
+	
+Common_Movement_EmoteDrooling:
+	emote_drooling
+	step_end
+	
+Common_Movement_EmoteHand:
+	emote_hand
+	step_end
+	
+Common_Movement_EmotePeace:
+	emote_peace
+	step_end
+	
+Common_Movement_EmoteFist:
+	emote_fist
+	step_end
+	
+Common_Movement_EmoteX:
+	emote_x
+	step_end
+	
+Common_Movement_EmoteCircle:
+	emote_circle
+	step_end
+	
+Common_Movement_EmoteAngry:
+	emote_angry
+	step_end
+	
+Common_Movement_EmoteHappy:
+	emote_happy
+	step_end
+	
+Common_Movement_EmoteSweat:
+	emote_sweat
+	step_end
+	
+Common_Movement_EmoteIdea:
+	emote_idea
+	step_end
+	
+Common_Movement_EmoteMusic:
+	emote_music
+	step_end
+	
+Common_Movement_EmoteExclamation:
+	emote_exclamation_mark
+	step_end
+	
+Common_Movement_EmoteQuestionMark:
+	emote_question_mark
+	step_end
+	
+Common_Movement_EmoteHeart:
+	emote_heart
+	step_end
