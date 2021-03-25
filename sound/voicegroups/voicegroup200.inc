@@ -37,7 +37,7 @@ voicegroup200:: @ 8F00000 Custom Voicegroup (Output Device Base Note, Duty Cycle
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fingered_bass, 255, 253, 128, 149  @ 34
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 253, 0, 188  @ 35
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 235, 128, 115  @ 36
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 0, 255, 188  @ 37
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 249, 180, 149  @ 37
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 252, 0, 115  @ 38
 	voice_directsound 60, 0, Cry_Paras, 255, 253, 25, 165  @ 39
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_60, 128, 240, 180, 204  @ 40
@@ -52,7 +52,7 @@ voicegroup200:: @ 8F00000 Custom Voicegroup (Output Device Base Note, Duty Cycle
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_60, 255, 250, 206, 188  @ 49
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_84, 64, 0, 255, 188  @ 50
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 226, 0, 188  @ 51
-	voice_directsound 60, 0, Cry_Paras, 100, 240, 200, 165  @ 52
+	voice_keysplit voicegroup007, KeySplitTable9  @ 52
 	voice_directsound 60, 0, DirectSoundWaveData_classical_choir_voice_ahhs, 100, 0, 255, 188  @ 53
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127  @ 54
 	voice_directsound 60, 0, Cry_Paras, 255, 232, 185, 188  @ 55
@@ -77,9 +77,9 @@ voicegroup200:: @ 8F00000 Custom Voicegroup (Output Device Base Note, Duty Cycle
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_shakuhachi, 64, 176, 240, 196  @ 74
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_shakuhachi, 255, 0, 255, 165  @ 75
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_enhanced_delay_shaku, 255, 0, 255, 165  @ 76
-	voice_directsound 60, 0, Cry_Paras, 128, 165, 232, 204  @ 77
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_female_voice, 128, 165, 128, 204  @ 77
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_whistle, 128, 165, 165, 165  @ 78
-	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_whistle, 255, 240, 255, 204  @ 79
+	voice_directsound 60, 0, DirectSoundWaveData_superstarsaga_ocarina, 128, 254, 25, 204  @ 79
 	voice_square_2_alt 60, 0, 2, 0, 2, 7, 1  @ 80
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4830, 0, 7, 15, 0  @ 81
 	voice_square_2_alt 60, 0, 1, 0, 2, 7, 1  @ 82
