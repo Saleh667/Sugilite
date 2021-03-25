@@ -52,7 +52,7 @@ voicegroup200:: @ 8F00000 Custom Voicegroup (Output Device Base Note, Duty Cycle
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_60, 255, 250, 206, 188  @ 49
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_84, 64, 0, 255, 188  @ 50
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 226, 0, 188  @ 51
-	voice_keysplit voicegroup007, KeySplitTable9  @ 52
+	voice_directsound 60, 0, DirectSoundWaveData_voice_oohs_72, 100, 204, 185, 231  @ 52
 	voice_directsound 60, 0, DirectSoundWaveData_classical_choir_voice_ahhs, 100, 0, 255, 188  @ 53
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127  @ 54
 	voice_directsound 60, 0, Cry_Paras, 255, 232, 185, 188  @ 55
@@ -99,7 +99,7 @@ voicegroup200:: @ 8F00000 Custom Voicegroup (Output Device Base Note, Duty Cycle
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 96
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4890, 0, 0, 15, 1  @ 97
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 98
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 99
+	voice_keysplit voicegroup205, KeySplitTable9  @ 99
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 100
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4890, 0, 0, 15, 0  @ 101
 	voice_square_1_alt 60, 0, 0, 2, 0, 0, 7, 1  @ 102
