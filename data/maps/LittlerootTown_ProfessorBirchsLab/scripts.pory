@@ -1,9 +1,9 @@
-const LOCALID_STEPHANIE = 2
-const LOCALID_RIVAL = 3
-const LOCALID_BALL_IGNION = 4
-const LOCALID_BALL_JELLOSIS = 5
-const LOCALID_BALL_CYBIO = 6
-const LOCALID_SIMMERMAN = 7
+const LOCALID_STEPHANIE = 1
+const LOCALID_RIVAL = 2
+const LOCALID_BALL_IGNION = 3
+const LOCALID_BALL_JELLOSIS = 4
+const LOCALID_BALL_CYBIO = 5
+const LOCALID_SIMMERMAN = 6
 
 mapscripts LittlerootTown_ProfessorBirchsLab_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
@@ -27,7 +27,7 @@ script KurosibaTown_ProfessorsLab_EventScript_StarterSelection {
     closemessage
     applymovement(OBJ_EVENT_ID_PLAYER, KurosibaTown_ProfessorsLab_Movement_PlayerToOthers)
     waitmovement(0)
-    applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteFist)
+    applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteAngry)
     msgbox(format("Stephanie: Simmerman!"))
     closemessage
     msgbox(format("Simmerman: Okay fine, maybe that was a bit too much."))
@@ -43,7 +43,7 @@ script KurosibaTown_ProfessorsLab_EventScript_StarterSelection {
         msgbox(format("Stephanie: Great! Why don't you pick first then, honey?"))
         checkplayergender
         if (var(VAR_RESULT) == MALE) {
-            applymovement(LOCALID_RIVAL, Common_Movement_EmoteHappy)
+            applymovement(LOCALID_RIVAL, Common_Movement_EmoteMusic)
             msgbox(format("Eirika: Not fair, but sure! That's probably a good thing... for me!"))
         }
         else {
@@ -54,7 +54,7 @@ script KurosibaTown_ProfessorsLab_EventScript_StarterSelection {
         msgbox(format("Stephanie: There's no rush to make your first decision. So, think wisely."))
         checkplayergender
         if (var(VAR_RESULT) == MALE) {
-            applymovement(LOCALID_RIVAL, Common_Movement_EmoteCircle)
+            applymovement(LOCALID_RIVAL, Common_Movement_EmoteX)
             msgbox(format("Eirika: I suppose I should let you pick first, it's not the first time I have to do that anyway. I'm a nice sister that way, so yeah."))
         }
         else {
@@ -78,6 +78,46 @@ script LittlerootTown_ProfessorBirchsLab_EventScript_Aide {
     msgbox(format("Oh, hi {PLAYER}! I sure hope you've been eating and sleeping well. Going on a big adventure isn't easy if not."))
     release
     end
+}
+
+script KurosibaTown_ProfessorsLab_EventScript_BookshelfWithWriting {
+	msgbox(format("It's Mom's special bookshelf with Pokémon research books. So many advanced books! No time to read them, though!"), MSGBOX_SIGN)
+	end
+}
+
+script KurosibaTown_ProfessorsLab_EventScript_SmallMachine {
+	msgbox(format("It's a machine with a beeping signal, much like an electrocardiogram."), MSGBOX_SIGN)
+	end
+}
+
+script KurosibaTown_ProfessorsLab_EventScript_MediumMachine {
+	msgbox(format("It's a data analyzer for Pokémon. Touching it might cause something bad to happen."), MSGBOX_SIGN)
+	end
+}
+
+script KurosibaTown_ProfessorsLab_EventScript_Boxes {
+	msgbox(format("It's a heap of boxes, probably containing important items for the lab."), MSGBOX_SIGN)
+	end
+}
+
+script LittlerootTown_ProfessorBirchsLab_EventScript_PC {
+	msgbox(format("Mom's computer. It's locked with a password that you don't know. No messing around!"), MSGBOX_SIGN)
+	end
+}
+
+script LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf {
+	msgbox(format("A bookshelf with lots of books on Pokemon research, organized in alphabetical order."), MSGBOX_SIGN)
+	end
+}
+
+script LittlerootTown_ProfessorBirchsLab_EventScript_Book {
+	msgbox(format("A few Pokémon magazines lay on the floor. Could they also be for research?"), MSGBOX_SIGN)
+	end
+}
+
+script LittlerootTown_ProfessorBirchsLab_EventScript_Machine {
+	msgbox(format("It's a machine used to store Pokéballs. It's empty right now, though..."), MSGBOX_SIGN)
+	end
 }
 
 raw `
@@ -679,10 +719,6 @@ LittlerootTown_ProfessorBirchsLab_Movement_RivalApproachPlayer: @ 81FA3E0
 	walk_in_place_fastest_left
 	step_end
 
-LittlerootTown_ProfessorBirchsLab_EventScript_Machine:: @ 81FA3E3
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_SeriousLookingMachine, MSGBOX_SIGN
-	end
-
 LittlerootTown_ProfessorBirchsLab_EventScript_Rival:: @ 81FA3EC
 	lock
 	faceplayer
@@ -758,18 +794,6 @@ LittlerootTown_ProfessorBirchsLab_EventScript_MayTakeBreakFromFieldwork:: @ 81FA
 LittlerootTown_ProfessorBirchsLab_EventScript_BrendanTakeBreakFromFieldwork:: @ 81FA4B2
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanTakeBreakFromFieldwork, MSGBOX_DEFAULT
 	return
-
-LittlerootTown_ProfessorBirchsLab_EventScript_PC:: @ 81FA4BB
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_PCUsedForResearch, MSGBOX_SIGN
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf:: @ 81FA4C4
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_CrammedWithBooksOnPokemon, MSGBOX_SIGN
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_Book:: @ 81FA4CD
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_BookTooHardToRead, MSGBOX_SIGN
-	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall:: @ 81FA4D6
 	lockall
