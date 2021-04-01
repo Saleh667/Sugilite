@@ -1,6 +1,6 @@
 	.align 2
 voicegroup120:: @ 869B0B4
-	voice_keysplit_all voicegroup001  @ 869B0B4
+	voice_keysplit_all voicegroup201  @ 869B0B4
 	voice_keysplit voicegroup005, KeySplitTable1  @ 869B0C0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869B0CC
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869B0D8
@@ -10,7 +10,7 @@ voicegroup120:: @ 869B0B4
 	voice_square_1 60, 0, 0, 3, 0, 2, 4, 1  @ 869B108
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869B114
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869B120
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869B12C
+	voice_noise_alt 60, 0, 0, 0, 2, 7, 0  @ 10
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869B138
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869B144
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869B150

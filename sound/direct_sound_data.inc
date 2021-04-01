@@ -4600,6 +4600,18 @@ DirectSoundWaveData_voice_oohs_43::
 	.incbin "sound/direct_sound_samples/voice_oohs_43.bin"
 
 	.align 2
+DirectSoundWaveData_voice_oohs_62::
+	.incbin "sound/direct_sound_samples/voice_oohs_62.bin"
+
+	.align 2
+DirectSoundWaveData_voice_oohs_67::
+	.incbin "sound/direct_sound_samples/voice_oohs_67.bin"
+
+	.align 2
+DirectSoundWaveData_voice_oohs_72::
+	.incbin "sound/direct_sound_samples/voice_oohs_72.bin"
+
+	.align 2
 DirectSoundWaveData_mlrpg3_musicbox_48::
 	.incbin "sound/direct_sound_samples/mlrpg3_musicbox_48.bin"
 

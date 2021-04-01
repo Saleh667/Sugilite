@@ -8,7 +8,7 @@
 .include "sound/voicegroups/voicegroup007.inc"
 .include "sound/voicegroups/voicegroup008.inc"
 .include "sound/voicegroups/voicegroup009.inc"
-.include "sound/voicegroups/voicegroup010.inc"
+.include "sound/voicegroups/voicegroup010.inc" @ unused
 .include "sound/voicegroups/voicegroup011.inc" @ unused
 .include "sound/voicegroups/voicegroup012.inc"
 .include "sound/voicegroups/voicegroup013.inc"
@@ -124,7 +124,7 @@
 .include "sound/voicegroups/voicegroup123.inc"
 .include "sound/voicegroups/voicegroup124.inc" @ unused
 .include "sound/voicegroups/voicegroup125.inc"
-.include "sound/voicegroups/voicegroup126.inc"
+.include "sound/voicegroups/voicegroup126.inc" @ unused
 .include "sound/voicegroups/voicegroup127.inc"
 .include "sound/voicegroups/voicegroup128.inc"
 .include "sound/cry_tables.inc"
@@ -195,3 +195,4 @@
 .include "sound/voicegroups/voicegroup202.inc"
 .include "sound/voicegroups/voicegroup203.inc"
 .include "sound/voicegroups/voicegroup204.inc"
+.include "sound/voicegroups/voicegroup205.inc"
