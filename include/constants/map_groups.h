@@ -61,10 +61,10 @@
 #define MAP_UNDERWATER_ROUTE125 (56 | (0 << 8))
 #define MAP_KUROSIBA_TOWN       (57 | (0 << 8))
 #define MAP_ROUTE401            (58 | (0 << 8))
-#define MAP_ROUTE402            (59 | (0 << 8))
-#define MAP_TEST_MAP            (60 | (0 << 8))
-#define MAP_IVYWOOD_TOWN        (61 | (0 << 8))
-#define MAP_ROUTE402B           (62 | (0 << 8))
+#define MAP_ROUTE402A           (59 | (0 << 8))
+#define MAP_ROUTE402B           (60 | (0 << 8))
+#define MAP_TEST_MAP            (61 | (0 << 8))
+#define MAP_IVYWOOD_TOWN        (62 | (0 << 8))
 
 // Map Group 1
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -594,8 +594,11 @@
 #define MAP_ROUTE124_DIVING_TREASURE_HUNTERS_HOUSE (0 | (33 << 8))
 
 // Map Group 34
-#define MAP_TILESET_TEST_INDOORS (0 | (34 << 8))
+#define MAP_THE_DARKWOODS (0 | (34 << 8))
 
-#define MAP_GROUPS_COUNT 35
+// Map Group 35
+#define MAP_TILESET_TEST_INDOORS (0 | (35 << 8))
+
+#define MAP_GROUPS_COUNT 36
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

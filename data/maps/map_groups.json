@@ -35,6 +35,7 @@
     "gMapGroup31",
     "gMapGroup32",
     "gMapGroup33",
+    "gMapGroup34",
     "gMapGroupDebug"
   ],
   "gMapGroup0": [
@@ -97,10 +98,10 @@
     "Underwater_Route125",
     "KurosibaTown",
     "Route401",
-    "Route402",
+    "Route402A",
+    "Route402B",
     "TestMap",
-    "IvywoodTown",
-    "Route402B"
+    "IvywoodTown"
   ],
   "gMapGroup1": [
     "LittlerootTown_BrendansHouse_1F",
@@ -628,6 +629,9 @@
   ],
   "gMapGroup33": [
     "Route124_DivingTreasureHuntersHouse"
+  ],
+  "gMapGroup34": [
+    "TheDarkwoods"
   ],
   "gMapGroupDebug": [
     "TilesetTestIndoors"
