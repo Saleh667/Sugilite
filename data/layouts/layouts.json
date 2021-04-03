@@ -4470,6 +4470,16 @@
       "secondary_tileset": "gTileset_Ivywood",
       "border_filepath": "data/layouts/IvywoodTown/border.bin",
       "blockdata_filepath": "data/layouts/IvywoodTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE402B",
+      "name": "Route402B_Layout",
+      "width": 24,
+      "height": 24,
+      "primary_tileset": "gTileset_Outside",
+      "secondary_tileset": "gTileset_Ivywood",
+      "border_filepath": "data/layouts/Route402B/border.bin",
+      "blockdata_filepath": "data/layouts/Route402B/map.bin"
     }
   ]
 }
