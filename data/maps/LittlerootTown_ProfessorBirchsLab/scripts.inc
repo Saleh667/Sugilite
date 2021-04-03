@@ -8,13 +8,13 @@ LittlerootTown_ProfessorBirchsLab_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 LittlerootTown_ProfessorBirchsLab_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0:
 	call Common_EventScript_SetupRivalGfxId
+	addobject 1
 	addobject 2
 	addobject 3
 	addobject 4
 	addobject 5
-	addobject 6
+	turnobject 1, DIR_SOUTH
 	turnobject 2, DIR_SOUTH
-	turnobject 3, DIR_SOUTH
 	call KurosibaTown_ProfessorsLab_EventScript_StarterSelection
 	return
 
@@ -25,7 +25,7 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection::
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, KurosibaTown_ProfessorsLab_Movement_PlayerToOthers
 	waitmovement 0
-	applymovement 2, Common_Movement_EmoteFist
+	applymovement 1, Common_Movement_EmoteAngry
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_1
 	closemessage
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_2
@@ -57,12 +57,12 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection_6:
 	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_5
 
 KurosibaTown_ProfessorsLab_EventScript_StarterSelection_9:
-	applymovement 3, Common_Movement_EmoteHappy
+	applymovement 2, Common_Movement_EmoteMusic
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_6
 	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_5
 
 KurosibaTown_ProfessorsLab_EventScript_StarterSelection_12:
-	applymovement 3, Common_Movement_EmoteCircle
+	applymovement 2, Common_Movement_EmoteX
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_8
 	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_5
 
@@ -85,6 +85,46 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Aide::
 	faceplayer
 	msgbox LittlerootTown_ProfessorBirchsLab_EventScript_Aide_Text_0
 	release
+	end
+
+
+KurosibaTown_ProfessorsLab_EventScript_BookshelfWithWriting::
+	msgbox KurosibaTown_ProfessorsLab_EventScript_BookshelfWithWriting_Text_0, MSGBOX_SIGN
+	end
+
+
+KurosibaTown_ProfessorsLab_EventScript_SmallMachine::
+	msgbox KurosibaTown_ProfessorsLab_EventScript_SmallMachine_Text_0, MSGBOX_SIGN
+	end
+
+
+KurosibaTown_ProfessorsLab_EventScript_MediumMachine::
+	msgbox KurosibaTown_ProfessorsLab_EventScript_MediumMachine_Text_0, MSGBOX_SIGN
+	end
+
+
+KurosibaTown_ProfessorsLab_EventScript_Boxes::
+	msgbox KurosibaTown_ProfessorsLab_EventScript_Boxes_Text_0, MSGBOX_SIGN
+	end
+
+
+LittlerootTown_ProfessorBirchsLab_EventScript_PC::
+	msgbox LittlerootTown_ProfessorBirchsLab_EventScript_PC_Text_0, MSGBOX_SIGN
+	end
+
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf::
+	msgbox LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf_Text_0, MSGBOX_SIGN
+	end
+
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Book::
+	msgbox LittlerootTown_ProfessorBirchsLab_EventScript_Book_Text_0, MSGBOX_SIGN
+	end
+
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Machine::
+	msgbox LittlerootTown_ProfessorBirchsLab_EventScript_Machine_Text_0, MSGBOX_SIGN
 	end
 
 
@@ -686,10 +726,6 @@ LittlerootTown_ProfessorBirchsLab_Movement_RivalApproachPlayer: @ 81FA3E0
 	walk_in_place_fastest_left
 	step_end
 
-LittlerootTown_ProfessorBirchsLab_EventScript_Machine:: @ 81FA3E3
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_SeriousLookingMachine, MSGBOX_SIGN
-	end
-
 LittlerootTown_ProfessorBirchsLab_EventScript_Rival:: @ 81FA3EC
 	lock
 	faceplayer
@@ -765,18 +801,6 @@ LittlerootTown_ProfessorBirchsLab_EventScript_MayTakeBreakFromFieldwork:: @ 81FA
 LittlerootTown_ProfessorBirchsLab_EventScript_BrendanTakeBreakFromFieldwork:: @ 81FA4B2
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanTakeBreakFromFieldwork, MSGBOX_DEFAULT
 	return
-
-LittlerootTown_ProfessorBirchsLab_EventScript_PC:: @ 81FA4BB
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_PCUsedForResearch, MSGBOX_SIGN
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf:: @ 81FA4C4
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_CrammedWithBooksOnPokemon, MSGBOX_SIGN
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_Book:: @ 81FA4CD
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_BookTooHardToRead, MSGBOX_SIGN
-	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall:: @ 81FA4D6
 	lockall
@@ -1166,3 +1190,40 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Aide_Text_0:
 	.string "Oh, hi {PLAYER}! I sure hope you've\n"
 	.string "been eating and sleeping well. Going on\l"
 	.string "a big adventure isn't easy if not.$"
+
+KurosibaTown_ProfessorsLab_EventScript_BookshelfWithWriting_Text_0:
+	.string "It's Mom's special bookshelf with\n"
+	.string "Pokémon research books. So many\l"
+	.string "advanced books! No time to read them,\l"
+	.string "though!$"
+
+KurosibaTown_ProfessorsLab_EventScript_SmallMachine_Text_0:
+	.string "It's a machine with a beeping signal,\n"
+	.string "much like an electrocardiogram.$"
+
+KurosibaTown_ProfessorsLab_EventScript_MediumMachine_Text_0:
+	.string "It's a data analyzer for Pokémon.\n"
+	.string "Touching it might cause something bad\l"
+	.string "to happen.$"
+
+KurosibaTown_ProfessorsLab_EventScript_Boxes_Text_0:
+	.string "It's a heap of boxes, probably\n"
+	.string "containing important items for the lab.$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_PC_Text_0:
+	.string "Mom's computer. It's locked with a\n"
+	.string "password that you don't know. No\l"
+	.string "messing around!$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf_Text_0:
+	.string "A bookshelf with lots of books on\n"
+	.string "Pokemon research, organized in\l"
+	.string "alphabetical order.$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Book_Text_0:
+	.string "A few Pokémon magazines lay on the\n"
+	.string "floor. Could they also be for research?$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Machine_Text_0:
+	.string "It's a machine used to store Pokéballs.\n"
+	.string "It's empty right now, though...$"
