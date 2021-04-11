@@ -3980,6 +3980,70 @@ Cry_Calyrex::
 	.incbin "sound/direct_sound_samples/cries/cry_not_calyrex.bin"
 
 	.align 2
+Cry_Cybio::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_cybio.bin"
+
+	.align 2
+Cry_Probio::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_probio.bin"
+
+	.align 2
+Cry_Domebio::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_domebio.bin"
+
+	.align 2
+Cry_Ignion::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_ignion.bin"
+
+	.align 2
+Cry_Ignicorus::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_ignicorus.bin"
+
+	.align 2
+Cry_Dracohoho::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_dracohoho.bin"
+
+	.align 2
+Cry_Jellosis::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_jellosis.bin"
+
+	.align 2
+Cry_Luquodi::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_luquodi.bin"
+
+	.align 2
+Cry_Cnidarolt::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_cnidarolt.bin"
+
+	.align 2
+Cry_Dragby::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_dragby.bin"
+
+	.align 2
+Cry_Dragafraud::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_dragafraud.bin"
+
+	.align 2
+Cry_Wisbug::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_wisbug.bin"
+
+	.align 2
+Cry_Spoocoon::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_spoocoon.bin"
+
+	.align 2
+Cry_Horrimoth::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_horrimoth.bin"
+
+	.align 2
+Cry_Graven::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_graven.bin"
+
+	.align 2
+Cry_Shirill::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_shirill.bin"
+
+	.align 2
 Cry_Venusaur_Mega::
 	.incbin "sound/direct_sound_samples/cries/cry_not_mega_venusaur.bin"
 

@@ -899,6 +899,22 @@ gCryTable:: @ 869DCF4
 	cry_not Cry_Glastrier
 	cry_not Cry_Spectrier
 	cry_not Cry_Calyrex
+	cry_not Cry_Cybio
+    cry_not Cry_Probio
+    cry_not Cry_Domebio
+    cry_not Cry_Ignion
+    cry_not Cry_Ignicorus
+    cry_not Cry_Dracohoho
+    cry_not Cry_Jellosis
+    cry_not Cry_Luquodi
+    cry_not Cry_Cnidarolt
+    cry_not Cry_Dragby
+    cry_not Cry_Dragafraud
+    cry_not Cry_Wisbug
+    cry_not Cry_Spoocoon
+    cry_not Cry_Horrimoth
+    cry_not Cry_Graven
+    cry_not Cry_Shirill
 	@ Megas
 	cry_not Cry_Venusaur_Mega
 	cry_not Cry_Charizard_Mega_X
@@ -2173,6 +2189,22 @@ gCryTable2:: @ 869EF24
 	cry2_not Cry_Glastrier
 	cry2_not Cry_Spectrier
 	cry2_not Cry_Calyrex
+	cry2_not Cry_Cybio
+    cry2_not Cry_Probio
+    cry2_not Cry_Domebio
+    cry2_not Cry_Ignion
+    cry2_not Cry_Ignicorus
+    cry2_not Cry_Dracohoho
+    cry2_not Cry_Jellosis
+    cry2_not Cry_Luquodi
+    cry2_not Cry_Cnidarolt
+    cry2_not Cry_Dragby
+    cry2_not Cry_Dragafraud
+    cry2_not Cry_Wisbug
+    cry2_not Cry_Spoocoon
+    cry2_not Cry_Horrimoth
+    cry2_not Cry_Graven
+    cry2_not Cry_Shirill
 	@ Megas
 	cry2_not Cry_Venusaur_Mega
 	cry2_not Cry_Charizard_Mega_X
