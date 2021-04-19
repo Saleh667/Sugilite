@@ -1,6 +1,6 @@
 	.align 2
 voicegroup121:: @ 869B4F8
-	voice_keysplit_all voicegroup001  @ 869B4F8
+	voice_keysplit_all voicegroup201  @ 869B4F8
 	voice_keysplit voicegroup005, KeySplitTable1  @ 869B504
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869B510
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869B51C
