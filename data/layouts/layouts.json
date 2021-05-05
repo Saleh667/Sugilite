@@ -4457,7 +4457,7 @@
       "width": 20,
       "height": 20,
       "primary_tileset": "gTileset_Outside",
-      "secondary_tileset": "gTileset_Ivywood",
+      "secondary_tileset": "gTileset_EldrifellCity",
       "border_filepath": "data/layouts/TestMap/border.bin",
       "blockdata_filepath": "data/layouts/TestMap/map.bin"
     },

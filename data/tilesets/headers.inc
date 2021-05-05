@@ -885,3 +885,14 @@ gTileset_darkwoods::
 	.4byte gMetatiles_darkwoods
 	.4byte gMetatileAttributes_darkwoods
 	.4byte NULL
+
+	.align 2
+gTileset_EldrifellCity::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_EldrifellCity
+	.4byte gTilesetPalettes_EldrifellCity
+	.4byte gMetatiles_EldrifellCity
+	.4byte gMetatileAttributes_EldrifellCity
+	.4byte NULL

@@ -593,3 +593,10 @@ gMetatiles_darkwoods::
 	.align 1
 gMetatileAttributes_darkwoods::
 	.incbin "data/tilesets/secondary/darkwoods/metatile_attributes.bin"
+	.align 1
+gMetatiles_EldrifellCity::
+	.incbin "data/tilesets/secondary/eldrifellcity/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_EldrifellCity::
+	.incbin "data/tilesets/secondary/eldrifellcity/metatile_attributes.bin"
