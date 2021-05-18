@@ -7405,18 +7405,18 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_BrendanRoute119Torchic},
     },
 
-    [TRAINER_MAY_ROUTE_103_MUDKIP] =
+    [TRAINER_EIRIKA_LAB_JELLOSIS] =
     {
         .partyFlags = 0,
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_PIC_MAY,
-        .trainerName = _("MAY"),
+        .trainerName = _("Eirika"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
-        .partySize = ARRAY_COUNT(sParty_MayRoute103Mudkip),
-        .party = {.NoItemDefaultMoves = sParty_MayRoute103Mudkip},
+        .partySize = ARRAY_COUNT(sParty_EirikaLabJellosis),
+        .party = {.NoItemDefaultMoves = sParty_EirikaLabJellosis},
     },
 
     [TRAINER_MAY_ROUTE_110_MUDKIP] =
@@ -7447,18 +7447,18 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_MayRoute119Mudkip},
     },
 
-    [TRAINER_MAY_ROUTE_103_TREECKO] =
+    [TRAINER_EIRIKA_LAB_CYBIO] =
     {
         .partyFlags = 0,
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_PIC_MAY,
-        .trainerName = _("MAY"),
+        .trainerName = _("Eirika"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
-        .partySize = ARRAY_COUNT(sParty_MayRoute103Treecko),
-        .party = {.NoItemDefaultMoves = sParty_MayRoute103Treecko},
+        .partySize = ARRAY_COUNT(sParty_EirikaLabCybio),
+        .party = {.NoItemDefaultMoves = sParty_EirikaLabCybio},
     },
 
     [TRAINER_MAY_ROUTE_110_TREECKO] =
@@ -7489,18 +7489,18 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_MayRoute119Treecko},
     },
 
-    [TRAINER_MAY_ROUTE_103_TORCHIC] =
+    [TRAINER_EIRIKA_LAB_IGNION] =
     {
         .partyFlags = 0,
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_PIC_MAY,
-        .trainerName = _("MAY"),
+        .trainerName = _("Eirika"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
-        .partySize = ARRAY_COUNT(sParty_MayRoute103Torchic),
-        .party = {.NoItemDefaultMoves = sParty_MayRoute103Torchic},
+        .partySize = ARRAY_COUNT(sParty_EirikaLabIgnion),
+        .party = {.NoItemDefaultMoves = sParty_EirikaLabIgnion},
     },
 
     [TRAINER_MAY_ROUTE_110_TORCHIC] =

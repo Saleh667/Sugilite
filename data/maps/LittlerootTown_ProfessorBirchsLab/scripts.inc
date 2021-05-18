@@ -97,6 +97,100 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection_22:
 	goto_if_eq KurosibaTown_ProfessorsLab_EventScript_StarterSelection_27
 KurosibaTown_ProfessorsLab_EventScript_StarterSelection_26:
 	closemessage
+	fadescreen FADE_TO_BLACK
+	special SpawnCameraObject
+	setobjectxy OBJ_EVENT_ID_PLAYER, 7, 11
+	setobjectxy 2, 11, 11
+	setobjectxy 1, 8, 10
+	setobjectxy 6, 10, 10
+	applymovement OBJ_EVENT_ID_CAMERA, KurosibaTown_ProfessorsLab_Movement_CameraBeforeBattle
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject 2, DIR_WEST
+	turnobject 1, DIR_SOUTH
+	turnobject 6, DIR_SOUTH
+	waitmovement 0
+	fadescreen FADE_FROM_BLACK
+	special RemoveCameraObject
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq KurosibaTown_ProfessorsLab_EventScript_StarterSelection_31
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_30:
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_32
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_33
+	closemessage
+	fadescreen FADE_TO_BLACK
+	setobjectxy OBJ_EVENT_ID_PLAYER, 5, 11
+	setobjectxy 2, 4, 10
+	setobjectxy 1, 3, 10
+	setobjectxy 6, 2, 11
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, KurosibaTown_ProfessorsLab_Movement_CameraAfterBattle
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject 2, DIR_WEST
+	turnobject 1, DIR_EAST
+	turnobject 6, DIR_EAST
+	waitmovement 0
+	special RemoveCameraObject
+	fadescreen FADE_FROM_BLACK
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_34
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_35
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq KurosibaTown_ProfessorsLab_EventScript_StarterSelection_35
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_34:
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_37
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_38
+	closemessage
+	applymovement 6, KurosibaTown_ProfessorsLab_Movement_SimmermanToPlayer
+	waitmovement 0
+	applymovement 2, Common_Movement_FaceDown
+	playfanfare MUS_OBTAIN_TMHM
+	message KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_39
+	waitfanfare
+	waitmessage
+	setflag FLAG_SYS_POKEDEX_GET
+	special SetUnlockedPokedexFlags
+	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	closemessage
+	applymovement 6, KurosibaTown_ProfessorsLab_Movement_SimmermanBack
+	waitmovement 0
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_40
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq KurosibaTown_ProfessorsLab_EventScript_StarterSelection_44
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_43:
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_42
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_43
+	closemessage
+	applymovement 1, KurosibaTown_ProfessorsLab_Movement_StephanieToOthers
+	waitmovement 0
+	applymovement 2, Common_Movement_FaceDown
+	playfanfare MUS_OBTAIN_ITEM
+	message KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_44
+	setflag FLAG_RECEIVED_RUNNING_SHOES
+	setflag FLAG_SYS_B_DASH
+	waitfanfare
+	waitmessage
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_45
+	closemessage
+	playse SE_PIN
+	applymovement 1, Common_Movement_EmoteMusic
+	delay 60
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq KurosibaTown_ProfessorsLab_EventScript_StarterSelection_47
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_46:
+	closemessage
+	applymovement 2, KurosibaTown_ProfessorsLab_Movement_RivalLeaves
+	waitmovement 0
+	removeobject 2
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_48
+	closemessage
+	applymovement 6, KurosibaTown_ProfessorsLab_Movement_SimmermanLeaves
+	waitmovement 0
+	removeobject 6
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_49
+	closemessage
 	setvar VAR_BIRCH_LAB_STATE, 1
 	end
 
@@ -144,6 +238,9 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection_27:
 	playse SE_PIN
 	applymovement 2, Common_Movement_EmoteExclamation
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_21
+	applymovement 1, Common_Movement_FaceLeft
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	applymovement 6, KurosibaTown_ProfessorsLab_Movement_JumpInPlaceRight
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_22
 	playse SE_BOO
 	applymovement 2, Common_Movement_EmoteAngry
@@ -153,6 +250,8 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection_27:
 	playse SE_BOO
 	applymovement 6, Common_Movement_EmoteGloom
 	delay 60
+	applymovement 1, Common_Movement_FaceRight
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	applymovement 2, Common_Movement_EmoteEllipsis
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_25
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_26
@@ -163,11 +262,72 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection_27:
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_28
 	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_26
 
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_31:
+	playbgm MUS_ENCOUNTER_MAY, TRUE
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_29
+	switch VAR_STARTER_MON
+	case 0, KurosibaTown_ProfessorsLab_EventScript_StarterSelection_40
+	case 1, KurosibaTown_ProfessorsLab_EventScript_StarterSelection_41
+	case 2, KurosibaTown_ProfessorsLab_EventScript_StarterSelection_42
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_38:
+	fadedefaultbgm
+	applymovement 2, Common_Movement_EmoteSweat
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_30
+	bufferstring 1, KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_31
+	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_30
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_35:
+	applymovement 2, Common_Movement_EmoteHappy
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_36
+	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_34
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_40:
+	trainerbattle_no_intro TRAINER_EIRIKA_LAB_CYBIO, KurosibaTown_ProfessorsLab_Text_EirikaDefeated
+	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_38
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_41:
+	trainerbattle_no_intro TRAINER_EIRIKA_LAB_IGNION, KurosibaTown_ProfessorsLab_Text_EirikaDefeated
+	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_38
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_42:
+	trainerbattle_no_intro TRAINER_EIRIKA_LAB_JELLOSIS, KurosibaTown_ProfessorsLab_Text_EirikaDefeated
+	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_38
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_44:
+	applymovement 2, Common_Movement_FaceLeft
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_41
+	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_43
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_47:
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_46
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_47
+	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_46
+
+
+KurosibaTown_ProfessorsLab_Movement_JumpInPlaceRight:
+	jump_in_place_right
+	step_end
 
 KurosibaTown_ProfessorsLab_Movement_PlayerToStephanie:
 	walk_left
 	walk_left
 	face_up
+	step_end
+
+KurosibaTown_ProfessorsLab_Movement_CameraBeforeBattle:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+KurosibaTown_ProfessorsLab_Movement_CameraAfterBattle:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	step_end
 
 KurosibaTown_ProfessorsLab_Movement_PlayerToOthers:
@@ -182,6 +342,60 @@ KurosibaTown_ProfessorsLab_Movement_PlayerToOthers:
 	walk_left
 	walk_left
 	step_end
+
+KurosibaTown_ProfessorsLab_Movement_SimmermanToPlayer:
+	walk_right
+	walk_right
+	step_end
+
+KurosibaTown_ProfessorsLab_Movement_SimmermanBack:
+	face_left
+	walk_left
+	walk_left
+	face_right
+	step_end
+
+KurosibaTown_ProfessorsLab_Movement_StephanieToOthers:
+	face_down
+	walk_down
+	face_right
+	walk_right
+	step_end
+
+KurosibaTown_ProfessorsLab_Movement_RivalLeaves:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+KurosibaTown_ProfessorsLab_Movement_SimmermanLeaves:
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+KurosibaTown_ProfessorsLab_EventScript_Stephanie::
+	lock
+	faceplayer
+	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_49
+	release
+	end
+
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Aide::
 	lock
@@ -1371,6 +1585,99 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_27:
 KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_28:
 	.string "Eirika: Hah! Alright then.$"
 
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_29:
+	.string "Eirika: I won't go easy on you, even if\n"
+	.string "you're my twin brother!$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_30:
+	.string "Eirika: Darn, you're pretty good\n"
+	.string "{PLAYER}. Guess I gotta work on my\l"
+	.string "skills more.$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_31:
+	.string "Eirika$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_32:
+	.string "Stephanie: It's alright, {STR_VAR_2}.\n"
+	.string "Experiencing defeat with your first\l"
+	.string "partner can be frustrating, but I'm\l"
+	.string "sure you'll both be able to raise your\l"
+	.string "Pokémon well.$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_33:
+	.string "Which takes me to my next point. Come\n"
+	.string "here, you two.$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_34:
+	.string "Stephanie: {PLAYER}. {STR_VAR_2}.\n"
+	.string "There are many beautiful and\l"
+	.string "interesting Pokémon in the Phantos\l"
+	.string "region.$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_35:
+	.string "And I think that it's a great idea for\n"
+	.string "you two to take the latest Pokédex\l"
+	.string "technology, to record and discover all\l"
+	.string "of the Pokémon here.$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_36:
+	.string "Eirika: Wow, I suppose that's also fun!\n"
+	.string "Count us in, Mom.$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_37:
+	.string "Stephanie: That's the spirit! Simmerman,\n"
+	.string "you can give it to them now.$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_38:
+	.string "Simmerman: Alright, kids. They're all\n"
+	.string "yours. Just so we're clear though,\l"
+	.string "these aren't edible.$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_39:
+	.string "Mr. Simmerman gives {PLAYER} and\n"
+	.string "{STR_VAR_2} the Pokédex!$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_40:
+	.string "Stephanie: Aw, my two babies are leaving\n"
+	.string "home already. A mother can't help but\l"
+	.string "worry!$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_41:
+	.string "Eirika: Mom! Stop embarrassing us!\n"
+	.string "Gosh...$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_42:
+	.string "Stephanie: Honey, you be careful out\n"
+	.string "there. You too, {PLAYER}. You can\l"
+	.string "always come back here if you need\l"
+	.string "anything.$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_43:
+	.string "Oh, I should also give you these.$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_44:
+	.string "{PLAYER} received the Running Shoes!$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_45:
+	.string "Stephanie: I've got fitting models for\n"
+	.string "both of you. They were on sale, too.$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_46:
+	.string "Eirika: That's... kind of cool. Thanks\n"
+	.string "Mom!$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_47:
+	.string "Alright, I'm off to Route 401. Finally, I\n"
+	.string "can be a trainer! See you all!$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_48:
+	.string "Simmerman: HEY! Hold up! I'm supposed to\n"
+	.string "teach you how to catch a Pokémon!$"
+
+KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_49:
+	.string "Stephanie: How about you go join them,\n"
+	.string "dear?$"
+
 LittlerootTown_ProfessorBirchsLab_EventScript_Aide_Text_0:
 	.string "Oh, hi {PLAYER}! I sure hope you've\n"
 	.string "been eating and sleeping well. Going on\l"
@@ -1412,3 +1719,6 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Book_Text_0:
 LittlerootTown_ProfessorBirchsLab_EventScript_Machine_Text_0:
 	.string "It's a machine used to store Pokéballs.\n"
 	.string "It's empty right now, though...$"
+
+KurosibaTown_ProfessorsLab_Text_EirikaDefeated::
+	.string "Wow, what the heck?!$"
