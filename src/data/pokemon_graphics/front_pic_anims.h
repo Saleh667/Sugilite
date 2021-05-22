@@ -8511,9 +8511,13 @@ static const union AnimCmd sAnim_CNIDAROLT_1[] =
 
 static const union AnimCmd sAnim_DRAGBY_1[] =
 {
-    ANIMCMD_FRAME(0, 22),
-    ANIMCMD_FRAME(1, 2),
-    ANIMCMD_FRAME(0, 22),
+    ANIMCMD_FRAME(0, 27),
+    ANIMCMD_FRAME(1, 27),
+    ANIMCMD_FRAME(0, 27),
+    ANIMCMD_FRAME(1, 27),
+    ANIMCMD_FRAME(0, 27),
+    ANIMCMD_FRAME(1, 27),
+    ANIMCMD_FRAME(0, 3),
     ANIMCMD_END,
 };
 
