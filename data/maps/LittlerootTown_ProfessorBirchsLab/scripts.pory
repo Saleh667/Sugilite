@@ -11,11 +11,8 @@ mapscripts LittlerootTown_ProfessorBirchsLab_MapScripts {
             call(Common_EventScript_SetupRivalGfxId)
             addobject(LOCALID_STEPHANIE)
             addobject(LOCALID_RIVAL)
-            addobject(LOCALID_BALL_IGNION)
-            addobject(LOCALID_BALL_JELLOSIS)
-            addobject(LOCALID_BALL_CYBIO)
-            turnobject(LOCALID_STEPHANIE, DIR_SOUTH)
-            turnobject(LOCALID_RIVAL, DIR_SOUTH)
+            turnobject(LOCALID_STEPHANIE, DIR_WEST)
+            turnobject(LOCALID_RIVAL, DIR_WEST)
             call(KurosibaTown_ProfessorsLab_EventScript_StarterSelection)
         }   
     ]
@@ -27,22 +24,28 @@ script KurosibaTown_ProfessorsLab_EventScript_StarterSelection {
     closemessage
     applymovement(OBJ_EVENT_ID_PLAYER, KurosibaTown_ProfessorsLab_Movement_PlayerToOthers)
     waitmovement(0)
-    applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteAngry)
     msgbox(format("Stephanie: Simmerman!"))
-    closemessage
-    msgbox(format("Simmerman: Okay fine, maybe that was a bit too much."))
+	closemessage
+	playse(SE_BOO)
+	applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteAngry)
+	delay(60)
+	msgbox(format("Simmerman: Okay fine, maybe that was a bit too much."))
     checkplayergender
     if (var(VAR_RESULT) == MALE) {
-        msgbox(format("Eirika: Ya think? Anyway, {PLAYER}! You're just in time!"))
+        msgbox(format("Eirika: Ya think?"))
+		applymovement(LOCALID_RIVAL, Common_Movement_FaceRight)
+		msgbox(format("Anyway, {PLAYER}! You're just in time!"))
     }
     else {
         // TODO: add male rival dialog
     }
+	applymovement(LOCALID_STEPHANIE, Common_Movement_FaceRight)
     msgbox(format("Stephanie: That's right! Are you ready to get your first Pokémon?"), MSGBOX_YESNO)
     if (var(VAR_RESULT) == YES) {
         msgbox(format("Stephanie: Great! Why don't you pick first then, honey?"))
         checkplayergender
         if (var(VAR_RESULT) == MALE) {
+			playse(SE_PIN)
             applymovement(LOCALID_RIVAL, Common_Movement_EmoteMusic)
             msgbox(format("Eirika: Not fair, but sure! That's probably a good thing... for me!"))
         }
@@ -54,6 +57,7 @@ script KurosibaTown_ProfessorsLab_EventScript_StarterSelection {
         msgbox(format("Stephanie: There's no rush to make your first decision. So, think wisely."))
         checkplayergender
         if (var(VAR_RESULT) == MALE) {
+			playse(SE_PIN)
             applymovement(LOCALID_RIVAL, Common_Movement_EmoteX)
             msgbox(format("Eirika: I suppose I should let you pick first, it's not the first time I have to do that anyway. I'm a nice sister that way, so yeah."))
         }
@@ -61,15 +65,279 @@ script KurosibaTown_ProfessorsLab_EventScript_StarterSelection {
             // TODO: add male rival dialog
         }
     }
-    closemessage
-    setvar(VAR_BIRCH_LAB_STATE, 1)
+	closemessage
+	applymovement(LOCALID_STEPHANIE, Common_Movement_FaceDown)
+	applymovement(LOCALID_RIVAL, Common_Movement_FaceLeft)
+	applymovement(OBJ_EVENT_ID_PLAYER, KurosibaTown_ProfessorsLab_Movement_PlayerToStephanie)
+	waitmovement(0)
+	special(ChooseStarter)
+	waitstate
+	bufferleadmonspeciesname(0)
+	message(format("{PLAYER} successfully chose {STR_VAR_1}, their first partner!"))
+	waitmessage
+	call(Common_EventScript_PlayGymBadgeFanfare)
+	msgbox(format("Give a nickname to {STR_VAR_1}?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT) == YES) {
+		setvar(VAR_0x8004, 0)
+		call(Common_EventScript_NameReceivedPartyMon)
+	}
+	applymovement(LOCALID_STEPHANIE, Common_Movement_FaceRight)
+	checkplayergender
+	if (var(VAR_RESULT) == MALE) {
+		playse(SE_PIN)
+		applymovement(LOCALID_RIVAL, Common_Movement_EmoteMusic)
+		msgbox(format("Eirika: Alright then, maybe this one's the one for me!"))
+	}
+	else {
+		// TODO: add male rival dialog
+	}
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+	applymovement(LOCALID_STEPHANIE, Common_Movement_FaceLeft)
+	msgbox(format("Simmerman: Aww, now I'm kind of jealous!"))
+	closemessage
+	playse(SE_BOO)
+	applymovement(LOCALID_SIMMERMAN, Common_Movement_EmoteSweat)
+	delay(60)
+	msgbox(format("Can't I pick one too? Well, there's only one left... Come on, professor! I had to move lots of boxes here, y'know!"))
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+	msgbox(format("Stephanie: No, I'm going to keep that one, Simmerman. Don't you already have Pokémon?"))
+	closemessage
+	applymovement(LOCALID_SIMMERMAN, Common_Movement_EmoteEllipsis)
+	delay(60)
+	msgbox(format("Simmerman: Well, I do. Buuut..."))
+	msgbox(format("Stephanie: Gosh, not even my children are as childish as you. The answer is still no though, haha!"))
+	closemessage
+	playse(SE_PIN)
+	applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteHappy)
+	delay(60)
+	msgbox(format("Simmerman: Eh, sure. I'm too old for this, anyway!"))
+	closemessage
+	playse(SE_PIN)
+	applymovement(LOCALID_SIMMERMAN, Common_Movement_EmoteFlex)
+	delay(60)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+	applymovement(LOCALID_STEPHANIE, Common_Movement_FaceRight)
+	checkplayergender
+	if (var(VAR_RESULT) == MALE) {
+		msgbox(format("Eirika: By the way, Mom. Who even is this person?"))
+	}
+	else {
+		// TODO: add male rival dialog
+	}
+	msgbox(format("Stephanie: Oh, this is Mr. Simmerman. A friend of mine who's native to Phantos. He's a really strong trainer, I've heard."))
+	checkplayergender
+	if (var(VAR_RESULT) == MALE) {
+		playse(SE_PIN)
+		applymovement(LOCALID_RIVAL, Common_Movement_EmoteExclamation)
+		msgbox(format("Eirika: Really? Woah, you should like, battle me now or something!"))
+		applymovement(LOCALID_STEPHANIE, Common_Movement_FaceLeft)
+		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+		applymovement(LOCALID_SIMMERMAN, KurosibaTown_ProfessorsLab_Movement_JumpInPlaceRight)
+		msgbox(format("Simmerman: WAHAHAHAHAHAHA! Do you really think a kid like you can stand a chance against me? I really don't wanna make a scene here."))
+		playse(SE_BOO)
+		applymovement(LOCALID_RIVAL, Common_Movement_EmoteAngry)
+		msgbox(format("Eirika: Well that's rich coming from an adult asking for a starter Pokémon."))
+		msgbox(format("Simmerman: H-Hey!"))
+		closemessage
+		playse(SE_BOO)
+		applymovement(LOCALID_SIMMERMAN, Common_Movement_EmoteGloom)
+		delay(60)
+		applymovement(LOCALID_STEPHANIE, Common_Movement_FaceRight)
+		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+		applymovement(LOCALID_RIVAL, Common_Movement_EmoteEllipsis)
+		msgbox(format("Eirika: Actually, Mom, can we have a battle here? Me and {PLAYER}, pretty please?"))
+		msgbox(format("Stephanie: Well, do I even have a choice? Hahaha! I don't mind."))
+		closemessage
+		playse(SE_PIN)
+		applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteMusic)
+		msgbox(format("Stephanie: Go ahead, darlings."))
+		msgbox(format("Eirika: Hah! Alright then."))
+	}
+	else {
+		// TODO: add male rival dialog
+	}
+	closemessage
+	fadescreen(FADE_TO_BLACK)
+	special(SpawnCameraObject)
+	setobjectxy(OBJ_EVENT_ID_PLAYER, 7, 11)
+	setobjectxy(LOCALID_RIVAL, 11, 11)
+	setobjectxy(LOCALID_STEPHANIE, 8, 10)
+	setobjectxy(LOCALID_SIMMERMAN, 10, 10)
+	applymovement(OBJ_EVENT_ID_CAMERA, KurosibaTown_ProfessorsLab_Movement_CameraBeforeBattle)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+	turnobject(LOCALID_RIVAL, DIR_WEST)
+	turnobject(LOCALID_STEPHANIE, DIR_SOUTH)
+	turnobject(LOCALID_SIMMERMAN, DIR_SOUTH)
+	waitmovement(0)
+	fadescreen(FADE_FROM_BLACK)
+	special(RemoveCameraObject)
+	checkplayergender
+	if (var(VAR_RESULT) == MALE) {
+		playbgm(MUS_ENCOUNTER_MAY, TRUE)
+		msgbox(format("Eirika: I won't go easy on you, even if you're my twin brother!"))
+		switch (var(VAR_STARTER_MON)) {
+			case 0:
+				trainerbattle_no_intro(TRAINER_EIRIKA_LAB_CYBIO, KurosibaTown_ProfessorsLab_Text_EirikaDefeated)
+			case 1: 
+				trainerbattle_no_intro(TRAINER_EIRIKA_LAB_IGNION, KurosibaTown_ProfessorsLab_Text_EirikaDefeated)
+			case 2:
+				trainerbattle_no_intro(TRAINER_EIRIKA_LAB_JELLOSIS, KurosibaTown_ProfessorsLab_Text_EirikaDefeated)
+		}
+		fadedefaultbgm
+		applymovement(LOCALID_RIVAL, Common_Movement_EmoteSweat)
+		msgbox(format("Eirika: Darn, you're pretty good {PLAYER}. Guess I gotta work on my skills more."))
+		bufferstring(1, "Eirika")
+	}
+	else {
+		// TODO: male rival battle
+	}
+
+	msgbox(format("Stephanie: It's alright, {STR_VAR_2}. Experiencing defeat with your first partner can be frustrating, but I'm sure you'll both be able to raise your Pokémon well."))
+	msgbox(format("Which takes me to my next point. Come here, you two."))
+	closemessage
+	fadescreen(FADE_TO_BLACK)
+	setobjectxy(OBJ_EVENT_ID_PLAYER, 5, 11)
+	setobjectxy(LOCALID_RIVAL, 4, 10)
+	setobjectxy(LOCALID_STEPHANIE, 3, 10)
+	setobjectxy(LOCALID_SIMMERMAN, 2, 11)
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, KurosibaTown_ProfessorsLab_Movement_CameraAfterBattle)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+	turnobject(LOCALID_RIVAL, DIR_WEST)
+	turnobject(LOCALID_STEPHANIE, DIR_EAST)
+	turnobject(LOCALID_SIMMERMAN, DIR_EAST)
+	waitmovement(0)
+	special(RemoveCameraObject)
+	fadescreen(FADE_FROM_BLACK)
+	msgbox(format("Stephanie: {PLAYER}. {STR_VAR_2}. There are many beautiful and interesting Pokémon in the Phantos region."))
+	msgbox(format("And I think that it's a great idea for you two to take the latest Pokédex technology, to record and discover all of the Pokémon here."))
+	checkplayergender
+	if (var(VAR_RESULT) == MALE) {
+		applymovement(LOCALID_RIVAL, Common_Movement_EmoteHappy)
+		msgbox(format("Eirika: Wow, I suppose that's also fun! Count us in, Mom."))
+	}
+	else {
+		// TODO: add male rival dialog
+	}
+	msgbox(format("Stephanie: That's the spirit! Simmerman, you can give it to them now."))
+	msgbox(format("Simmerman: Alright, kids. They're all yours. Just so we're clear though, these aren't edible."))
+	closemessage
+	applymovement(LOCALID_SIMMERMAN, KurosibaTown_ProfessorsLab_Movement_SimmermanToPlayer)
+	waitmovement(0)
+	applymovement(LOCALID_RIVAL, Common_Movement_FaceDown)
+	playfanfare(MUS_OBTAIN_TMHM)
+	message(format("Mr. Simmerman gives {PLAYER} and {STR_VAR_2} the Pokédex!"))
+	waitfanfare
+	waitmessage
+	setflag(FLAG_SYS_POKEDEX_GET)
+	special(SetUnlockedPokedexFlags)
+	setflag(FLAG_RECEIVED_POKEDEX_FROM_BIRCH)
+	closemessage
+	applymovement(LOCALID_SIMMERMAN, KurosibaTown_ProfessorsLab_Movement_SimmermanBack)
+	waitmovement(0)
+	msgbox(format("Stephanie: Aw, my two babies are leaving home already. A mother can't help but worry!"))
+	checkplayergender
+	if (var(VAR_RESULT) == MALE) {
+		applymovement(LOCALID_RIVAL, Common_Movement_FaceLeft)
+		msgbox(format("Eirika: Mom! Stop embarrassing us! Gosh..."))
+	}
+	msgbox(format("Stephanie: Honey, you be careful out there. You too, {PLAYER}. You can always come back here if you need anything."))
+	msgbox(format("Oh, I should also give you these."))
+	closemessage
+	applymovement(LOCALID_STEPHANIE, KurosibaTown_ProfessorsLab_Movement_StephanieToOthers)
+	waitmovement(0)
+	applymovement(LOCALID_RIVAL, Common_Movement_FaceDown)
+	playfanfare(MUS_OBTAIN_ITEM)
+	message(format("{PLAYER} received the Running Shoes!"))
+	setflag(FLAG_RECEIVED_RUNNING_SHOES)
+	setflag(FLAG_SYS_B_DASH)
+	waitfanfare
+	waitmessage
+	msgbox(format("Stephanie: I've got fitting models for both of you. They were on sale, too."))
+	closemessage
+	playse(SE_PIN)
+	applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteMusic)
+	delay(60)
+	checkplayergender
+	if (var(VAR_RESULT) == MALE) {
+		msgbox(format("Eirika: That's... kind of cool. Thanks Mom!"))
+		msgbox(format("Alright, I'm off to Route 401. Finally, I can be a trainer! See you all!"))
+	}
+	closemessage
+	applymovement(LOCALID_RIVAL, KurosibaTown_ProfessorsLab_Movement_RivalLeaves)
+	waitmovement(0)
+	removeobject(LOCALID_RIVAL)
+	msgbox(format("Simmerman: HEY! Hold up! I'm supposed to teach you how to catch a Pokémon!"))
+	closemessage
+	applymovement(LOCALID_SIMMERMAN, KurosibaTown_ProfessorsLab_Movement_SimmermanLeaves)
+	waitmovement(0)
+	removeobject(LOCALID_SIMMERMAN)
+	msgbox(format("Stephanie: How about you go join them, dear?"))
+	closemessage
+	setvar(VAR_BIRCH_LAB_STATE, 1)
     end
+}
+
+text KurosibaTown_ProfessorsLab_Text_EirikaDefeated {
+	"Wow, what the heck?!"
+}
+
+movement KurosibaTown_ProfessorsLab_Movement_JumpInPlaceRight {
+	jump_in_place_right
+}
+
+movement KurosibaTown_ProfessorsLab_Movement_PlayerToStephanie {
+	walk_left * 2
+	face_up
+}
+
+movement KurosibaTown_ProfessorsLab_Movement_CameraBeforeBattle {
+	walk_right * 6
+}
+
+movement KurosibaTown_ProfessorsLab_Movement_CameraAfterBattle {
+	walk_left * 4
 }
 
 movement KurosibaTown_ProfessorsLab_Movement_PlayerToOthers {
     walk_up
     face_left
     walk_left * 8
+}
+
+movement KurosibaTown_ProfessorsLab_Movement_SimmermanToPlayer {
+	walk_right * 2
+}
+
+movement KurosibaTown_ProfessorsLab_Movement_SimmermanBack {
+	face_left
+	walk_left * 2
+	face_right
+}
+
+movement KurosibaTown_ProfessorsLab_Movement_StephanieToOthers {
+	face_down
+	walk_down
+	face_right
+	walk_right
+}
+
+movement KurosibaTown_ProfessorsLab_Movement_RivalLeaves {
+	walk_right * 9
+}
+
+movement KurosibaTown_ProfessorsLab_Movement_SimmermanLeaves {
+	walk_up
+	walk_right * 11
+}
+
+script KurosibaTown_ProfessorsLab_EventScript_Stephanie {
+	// TODO: change dialog after catching tutorial
+	lock
+	faceplayer
+	msgbox(format("Stephanie: How about you go join them, dear?"))
+	release
+	end
 }
 
 script LittlerootTown_ProfessorBirchsLab_EventScript_Aide {
