@@ -4044,6 +4044,54 @@ Cry_Shirill::
 	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_shirill.bin"
 
 	.align 2
+Cry_Grimix::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_grimix.bin"
+
+	.align 2
+Cry_Sorrogrime::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_sorrogrime.bin"
+
+	.align 2
+Cry_Kyootedi::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_kyootedi.bin"
+
+	.align 2
+Cry_Jiltedi::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_jiltedi.bin"
+
+	.align 2
+Cry_Juntrick::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_juntrick.bin"
+
+	.align 2
+Cry_Dumphile::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_dumphile.bin"
+
+	.align 2
+Cry_Totemi::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_totemi.bin"
+
+	.align 2
+Cry_Tometic::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_tometic.bin"
+
+	.align 2
+Cry_Hoodlin::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_hoodlin.bin"
+
+	.align 2
+Cry_Slormag::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_slormag.bin"
+
+	.align 2
+Cry_Clasdron::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_clasdron.bin"
+
+	.align 2
+Cry_Pladyjack::
+	.incbin "sound/direct_sound_samples/cries/sugi/cry_not_pladyjack.bin"
+
+	.align 2
 Cry_Venusaur_Mega::
 	.incbin "sound/direct_sound_samples/cries/cry_not_mega_venusaur.bin"
 

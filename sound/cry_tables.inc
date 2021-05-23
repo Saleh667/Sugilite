@@ -2205,6 +2205,18 @@ gCryTable2:: @ 869EF24
     cry2_not Cry_Horrimoth
     cry2_not Cry_Graven
     cry2_not Cry_Shirill
+    cry2_not Cry_Grimix
+    cry2_not Cry_Sorrogrime
+    cry2_not Cry_Kyootedi
+    cry2_not Cry_Jiltedi
+    cry2_not Cry_Juntrick
+    cry2_not Cry_Dumphile
+    cry2_not Cry_Totemi
+    cry2_not Cry_Tometic
+    cry2_not Cry_Hoodlin
+    cry2_not Cry_Slormag
+    cry2_not Cry_Clasdron
+    cry2_not Cry_Pladyjack
 	@ Megas
 	cry2_not Cry_Venusaur_Mega
 	cry2_not Cry_Charizard_Mega_X
