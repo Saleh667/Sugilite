@@ -67,7 +67,7 @@ $(MID_SUBDIR)/mus_vs_regi.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G122 -V080 -P1
 
 $(MID_SUBDIR)/mus_vs_elite_four.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G125 -V120 -P1
+	$(MID) $< $@ -E -R$(STD_REVERB) -G125 -V116 -P1
 
 $(MID_SUBDIR)/mus_roulette.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G038 -V080
@@ -541,7 +541,7 @@ $(MID_SUBDIR)/mus_rg_vs_champion.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G158 -V090 -P1
 
 $(MID_SUBDIR)/mus_rg_vs_mewtwo.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G157 -V117 -P1
+	$(MID) $< $@ -E -R$(STD_REVERB) -G157 -V127 -P1
 
 $(MID_SUBDIR)/mus_rg_vs_trainer.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G200 -V127 -P1
@@ -625,7 +625,7 @@ $(MID_SUBDIR)/mus_vs_frontier_brain.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -V127 -P1
 
 $(MID_SUBDIR)/mus_vs_mew.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G157 -V117 -P1
+	$(MID) $< $@ -E -R$(STD_REVERB) -G157 -V127 -P1
 
 $(MID_SUBDIR)/mus_vs_rayquaza.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G114 -V080 -P1
