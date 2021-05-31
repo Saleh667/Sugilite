@@ -4480,6 +4480,16 @@
       "secondary_tileset": "gTileset_Ivywood",
       "border_filepath": "data/layouts/Route402B/border.bin",
       "blockdata_filepath": "data/layouts/Route402B/map.bin"
+    },
+    {
+      "id": "LAYOUT_ELDRIFELL_CITY",
+      "name": "EldrifellCity_Layout",
+      "width": 60,
+      "height": 60,
+      "primary_tileset": "gTileset_Outside",
+      "secondary_tileset": "gTileset_EldrifellCity",
+      "border_filepath": "data/layouts/EldrifellCity/border.bin",
+      "blockdata_filepath": "data/layouts/EldrifellCity/map.bin"
     }
   ]
 }

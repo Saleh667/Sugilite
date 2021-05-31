@@ -1074,3 +1074,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/IvywoodTown/scripts.inc"
 
 	.include "data/maps/Route402B/scripts.inc"
+
+	.include "data/maps/EldrifellCity/scripts.inc"
