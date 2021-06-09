@@ -4457,7 +4457,7 @@
       "width": 20,
       "height": 20,
       "primary_tileset": "gTileset_Outside",
-      "secondary_tileset": "gTileset_Ivywood",
+      "secondary_tileset": "gTileset_EldrifellCity",
       "border_filepath": "data/layouts/TestMap/border.bin",
       "blockdata_filepath": "data/layouts/TestMap/map.bin"
     },
@@ -4490,6 +4490,16 @@
       "secondary_tileset": "gTileset_darkwoods",
       "border_filepath": "data/layouts/TheDarkwoods/border.bin",
       "blockdata_filepath": "data/layouts/TheDarkwoods/map.bin"
+	},
+	{
+      "id": "LAYOUT_ELDRIFELL_CITY",
+      "name": "EldrifellCity_Layout",
+      "width": 60,
+      "height": 60,
+      "primary_tileset": "gTileset_Outside",
+      "secondary_tileset": "gTileset_EldrifellCity",
+      "border_filepath": "data/layouts/EldrifellCity/border.bin",
+      "blockdata_filepath": "data/layouts/EldrifellCity/map.bin"
     }
   ]
 }

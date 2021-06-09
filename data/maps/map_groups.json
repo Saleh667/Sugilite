@@ -101,7 +101,9 @@
     "Route402A",
     "Route402B",
     "TestMap",
-    "IvywoodTown"
+    "IvywoodTown",
+    "Route402B",
+    "EldrifellCity"
   ],
   "gMapGroup1": [
     "LittlerootTown_BrendansHouse_1F",

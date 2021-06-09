@@ -1829,3 +1829,23 @@ gTilesetPalettes_darkwoods::
 	.align 2
 gTilesetTiles_darkwoods::
 	.incbin "data/tilesets/secondary/darkwoods/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_EldrifellCity::
+	.incbin "data/tilesets/secondary/eldrifellcity/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/eldrifellcity/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/eldrifellcity/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/eldrifellcity/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/eldrifellcity/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/eldrifellcity/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/eldrifellcity/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/eldrifellcity/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/eldrifellcity/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/eldrifellcity/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/eldrifellcity/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/eldrifellcity/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/eldrifellcity/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_EldrifellCity::
+	.incbin "data/tilesets/secondary/eldrifellcity/tiles.4bpp.lz"
