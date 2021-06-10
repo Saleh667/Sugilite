@@ -884,8 +884,6 @@ void CreateEmoteIcon(u16 iconId, u8 animId)
     u8 spriteId;
     
     LoadObjectEventPalette(OBJ_EVENT_PAL_TAG_EMOTES);
-    UpdatePaletteGammaType(IndexOfSpritePaletteTag(OBJ_EVENT_PAL_TAG_EMOTES), GAMMA_ALT);
-    //UpdateSpritePaletteWithWeather(IndexOfSpritePaletteTag(OBJ_EVENT_PAL_TAG_EMOTES));
     spriteId = CreateSpriteAtEnd(&sSpriteTemplate_Emotes, 0, 0, 0x52);
     
     if (spriteId != MAX_SPRITES)
