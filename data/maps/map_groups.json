@@ -439,7 +439,8 @@
     "TerraCave_Entrance",
     "TerraCave_End",
     "AlteringCave",
-    "MeteorFalls_StevensCave"
+    "MeteorFalls_StevensCave",
+    "TheDarkwoods"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",
@@ -630,9 +631,6 @@
   ],
   "gMapGroup_IndoorRoute124": [
     "Route124_DivingTreasureHuntersHouse"
-  ],
-  "gMapGroup34": [
-    "TheDarkwoods"
   ],
   "gMapGroupDebug": [
     "TilesetTestIndoors"
