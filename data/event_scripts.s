@@ -1066,7 +1066,7 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 
 	.include "data/maps/Route401/scripts.inc"
 
-	.include "data/maps/Route402/scripts.inc"
+	.include "data/maps/Route402A/scripts.inc"
 
 	.include "data/maps/TilesetTestIndoors/scripts.inc"
 
@@ -1080,4 +1080,3 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 
 	.include "data/maps/EldrifellCity/scripts.inc"
 
-	.include "data/maps/TheDarkwoods/scripts.inc"

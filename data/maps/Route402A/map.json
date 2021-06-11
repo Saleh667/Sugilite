@@ -1,7 +1,7 @@
 {
-  "id": "MAP_ROUTE402",
-  "name": "Route402",
-  "layout": "LAYOUT_ROUTE402",
+  "id": "MAP_ROUTE402A",
+  "name": "Route402A",
+  "layout": "LAYOUT_ROUTE402A",
   "music": "MUS_ABANDONED_SHIP",
   "region_map_section": "MAPSEC_ROUTE_102",
   "requires_flash": false,

@@ -1,3 +1,3 @@
-Route402_MapScripts::
+Route402A_MapScripts::
 	.byte 0
 
