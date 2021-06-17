@@ -34,9 +34,12 @@
 #define DmaSet(dmaNum, src, dest, control)        \
 {                                                 \
     vu32 *dmaRegs = (vu32 *)REG_ADDR_DMA##dmaNum; \
-    register u32 r_src asm("r0") = (u32)src;      \
-    register u32 r_dst asm("r1") = (u32)dest;     \
-    register u32 r_ctl asm("r2") = (u32)control;  \
+    u32 eval_src = (u32)(src);                    \
+    u32 eval_dst = (u32)(dest);                   \
+    u32 eval_ctl = (u32)(control);                \
+    register u32 r_src asm("r0") = eval_src;      \
+    register u32 r_dst asm("r1") = eval_dst;      \
+    register u32 r_ctl asm("r2") = eval_ctl;      \
     asm volatile("stmia %0!, {%1, %2, %3}" : "+l" (dmaRegs) : "l" (r_src), "l" (r_dst), "l" (r_ctl) : "memory");  \
 }
 
