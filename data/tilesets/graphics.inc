@@ -1849,3 +1849,23 @@ gTilesetPalettes_EldrifellCity::
 	.align 2
 gTilesetTiles_EldrifellCity::
 	.incbin "data/tilesets/secondary/eldrifellcity/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_BlackTileset::
+	.incbin "data/tilesets/primary/blacktileset/palettes/00.gbapal"
+	.incbin "data/tilesets/primary/blacktileset/palettes/01.gbapal"
+	.incbin "data/tilesets/primary/blacktileset/palettes/02.gbapal"
+	.incbin "data/tilesets/primary/blacktileset/palettes/03.gbapal"
+	.incbin "data/tilesets/primary/blacktileset/palettes/04.gbapal"
+	.incbin "data/tilesets/primary/blacktileset/palettes/05.gbapal"
+	.incbin "data/tilesets/primary/blacktileset/palettes/06.gbapal"
+	.incbin "data/tilesets/primary/blacktileset/palettes/07.gbapal"
+	.incbin "data/tilesets/primary/blacktileset/palettes/08.gbapal"
+	.incbin "data/tilesets/primary/blacktileset/palettes/09.gbapal"
+	.incbin "data/tilesets/primary/blacktileset/palettes/10.gbapal"
+	.incbin "data/tilesets/primary/blacktileset/palettes/11.gbapal"
+	.incbin "data/tilesets/primary/blacktileset/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_BlackTileset::
+	.incbin "data/tilesets/primary/blacktileset/tiles.4bpp.lz"

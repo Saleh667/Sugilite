@@ -1,39 +1,46 @@
-LittlerootTown_BrendansHouse_2F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_BrendansHouse_2F_OnTransition
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, LittlerootTown_BrendansHouse_2F_OnWarp
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_BrendansHouse_2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
-	.byte 0
+const LOCALID_RIVAL = 1
 
-LittlerootTown_BrendansHouse_2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
-	map_script_2 VAR_UNUSED_0x404E, 0, EventScript_Sugilite_Start_Boy
-	.2byte 0
+mapscripts LittlerootTown_BrendansHouse_2F_MapScripts {
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_UNUSED_0x404E, 0: EventScript_Sugilite_Start_Boy
+	]
+	MAP_SCRIPT_ON_TRANSITION: LittlerootTown_BrendansHouse_2F_OnTransition
+	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE: LittlerootTown_BrendansHouse_2F_OnWarp
+}
 
+script EventScript_Sugilite_Start_Boy {
+	# fadescreen(0)
+	# applymovement(1, LittlerootTown_BrendansHouse_2F_Movement_RivalAngry)
+	# waitmovement(0)
+	msgbox(Kurosiba_Intro_Boy2)
+	closemessage()
+	applymovement(OBJ_EVENT_ID_PLAYER, Player_OutOfBed_Movement)
+	waitmovement(0)
+	# applymovement(OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_2F_Movement_PlayerGloom)
+	# waitmovement(0)
+	applymovement(LOCALID_RIVAL, Common_Movement_Delay48)
+	waitmovement(0)
+	msgbox(Kurosiba_Intro_Boy3, MSGBOX_DEFAULT)
+	closemessage()
+	applymovement(1, Eirika_Runs_Down_Stairs)
+	waitmovement(0)
+	playse(SE_EXIT)
+	removeobject(1)
+	setvar(VAR_UNUSED_0x404E, 1)
+	setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM)
+}
 
-EventScript_Sugilite_Start_Boy::
-	msgbox Kurosiba_Intro_Boy2
-	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Player_OutOfBed_Movement
-	waitmovement 0
-	applymovement 1, Common_Movement_Delay48
-	waitmovement 0
-	msgbox Kurosiba_Intro_Boy3, MSGBOX_DEFAULT
-	closemessage
-	applymovement 1, Eirika_Runs_Down_Stairs
-	waitmovement 0
-	playse SE_EXIT
-	removeobject 1
-	setvar VAR_UNUSED_0x404E, 1
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM
-	return
+# Movements
 
-
-LittlerootTown_BrendansHouse_2F_Movement_RivalAngry:
+movement LittlerootTown_BrendansHouse_2F_Movement_RivalAngry {
 	emote_exclamation_mark
-	step_end
+}
 
-LittlerootTown_BrendansHouse_2F_Movement_PlayerGloom:
+movement LittlerootTown_BrendansHouse_2F_Movement_PlayerGloom {
 	emote_question_mark
-	step_end
+}
+
+raw `
 
 LittlerootTown_BrendansHouse_2F_OnTransition: @ 81F83EE
 	call Common_EventScript_SetupRivalGfxId
@@ -280,3 +287,5 @@ ToDoList_Text:
 PlayerTv_Text:
 	.string "It's a curved screen TV.\n"
 	.string "Really good for playing games, right?$"
+
+`

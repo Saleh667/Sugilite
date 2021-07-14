@@ -4500,6 +4500,16 @@
       "secondary_tileset": "gTileset_EldrifellCity",
       "border_filepath": "data/layouts/EldrifellCity/border.bin",
       "blockdata_filepath": "data/layouts/EldrifellCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_INTRO_SLEEP_MAP",
+      "name": "Intro_SleepMap_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_BlackTileset",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Intro_SleepMap/border.bin",
+      "blockdata_filepath": "data/layouts/Intro_SleepMap/map.bin"
     }
   ]
 }

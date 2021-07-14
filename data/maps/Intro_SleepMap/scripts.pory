@@ -1,0 +1,17 @@
+mapscripts Intro_SleepMap_MapScripts {
+  MAP_SCRIPT_ON_FRAME_TABLE [
+    VAR_UNUSED_0x404E, 0: Intro_SleepMap_EventScript_Text
+  ]
+}
+
+script Intro_SleepMap_EventScript_Text {
+  msgbox(Kurosiba_Intro_Boy1)
+  closemessage()
+  warpsilent(MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F,255,1,6)
+}
+
+text Kurosiba_Intro_Boy1{
+	"...\p"
+	"...\p"
+	"???: ... Wake up! Come on!$"
+}

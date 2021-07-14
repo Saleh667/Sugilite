@@ -1080,3 +1080,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 
 	.include "data/maps/EldrifellCity/scripts.inc"
 
+
+	.include "data/maps/Intro_SleepMap/scripts.inc"

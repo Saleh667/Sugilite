@@ -25,6 +25,7 @@ View the [Changelog](https://github.com/huderlem/poryscript/blob/master/CHANGELO
     + [`switch` Statement](#switch-statement)
   * [`text` Statement](#text-statement)
     + [Automatic Text Formatting](#automatic-text-formatting)
+    + [Custom Text Encoding](#custom-text-encoding)
   * [`movement` Statement](#movement-statement)
   * [`mapscripts` Statement](#mapscripts-statement)
   * [`raw` Statement](#raw-statement)
@@ -73,6 +74,8 @@ To automatically convert your Poryscript scripts when compiling a decomp project
 pokeemerald/tools/poryscript/poryscript.exe
 pokeemerald/tools/poryscript/font_widths.json
 ```
+It's also a good idea to add `tools/poryscript` to your `.gitignore` before your next commit.
+
 2. Update the Makefile with these changes (Note, don't add the `+` symbol at the start of the lines. That's just to show the line is being added.):
 ```diff
 + SCRIPT := tools/poryscript/poryscript$(EXE)
@@ -293,7 +296,7 @@ text MyText {
     "You can refer to me in scripts or C code."
 }
 ```
-A small quality-of-life feature is that Poryscript automatically adds the `$` terminator character to all text, so the user doesn't need to manually type it all the time.
+A small quality-of-life feature is that Poryscript automatically adds the `$` terminator character to text, so the user doesn't need to manually type it all the time.
 
 ### Automatic Text Formatting
 Text auto-formatting is also supported by Poryscript. The `format()` function can be wrapped around any text, either inline or `text`, and Poryscript will automatically fit the text to the size of the in-game text window by inserting automatic line breaks. You can manually add your own line breaks (`\p`, `\n`, `\l`), and it will still work as expected. A simple example:
@@ -341,6 +344,19 @@ Becomes:
 .string "So glad to meet\n"
 .string "you!$"
 ```
+
+### Custom Text Encoding
+When Poryscript compiles text, the resulting text content is rendered using the `.string` assembler directive. The decomp projects' build process then processes those `.string` directives and substituted the string characters with the game-specific text representation. It can be useful to specify different types of strings, though. For example, implementing print-debugging commands might make use of ASCII text. Poryscript allows you to specify which assembler directive to use for text. Simply add the directive as a prefix to the string content like this:
+```
+ascii"My ASCII string."
+custom"My Custom string."
+
+// compiles to...
+.ascii "My ASCII string.\0"
+.custom "My Custom string."
+```
+
+Note that Poryscript will automatically add the `\0` suffix character to ASCII strings. It will **not** add suffix to any other directives.
 
 ## `movement` Statement
 Use `movement` statements to conveniently define movement data that is typically used with the `applymovement` command. `*` can be used as a shortcut to repeat a single command many times. Data defined with `movement` is created with local scope, not global.
@@ -429,7 +445,7 @@ script MyScript {
     msgbox("This is shorter text,\n"
            "but we can still put it\l"
            "on multiple lines.")
-    applymovement(EVENT_OBJ_ID_PLAYER, MyScript_Movement)
+    applymovement(OBJ_EVENT_ID_PLAYER, MyScript_Movement)
     waitmovement(0)
     msgbox(MyScript_LongText)
     release
@@ -600,7 +616,7 @@ cd your/path/to/poryscript
 go build
 ```
 
-This will create a `poryscript` executable binary in the same directory.
+This will create a `poryscript` executable binary in the same directory. Then you can simply install it into your project by running `./install.sh ../yourprojectname` instead of manually copying the files over, similarly to how agbcc is installed into projects.
 
 ## Running the tests
 

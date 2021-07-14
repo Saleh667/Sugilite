@@ -896,3 +896,14 @@ gTileset_EldrifellCity::
 	.4byte gMetatiles_EldrifellCity
 	.4byte gMetatileAttributes_EldrifellCity
 	.4byte NULL
+
+	.align 2
+gTileset_BlackTileset::
+	.byte TRUE @ is compressed
+	.byte FALSE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_BlackTileset
+	.4byte gTilesetPalettes_BlackTileset
+	.4byte gMetatiles_BlackTileset
+	.4byte gMetatileAttributes_BlackTileset
+	.4byte NULL

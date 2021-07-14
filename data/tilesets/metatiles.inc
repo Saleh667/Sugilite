@@ -600,3 +600,10 @@ gMetatiles_EldrifellCity::
 	.align 1
 gMetatileAttributes_EldrifellCity::
 	.incbin "data/tilesets/secondary/eldrifellcity/metatile_attributes.bin"
+	.align 1
+gMetatiles_BlackTileset::
+	.incbin "data/tilesets/primary/blacktileset/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_BlackTileset::
+	.incbin "data/tilesets/primary/blacktileset/metatile_attributes.bin"
