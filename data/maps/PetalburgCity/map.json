@@ -22,6 +22,11 @@
       "direction": "right",
       "offset": 10,
       "map": "MAP_ROUTE102"
+    },
+    {
+      "direction": "up",
+      "offset": 0,
+      "map": "MAP_THE_DARKWOODS"
     }
   ],
   "object_events": [
