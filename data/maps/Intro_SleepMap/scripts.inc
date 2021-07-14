@@ -8,8 +8,12 @@ Intro_SleepMap_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 
 Intro_SleepMap_EventScript_Text::
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_Delay48
+	waitmovement 0
 	msgbox Kurosiba_Intro_Boy1
 	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_Delay48
+	waitmovement 0
 	warpsilent MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F, 255, 1, 6
 	return
 

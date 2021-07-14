@@ -9,6 +9,8 @@ mapscripts LittlerootTown_BrendansHouse_2F_MapScripts {
 }
 
 script EventScript_Sugilite_Start_Boy {
+  applymovement(LOCALID_RIVAL, Common_Movement_Delay48)
+  waitmovement(0)
 	# fadescreen(0)
 	# applymovement(1, LittlerootTown_BrendansHouse_2F_Movement_RivalAngry)
 	# waitmovement(0)
