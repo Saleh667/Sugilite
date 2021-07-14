@@ -18,6 +18,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/metatile_labels.h"
+#include "constants/region_map_sections.h"
 
 struct MirageTowerPulseBlend {
     u8 taskId;
@@ -163,12 +164,24 @@ static const struct SpriteTemplate gUnknown_08617E00 =
 };
 
 const struct PulseBlendSettings gMirageTowerPulseBlendSettings = {
-    .blendColor = RGB(27, 25, 16),
+    .blendColor = RGB(31, 31, 31),
     .paletteOffset = 0x61,
-    .numColors = 15,
+    .numColors = 4,
     .delay = 5,
     .numFadeCycles = -1,
-    .maxBlendCoeff = 11,
+    .maxBlendCoeff = 7,
+    .fadeType = 1,
+    .restorePaletteOnUnload = FALSE,
+    .unk7_7 = 1,
+};
+
+const struct PulseBlendSettings gMirageTowerPulseBlendSettings2 = {
+    .blendColor = RGB(31, 31, 31),
+    .paletteOffset = 0x6A,
+    .numColors = 1,
+    .delay = 5,
+    .numFadeCycles = -1,
+    .maxBlendCoeff = 7,
     .fadeType = 1,
     .restorePaletteOnUnload = FALSE,
     .unk7_7 = 1,
@@ -284,16 +297,16 @@ void TryStartMirageTowerPulseBlendEffect(void)
         return;
     }
 
-    if (gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(ROUTE111)
-     || gSaveBlock1Ptr->location.mapNum != MAP_NUM(ROUTE111)
-     || !FlagGet(FLAG_MIRAGE_TOWER_VISIBLE))
+    if (gMapHeader.regionMapSectionId != MAPSEC_PETALBURG_WOODS)
         return;
 
     sMirageTowerPulseBlend = AllocZeroed(sizeof(*sMirageTowerPulseBlend));
     InitPulseBlend(&sMirageTowerPulseBlend->pulseBlend);
     InitPulseBlendPaletteSettings(&sMirageTowerPulseBlend->pulseBlend, &gMirageTowerPulseBlendSettings);
+	InitPulseBlendPaletteSettings(&sMirageTowerPulseBlend->pulseBlend, &gMirageTowerPulseBlendSettings2);
     MarkUsedPulseBlendPalettes(&sMirageTowerPulseBlend->pulseBlend, 0x1, TRUE);
     sMirageTowerPulseBlend->taskId = CreateTask(UpdateMirageTowerPulseBlend, 0xFF);
+	return;
 }
 
 void ClearMirageTowerPulseBlendEffect(void)

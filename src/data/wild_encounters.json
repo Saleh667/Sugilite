@@ -11491,6 +11491,10 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_THE_DARKWOODS",
+          "base_label": "gTheDarkwoods0"
         }
       ]
     },
