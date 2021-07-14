@@ -78,8 +78,8 @@ voicegroup121:: @ 869B4F8
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869B87C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869B888
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869B894
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869B8A0
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869B8AC
+	voice_square_2 60, 0, 0, 0, 3, 3, 1  @ 869B8A0
+	voice_square_1 60, 0, 0, 1, 0, 2, 7, 2  @ 869B8AC
 	voice_square_2 60, 0, 2, 0, 3, 6, 2  @ 869B8B8
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4890, 0, 7, 15, 4  @ 869B8C4
 	voice_square_1 60, 0, 0, 2, 0, 3, 6, 2  @ 869B8D0
