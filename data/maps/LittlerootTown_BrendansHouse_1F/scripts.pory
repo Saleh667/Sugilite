@@ -74,6 +74,7 @@ script PlayerHouse_MaidJinky_EventScript{
       default:
 				msgbox(PlayerHouse_MaidJinky_GreetingText)
   }
+		closemessage
 	 	release
 		end
 }
@@ -83,6 +84,8 @@ script PlayersHouse_MaidJinky_FreshWater{
 	giveitem(ITEM_FRESH_WATER)
 	setflag(FLAG_RECEIVED_FRESH_WATER_JINKY)
 	msgbox(PlayerHouse_MaidJinky_GreetingText)
+	closemessage
+	release
 	end
 }
 
@@ -91,6 +94,8 @@ script PlayersHouse_MaidJinky_BadgeItem{
 	giveitem(ITEM_FRESH_WATER)
 	clearflag(FLAG_MAID_GIFT_READY)
 	msgbox(PlayerHouse_MaidJinky_GreetingText)
+	closemessage
+	release
 	end
 }
 

@@ -6,12 +6,14 @@ Neighbours_House_OldLady_EventScript::
 	lock
 	faceplayer
 	msgbox Neighbours_House_OldLady_Text
+	closemessage
 	release
 	end
 
 
 OldLady_Television_EventScript::
 	msgbox OldLady_Television_Text
+	closemessage
 	end
 
 

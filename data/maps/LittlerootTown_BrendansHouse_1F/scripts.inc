@@ -17,6 +17,7 @@ PlayerHouse_MaidJinky_EventScript::
 	case 8, PlayerHouse_MaidJinky_EventScript_11
 	msgbox PlayerHouse_MaidJinky_GreetingText
 PlayerHouse_MaidJinky_EventScript_1:
+	closemessage
 	release
 	end
 
@@ -107,6 +108,8 @@ PlayersHouse_MaidJinky_FreshWater::
 	giveitem ITEM_FRESH_WATER
 	setflag FLAG_RECEIVED_FRESH_WATER_JINKY
 	msgbox PlayerHouse_MaidJinky_GreetingText
+	closemessage
+	release
 	end
 
 
@@ -115,6 +118,8 @@ PlayersHouse_MaidJinky_BadgeItem::
 	giveitem ITEM_FRESH_WATER
 	clearflag FLAG_MAID_GIFT_READY
 	msgbox PlayerHouse_MaidJinky_GreetingText
+	closemessage
+	release
 	end
 
 
