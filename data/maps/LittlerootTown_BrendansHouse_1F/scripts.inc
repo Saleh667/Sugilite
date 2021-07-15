@@ -3,6 +3,7 @@ LittlerootTown_BrendansHouse_1F_MapScripts::
 
 
 PlayerHouse_MaidJinky_EventScript::
+	lock
 	faceplayer
 	switch VAR_NO_OF_BADGES
 	case 0, PlayerHouse_MaidJinky_EventScript_3
@@ -16,6 +17,7 @@ PlayerHouse_MaidJinky_EventScript::
 	case 8, PlayerHouse_MaidJinky_EventScript_11
 	msgbox PlayerHouse_MaidJinky_GreetingText
 PlayerHouse_MaidJinky_EventScript_1:
+	release
 	end
 
 PlayerHouse_MaidJinky_EventScript_3:

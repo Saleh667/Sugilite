@@ -3,7 +3,10 @@ LittlerootTown_MaysHouse_1F_MapScripts::
 
 
 Neighbours_House_OldLady_EventScript::
+	lock
+	faceplayer
 	msgbox Neighbours_House_OldLady_Text
+	release
 	end
 
 

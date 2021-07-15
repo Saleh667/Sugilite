@@ -14,7 +14,8 @@ mapscripts LittlerootTown_BrendansHouse_1F_MapScripts
 	}
 
 script PlayerHouse_MaidJinky_EventScript{
-faceplayer
+	lock
+	faceplayer
 	switch (var(VAR_NO_OF_BADGES)) {
       case 0:
 				if(flag(FLAG_RECEIVED_FRESH_WATER_JINKY) == false){
@@ -73,6 +74,7 @@ faceplayer
       default:
 				msgbox(PlayerHouse_MaidJinky_GreetingText)
   }
+	 	release
 		end
 }
 
