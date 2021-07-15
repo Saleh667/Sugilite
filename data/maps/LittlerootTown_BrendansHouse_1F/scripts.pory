@@ -1,127 +1,117 @@
-LittlerootTown_BrendansHouse_1F_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_BrendansHouse_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
-	.byte 0
+const LOCALID_MOM =  1
+const LOCALID_RIVAL_MOM = 4
+const LOCALID_RIVAL = 7
 
-LittlerootTown_BrendansHouse_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
-	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 3, LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToDoor
-	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 5, LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToStairs
-	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 6, LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToTV
-	.2byte 0
+mapscripts LittlerootTown_BrendansHouse_1F_MapScripts
+	{
+		//MAP_SCRIPT_ON_LOAD: LittlerootTown_BrendansHouse_1F_OnLoad
+		//MAP_SCRIPT_ON_TRANSITION: LittlerootTown_BrendansHouse_1F_OnTransition
+		MAP_SCRIPT_ON_FRAME_TABLE [
+			VAR_LITTLEROOT_INTRO_STATE, 3: LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToDoor
+			VAR_LITTLEROOT_INTRO_STATE, 5: LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToStairs
+			VAR_LITTLEROOT_INTRO_STATE, 6: LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToTV
+		]
+	}
 
+script PlayerHouse_MaidJinky_EventScript{
+faceplayer
+	switch (var(VAR_NO_OF_BADGES)) {
+      case 0:
+				if(flag(FLAG_RECEIVED_FRESH_WATER_JINKY) == false){
+					goto(PlayersHouse_MaidJinky_FreshWater)
+				} else {
+					msgbox(PlayerHouse_MaidJinky_GreetingText)
+				}
+      case 1:
+				if(flag(FLAG_MAID_GIFT_READY)){
+					goto(PlayersHouse_MaidJinky_BadgeItem)
+					} else {
+					msgbox(PlayerHouse_MaidJinky_GreetingText)
+					}
+      case 2:
+				if(flag(FLAG_MAID_GIFT_READY)){
+					goto(PlayersHouse_MaidJinky_BadgeItem)
+					} else {
+					msgbox(PlayerHouse_MaidJinky_GreetingText)
+					}
+			case 3:
+				if(flag(FLAG_MAID_GIFT_READY)){
+					goto(PlayersHouse_MaidJinky_BadgeItem)
+					} else {
+					msgbox(PlayerHouse_MaidJinky_GreetingText)
+					}
+			case 4:
+			if(flag(FLAG_MAID_GIFT_READY)){
+				goto(PlayersHouse_MaidJinky_BadgeItem)
+				} else {
+				msgbox(PlayerHouse_MaidJinky_GreetingText)
+				}
+			case 5:
+			if(flag(FLAG_MAID_GIFT_READY)){
+				goto(PlayersHouse_MaidJinky_BadgeItem)
+				} else {
+				msgbox(PlayerHouse_MaidJinky_GreetingText)
+				}
+			case 6:
+			if(flag(FLAG_MAID_GIFT_READY)){
+				goto(PlayersHouse_MaidJinky_BadgeItem)
+				} else {
+				msgbox(PlayerHouse_MaidJinky_GreetingText)
+				}
+			case 7:
+			if(flag(FLAG_MAID_GIFT_READY)){
+				goto(PlayersHouse_MaidJinky_BadgeItem)
+				} else {
+				msgbox(PlayerHouse_MaidJinky_GreetingText)
+				}
+			case 8:
+			if(flag(FLAG_MAID_GIFT_READY)){
+				goto(PlayersHouse_MaidJinky_BadgeItem)
+				} else {
+				msgbox(PlayerHouse_MaidJinky_GreetingText)
+				}
+      default:
+				msgbox(PlayerHouse_MaidJinky_GreetingText)
+  }
+		end
+}
 
-PlayerHouse_MaidJinky_EventScript::
-	faceplayer
-	switch VAR_NO_OF_BADGES
-	case 0, PlayerHouse_MaidJinky_EventScript_3
-	case 1, PlayerHouse_MaidJinky_EventScript_4
-	case 2, PlayerHouse_MaidJinky_EventScript_5
-	case 3, PlayerHouse_MaidJinky_EventScript_6
-	case 4, PlayerHouse_MaidJinky_EventScript_7
-	case 5, PlayerHouse_MaidJinky_EventScript_8
-	case 6, PlayerHouse_MaidJinky_EventScript_9
-	case 7, PlayerHouse_MaidJinky_EventScript_10
-	case 8, PlayerHouse_MaidJinky_EventScript_11
-	msgbox PlayerHouse_MaidJinky_GreetingText
-PlayerHouse_MaidJinky_EventScript_1:
+script PlayersHouse_MaidJinky_FreshWater{
+	msgbox(PlayerHouse_MaidJinky_FreshWater_Text)
+	giveitem(ITEM_FRESH_WATER)
+	setflag(FLAG_RECEIVED_FRESH_WATER_JINKY)
+	msgbox(PlayerHouse_MaidJinky_GreetingText)
 	end
+}
 
-PlayerHouse_MaidJinky_EventScript_3:
-	goto_if_unset FLAG_RECEIVED_FRESH_WATER_JINKY, PlayerHouse_MaidJinky_EventScript_13
-	msgbox PlayerHouse_MaidJinky_GreetingText
-	goto PlayerHouse_MaidJinky_EventScript_1
-
-PlayerHouse_MaidJinky_EventScript_4:
-	goto_if_set FLAG_MAID_GIFT_READY, PlayerHouse_MaidJinky_EventScript_16
-	msgbox PlayerHouse_MaidJinky_GreetingText
-	goto PlayerHouse_MaidJinky_EventScript_1
-
-PlayerHouse_MaidJinky_EventScript_5:
-	goto_if_set FLAG_MAID_GIFT_READY, PlayerHouse_MaidJinky_EventScript_19
-	msgbox PlayerHouse_MaidJinky_GreetingText
-	goto PlayerHouse_MaidJinky_EventScript_1
-
-PlayerHouse_MaidJinky_EventScript_6:
-	goto_if_set FLAG_MAID_GIFT_READY, PlayerHouse_MaidJinky_EventScript_22
-	msgbox PlayerHouse_MaidJinky_GreetingText
-	goto PlayerHouse_MaidJinky_EventScript_1
-
-PlayerHouse_MaidJinky_EventScript_7:
-	goto_if_set FLAG_MAID_GIFT_READY, PlayerHouse_MaidJinky_EventScript_25
-	msgbox PlayerHouse_MaidJinky_GreetingText
-	goto PlayerHouse_MaidJinky_EventScript_1
-
-PlayerHouse_MaidJinky_EventScript_8:
-	goto_if_set FLAG_MAID_GIFT_READY, PlayerHouse_MaidJinky_EventScript_28
-	msgbox PlayerHouse_MaidJinky_GreetingText
-	goto PlayerHouse_MaidJinky_EventScript_1
-
-PlayerHouse_MaidJinky_EventScript_9:
-	goto_if_set FLAG_MAID_GIFT_READY, PlayerHouse_MaidJinky_EventScript_31
-	msgbox PlayerHouse_MaidJinky_GreetingText
-	goto PlayerHouse_MaidJinky_EventScript_1
-
-PlayerHouse_MaidJinky_EventScript_10:
-	goto_if_set FLAG_MAID_GIFT_READY, PlayerHouse_MaidJinky_EventScript_34
-	msgbox PlayerHouse_MaidJinky_GreetingText
-	goto PlayerHouse_MaidJinky_EventScript_1
-
-PlayerHouse_MaidJinky_EventScript_11:
-	goto_if_set FLAG_MAID_GIFT_READY, PlayerHouse_MaidJinky_EventScript_37
-	msgbox PlayerHouse_MaidJinky_GreetingText
-	goto PlayerHouse_MaidJinky_EventScript_1
-
-PlayerHouse_MaidJinky_EventScript_13:
-	goto PlayersHouse_MaidJinky_FreshWater
-	goto PlayerHouse_MaidJinky_EventScript_1
-
-PlayerHouse_MaidJinky_EventScript_16:
-	goto PlayersHouse_MaidJinky_BadgeItem
-	goto PlayerHouse_MaidJinky_EventScript_1
-
-PlayerHouse_MaidJinky_EventScript_19:
-	goto PlayersHouse_MaidJinky_BadgeItem
-	goto PlayerHouse_MaidJinky_EventScript_1
-
-PlayerHouse_MaidJinky_EventScript_22:
-	goto PlayersHouse_MaidJinky_BadgeItem
-	goto PlayerHouse_MaidJinky_EventScript_1
-
-PlayerHouse_MaidJinky_EventScript_25:
-	goto PlayersHouse_MaidJinky_BadgeItem
-	goto PlayerHouse_MaidJinky_EventScript_1
-
-PlayerHouse_MaidJinky_EventScript_28:
-	goto PlayersHouse_MaidJinky_BadgeItem
-	goto PlayerHouse_MaidJinky_EventScript_1
-
-PlayerHouse_MaidJinky_EventScript_31:
-	goto PlayersHouse_MaidJinky_BadgeItem
-	goto PlayerHouse_MaidJinky_EventScript_1
-
-PlayerHouse_MaidJinky_EventScript_34:
-	goto PlayersHouse_MaidJinky_BadgeItem
-	goto PlayerHouse_MaidJinky_EventScript_1
-
-PlayerHouse_MaidJinky_EventScript_37:
-	goto PlayersHouse_MaidJinky_BadgeItem
-	goto PlayerHouse_MaidJinky_EventScript_1
-
-
-PlayersHouse_MaidJinky_FreshWater::
-	msgbox PlayerHouse_MaidJinky_FreshWater_Text
-	giveitem ITEM_FRESH_WATER
-	setflag FLAG_RECEIVED_FRESH_WATER_JINKY
-	msgbox PlayerHouse_MaidJinky_GreetingText
+script PlayersHouse_MaidJinky_BadgeItem{
+	msgbox(PlayerHouse_MaidJinky_Badges_Text)
+	giveitem(ITEM_FRESH_WATER)
+	clearflag(FLAG_MAID_GIFT_READY)
+	msgbox(PlayerHouse_MaidJinky_GreetingText)
 	end
+}
 
+text PlayerHouse_MaidJinky_FreshWater_Text{
+	"Jinky: Oh, hello {PLAYER}!\n"
+	"Would you like a bottle of water for \l"
+	"your journey?"
+}
 
-PlayersHouse_MaidJinky_BadgeItem::
-	msgbox PlayerHouse_MaidJinky_Badges_Text
-	giveitem ITEM_FRESH_WATER
-	clearflag FLAG_MAID_GIFT_READY
-	msgbox PlayerHouse_MaidJinky_GreetingText
-	end
+text PlayerHouse_MaidJinky_GreetingText{
+	"Safe Travels!\n"
+	"Say hello to Madame Stephanie!"
+}
 
+text PlayerHouse_MaidJinky_Badges_Text{
+	"Jinky: Oh, hello {PLAYER}!\n"
+	"So many badges already? \n"
+	"You're doing very well! \p"
+	"Here, take this and keep \l"
+	"going strong! \p"
+}
+
+raw `
 
 LittlerootTown_BrendansHouse_1F_OnLoad: @ 81F7765
 	call_if_set FLAG_RECEIVED_RUNNING_SHOES, LittlerootTown_BrendansHouse_1F_EventScript_CheckShowShoesManual
@@ -661,18 +651,4 @@ PlayersHouse_Fridge_Text:
 	.string "inside.\p"
 	.string "Who would do such a thing?$"
 
-PlayerHouse_MaidJinky_FreshWater_Text::
-	.string "Jinky: Oh, hello {PLAYER}!\n"
-	.string "Would you like a bottle of water for \l"
-	.string "your journey?$"
-
-PlayerHouse_MaidJinky_GreetingText::
-	.string "Safe Travels!\n"
-	.string "Say hello to Madame Stephanie!$"
-
-PlayerHouse_MaidJinky_Badges_Text::
-	.string "Jinky: Oh, hello {PLAYER}!\n"
-	.string "So many badges already? \n"
-	.string "You're doing very well! \p"
-	.string "Here, take this and keep \l"
-	.string "going strong! \p$"
+	`
