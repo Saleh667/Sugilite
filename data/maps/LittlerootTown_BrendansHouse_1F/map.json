@@ -68,15 +68,6 @@
     {
       "type": "trigger",
       "x": 8,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_LITTLEROOT_INTRO_STATE",
-      "var_value": "4",
-      "script": "LittlerootTown_BrendansHouse_1F_EventScript_GoSeeRoom"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
       "y": 3,
       "elevation": 0,
       "var": "VAR_LITTLEROOT_RIVAL_STATE",
@@ -193,14 +184,6 @@
     },
     {
       "type": "sign",
-      "x": 9,
-      "y": 8,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "KitchenSet_EventScript"
-    },
-    {
-      "type": "sign",
       "x": 10,
       "y": 8,
       "elevation": 0,
@@ -222,6 +205,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "TrashCan_EventScript"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "KitchenSet_EventScript"
     }
   ]
 }

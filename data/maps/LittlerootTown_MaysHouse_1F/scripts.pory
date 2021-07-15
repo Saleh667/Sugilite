@@ -1,0 +1,36 @@
+mapscripts LittlerootTown_MaysHouse_1F_MapScripts{}
+
+script Neighbours_House_OldLady_EventScript{
+	msgbox(Neighbours_House_OldLady_Text)
+	end
+}
+
+text Neighbours_House_OldLady_Text{
+	"Why hello there, dear.\n"
+	"Thank you so much for stopping by.\p"
+  "It's always nice having guests,\n"
+	"so make yourself at home."
+}
+
+script OldLady_Television_EventScript{
+	msgbox(OldLady_Television_Text)
+	end
+}
+
+text OldLady_Television_Text{
+	"Looks like there's nothing on TV\n"
+	 "right now..."
+}
+
+# Dummy-Scripts that the system needs. Never actually called.
+text PlayersHouse_1F_Text_TheresAMovieOnTV{
+"That's not supposed to happen!"
+}
+
+text PlayersHouse_1F_Text_LatiEmergencyNewsFlash{
+"That's not supposed to happen!"
+}
+
+script RivalsHouse_2F_EventScript_Rival{
+end
+}
