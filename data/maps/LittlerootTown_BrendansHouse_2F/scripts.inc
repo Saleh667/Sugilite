@@ -34,11 +34,11 @@ EventScript_Sugilite_Start_Boy::
 
 
 LittlerootTown_BrendansHouse_2F_Movement_RivalAngry:
-	emote_exclamation_mark
+	emote_angry
 	step_end
 
 LittlerootTown_BrendansHouse_2F_Movement_PlayerGloom:
-	emote_question_mark
+	emote_gloom
 	step_end
 
 LittlerootTown_BrendansHouse_2F_OnTransition: @ 81F83EE
