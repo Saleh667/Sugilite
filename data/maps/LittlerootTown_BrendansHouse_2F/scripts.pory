@@ -35,11 +35,11 @@ script EventScript_Sugilite_Start_Boy {
 # Movements
 
 movement LittlerootTown_BrendansHouse_2F_Movement_RivalAngry {
-	emote_exclamation_mark
+	emote_angry
 }
 
 movement LittlerootTown_BrendansHouse_2F_Movement_PlayerGloom {
-	emote_question_mark
+	emote_gloom
 }
 
 raw `
