@@ -12,9 +12,13 @@ LittlerootTown_BrendansHouse_2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 EventScript_Sugilite_Start_Boy::
 	applymovement 1, Common_Movement_Delay48
 	waitmovement 0
+	applymovement 1, LittlerootTown_BrendansHouse_2F_Movement_RivalAngry
+	waitmovement 0
 	msgbox Kurosiba_Intro_Boy2
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Player_OutOfBed_Movement
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_2F_Movement_PlayerGloom
 	waitmovement 0
 	applymovement 1, Common_Movement_Delay48
 	waitmovement 0
