@@ -25,6 +25,7 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection::
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_1
 	closemessage
 	playse SE_BOO
+	applymovement 1, Common_Movement_EmoteAngry
 	delay 60
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_2
 	checkplayergender
@@ -65,20 +66,24 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection_18:
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_13
 	closemessage
 	playse SE_BOO
+	applymovement 6, Common_Movement_EmoteSweat
 	delay 60
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_14
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_15
 	closemessage
+	applymovement 6, Common_Movement_EmoteEllipsis
 	delay 60
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_16
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_17
 	closemessage
 	playse SE_PIN
+	applymovement 1, Common_Movement_EmoteHappy
 	delay 60
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_18
 	closemessage
 	playse SE_PIN
+	applymovement 6, Common_Movement_EmoteFlex
 	delay 60
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	applymovement 1, Common_Movement_FaceRight
@@ -169,6 +174,7 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection_43:
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_45
 	closemessage
 	playse SE_PIN
+	applymovement 1, Common_Movement_EmoteMusic
 	delay 60
 	checkplayergender
 	compare VAR_RESULT, MALE
@@ -208,16 +214,19 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection_10:
 
 KurosibaTown_ProfessorsLab_EventScript_StarterSelection_12:
 	playse SE_PIN
+	applymovement 2, Common_Movement_EmoteMusic
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_7
 	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_5
 
 KurosibaTown_ProfessorsLab_EventScript_StarterSelection_15:
 	playse SE_PIN
+	applymovement 2, Common_Movement_EmoteX
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_9
 	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_5
 
 KurosibaTown_ProfessorsLab_EventScript_StarterSelection_19:
 	playse SE_PIN
+	applymovement 2, Common_Movement_EmoteMusic
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_12
 	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_18
 
@@ -227,23 +236,28 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection_23:
 
 KurosibaTown_ProfessorsLab_EventScript_StarterSelection_27:
 	playse SE_PIN
+	applymovement 2, Common_Movement_EmoteExclamation
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_21
 	applymovement 1, Common_Movement_FaceLeft
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
 	applymovement 6, KurosibaTown_ProfessorsLab_Movement_JumpInPlaceRight
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_22
 	playse SE_BOO
+	applymovement 2, Common_Movement_EmoteAngry
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_23
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_24
 	closemessage
 	playse SE_BOO
+	applymovement 6, Common_Movement_EmoteGloom
 	delay 60
 	applymovement 1, Common_Movement_FaceRight
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	applymovement 2, Common_Movement_EmoteEllipsis
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_25
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_26
 	closemessage
 	playse SE_PIN
+	applymovement 1, Common_Movement_EmoteMusic
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_27
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_28
 	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_26
@@ -257,11 +271,13 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection_31:
 	case 2, KurosibaTown_ProfessorsLab_EventScript_StarterSelection_42
 KurosibaTown_ProfessorsLab_EventScript_StarterSelection_38:
 	fadedefaultbgm
+	applymovement 2, Common_Movement_EmoteSweat
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_30
 	bufferstring 1, KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_31
 	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_30
 
 KurosibaTown_ProfessorsLab_EventScript_StarterSelection_35:
+	applymovement 2, Common_Movement_EmoteHappy
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_36
 	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_34
 

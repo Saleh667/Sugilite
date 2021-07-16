@@ -975,7 +975,7 @@ LittlerootTown_EventScript_GiveRunningShoes:: @ 81E8693
 	closemessage
 	delay 30
 	return
-	
+
 EventScript_EmoteTest::
 	lock
 	applymovement 0x1, Movement_EmoteTest_Exclamation
@@ -1064,11 +1064,11 @@ EventScript_EmoteTest::
 	waitmovement 0
 	release
 	end
-	
+
 Movement_EmoteTest_Gloom:
 	emote_gloom
 	step_end
-	
+
 Movement_EmoteTest_Ellipsis:
 	emote_ellipsis
 	step_end
@@ -1076,71 +1076,71 @@ Movement_EmoteTest_Ellipsis:
 Movement_EmoteTest_Anguish:
 	emote_anguish
 	step_end
-	
+
 Movement_EmoteTest_Defeat:
 	emote_defeat
 	step_end
-	
+
 Movement_EmoteTest_Devilish:
 	emote_devilish
 	step_end
-	
+
 Movement_EmoteTest_Flex:
 	emote_flex
 	step_end
-	
+
 Movement_EmoteTest_Drooling:
 	emote_drooling
 	step_end
-	
+
 Movement_EmoteTest_Hand:
 	emote_hand
 	step_end
-	
+
 Movement_EmoteTest_Peace:
 	emote_peace
 	step_end
-	
+
 Movement_EmoteTest_Fist:
 	emote_fist
 	step_end
-	
+
 Movement_EmoteTest_X:
 	emote_x
 	step_end
-	
+
 Movement_EmoteTest_Circle:
 	emote_circle
 	step_end
-	
+
 Movement_EmoteTest_Angry:
 	emote_angry
 	step_end
-	
+
 Movement_EmoteTest_Happy:
 	emote_happy
 	step_end
-	
+
 Movement_EmoteTest_Sweat:
 	emote_sweat
 	step_end
-	
+
 Movement_EmoteTest_Idea:
 	emote_idea
 	step_end
-	
+
 Movement_EmoteTest_Music:
 	emote_music
 	step_end
-	
+
 Movement_EmoteTest_Exclamation:
 	emote_exclamation_mark
 	step_end
-	
+
 Movement_EmoteTest_QuestionMark:
 	emote_question_mark
 	step_end
-	
+
 Movement_EmoteTest_Heart:
 	emote_heart
 	step_end
@@ -1256,64 +1256,64 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab: @ 81E8DA2
 	.string "I gave you?\p"
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
-	
+
 Text_EmoteExclamation:
 	.string "exclamation$"
-	
+
 Text_EmoteQuestionMark:
 	.string "question mark$"
-	
+
 Text_EmoteHeart:
 	.string "heart$"
-	
+
 Text_EmoteMusic:
 	.string "musical note$"
-	
+
 Text_EmoteIdea:
 	.string "idea$"
-	
+
 Text_EmoteSweat:
 	.string "sweat$"
-	
+
 Text_EmoteHappy:
 	.string "happy$"
-	
+
 Text_EmoteAngry:
 	.string "angery$"
-	
+
 Text_EmoteCircle:
 	.string "circle tool$"
-	
+
 Text_EmoteX:
 	.string "malcolm x$"
-	
+
 Text_EmoteFist:
 	.string "shake fist at clouds$"
-	
+
 Text_EmotePeace:
 	.string "peace n luv maaaan$"
-	
+
 Text_EmoteHand:
 	.string "how many fingers?$"
-	
+
 Text_EmoteDrooling:
 	.string "booba$"
-	
+
 Text_EmoteFlex:
 	.string "mooscles$"
-	
+
 Text_EmoteDevilish:
 	.string "devilish$"
-	
+
 Text_EmoteDefeat:
 	.string "defeated again$"
-	
+
 Text_EmoteAnguish:
 	.string "anguish$"
-	
+
 Text_EmoteEllipsis:
 	.string "ellipsis$"
-	
+
 Text_EmoteGloom:
 	.string "gloom (not the pokémon)$"
 

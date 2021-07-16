@@ -143,7 +143,6 @@
 	create_movement_action emote_anguish
 	create_movement_action emote_ellipsis
 	create_movement_action emote_gloom
-	
 
 	enum_start 0xfe
 	create_movement_action step_end

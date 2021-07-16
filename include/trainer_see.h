@@ -20,7 +20,6 @@ bool8 CheckForTrainersWantingBattle(void);
 void SetBuriedTrainerMovement(struct ObjectEvent *var);
 void DoTrainerApproach(void);
 void TryPrepareSecondApproachingTrainer(void);
-
 u8 FldEff_ExclamationMarkIcon(void);
 u8 FldEff_QuestionMarkIcon(void);
 u8 FldEff_HeartIcon(void);
@@ -41,7 +40,6 @@ u8 FldEff_DefeatIcon(void);
 u8 FldEff_AnguishIcon(void);
 u8 FldEff_EllipsisIcon(void);
 u8 FldEff_GloomIcon(void);
-
 u8 GetCurrentApproachingTrainerObjectEventId(void);
 u8 GetChosenApproachingTrainerObjectEventId(u8 arrayId);
 void PlayerFaceTrainerAfterBattle(void);

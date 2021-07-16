@@ -57,4 +57,3 @@ gText_Birch_AreYouReady:: @ 82C8C7A
     .string "adventure, and friendships await!\p"
     .string "Well, I look forward to seeing you.\n"
     .string "You can find me in my Pokémon lab.$"
-	
