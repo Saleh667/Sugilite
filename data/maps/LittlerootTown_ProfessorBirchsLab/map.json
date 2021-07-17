@@ -16,28 +16,28 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
-      "x": 3,
-      "y": 10,
+      "x": 4,
+      "y": 9,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Birch",
+      "script": "KurosibaTown_ProfessorsLab_EventScript_Professor_Comment",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
-      "x": 4,
-      "y": 10,
+      "x": 3,
+      "y": 11,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Rival",
+      "script": "KurosibaTown_ProfessorsLab_EventScript_Rival_Comment",
       "flag": "FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_RIVAL"
     },
     {
@@ -50,8 +50,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Cyndaquil",
-      "flag": "FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_CYNDAQUIL"
+      "script": "KurosibaTown_ProfessorsLab_EventScript_Choose_Ignion",
+      "flag": "FLAG_HIDE_PROFS_LAB_POKEBALL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -63,8 +63,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Totodile",
-      "flag": "FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_TOTODILE"
+      "script": "KurosibaTown_ProfessorsLab_EventScript_Choose_Cybio",
+      "flag": "FLAG_HIDE_PROFS_LAB_POKEBALL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -76,20 +76,20 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Chikorita",
-      "flag": "FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_CHIKORITA"
+      "script": "KurosibaTown_ProfessorsLab_EventScript_Choose_Jellosis",
+      "flag": "FLAG_HIDE_PROFS_LAB_POKEBALL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WALLACE",
-      "x": 2,
-      "y": 11,
+      "x": 3,
+      "y": 9,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "KurosibaTown_ProfessorsLab_EventScript_Simmerman_Comment",
       "flag": "FLAG_HIDE_KUROSIBA_TOWN_PROFESSORS_LAB_SIMMERMAN"
     }
   ],
@@ -110,7 +110,51 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "KurosibaTown_ProfessorsLab_EventScript_DontLeave"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "KurosibaTown_ProfessorsLab_EventScript_DontLeave"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "KurosibaTown_ProfessorsLab_EventScript_DontLeave"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "KurosibaTown_ProfessorsLab_EventScript_DontLeave"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "KurosibaTown_ProfessorsLab_EventScript_DontLeave"
+    }
   ],
   "bg_events": [
     {
