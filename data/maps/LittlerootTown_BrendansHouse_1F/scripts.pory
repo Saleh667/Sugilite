@@ -10,13 +10,15 @@ mapscripts LittlerootTown_BrendansHouse_1F_MapScripts
 			VAR_LITTLEROOT_RIVAL_STATE, 0: PlayersHouse_Eirika_Waiting
 		//	VAR_LITTLEROOT_INTRO_STATE, 5: LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToStairs
 		//	VAR_LITTLEROOT_INTRO_STATE, 6: LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToTV
-		//]
+		]
 	}
 
 script LittlerootTown_BrendansHouse_1F_OnTransition{
 	call(Common_EventScript_SetupRivalGfxId)
 	end
 }
+
+
 script PlayersHouse_Eirika_Waiting{
 		lockall
 
@@ -162,17 +164,6 @@ text PlayersHouse_Eric_Waiting_Text{
 
 raw `
 
-PlayersHouse_Eirika_Waiting::
-	lockall
-	msgbox PlayersHouse_Eirika_Waiting_Text, MSGBOX_DEFAULT
-	closemessage
-	applymovement 2, Rival_Leaves_House_Movement
-	waitmovement 0
-	playse SE_EXIT
-	setvar VAR_LITTLEROOT_RIVAL_STATE, 1
-	removeobject 2
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY
-	end
 
 Rival_Leaves_House_Movement:
 	walk_left

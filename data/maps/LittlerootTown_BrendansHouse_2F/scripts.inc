@@ -10,11 +10,11 @@ LittlerootTown_BrendansHouse_2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 
 EventScript_Sugilite_Start_Boy::
+	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
 	applymovement 1, Common_Movement_Delay48
 	waitmovement 0
 	applymovement 1, LittlerootTown_BrendansHouse_2F_Movement_RivalAngry
 	waitmovement 0
-<<<<<<< HEAD
 	applymovement 1, Common_Movement_Delay48
 	waitmovement 0
 	checkplayergender
@@ -22,9 +22,6 @@ EventScript_Sugilite_Start_Boy::
 	goto_if_eq EventScript_Sugilite_Start_Boy_2
 	msgbox Kurosiba_Intro_Girl2
 EventScript_Sugilite_Start_Boy_1:
-=======
-	msgbox Kurosiba_Intro_Boy2
->>>>>>> b17c3cf77889d8051081a58f3939bd17f32d5559
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Player_OutOfBed_Movement
 	waitmovement 0
@@ -308,16 +305,6 @@ Kurosiba_Intro_Boy3:
 BeanBagChair_Text:
 	.string "It's a bean bag. Pretty comfy to rest on!$"
 
-<<<<<<< HEAD
-=======
-ToDoList_Text:
-	.string "Eirika's to do list: \n"
-	.string "Get a Pokémon!\p"
-	.string "Get a Pokémon!\n"
-	.string "Get a Pokémon!\p"
-	.string "(Well, that's quite the list...)$"
-
->>>>>>> b17c3cf77889d8051081a58f3939bd17f32d5559
 PlayerTv_Text:
 	.string "It's a curved screen TV.\n"
 	.string "Really good for playing games, right?$"

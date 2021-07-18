@@ -1,5 +1,4 @@
 LittlerootTown_BrendansHouse_1F_MapScripts::
-<<<<<<< HEAD
 	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_BrendansHouse_1F_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_BrendansHouse_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
@@ -42,10 +41,6 @@ PlayersHouse_Eirika_Waiting_2:
 	closemessage
 	goto PlayersHouse_Eirika_Waiting_1
 
-=======
-	.byte 0
-
->>>>>>> b17c3cf77889d8051081a58f3939bd17f32d5559
 
 PlayerHouse_MaidJinky_EventScript::
 	lock
@@ -168,18 +163,6 @@ PlayersHouse_MaidJinky_BadgeItem::
 	end
 
 
-PlayersHouse_Eirika_Waiting::
-	lockall
-	msgbox PlayersHouse_Eirika_Waiting_Text, MSGBOX_DEFAULT
-	closemessage
-	applymovement 2, Rival_Leaves_House_Movement
-	waitmovement 0
-	playse SE_EXIT
-	setvar VAR_LITTLEROOT_RIVAL_STATE, 1
-	removeobject 2
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY
-	end
-
 Rival_Leaves_House_Movement:
 	walk_left
 	walk_down
@@ -193,13 +176,6 @@ Rival_Leaves_House_Movement:
 	delay_16
 	step_end
 
-<<<<<<< HEAD
-=======
-PlayersHouse_Eirika_Waiting_Text:
-	.string "Y'know what, I'll just meet you at the lab.\n"
-	.string "You're as slow as ever, {PLAYER}!$"
-
->>>>>>> b17c3cf77889d8051081a58f3939bd17f32d5559
 Cupboards_EventScript::
 	msgbox Cupboard_Message, MSGBOX_SIGN
 	end
@@ -292,14 +268,11 @@ PlayerHouse_MaidJinky_GreetingText::
 	.string "Say hello to Madame Stephanie!$"
 
 PlayerHouse_MaidJinky_Badges_Text::
-<<<<<<< HEAD
-	.string "Jinky: Oh, if it isn't {PLAYER}!\p"
-	.string "I was cleaning your room,\nand found this!\p"
-	.string "You might want to use it.\p$"
-
-PlayerHouse_MaidJinky_GreetingText_Badges::
-	.string "Don't mind me!\n"
-	.string "I'm just taking care of the house\nwhile you're all growing\nand glowing!$"
+	.string "Jinky: Oh, hello {PLAYER}!\n"
+	.string "So many badges already? \n"
+	.string "You're doing very well! \p"
+	.string "Here, take this and keep \l"
+	.string "going strong! \p$"
 
 PlayersHouse_Eirika_Waiting_Text::
 	.string "Eirika: Y'know what?\n"
@@ -308,10 +281,3 @@ PlayersHouse_Eirika_Waiting_Text::
 
 PlayersHouse_Eric_Waiting_Text::
 	.string "Eric: Great! You're here.\nLet's go to the lab already!$"
-=======
-	.string "Jinky: Oh, hello {PLAYER}!\n"
-	.string "So many badges already? \n"
-	.string "You're doing very well! \p"
-	.string "Here, take this and keep \l"
-	.string "going strong! \p$"
->>>>>>> b17c3cf77889d8051081a58f3939bd17f32d5559
