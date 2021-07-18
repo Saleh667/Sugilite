@@ -1,4 +1,5 @@
 LittlerootTown_BrendansHouse_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_BrendansHouse_1F_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_BrendansHouse_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
@@ -7,14 +8,22 @@ LittlerootTown_BrendansHouse_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 	.2byte 0
 
 
+LittlerootTown_BrendansHouse_1F_OnTransition::
+	call Common_EventScript_SetupRivalGfxId
+	end
+
+
 PlayersHouse_Eirika_Waiting::
 	lockall
-	applymovement 2, KurosibaTown_ProfessorsLab_Movement_JumpInPlaceRight
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq PlayersHouse_Eirika_Waiting_2
+	applymovement 2, Common_Movement_EmoteEllipsis
 	waitmovement 0
-	applymovement 2, KurosibaTown_ProfessorsLab_Movement_JumpInPlaceRight
-	waitmovement 0
-	msgbox PlayersHouse_Eirika_Waiting_Text, MSGBOX_DEFAULT
+	delay 60
+	msgbox PlayersHouse_Eric_Waiting_Text
 	closemessage
+PlayersHouse_Eirika_Waiting_1:
 	applymovement 2, Rival_Leaves_House_Movement
 	waitmovement 0
 	playse SE_EXIT
@@ -22,6 +31,15 @@ PlayersHouse_Eirika_Waiting::
 	removeobject 2
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY
 	end
+
+PlayersHouse_Eirika_Waiting_2:
+	applymovement 2, KurosibaTown_ProfessorsLab_Movement_JumpInPlaceRight
+	waitmovement 0
+	applymovement 2, KurosibaTown_ProfessorsLab_Movement_JumpInPlaceRight
+	waitmovement 0
+	msgbox PlayersHouse_Eirika_Waiting_Text
+	closemessage
+	goto PlayersHouse_Eirika_Waiting_1
 
 
 PlayerHouse_MaidJinky_EventScript::
@@ -118,11 +136,6 @@ Rival_Leaves_House_Movement:
 	delay_16
 	delay_16
 	step_end
-
-PlayersHouse_Eirika_Waiting_Text:
-	.string "Eirika: Y'know what?\n"
-	.string "I'll just meet you at the lab.\p"
-	.string "You're as slow as ever, {PLAYER}!$"
 
 Cupboards_EventScript::
 	msgbox Cupboard_Message, MSGBOX_SIGN
@@ -223,3 +236,11 @@ PlayerHouse_MaidJinky_Badges_Text::
 PlayerHouse_MaidJinky_GreetingText_Badges::
 	.string "Don't mind me!\n"
 	.string "I'm just taking care of the house\nwhile you're all growing\nand glowing!$"
+
+PlayersHouse_Eirika_Waiting_Text::
+	.string "Eirika: Y'know what?\n"
+	.string "I'll just meet you at the lab.\p"
+	.string "You're as slow as ever, {PLAYER}!$"
+
+PlayersHouse_Eric_Waiting_Text::
+	.string "Eric: Great! You're here.\nLet's go to the lab already!$"

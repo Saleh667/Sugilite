@@ -17,7 +17,11 @@ EventScript_Sugilite_Start_Boy::
 	waitmovement 0
 	applymovement 1, Common_Movement_Delay48
 	waitmovement 0
-	msgbox Kurosiba_Intro_Boy2
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq EventScript_Sugilite_Start_Boy_2
+	msgbox Kurosiba_Intro_Girl2
+EventScript_Sugilite_Start_Boy_1:
 	closemessage
 	applymovement 1, LittlerootTown_BrendansHouse_2F_Movement_RivalMakeSpace
 	applymovement OBJ_EVENT_ID_PLAYER, Player_OutOfBed_Movement
@@ -28,7 +32,11 @@ EventScript_Sugilite_Start_Boy::
 	waitmovement 0
 	applymovement 1, Common_Movement_Delay48
 	waitmovement 0
-	msgbox Kurosiba_Intro_Boy3, MSGBOX_DEFAULT
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq EventScript_Sugilite_Start_Boy_6
+	msgbox Kurosiba_Intro_Girl3
+EventScript_Sugilite_Start_Boy_5:
 	closemessage
 	applymovement 1, Eirika_Runs_Down_Stairs
 	waitmovement 0
@@ -37,6 +45,28 @@ EventScript_Sugilite_Start_Boy::
 	setvar VAR_UNUSED_0x404E, 1
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM
 	return
+
+EventScript_Sugilite_Start_Boy_2:
+	msgbox Kurosiba_Intro_Boy2
+	goto EventScript_Sugilite_Start_Boy_1
+
+EventScript_Sugilite_Start_Boy_6:
+	msgbox Kurosiba_Intro_Boy3
+	goto EventScript_Sugilite_Start_Boy_5
+
+
+PlayerToDoList_EventScript::
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq PlayerToDoList_EventScript_2
+	msgbox ToDoList_Text_Girl
+PlayerToDoList_EventScript_1:
+	closemessage
+	end
+
+PlayerToDoList_EventScript_2:
+	msgbox ToDoList_Text_Boy
+	goto PlayerToDoList_EventScript_1
 
 
 LittlerootTown_BrendansHouse_2F_Movement_RivalAngry:
@@ -238,10 +268,6 @@ BeanBagChair_EventScript::
 	msgbox BeanBagChair_Text, MSGBOX_SIGN
 	end
 
-PlayerToDoList_EventScript::
-	msgbox ToDoList_Text, MSGBOX_SIGN
-	end
-
 PlayerTv_EventScript::
 	msgbox PlayerTv_Text, MSGBOX_SIGN
 	end
@@ -275,13 +301,31 @@ Kurosiba_Intro_Boy3:
 BeanBagChair_Text:
 	.string "It's a bean bag. Pretty comfy to rest on!$"
 
-ToDoList_Text:
-	.string "Eirika's to do list: \p"
-	.string "- Get a Pokémon!\n"
-	.string "- Get a Pokémon!\l"
-	.string "- Get a Pokémon!\l"
-	.string "(Well, that's quite the list...)$"
-
 PlayerTv_Text:
 	.string "It's a curved screen TV.\n"
 	.string "Really good for playing games, right?$"
+
+Kurosiba_Intro_Girl2::
+	.string "Eric: {PLAYER}. I thought you wanted\n"
+	.string "to get your first POKéMON, but\l"
+	.string "but here you are, dozing off.\p"
+	.string "Let's go already!$"
+
+Kurosiba_Intro_Girl3::
+	.string "Eric: {PLAYER}. I'm pretty\n"
+	.string "excited for this myself, so\l"
+	.string "don't keep me waiting too long, okay?$"
+
+ToDoList_Text_Boy::
+	.string "Eirika's to do list: \p"
+	.string "- Get a POKéMON!\n"
+	.string "- Get a POKéMON!\l"
+	.string "- Get a POKéMON!\l"
+	.string "(Well, that's quite the list...)$"
+
+ToDoList_Text_Girl::
+	.string "Eric's to do list: \p"
+	.string "Get a POKéMON,\n"
+	.string "get the POKèDEX,\l"
+	.string "and start my adventure.\p"
+	.string "(Well, he certainly knows\nwhat he wants...)$"

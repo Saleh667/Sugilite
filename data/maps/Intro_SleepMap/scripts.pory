@@ -8,7 +8,15 @@ script Intro_SleepMap_EventScript_Text {
 
   applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_Delay48)
   waitmovement(0)
-  msgbox(Kurosiba_Intro_Boy1)
+
+  checkplayergender
+
+  if (var(VAR_RESULT) == MALE) {
+    msgbox(Kurosiba_Intro_Boy1)
+  } else {
+    msgbox(Kurosiba_Intro_Girl1)
+  }
+
   closemessage()
   applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_Delay48)
   waitmovement(0)
@@ -19,4 +27,10 @@ text Kurosiba_Intro_Boy1{
 	"...\p"
 	"...\p"
 	"???: ...\nWake up! Come on!$"
+}
+
+text Kurosiba_Intro_Girl1{
+	"...\p"
+	"...\p"
+	"???: ...\nIt's time to get up already.$"
 }

@@ -5,7 +5,7 @@ const LOCALID_RIVAL = 7
 mapscripts LittlerootTown_BrendansHouse_1F_MapScripts
 	{
 		//MAP_SCRIPT_ON_LOAD: LittlerootTown_BrendansHouse_1F_OnLoad
-		//MAP_SCRIPT_ON_TRANSITION: LittlerootTown_BrendansHouse_1F_OnTransition
+		MAP_SCRIPT_ON_TRANSITION: LittlerootTown_BrendansHouse_1F_OnTransition
 		MAP_SCRIPT_ON_FRAME_TABLE [
 			VAR_LITTLEROOT_RIVAL_STATE, 0: PlayersHouse_Eirika_Waiting
 		//	VAR_LITTLEROOT_INTRO_STATE, 5: LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToStairs
@@ -13,16 +13,29 @@ mapscripts LittlerootTown_BrendansHouse_1F_MapScripts
 		]
 	}
 
+script LittlerootTown_BrendansHouse_1F_OnTransition{
+	call(Common_EventScript_SetupRivalGfxId)
+	end
+}
 script PlayersHouse_Eirika_Waiting{
 		lockall
 
+	checkplayergender
+  	if (var(VAR_RESULT) == MALE) {
 		applymovement(2, KurosibaTown_ProfessorsLab_Movement_JumpInPlaceRight)
 		waitmovement(0)
 		applymovement(2, KurosibaTown_ProfessorsLab_Movement_JumpInPlaceRight)
 		waitmovement(0)
-
-		msgbox(PlayersHouse_Eirika_Waiting_Text, MSGBOX_DEFAULT)
+		msgbox(PlayersHouse_Eirika_Waiting_Text)
 		closemessage
+	} else {
+	  	applymovement(2, Common_Movement_EmoteEllipsis)
+		waitmovement(0)
+		delay(60)
+		msgbox(PlayersHouse_Eric_Waiting_Text)
+		closemessage
+	}
+
 		applymovement(2, Rival_Leaves_House_Movement)
 		waitmovement(0)
 		playse(SE_EXIT)
@@ -121,6 +134,16 @@ text PlayerHouse_MaidJinky_GreetingText_Badges{
 	"I'm just taking care of the house\nwhile you're all growing\nand glowing!"
 }
 
+text PlayersHouse_Eirika_Waiting_Text{
+	"Eirika: Y'know what?\n"
+	"I'll just meet you at the lab.\p"
+	"You're as slow as ever, {PLAYER}!"
+}
+
+text PlayersHouse_Eric_Waiting_Text{
+	"Eric: Great! You're here.\nLet's go to the lab already!"
+}
+
 raw `
 
 Rival_Leaves_House_Movement:
@@ -135,11 +158,6 @@ Rival_Leaves_House_Movement:
 	delay_16
 	delay_16
 	step_end
-
-PlayersHouse_Eirika_Waiting_Text:
-	.string "Eirika: Y'know what?\n"
-	.string "I'll just meet you at the lab.\p"
-	.string "You're as slow as ever, {PLAYER}!$"
 
 Cupboards_EventScript::
 	msgbox Cupboard_Message, MSGBOX_SIGN
