@@ -26,7 +26,10 @@ script EventScript_Sugilite_Start_Boy {
 		msgbox(Kurosiba_Intro_Girl2)
   	}
 	closemessage()
+		
+	applymovement(LOCALID_RIVAL, Rival_MakeWay_Movement)
 	applymovement(OBJ_EVENT_ID_PLAYER, Player_OutOfBed_Movement)
+	
 	waitmovement(0)
 	applymovement(OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_2F_Movement_PlayerGloom)
 	waitmovement(0)
@@ -121,11 +124,18 @@ LittlerootTown_BrendansHouse_2F_EventScript_CheckInitDecor:: @ 81F8474
 
 Player_OutOfBed_Movement:
 	walk_right
+	walk_right
+	step_end
+
+Rival_MakeWay_Movement:
+	walk_right
+	walk_right
+	face_left
 	step_end
 
 Eirika_Runs_Down_Stairs:
-	walk_fast_right
-	walk_fast_right
+	//walk_fast_right
+	//walk_fast_right
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right
@@ -336,16 +346,6 @@ Kurosiba_Intro_Boy3:
 BeanBagChair_Text:
 	.string "It's a bean bag. Pretty comfy to rest on!$"
 
-<<<<<<< HEAD
-=======
-ToDoList_Text:
-	.string "Eirika's to do list: \n"
-	.string "Get a Pokémon!\p"
-	.string "Get a Pokémon!\n"
-	.string "Get a Pokémon!\p"
-	.string "(Well, that's quite the list...)$"
-
->>>>>>> b17c3cf77889d8051081a58f3939bd17f32d5559
 PlayerTv_Text:
 	.string "It's a curved screen TV.\n"
 	.string "Really good for playing games, right?$"

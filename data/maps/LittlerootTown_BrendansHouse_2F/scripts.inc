@@ -23,6 +23,7 @@ EventScript_Sugilite_Start_Boy::
 	msgbox Kurosiba_Intro_Girl2
 EventScript_Sugilite_Start_Boy_1:
 	closemessage
+	applymovement 1, Rival_MakeWay_Movement
 	applymovement OBJ_EVENT_ID_PLAYER, Player_OutOfBed_Movement
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_2F_Movement_PlayerGloom
@@ -90,11 +91,18 @@ LittlerootTown_BrendansHouse_2F_EventScript_CheckInitDecor:: @ 81F8474
 
 Player_OutOfBed_Movement:
 	walk_right
+	walk_right
+	step_end
+
+Rival_MakeWay_Movement:
+	walk_right
+	walk_right
+	face_left
 	step_end
 
 Eirika_Runs_Down_Stairs:
-	walk_fast_right
-	walk_fast_right
+	//walk_fast_right
+	//walk_fast_right
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right
