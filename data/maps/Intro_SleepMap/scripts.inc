@@ -29,7 +29,7 @@ Intro_SleepMap_EventScript_Text_2:
 Kurosiba_Intro_Boy1::
 	.string "...\p"
 	.string "...\p"
-	.string "???: ...\nWake up! Come on!$"
+	.string "???: ... Wake up! Come on!$"
 
 Kurosiba_Intro_Girl1::
 	.string "...\p"
