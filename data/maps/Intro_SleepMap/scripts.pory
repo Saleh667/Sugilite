@@ -5,7 +5,6 @@ mapscripts Intro_SleepMap_MapScripts {
 }
 
 script Intro_SleepMap_EventScript_Text {
-
   applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_Delay48)
   waitmovement(0)
 
@@ -26,7 +25,7 @@ script Intro_SleepMap_EventScript_Text {
 text Kurosiba_Intro_Boy1{
 	"...\p"
 	"...\p"
-	"???: ...\nWake up! Come on!$"
+	"???: ... Wake up! Come on!$"
 }
 
 text Kurosiba_Intro_Girl1{

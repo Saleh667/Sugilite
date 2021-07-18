@@ -1,4 +1,5 @@
 LittlerootTown_BrendansHouse_1F_MapScripts::
+<<<<<<< HEAD
 	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_BrendansHouse_1F_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_BrendansHouse_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
@@ -41,23 +42,108 @@ PlayersHouse_Eirika_Waiting_2:
 	closemessage
 	goto PlayersHouse_Eirika_Waiting_1
 
+=======
+	.byte 0
+
+>>>>>>> b17c3cf77889d8051081a58f3939bd17f32d5559
 
 PlayerHouse_MaidJinky_EventScript::
 	lock
 	faceplayer
-	goto_if_unset FLAG_RECEIVED_FRESH_WATER_JINKY, PlayerHouse_MaidJinky_EventScript_2
-	goto_if_set FLAG_MAID_GIFT_READY, PlayerHouse_MaidJinky_EventScript_5
+	switch VAR_NO_OF_BADGES
+	case 0, PlayerHouse_MaidJinky_EventScript_3
+	case 1, PlayerHouse_MaidJinky_EventScript_4
+	case 2, PlayerHouse_MaidJinky_EventScript_5
+	case 3, PlayerHouse_MaidJinky_EventScript_6
+	case 4, PlayerHouse_MaidJinky_EventScript_7
+	case 5, PlayerHouse_MaidJinky_EventScript_8
+	case 6, PlayerHouse_MaidJinky_EventScript_9
+	case 7, PlayerHouse_MaidJinky_EventScript_10
+	case 8, PlayerHouse_MaidJinky_EventScript_11
 	msgbox PlayerHouse_MaidJinky_GreetingText
 PlayerHouse_MaidJinky_EventScript_1:
 	closemessage
 	release
 	end
 
-PlayerHouse_MaidJinky_EventScript_2:
-	goto PlayersHouse_MaidJinky_FreshWater
+PlayerHouse_MaidJinky_EventScript_3:
+	goto_if_unset FLAG_RECEIVED_FRESH_WATER_JINKY, PlayerHouse_MaidJinky_EventScript_13
+	msgbox PlayerHouse_MaidJinky_GreetingText
+	goto PlayerHouse_MaidJinky_EventScript_1
+
+PlayerHouse_MaidJinky_EventScript_4:
+	goto_if_set FLAG_MAID_GIFT_READY, PlayerHouse_MaidJinky_EventScript_16
+	msgbox PlayerHouse_MaidJinky_GreetingText
 	goto PlayerHouse_MaidJinky_EventScript_1
 
 PlayerHouse_MaidJinky_EventScript_5:
+	goto_if_set FLAG_MAID_GIFT_READY, PlayerHouse_MaidJinky_EventScript_19
+	msgbox PlayerHouse_MaidJinky_GreetingText
+	goto PlayerHouse_MaidJinky_EventScript_1
+
+PlayerHouse_MaidJinky_EventScript_6:
+	goto_if_set FLAG_MAID_GIFT_READY, PlayerHouse_MaidJinky_EventScript_22
+	msgbox PlayerHouse_MaidJinky_GreetingText
+	goto PlayerHouse_MaidJinky_EventScript_1
+
+PlayerHouse_MaidJinky_EventScript_7:
+	goto_if_set FLAG_MAID_GIFT_READY, PlayerHouse_MaidJinky_EventScript_25
+	msgbox PlayerHouse_MaidJinky_GreetingText
+	goto PlayerHouse_MaidJinky_EventScript_1
+
+PlayerHouse_MaidJinky_EventScript_8:
+	goto_if_set FLAG_MAID_GIFT_READY, PlayerHouse_MaidJinky_EventScript_28
+	msgbox PlayerHouse_MaidJinky_GreetingText
+	goto PlayerHouse_MaidJinky_EventScript_1
+
+PlayerHouse_MaidJinky_EventScript_9:
+	goto_if_set FLAG_MAID_GIFT_READY, PlayerHouse_MaidJinky_EventScript_31
+	msgbox PlayerHouse_MaidJinky_GreetingText
+	goto PlayerHouse_MaidJinky_EventScript_1
+
+PlayerHouse_MaidJinky_EventScript_10:
+	goto_if_set FLAG_MAID_GIFT_READY, PlayerHouse_MaidJinky_EventScript_34
+	msgbox PlayerHouse_MaidJinky_GreetingText
+	goto PlayerHouse_MaidJinky_EventScript_1
+
+PlayerHouse_MaidJinky_EventScript_11:
+	goto_if_set FLAG_MAID_GIFT_READY, PlayerHouse_MaidJinky_EventScript_37
+	msgbox PlayerHouse_MaidJinky_GreetingText
+	goto PlayerHouse_MaidJinky_EventScript_1
+
+PlayerHouse_MaidJinky_EventScript_13:
+	goto PlayersHouse_MaidJinky_FreshWater
+	goto PlayerHouse_MaidJinky_EventScript_1
+
+PlayerHouse_MaidJinky_EventScript_16:
+	goto PlayersHouse_MaidJinky_BadgeItem
+	goto PlayerHouse_MaidJinky_EventScript_1
+
+PlayerHouse_MaidJinky_EventScript_19:
+	goto PlayersHouse_MaidJinky_BadgeItem
+	goto PlayerHouse_MaidJinky_EventScript_1
+
+PlayerHouse_MaidJinky_EventScript_22:
+	goto PlayersHouse_MaidJinky_BadgeItem
+	goto PlayerHouse_MaidJinky_EventScript_1
+
+PlayerHouse_MaidJinky_EventScript_25:
+	goto PlayersHouse_MaidJinky_BadgeItem
+	goto PlayerHouse_MaidJinky_EventScript_1
+
+PlayerHouse_MaidJinky_EventScript_28:
+	goto PlayersHouse_MaidJinky_BadgeItem
+	goto PlayerHouse_MaidJinky_EventScript_1
+
+PlayerHouse_MaidJinky_EventScript_31:
+	goto PlayersHouse_MaidJinky_BadgeItem
+	goto PlayerHouse_MaidJinky_EventScript_1
+
+PlayerHouse_MaidJinky_EventScript_34:
+	goto PlayersHouse_MaidJinky_BadgeItem
+	goto PlayerHouse_MaidJinky_EventScript_1
+
+PlayerHouse_MaidJinky_EventScript_37:
 	goto PlayersHouse_MaidJinky_BadgeItem
 	goto PlayerHouse_MaidJinky_EventScript_1
 
@@ -74,69 +160,46 @@ PlayersHouse_MaidJinky_FreshWater::
 
 PlayersHouse_MaidJinky_BadgeItem::
 	msgbox PlayerHouse_MaidJinky_Badges_Text
-	switch VAR_NO_OF_BADGES
-	case 1, PlayersHouse_MaidJinky_BadgeItem_3
-	case 2, PlayersHouse_MaidJinky_BadgeItem_4
-	case 3, PlayersHouse_MaidJinky_BadgeItem_5
-	case 4, PlayersHouse_MaidJinky_BadgeItem_6
-	case 5, PlayersHouse_MaidJinky_BadgeItem_7
-	case 6, PlayersHouse_MaidJinky_BadgeItem_8
-	case 7, PlayersHouse_MaidJinky_BadgeItem_9
-	case 8, PlayersHouse_MaidJinky_BadgeItem_10
-	msgbox PlayerHouse_MaidJinky_GreetingText
-PlayersHouse_MaidJinky_BadgeItem_1:
+	giveitem ITEM_FRESH_WATER
 	clearflag FLAG_MAID_GIFT_READY
-	msgbox PlayerHouse_MaidJinky_GreetingText_Badges
+	msgbox PlayerHouse_MaidJinky_GreetingText
 	closemessage
 	release
 	end
 
-PlayersHouse_MaidJinky_BadgeItem_3:
-	giveitem ITEM_RARE_CANDY
-	goto PlayersHouse_MaidJinky_BadgeItem_1
 
-PlayersHouse_MaidJinky_BadgeItem_4:
-	giveitem ITEM_ANTIDOTE, 10
-	goto PlayersHouse_MaidJinky_BadgeItem_1
-
-PlayersHouse_MaidJinky_BadgeItem_5:
-	giveitem ITEM_AWAKENING, 10
-	goto PlayersHouse_MaidJinky_BadgeItem_1
-
-PlayersHouse_MaidJinky_BadgeItem_6:
-	giveitem ITEM_NUGGET
-	goto PlayersHouse_MaidJinky_BadgeItem_1
-
-PlayersHouse_MaidJinky_BadgeItem_7:
-	giveitem ITEM_ULTRA_BALL, 10
-	goto PlayersHouse_MaidJinky_BadgeItem_1
-
-PlayersHouse_MaidJinky_BadgeItem_8:
-	giveitem ITEM_PARALYZE_HEAL, 10
-	goto PlayersHouse_MaidJinky_BadgeItem_1
-
-PlayersHouse_MaidJinky_BadgeItem_9:
-	giveitem ITEM_REVIVE, 10
-	goto PlayersHouse_MaidJinky_BadgeItem_1
-
-PlayersHouse_MaidJinky_BadgeItem_10:
-	giveitem ITEM_MAX_REVIVE, 3
-	goto PlayersHouse_MaidJinky_BadgeItem_1
-
+PlayersHouse_Eirika_Waiting::
+	lockall
+	msgbox PlayersHouse_Eirika_Waiting_Text, MSGBOX_DEFAULT
+	closemessage
+	applymovement 2, Rival_Leaves_House_Movement
+	waitmovement 0
+	playse SE_EXIT
+	setvar VAR_LITTLEROOT_RIVAL_STATE, 1
+	removeobject 2
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY
+	end
 
 Rival_Leaves_House_Movement:
-	walk_fast_left
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	delay_16
 	delay_16
 	step_end
 
+<<<<<<< HEAD
+=======
+PlayersHouse_Eirika_Waiting_Text:
+	.string "Y'know what, I'll just meet you at the lab.\n"
+	.string "You're as slow as ever, {PLAYER}!$"
+
+>>>>>>> b17c3cf77889d8051081a58f3939bd17f32d5559
 Cupboards_EventScript::
 	msgbox Cupboard_Message, MSGBOX_SIGN
 	end
@@ -229,6 +292,7 @@ PlayerHouse_MaidJinky_GreetingText::
 	.string "Say hello to Madame Stephanie!$"
 
 PlayerHouse_MaidJinky_Badges_Text::
+<<<<<<< HEAD
 	.string "Jinky: Oh, if it isn't {PLAYER}!\p"
 	.string "I was cleaning your room,\nand found this!\p"
 	.string "You might want to use it.\p$"
@@ -244,3 +308,10 @@ PlayersHouse_Eirika_Waiting_Text::
 
 PlayersHouse_Eric_Waiting_Text::
 	.string "Eric: Great! You're here.\nLet's go to the lab already!$"
+=======
+	.string "Jinky: Oh, hello {PLAYER}!\n"
+	.string "So many badges already? \n"
+	.string "You're doing very well! \p"
+	.string "Here, take this and keep \l"
+	.string "going strong! \p$"
+>>>>>>> b17c3cf77889d8051081a58f3939bd17f32d5559

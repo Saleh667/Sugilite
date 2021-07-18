@@ -19251,7 +19251,7 @@ static const struct LevelUpMove sCalyrexShadowRiderLevelUpLearnset[] = {
 static const struct LevelUpMove sCybioLevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_POUND),
 	LEVEL_UP_MOVE(1, MOVE_LEER),
-	LEVEL_UP_MOVE(6, MOVE_ABSORB),
+	LEVEL_UP_MOVE(5, MOVE_ABSORB),
 	LEVEL_UP_MOVE(8, MOVE_RAPID_SPIN),
 	LEVEL_UP_MOVE(10, MOVE_LEECH_SEED),
 	LEVEL_UP_MOVE(13, MOVE_GYRO_BALL),
@@ -19318,7 +19318,7 @@ static const struct LevelUpMove sDomebioLevelUpLearnset[] = {
 static const struct LevelUpMove sIgnionLevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_TACKLE),
 	LEVEL_UP_MOVE(1, MOVE_TAIL_WHIP),
-	LEVEL_UP_MOVE(6, MOVE_EMBER),
+	LEVEL_UP_MOVE(5, MOVE_EMBER),
 	LEVEL_UP_MOVE(9, MOVE_QUICK_ATTACK),
 	LEVEL_UP_MOVE(12, MOVE_WORK_UP),
 	LEVEL_UP_MOVE(14, MOVE_FLAME_CHARGE),
@@ -19384,7 +19384,7 @@ static const struct LevelUpMove sDracohohoLevelUpLearnset[] = {
 static const struct LevelUpMove sJellosisLevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_POUND),
 	LEVEL_UP_MOVE(1, MOVE_BABY_DOLL_EYES),
-	LEVEL_UP_MOVE(6, MOVE_BUBBLE),
+	LEVEL_UP_MOVE(5, MOVE_BUBBLE),
 	LEVEL_UP_MOVE(10, MOVE_THUNDER_SHOCK),
 	LEVEL_UP_MOVE(13, MOVE_THUNDER_WAVE),
 	LEVEL_UP_MOVE(16, MOVE_BUBBLE_BEAM),

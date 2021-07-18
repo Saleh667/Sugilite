@@ -10,11 +10,11 @@ LittlerootTown_BrendansHouse_2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 
 EventScript_Sugilite_Start_Boy::
-	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
 	applymovement 1, Common_Movement_Delay48
 	waitmovement 0
 	applymovement 1, LittlerootTown_BrendansHouse_2F_Movement_RivalAngry
 	waitmovement 0
+<<<<<<< HEAD
 	applymovement 1, Common_Movement_Delay48
 	waitmovement 0
 	checkplayergender
@@ -22,11 +22,11 @@ EventScript_Sugilite_Start_Boy::
 	goto_if_eq EventScript_Sugilite_Start_Boy_2
 	msgbox Kurosiba_Intro_Girl2
 EventScript_Sugilite_Start_Boy_1:
+=======
+	msgbox Kurosiba_Intro_Boy2
+>>>>>>> b17c3cf77889d8051081a58f3939bd17f32d5559
 	closemessage
-	applymovement 1, LittlerootTown_BrendansHouse_2F_Movement_RivalMakeSpace
 	applymovement OBJ_EVENT_ID_PLAYER, Player_OutOfBed_Movement
-	waitmovement 0
-	applymovement 1, Common_Movement_Delay48
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_2F_Movement_PlayerGloom
 	waitmovement 0
@@ -73,12 +73,6 @@ LittlerootTown_BrendansHouse_2F_Movement_RivalAngry:
 	emote_angry
 	step_end
 
-LittlerootTown_BrendansHouse_2F_Movement_RivalMakeSpace:
-	walk_fast_right
-	walk_fast_right
-	face_left
-	step_end
-
 LittlerootTown_BrendansHouse_2F_Movement_PlayerGloom:
 	emote_gloom
 	step_end
@@ -99,12 +93,11 @@ LittlerootTown_BrendansHouse_2F_EventScript_CheckInitDecor:: @ 81F8474
 
 Player_OutOfBed_Movement:
 	walk_right
-	walk_right
 	step_end
 
 Eirika_Runs_Down_Stairs:
-	//walk_fast_right
-	//walk_fast_right
+	walk_fast_right
+	walk_fast_right
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right
@@ -272,6 +265,20 @@ PlayerTv_EventScript::
 	msgbox PlayerTv_Text, MSGBOX_SIGN
 	end
 
+PlayersHouse_2F_Text_ClockIsStopped: @ 81F8668
+	.string "The clock is stopped…\p"
+	.string "Better set it and start it!$"
+
+PlayersHouse_2F_Text_HowDoYouLikeYourRoom: @ 81F869A
+	.string "MOM: {PLAYER}, how do you like your\n"
+	.string "new room?\p"
+	.string "Good! Everything's put away neatly!\p"
+	.string "They finished moving everything in\n"
+	.string "downstairs, too.\p"
+	.string "POKéMON movers are so convenient!\p"
+	.string "Oh, you should make sure that\n"
+	.string "everything's all there on your desk.$"
+
 PlayersHouse_2F_Text_Notebook: @ 81F877F
 	.string "A bookshelf with lots of books.\p"
 	.string "There are a lot of comics and fashion\n"
@@ -301,6 +308,16 @@ Kurosiba_Intro_Boy3:
 BeanBagChair_Text:
 	.string "It's a bean bag. Pretty comfy to rest on!$"
 
+<<<<<<< HEAD
+=======
+ToDoList_Text:
+	.string "Eirika's to do list: \n"
+	.string "Get a Pokémon!\p"
+	.string "Get a Pokémon!\n"
+	.string "Get a Pokémon!\p"
+	.string "(Well, that's quite the list...)$"
+
+>>>>>>> b17c3cf77889d8051081a58f3939bd17f32d5559
 PlayerTv_Text:
 	.string "It's a curved screen TV.\n"
 	.string "Really good for playing games, right?$"

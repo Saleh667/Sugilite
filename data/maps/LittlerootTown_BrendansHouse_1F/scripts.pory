@@ -10,7 +10,7 @@ mapscripts LittlerootTown_BrendansHouse_1F_MapScripts
 			VAR_LITTLEROOT_RIVAL_STATE, 0: PlayersHouse_Eirika_Waiting
 		//	VAR_LITTLEROOT_INTRO_STATE, 5: LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToStairs
 		//	VAR_LITTLEROOT_INTRO_STATE, 6: LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToTV
-		]
+		//]
 	}
 
 script LittlerootTown_BrendansHouse_1F_OnTransition{
@@ -48,19 +48,67 @@ script PlayersHouse_Eirika_Waiting{
 script PlayerHouse_MaidJinky_EventScript{
 	lock
 	faceplayer
-
-	if(flag(FLAG_RECEIVED_FRESH_WATER_JINKY) == false){
-		 goto(PlayersHouse_MaidJinky_FreshWater)
-	} else {
-	 	if(flag(FLAG_MAID_GIFT_READY)){
-		 	goto(PlayersHouse_MaidJinky_BadgeItem)
-  	} else {
-		 	msgbox(PlayerHouse_MaidJinky_GreetingText)
-		 }
-	}
-	closemessage
-	release
-	end
+	switch (var(VAR_NO_OF_BADGES)) {
+      case 0:
+				if(flag(FLAG_RECEIVED_FRESH_WATER_JINKY) == false){
+					goto(PlayersHouse_MaidJinky_FreshWater)
+				} else {
+					msgbox(PlayerHouse_MaidJinky_GreetingText)
+				}
+      case 1:
+				if(flag(FLAG_MAID_GIFT_READY)){
+					goto(PlayersHouse_MaidJinky_BadgeItem)
+					} else {
+					msgbox(PlayerHouse_MaidJinky_GreetingText)
+					}
+      case 2:
+				if(flag(FLAG_MAID_GIFT_READY)){
+					goto(PlayersHouse_MaidJinky_BadgeItem)
+					} else {
+					msgbox(PlayerHouse_MaidJinky_GreetingText)
+					}
+			case 3:
+				if(flag(FLAG_MAID_GIFT_READY)){
+					goto(PlayersHouse_MaidJinky_BadgeItem)
+					} else {
+					msgbox(PlayerHouse_MaidJinky_GreetingText)
+					}
+			case 4:
+			if(flag(FLAG_MAID_GIFT_READY)){
+				goto(PlayersHouse_MaidJinky_BadgeItem)
+				} else {
+				msgbox(PlayerHouse_MaidJinky_GreetingText)
+				}
+			case 5:
+			if(flag(FLAG_MAID_GIFT_READY)){
+				goto(PlayersHouse_MaidJinky_BadgeItem)
+				} else {
+				msgbox(PlayerHouse_MaidJinky_GreetingText)
+				}
+			case 6:
+			if(flag(FLAG_MAID_GIFT_READY)){
+				goto(PlayersHouse_MaidJinky_BadgeItem)
+				} else {
+				msgbox(PlayerHouse_MaidJinky_GreetingText)
+				}
+			case 7:
+			if(flag(FLAG_MAID_GIFT_READY)){
+				goto(PlayersHouse_MaidJinky_BadgeItem)
+				} else {
+				msgbox(PlayerHouse_MaidJinky_GreetingText)
+				}
+			case 8:
+			if(flag(FLAG_MAID_GIFT_READY)){
+				goto(PlayersHouse_MaidJinky_BadgeItem)
+				} else {
+				msgbox(PlayerHouse_MaidJinky_GreetingText)
+				}
+      default:
+				msgbox(PlayerHouse_MaidJinky_GreetingText)
+  }
+		closemessage
+	 	release
+		end
 }
 
 script PlayersHouse_MaidJinky_FreshWater{
@@ -75,38 +123,9 @@ script PlayersHouse_MaidJinky_FreshWater{
 
 script PlayersHouse_MaidJinky_BadgeItem{
 	msgbox(PlayerHouse_MaidJinky_Badges_Text)
-
-	switch (var(VAR_NO_OF_BADGES)) {
-			case 1:
-			giveitem(ITEM_RARE_CANDY)
-
-			case 2:
-			giveitem(ITEM_ANTIDOTE,10)
-
-			case 3:
-			giveitem(ITEM_AWAKENING,10)
-
-			case 4:
-			giveitem(ITEM_NUGGET)
-
-			case 5:
-			giveitem(ITEM_ULTRA_BALL,10)
-
-			case 6:
-			giveitem(ITEM_PARALYZE_HEAL, 10)
-
-			case 7:
-			giveitem(ITEM_REVIVE, 10)
-
-			case 8:
-			giveitem(ITEM_MAX_REVIVE, 3)
-
-			default:
-				msgbox(PlayerHouse_MaidJinky_GreetingText)
-	}
-
+	giveitem(ITEM_FRESH_WATER)
 	clearflag(FLAG_MAID_GIFT_READY)
-	msgbox(PlayerHouse_MaidJinky_GreetingText_Badges)
+	msgbox(PlayerHouse_MaidJinky_GreetingText)
 	closemessage
 	release
 	end
@@ -124,14 +143,11 @@ text PlayerHouse_MaidJinky_GreetingText{
 }
 
 text PlayerHouse_MaidJinky_Badges_Text{
-	"Jinky: Oh, if it isn't {PLAYER}!\p"
-	"I was cleaning your room,\nand found this!\p"
-	"You might want to use it.\p"
-}
-
-text PlayerHouse_MaidJinky_GreetingText_Badges{
-	"Don't mind me!\n"
-	"I'm just taking care of the house\nwhile you're all growing\nand glowing!"
+	"Jinky: Oh, hello {PLAYER}!\n"
+	"So many badges already? \n"
+	"You're doing very well! \p"
+	"Here, take this and keep \l"
+	"going strong! \p"
 }
 
 text PlayersHouse_Eirika_Waiting_Text{
@@ -146,15 +162,27 @@ text PlayersHouse_Eric_Waiting_Text{
 
 raw `
 
+PlayersHouse_Eirika_Waiting::
+	lockall
+	msgbox PlayersHouse_Eirika_Waiting_Text, MSGBOX_DEFAULT
+	closemessage
+	applymovement 2, Rival_Leaves_House_Movement
+	waitmovement 0
+	playse SE_EXIT
+	setvar VAR_LITTLEROOT_RIVAL_STATE, 1
+	removeobject 2
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY
+	end
+
 Rival_Leaves_House_Movement:
-	walk_fast_left
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	delay_16
 	delay_16
 	step_end

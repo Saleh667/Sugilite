@@ -6917,7 +6917,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_EirikaLabJellosis[] = {
     {
     .iv = 0,
     .lvl = 5,
-    .species = SPECIES_CYBIO,
+    .species = SPECIES_TREECKO,
     }
 };
 
@@ -6961,7 +6961,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_EirikaLabCybio[] = {
     {
     .iv = 0,
     .lvl = 5,
-    .species = SPECIES_IGNION,
+    .species = SPECIES_TORCHIC,
     }
 };
 
@@ -7005,7 +7005,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_EirikaLabIgnion[] = {
     {
     .iv = 0,
     .lvl = 5,
-    .species = SPECIES_JELLOSIS,
+    .species = SPECIES_MUDKIP,
     }
 };
 
