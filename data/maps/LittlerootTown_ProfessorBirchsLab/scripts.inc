@@ -213,7 +213,6 @@ KurosibaTown_ProfessorsLab_EventScript_Choose_Jellosis_2:
 
 
 Prof_ChoosePKMN::
-	closemessage
 	applymovement 1, Common_Movement_EmoteExclamation
 	delay 60
 	applymovement 1, Common_Movement_FaceRight
@@ -457,6 +456,7 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_6:
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
 	applymovement 6, KurosibaTown_ProfessorsLab_Movement_JumpInPlaceRight
 	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_9
+	closemessage
 	call Simmerman_Laugh
 	playse SE_BOO
 	applymovement 2, Common_Movement_EmoteAngry

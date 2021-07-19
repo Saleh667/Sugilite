@@ -239,8 +239,6 @@ script KurosibaTown_ProfessorsLab_EventScript_Choose_Jellosis{
 
 script Prof_ChoosePKMN {
 
-  closemessage
-
   applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteExclamation)
   delay(60)
 
@@ -380,6 +378,7 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
 		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
 		applymovement(LOCALID_SIMMERMAN, KurosibaTown_ProfessorsLab_Movement_JumpInPlaceRight)
 		msgbox(format("Simmerman: WAHAHAHAHAHAHA! Do you really think a kid like you can stand a chance against me? I really don't wanna make a scene here."))
+    closemessage
     call(Simmerman_Laugh)
     playse(SE_BOO)
 		applymovement(LOCALID_RIVAL, Common_Movement_EmoteAngry)
