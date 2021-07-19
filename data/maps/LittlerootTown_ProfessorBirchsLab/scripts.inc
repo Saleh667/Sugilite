@@ -20,6 +20,7 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection::
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, KurosibaTown_ProfessorsLab_Movement_PlayerToOthers
 	waitmovement 0
+	removeobject 8
 	delay 60
 	applymovement 1, Common_Movement_FaceLeft
 	waitmovement 0
@@ -140,15 +141,12 @@ KurosibaTown_ProfessorsLab_EventScript_Rival_Comment_2:
 
 
 KurosibaTown_ProfessorsLab_EventScript_Choose_Cybio::
-	applymovement 1, Common_Movement_EmoteExclamation
-	applymovement 1, Common_Movement_FaceRight
-	waitmovement 0
-	delay 30
+	call Prof_ChoosePKMN
 	showmonpic SPECIES_CYBIO, 10, 3
 	msgbox KurosibaTown_ProfessorsLab_EventScript_Choose_Cybio_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq KurosibaTown_ProfessorsLab_EventScript_Choose_Cybio_2
-	msgbox KurosibaTown_ProfessorsLab_EventScript_Choose_Cybio_Text_1
+	msgbox Prof_NoChoice
 KurosibaTown_ProfessorsLab_EventScript_Choose_Cybio_1:
 	applymovement 1, Common_Movement_FaceDown
 	waitmovement 0
@@ -167,15 +165,12 @@ KurosibaTown_ProfessorsLab_EventScript_Choose_Cybio_2:
 
 
 KurosibaTown_ProfessorsLab_EventScript_Choose_Ignion::
-	applymovement 1, Common_Movement_EmoteExclamation
-	applymovement 1, Common_Movement_FaceRight
-	waitmovement 0
-	delay 30
+	call Prof_ChoosePKMN
 	showmonpic SPECIES_IGNION, 10, 3
 	msgbox KurosibaTown_ProfessorsLab_EventScript_Choose_Ignion_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq KurosibaTown_ProfessorsLab_EventScript_Choose_Ignion_2
-	msgbox KurosibaTown_ProfessorsLab_EventScript_Choose_Cybio_Text_1
+	msgbox Prof_NoChoice
 KurosibaTown_ProfessorsLab_EventScript_Choose_Ignion_1:
 	applymovement 1, Common_Movement_FaceDown
 	waitmovement 0
@@ -194,15 +189,12 @@ KurosibaTown_ProfessorsLab_EventScript_Choose_Ignion_2:
 
 
 KurosibaTown_ProfessorsLab_EventScript_Choose_Jellosis::
-	applymovement 1, Common_Movement_EmoteExclamation
-	applymovement 1, Common_Movement_FaceRight
-	waitmovement 0
-	delay 30
+	call Prof_ChoosePKMN
 	showmonpic SPECIES_JELLOSIS, 10, 3
 	msgbox KurosibaTown_ProfessorsLab_EventScript_Choose_Jellosis_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq KurosibaTown_ProfessorsLab_EventScript_Choose_Jellosis_2
-	msgbox KurosibaTown_ProfessorsLab_EventScript_Choose_Cybio_Text_1
+	msgbox Prof_NoChoice
 KurosibaTown_ProfessorsLab_EventScript_Choose_Jellosis_1:
 	applymovement 1, Common_Movement_FaceDown
 	waitmovement 0
@@ -218,6 +210,16 @@ KurosibaTown_ProfessorsLab_EventScript_Choose_Jellosis_2:
 	call Pokemon_Chosen
 	goto Rival_Choose_Starter
 	goto KurosibaTown_ProfessorsLab_EventScript_Choose_Jellosis_1
+
+
+Prof_ChoosePKMN::
+	closemessage
+	applymovement 1, Common_Movement_EmoteExclamation
+	delay 60
+	applymovement 1, Common_Movement_FaceRight
+	waitmovement 0
+	delay 30
+	return
 
 
 Pokemon_Chosen::
@@ -313,11 +315,13 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection::
 	applymovement 1, Common_Movement_FaceDown
 	fadescreen 0
 	delay 30
+	applymovement 6, Common_Movement_EmoteSweat
+	playse SE_BOO
+	delay 60
 	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_0
 	closemessage
-	playse SE_BOO
-	applymovement 6, Common_Movement_EmoteSweat
-	delay 60
+	applymovement 6, Common_Movement_FaceRight
+	waitmovement 0
 	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_1
 	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_2
 	closemessage
@@ -453,6 +457,7 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_6:
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
 	applymovement 6, KurosibaTown_ProfessorsLab_Movement_JumpInPlaceRight
 	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_9
+	call Simmerman_Laugh
 	playse SE_BOO
 	applymovement 2, Common_Movement_EmoteAngry
 	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_10
@@ -513,8 +518,38 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_26:
 	goto KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_25
 
 
+Simmerman_Laugh::
+	removeobject 6
+	addobject 8
+	applymovement 8, Common_Movement_SimmerLaugh
+	waitmovement 0
+	delay 30
+	addobject 6
+	removeobject 8
+	return
+
+
+Common_Movement_SimmerLaugh:
+	face_left
+	delay_16
+	face_up
+	delay_16
+	face_left
+	delay_16
+	face_up
+	delay_16
+	face_left
+	delay_16
+	face_up
+	delay_16
+	face_left
+	delay_16
+	face_down
+	delay_16
+	step_end
+
 KurosibaTown_ProfessorsLab_Movement_JumpInPlaceRight:
-	jump_in_place_right
+	jump_in_place_down
 	step_end
 
 KurosibaTown_ProfessorsLab_Movement_PlayerToStephanie:
@@ -689,7 +724,7 @@ Common_Movement_WalkLeft:
 	@ 4: Defeated rival on Route 103
 	@ 5: Received pokedex
 
-LittlerootTown_ProfessorBirchsLab_OnTransition: @ 81F9CA1
+LittlerootTown_ProfessorBirchsLab_OnTransition_Old: @ 81F9CA1
 	call Common_EventScript_SetupRivalGfxId
 	call ProfBirch_EventScript_UpdateLocation
 	compare VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6
@@ -1749,9 +1784,6 @@ KurosibaTown_ProfessorsLab_EventScript_Rival_Comment_Text_0:
 KurosibaTown_ProfessorsLab_EventScript_Choose_Cybio_Text_0:
 	.string "Stephanie: Will you pick Cybio,\nthe Biodome Pokémon?$"
 
-KurosibaTown_ProfessorsLab_EventScript_Choose_Cybio_Text_1:
-	.string "Stephanie: That's alright.\nTake your time, honey!$"
-
 KurosibaTown_ProfessorsLab_EventScript_Choose_Ignion_Text_0:
 	.string "Stephanie: Will you pick Ignion,\nthe Cookie Pokémon?$"
 
@@ -1773,9 +1805,7 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_0:
 	.string "Simmerman: Aww, now I'm kind of jealous!$"
 
 KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_1:
-	.string "Can't I pick one too? Well, there's only\n"
-	.string "one left... Come on, professor! I had to\l"
-	.string "move lots of boxes here, y'know!$"
+	.string "Can't I pick one too?\nWell, there's only one left...\pCome on, professor!\nI had to move lots of boxes here,\ly'know!$"
 
 KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_2:
 	.string "Stephanie: No, I'm going to keep that\n"
@@ -1969,6 +1999,9 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Book_Text_0:
 LittlerootTown_ProfessorBirchsLab_EventScript_Machine_Text_0:
 	.string "It's a machine used to store Pokéballs.\n"
 	.string "It's empty right now, though...$"
+
+Prof_NoChoice::
+	.string "Stephanie: That's alright.\pThink it through for as long\nas you need.$"
 
 KurosibaTown_ProfessorsLab_Text_EirikaDefeated::
 	.string "Wow, what the heck?!$"
