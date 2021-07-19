@@ -609,13 +609,13 @@ static const union AnimCmd sAnim_NurseBow[] =
 
 static const union AnimCmd sAnim_AnimFrameOne[] =
 {
-    ANIMCMD_FRAME(9, 0),
+    ANIMCMD_FRAME(9, 16),
     ANIMCMD_END,
 };
 
 static const union AnimCmd sAnim_AnimFrameTwo[] =
 {
-    ANIMCMD_FRAME(10, 0),
+    ANIMCMD_FRAME(10, 16),
     ANIMCMD_END,
 };
 
@@ -1204,6 +1204,10 @@ static const struct StepAnimTable sStepAnimTables[] = {
     },
     {
         .anims = sAnimTable_Nurse,
+        .animPos = {1, 3, 0, 2},
+    },
+    {
+        .anims = sAnimTable_MoreAnims,
         .animPos = {1, 3, 0, 2},
     },
     {

@@ -3,8 +3,8 @@ const LOCALID_RIVAL = 2
 const LOCALID_BALL_CYBIO = 4
 const LOCALID_BALL_IGNION = 3
 const LOCALID_BALL_JELLOSIS = 5
-const LOCALID_SIMMERMAN = 6
-const LOCALID_SIMMERLAUGH = 8
+const LOCALID_SIMMERMAN = 7
+//const LOCALID_SIMMERLAUGH = 8
 
 mapscripts LittlerootTown_ProfessorBirchsLab_MapScripts {
     //MAP_SCRIPT_ON_LOAD: LittlerootTown_ProfessorBirchsLab_OnLoad
@@ -30,7 +30,7 @@ script KurosibaTown_ProfessorsLab_EventScript_StarterSelection {
   applymovement(OBJ_EVENT_ID_PLAYER, KurosibaTown_ProfessorsLab_Movement_PlayerToOthers)
   waitmovement(0)
 
-  removeobject(LOCALID_SIMMERLAUGH)
+  //removeobject(LOCALID_SIMMERLAUGH)
 
   delay(60)
   applymovement(LOCALID_STEPHANIE, Common_Movement_FaceLeft)
@@ -525,34 +525,21 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
 }
 
 script Simmerman_Laugh{
-  removeobject(LOCALID_SIMMERMAN)
-  addobject(LOCALID_SIMMERLAUGH)
 
-  applymovement(LOCALID_SIMMERLAUGH, Common_Movement_SimmerLaugh)
+  applymovement(LOCALID_SIMMERMAN, Common_Movement_SimmerLaugh)
   waitmovement(0)
 
   delay(30)
 
-  addobject(LOCALID_SIMMERMAN)
-  removeobject(LOCALID_SIMMERLAUGH)
   return
 }
 
 movement Common_Movement_SimmerLaugh{
-  face_left
-  delay_16
-  face_up
-  delay_16
-  face_left
-  delay_16
-  face_up
-  delay_16
-  face_left
-  delay_16
-  face_up
-  delay_16
-  face_left
-  delay_16
+  emote_anim_frame_one
+  emote_anim_frame_two
+  emote_anim_frame_one
+  emote_anim_frame_two
+
   face_down
   delay_16
 }

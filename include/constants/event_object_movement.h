@@ -258,11 +258,16 @@
 #define MOVEMENT_ACTION_EMOTE_ANGUISH                   0xAC
 #define MOVEMENT_ACTION_EMOTE_ELLIPSIS                  0xAD
 #define MOVEMENT_ACTION_EMOTE_GLOOM  					0xAE
+
+//Extra Animation Frames
+#define MOVEMENT_ACTION_ANIM_FRAME_ONE                  0xAF
+#define MOVEMENT_ACTION_ANIM_FRAME_TWO                  0xB0
+
 // slow running
-#define MOVEMENT_ACTION_RUN_DOWN_SLOW                   0xAF
-#define MOVEMENT_ACTION_RUN_UP_SLOW                     0xB0
-#define MOVEMENT_ACTION_RUN_LEFT_SLOW                   0xB1
-#define MOVEMENT_ACTION_RUN_RIGHT_SLOW                  0xB2
+#define MOVEMENT_ACTION_RUN_DOWN_SLOW                   0xB1
+#define MOVEMENT_ACTION_RUN_UP_SLOW                     0xB2
+#define MOVEMENT_ACTION_RUN_LEFT_SLOW                   0xB3
+#define MOVEMENT_ACTION_RUN_RIGHT_SLOW                  0xB4
 
 #define MOVEMENT_ACTION_STEP_END 0xFE
 #define MOVEMENT_ACTION_NONE     0xFF
