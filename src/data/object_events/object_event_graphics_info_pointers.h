@@ -246,6 +246,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldM
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan2;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Simmerman;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Prof_Steph;
 
 //Simmerman Laughing
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SimmerLaugh;
@@ -491,6 +492,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_LUGIA] =                    &gObjectEventGraphicsInfo_Lugia,
     [OBJ_EVENT_GFX_HOOH] =                     &gObjectEventGraphicsInfo_HoOh,
     [OBJ_EVENT_GFX_SIMMERMAN] =                &gObjectEventGraphicsInfo_Simmerman,
+    [OBJ_EVENT_GFX_PROF_STEPH] =               &gObjectEventGraphicsInfo_Prof_Steph,
+
     [OBJ_EVENT_GFX_SIMMERLAUGH] =              &gObjectEventGraphicsInfo_SimmerLaugh,
 };
 

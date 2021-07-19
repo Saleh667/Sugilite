@@ -44,6 +44,9 @@ $(OBJEVENTGFXDIR)/people/elite_four/sidney.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/simmerman.4bpp: %.4bpp: %.png
 		$(GFX) $< $@ -mwidth 2 -mheight 4
 
+$(OBJEVENTGFXDIR)/people/prof_steph.4bpp: %.4bpp: %.png
+		$(GFX) $< $@ -mwidth 2 -mheight 4
+
 $(OBJEVENTGFXDIR)/people/simmer_laugh.4bpp: %.4bpp: %.png
 		$(GFX) $< $@ -mwidth 2 -mheight 4
 

@@ -378,7 +378,8 @@ const u16 gObjectEventPal_HoOh[] = INCBIN_U16("graphics/object_events/palettes/h
 const u32 gObjectEventPic_Simmerman[] = INCBIN_U32("graphics/object_events/pics/people/simmerman.4bpp");
 const u16 gObjectEventPal_Simmerman[] = INCBIN_U16("graphics/object_events/palettes/simmerman.gbapal");
 
-const u32 gObjectEventPic_ProfSteph[] = INCBIN_U32("graphics/object_events/pics/people/prof_steph.4bpp");
+const u32 gObjectEventPic_Prof_Steph[] = INCBIN_U32("graphics/object_events/pics/people/prof_steph.4bpp");
+const u16 gObjectEventPal_Prof_Steph[] = INCBIN_U16("graphics/object_events/palettes/professor_steph.gbapal");
 
 //Simmerman Laughing
 const u32 gObjectEventPic_SimmerLaugh[] = INCBIN_U32("graphics/object_events/pics/people/simmer_laugh.4bpp");

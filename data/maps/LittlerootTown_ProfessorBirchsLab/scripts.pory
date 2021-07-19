@@ -1,9 +1,9 @@
-const LOCALID_STEPHANIE = 1
-const LOCALID_RIVAL = 2
-const LOCALID_BALL_CYBIO = 4
-const LOCALID_BALL_IGNION = 3
-const LOCALID_BALL_JELLOSIS = 5
-const LOCALID_SIMMERMAN = 7
+const LOCALID_STEPHANIE = 7
+const LOCALID_RIVAL = 1
+const LOCALID_BALL_CYBIO = 3
+const LOCALID_BALL_IGNION = 2
+const LOCALID_BALL_JELLOSIS = 4
+const LOCALID_SIMMERMAN = 6
 //const LOCALID_SIMMERLAUGH = 8
 
 mapscripts LittlerootTown_ProfessorBirchsLab_MapScripts {
@@ -337,15 +337,18 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
   playse(SE_BOO)
 	delay(60)
 
-	msgbox(format("Simmerman: Aww, now I'm kind of jealous!"))
+	msgbox(format("Simmerman: Aww,\nnow I'm kind of jealous!"))
 	closemessage
 
-  applymovement(LOCALID_SIMMERMAN, Common_Movement_FaceRight)
-  waitmovement(0)
+  	applymovement(LOCALID_SIMMERMAN, Common_Movement_FaceRight)
+  	waitmovement(0)
 
 	msgbox("Can't I pick one too?\nWell, there's only one left...\pCome on, professor!\nI had to move lots of boxes here,\ly'know!")
+	closemessage
 
-	msgbox(format("Stephanie: No, I'm going to keep that one, Simmerman. Don't you already have Pokémon?"))
+	call(Prof_Steph_Shake)
+
+	msgbox("Stephanie: No, I'm going to keep that one,\nSimmerman.\lDon't you already have POKéMON?")
 	closemessage
 	applymovement(LOCALID_SIMMERMAN, Common_Movement_EmoteEllipsis)
 	delay(60)
@@ -524,6 +527,16 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
     end
 }
 
+script Prof_Steph_Shake{
+
+  applymovement(LOCALID_BIRCH, Common_Movement_ProfShake)
+  waitmovement(0)
+
+  delay(30)
+
+  return
+}
+
 script Simmerman_Laugh{
 
   applymovement(LOCALID_SIMMERMAN, Common_Movement_SimmerLaugh)
@@ -539,9 +552,33 @@ movement Common_Movement_SimmerLaugh{
   emote_anim_frame_two
   emote_anim_frame_one
   emote_anim_frame_two
+  emote_anim_frame_one
+  emote_anim_frame_two
 
   face_down
   delay_16
+}
+
+movement Common_Movement_ProfShake{
+  	emote_anim_frame_one
+	face_down
+	delay_16
+  	emote_anim_frame_two
+	face_down
+	delay_16
+  	emote_anim_frame_one
+	face_down
+	delay_16
+  	emote_anim_frame_two
+	face_down
+	delay_16
+  	emote_anim_frame_one
+	face_down
+	delay_16
+  	emote_anim_frame_two
+
+  	face_down
+  	delay_16
 }
 
 text KurosibaTown_ProfessorsLab_Text_EirikaDefeated {
