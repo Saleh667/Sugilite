@@ -376,6 +376,8 @@ const u32 gObjectEventPic_HoOh[] = INCBIN_U32("graphics/object_events/pics/pokem
 const u16 gObjectEventPal_HoOh[] = INCBIN_U16("graphics/object_events/palettes/ho_oh.gbapal");
 
 const u32 gObjectEventPic_Simmerman[] = INCBIN_U32("graphics/object_events/pics/people/simmerman.4bpp");
+const u16 gObjectEventPal_Simmerman[] = INCBIN_U16("graphics/object_events/palettes/simmerman.gbapal");
+
 const u32 gObjectEventPic_ProfSteph[] = INCBIN_U32("graphics/object_events/pics/people/prof_steph.4bpp");
 
 //Simmerman Laughing

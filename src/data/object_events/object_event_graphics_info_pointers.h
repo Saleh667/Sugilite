@@ -245,6 +245,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Giddy;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan1;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan2;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Simmerman;
+
 //Simmerman Laughing
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SimmerLaugh;
 
@@ -488,6 +490,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_LINK_RS_MAY] =              &gObjectEventGraphicsInfo_RubySapphireMay,
     [OBJ_EVENT_GFX_LUGIA] =                    &gObjectEventGraphicsInfo_Lugia,
     [OBJ_EVENT_GFX_HOOH] =                     &gObjectEventGraphicsInfo_HoOh,
+    [OBJ_EVENT_GFX_SIMMERMAN] =                &gObjectEventGraphicsInfo_Simmerman,
     [OBJ_EVENT_GFX_SIMMERLAUGH] =              &gObjectEventGraphicsInfo_SimmerLaugh,
 };
 
