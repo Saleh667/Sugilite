@@ -423,10 +423,12 @@ LittlerootTown_EventScript_GoSaveBirchTrigger:: @ 81E811F
 
 LittlerootTown_EventScript_TownSign:: @ 81E8151
 	msgbox LittlerootTown_Text_TownSign, MSGBOX_SIGN
+	closemessage
 	end
 
 LittlerootTown_EventScript_BirchsLabSign:: @ 81E815A
 	msgbox LittlerootTown_Text_ProfBirchsLab, MSGBOX_SIGN
+	closemessage
 	end
 
 LittlerootTown_EventScript_BrendansHouseSign:: @ 81E8163
@@ -436,15 +438,18 @@ LittlerootTown_EventScript_BrendansHouseSign:: @ 81E8163
 	call_if_eq LittlerootTown_EventScript_PlayersHouseSignMale
 	compare VAR_RESULT, FEMALE
 	call_if_eq LittlerootTown_EventScript_BirchsHouseSignFemale
+	closemessage
 	releaseall
 	end
 
 LittlerootTown_EventScript_PlayersHouseSignMale:: @ 81E817D
 	msgbox LittlerootTown_Text_PlayersHouse, MSGBOX_DEFAULT
+	closemessage
 	return
 
 LittlerootTown_EventScript_BirchsHouseSignFemale:: @ 81E8186
 	msgbox LittlerootTown_Text_ProfBirchsHouse, MSGBOX_DEFAULT
+	closemessage
 	return
 
 LittlerootTown_EventScript_MaysHouseSign:: @ 81E818F
@@ -454,15 +459,18 @@ LittlerootTown_EventScript_MaysHouseSign:: @ 81E818F
 	call_if_eq LittlerootTown_EventScript_BirchsHouseSignMale
 	compare VAR_RESULT, FEMALE
 	call_if_eq LittlerootTown_EventScript_PlayersHouseSignFemale
+	closemessage
 	releaseall
 	end
 
 LittlerootTown_EventScript_BirchsHouseSignMale:: @ 81E81A9
 	msgbox LittlerootTown_Text_ProfBirchsHouse, MSGBOX_DEFAULT
+	closemessage
 	return
 
 LittlerootTown_EventScript_PlayersHouseSignFemale:: @ 81E81B2
 	msgbox LittlerootTown_Text_NeighboursHouse, MSGBOX_DEFAULT
+	closemessage
 	return
 
 LittlerootTown_EventScript_GiveRunningShoesTrigger0:: @ 81E81BB
@@ -1210,7 +1218,7 @@ LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut: @ 81E8BB8
 
 LittlerootTown_Text_DangerousIfYouDontHavePokemon: @ 81E8C07
 	.string "Best not to go out there without a \n"
-	.string "Pokémon\p"
+	.string "Pokémon...\p"
 	.string "Be careful...$"
 
 LittlerootTown_Text_CanYouGoSeeWhatsHappening: @ 81E8C3A
@@ -1319,8 +1327,9 @@ Text_EmoteGloom:
 
 KurosibaTown_Sign_EventScript::
 	msgbox KurosibaTown_Sign_Text, MSGBOX_SIGN
+	closemessage
 	end
 
 KurosibaTown_Sign_Text:
 	.string "Kurosiba Town,\n"
-	.string "Where grass is dark and the breeze is fresh.$"
+	.string "Where grass is dark\land the breeze is fresh.$"

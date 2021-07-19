@@ -607,6 +607,18 @@ static const union AnimCmd sAnim_NurseBow[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_AnimFrameOne[] =
+{
+    ANIMCMD_FRAME(0, 144),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_AnimFrameTwo[] =
+{
+    ANIMCMD_FRAME(0, 176),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_RockBreak[] =
 {
     ANIMCMD_FRAME(0, 8),
