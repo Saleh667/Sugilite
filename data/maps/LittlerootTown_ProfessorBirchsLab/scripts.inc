@@ -328,6 +328,7 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection::
 	applymovement 6, Common_Movement_EmoteEllipsis
 	delay 60
 	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_3
+	call Prof_ShakeHead
 	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_4
 	closemessage
 	playse SE_PIN
