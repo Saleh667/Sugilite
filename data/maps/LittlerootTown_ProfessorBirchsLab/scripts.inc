@@ -322,7 +322,7 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection::
 	waitmovement 0
 	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_1
 	closemessage
-	call Prof_Steph_Shake
+	call Prof_ShakeHead
 	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_2
 	closemessage
 	applymovement 6, Common_Movement_EmoteEllipsis
@@ -519,8 +519,8 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_26:
 	goto KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_25
 
 
-Prof_Steph_Shake::
-	applymovement LOCALID_BIRCH, Common_Movement_ProfShake
+Prof_ShakeHead::
+	applymovement 7, Common_Movement_ProfShake
 	waitmovement 0
 	delay 30
 	return
@@ -546,20 +546,8 @@ Common_Movement_SimmerLaugh:
 
 Common_Movement_ProfShake:
 	emote_anim_frame_one
-	face_down
-	delay_16
 	emote_anim_frame_two
-	face_down
-	delay_16
 	emote_anim_frame_one
-	face_down
-	delay_16
-	emote_anim_frame_two
-	face_down
-	delay_16
-	emote_anim_frame_one
-	face_down
-	delay_16
 	emote_anim_frame_two
 	face_down
 	delay_16

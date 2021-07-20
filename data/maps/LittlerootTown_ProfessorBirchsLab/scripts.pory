@@ -333,8 +333,8 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
 
 	delay(30)
 
-  applymovement(LOCALID_SIMMERMAN, Common_Movement_EmoteSweat)
-  playse(SE_BOO)
+ 	applymovement(LOCALID_SIMMERMAN, Common_Movement_EmoteSweat)
+  	playse(SE_BOO)
 	delay(60)
 
 	msgbox(format("Simmerman: Aww,\nnow I'm kind of jealous!"))
@@ -346,13 +346,16 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
 	msgbox("Can't I pick one too?\nWell, there's only one left...\pCome on, professor!\nI had to move lots of boxes here,\ly'know!")
 	closemessage
 
-	call(Prof_Steph_Shake)
+    call(Prof_ShakeHead)
 
 	msgbox("Stephanie: No, I'm going to keep that one,\nSimmerman.\lDon't you already have POKéMON?")
 	closemessage
 	applymovement(LOCALID_SIMMERMAN, Common_Movement_EmoteEllipsis)
 	delay(60)
 	msgbox(format("Simmerman: Well, I do. Buuut..."))
+
+    call(Prof_ShakeHead)
+
 	msgbox(format("Stephanie: Gosh, not even my children are as childish as you. The answer is still no though, haha!"))
 	closemessage
 	playse(SE_PIN)
@@ -527,9 +530,9 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
     end
 }
 
-script Prof_Steph_Shake{
+script Prof_ShakeHead{
 
-  applymovement(LOCALID_BIRCH, Common_Movement_ProfShake)
+  applymovement(LOCALID_STEPHANIE, Common_Movement_ProfShake)
   waitmovement(0)
 
   delay(30)
@@ -561,20 +564,8 @@ movement Common_Movement_SimmerLaugh{
 
 movement Common_Movement_ProfShake{
   	emote_anim_frame_one
-	face_down
-	delay_16
   	emote_anim_frame_two
-	face_down
-	delay_16
   	emote_anim_frame_one
-	face_down
-	delay_16
-  	emote_anim_frame_two
-	face_down
-	delay_16
-  	emote_anim_frame_one
-	face_down
-	delay_16
   	emote_anim_frame_two
 
   	face_down
