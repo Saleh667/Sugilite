@@ -245,6 +245,12 @@
 #define METATILE_GenericBuilding_TrickHouse_Door_Closed  0x21B
 #define METATILE_GenericBuilding_TrickHouse_Stairs_Down  0x219
 
+// gTileset_Indoors
+#define METATILE_Indoors_BrendanPC_Off  0x059
+#define METATILE_Indoors_BrendanPC_On   0x051
+#define METATILE_Indoors_MayPC_Off      0x07E
+#define METATILE_Indoors_MayPC_On       0x052
+
 // gTileset_InsideOfTruck
 #define METATILE_InsideOfTruck_DoorClosedFloor_Bottom  0x21D
 #define METATILE_InsideOfTruck_DoorClosedFloor_Mid     0x215
