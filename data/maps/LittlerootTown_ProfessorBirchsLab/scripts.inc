@@ -384,7 +384,10 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_1:
 	applymovement 6, Common_Movement_FaceDown
 	waitmovement 0
 	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_3
+<<<<<<< HEAD
 	closemessage
+=======
+>>>>>>> 58f4adad62c48dc73c34f892816f9502a5072274
 	call Prof_ShakeHead
 	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_4
 	closemessage
