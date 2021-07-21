@@ -684,6 +684,10 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
 script KurosibaTown_ProfessorsLab_EventScript_RivalWon{
 	lockall
 
+	special(HealPlayerParty)
+
+	fadedefaultbgm
+
 	if(var(VAR_TEMP_0) == TRUE){
 		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_EmoteSweat)
 		delay(60)

@@ -591,6 +591,8 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_26:
 
 KurosibaTown_ProfessorsLab_EventScript_RivalWon::
 	lockall
+	special HealPlayerParty
+	fadedefaultbgm
 	compare VAR_TEMP_0, TRUE
 	goto_if_eq KurosibaTown_ProfessorsLab_EventScript_RivalWon_2
 	applymovement 1, Common_Movement_EmoteSweat
