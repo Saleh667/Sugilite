@@ -1,6 +1,69 @@
-const LOCALID_BIRCH = 2
-const LOCALID_ZIGZAGOON = 4
+const LOCALID_YOUNGSTER = 4
+const LOCALID_DRAGBY = 5
 
 mapscripts Route101_MapScripts{
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_ROUTE_401_STATE, 0 {
+            call(Common_EventScript_SetupRivalGfxId)
+			goto(Route401_Catching_Tutorial_Start)
+		}
+	]
+}
 
+script Route401_Catching_Tutorial_Start{
+	setvar(VAR_ROUTE_401_STATE, 1)
+	end
+}
+
+script Route401_Sign{
+	lock
+	msgbox("Route 401", MSGBOX_SIGN)
+	closemessage
+	release
+	end
+}
+
+script Route401_NPC_Youngster{
+	lock
+	faceplayer
+	msgbox("Catching your first POKéMON\nis lots of fun!\pThat's how I met my partner,\nDragby!")
+	applymovement(LOCALID_YOUNGSTER, Common_Movement_FaceLeft)
+	waitmovement(0)
+	closemessage
+	release
+	end
+}
+
+script Route401_NPC_Dragby{
+	lock
+	faceplayer
+	msgbox("Bebebee!")
+	applymovement(LOCALID_YOUNGSTER, Common_Movement_FaceRight)
+	waitmovement(0)
+	closemessage
+	release
+	end
+}
+
+script Route401_NPC_Man{
+	lock
+	faceplayer
+	msgbox("Oh, me? I'm not a trainer.\pBut keep your eyes peeled out\nfor some!")
+	closemessage
+	release
+	end
+}
+
+script Route401_CatchingTest{
+	lock
+	faceplayer
+	msgbox("Let's learn how to catch!")
+	special(SavePlayerParty)
+	special(PutZigzagoonInPlayerParty)
+	special(StartWallyTutorialBattle)
+	msgbox("That's how it's done!")
+	special(LoadPlayerParty)
+	closemessage
+	release
+	end
 }

@@ -11,8 +11,8 @@ mapscripts LittlerootTown_ProfessorBirchsLab_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_BIRCH_LAB_STATE, 0 {
             call(Common_EventScript_SetupRivalGfxId)
-            addobject(LOCALID_STEPHANIE)
-            addobject(LOCALID_RIVAL)
+            //addobject(LOCALID_STEPHANIE)
+            //addobject(LOCALID_RIVAL)
             //turnobject(LOCALID_STEPHANIE, DIR_WEST)
             //turnobject(LOCALID_RIVAL, DIR_WEST)
             call(KurosibaTown_ProfessorsLab_EventScript_StarterSelection)

@@ -9,8 +9,6 @@ LittlerootTown_ProfessorBirchsLab_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 LittlerootTown_ProfessorBirchsLab_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0:
 	call Common_EventScript_SetupRivalGfxId
-	addobject 7
-	addobject 1
 	call KurosibaTown_ProfessorsLab_EventScript_StarterSelection
 	return
 
