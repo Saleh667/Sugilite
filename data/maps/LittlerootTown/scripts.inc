@@ -1344,5 +1344,5 @@ KurosibaTown_LittleGirl_EventScript::
 
 KurosibaTown_LittleGirl_Text:
 	.string "Hiya, {PLAYER}!\n"
-	.string "I hope you're staying safe!.$"
+	.string "I hope you're staying safe!$"
 

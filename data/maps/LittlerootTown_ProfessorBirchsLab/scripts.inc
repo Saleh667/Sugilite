@@ -710,8 +710,8 @@ KurosibaTown_ProfessorsLab_EventScript_PlayerWon_9:
 	playse SE_PIN
 	applymovement 7, Common_Movement_EmoteMusic
 	delay 60
-	applymovement 1, Common_Movement_FaceLeft
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	applymovement 1, Common_Movement_FaceRight
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
 	waitmovement 0
 	checkplayergender
 	compare VAR_RESULT, MALE
@@ -736,6 +736,7 @@ KurosibaTown_ProfessorsLab_EventScript_PlayerWon_13:
 	call Prof_ShakeHead
 	msgbox KurosibaTown_ProfessorsLab_EventScript_PlayerWon_Text_23
 	closemessage
+	setflag FLAG_HIDE_KUROSIBA_TOWN_PROFESSORS_LAB_SIMMERMAN
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_RIVAL
 	setvar VAR_BIRCH_LAB_STATE, 2
 	clearflag FLAG_KUROSIBA_TOWN_HIDE_LITTLE_GIRL
@@ -2254,7 +2255,7 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_20:
 	.string "Eric: ...aaand I'm suddenly not convinced.$"
 
 KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_21:
-	.string "Eric: Mom, I think {PLAYER} would enjoy\nit if we had a little battle here\l, is that alright?$"
+	.string "Eric: Mom, I think {PLAYER} would enjoy\nit if we had a little battle here,\lis that alright?$"
 
 KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_22:
 	.string "Eric: Okay.\nSounds good!$"
@@ -2331,7 +2332,7 @@ KurosibaTown_ProfessorsLab_EventScript_PlayerWon_Text_13:
 	.string "Eric: Mom, that's not...\nnecessary.$"
 
 KurosibaTown_ProfessorsLab_EventScript_PlayerWon_Text_14:
-	.string "Stephanie: Honey, you be careful\nout there.You too, {PLAYER}.\lYou can always come back here\lif you need anything.$"
+	.string "Stephanie: Honey, you be careful\nout there. You too, {PLAYER}.\lYou can always come back here\lif you need anything.$"
 
 KurosibaTown_ProfessorsLab_EventScript_PlayerWon_Text_15:
 	.string "Oh, I should also give you these.$"

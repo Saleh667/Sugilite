@@ -580,7 +580,7 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
 
 		applymovement(LOCALID_RIVAL, Common_Movement_EmoteIdea)
 
-		msgbox("Eric: Mom, I think {PLAYER} would enjoy\nit if we had a little battle here\l, is that alright?")
+		msgbox("Eric: Mom, I think {PLAYER} would enjoy\nit if we had a little battle here,\lis that alright?")
 
 		msgbox("Stephanie: Well, do I even have\na choice?\lHahaha!\lI don't mind.")
 		closemessage
@@ -728,6 +728,7 @@ script KurosibaTown_ProfessorsLab_EventScript_PlayerWon{
 
 	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
 	applymovement(LOCALID_RIVAL, Common_Movement_FaceUp)
+
 	applymovement(LOCALID_STEPHANIE, Common_Movement_FaceDown)
 
 	special(SpawnCameraObject)
@@ -816,7 +817,7 @@ script KurosibaTown_ProfessorsLab_EventScript_PlayerWon{
 
 	}
 
-	msgbox("Stephanie: Honey, you be careful\nout there.You too, {PLAYER}.\lYou can always come back here\lif you need anything.")
+	msgbox("Stephanie: Honey, you be careful\nout there. You too, {PLAYER}.\lYou can always come back here\lif you need anything.")
 	msgbox(format("Oh, I should also give you these."))
 
 	closemessage
@@ -841,8 +842,8 @@ script KurosibaTown_ProfessorsLab_EventScript_PlayerWon{
 	applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteMusic)
 	delay(60)
 
-	applymovement(LOCALID_RIVAL, Common_Movement_FaceLeft)
-	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+	applymovement(LOCALID_RIVAL, Common_Movement_FaceRight)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
 	waitmovement(0)
 
 	checkplayergender
@@ -877,6 +878,7 @@ script KurosibaTown_ProfessorsLab_EventScript_PlayerWon{
 	msgbox(format("Stephanie: How about you go join them, dear?"))
 	closemessage
 
+	setflag(FLAG_HIDE_KUROSIBA_TOWN_PROFESSORS_LAB_SIMMERMAN)
 	setflag(FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_RIVAL)
 	setvar(VAR_BIRCH_LAB_STATE, 2)
 	clearflag(FLAG_KUROSIBA_TOWN_HIDE_LITTLE_GIRL)
