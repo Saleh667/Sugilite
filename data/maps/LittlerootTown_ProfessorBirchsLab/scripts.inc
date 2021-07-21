@@ -599,7 +599,13 @@ KurosibaTown_ProfessorsLab_EventScript_RivalWon_1:
 	delay 16
 	applymovement 7, Common_Movement_EmoteHeart
 	waitmovement 0
-	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_24
+	compare VAR_TEMP_0, TRUE
+	goto_if_eq KurosibaTown_ProfessorsLab_EventScript_RivalWon_6
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq KurosibaTown_ProfessorsLab_EventScript_RivalWon_9
+	msgbox KurosibaTown_ProfessorsLab_EventScript_RivalWon_Text_2
+KurosibaTown_ProfessorsLab_EventScript_RivalWon_5:
 	setvar VAR_BIRCH_LAB_STATE, 2
 	releaseall
 	goto KurosibaTown_ProfessorsLab_EventScript_PlayerWon
@@ -609,6 +615,14 @@ KurosibaTown_ProfessorsLab_EventScript_RivalWon_2:
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_EmoteSweat
 	delay 60
 	goto KurosibaTown_ProfessorsLab_EventScript_RivalWon_1
+
+KurosibaTown_ProfessorsLab_EventScript_RivalWon_6:
+	msgbox KurosibaTown_ProfessorsLab_EventScript_RivalWon_Text_0
+	goto KurosibaTown_ProfessorsLab_EventScript_RivalWon_5
+
+KurosibaTown_ProfessorsLab_EventScript_RivalWon_9:
+	msgbox KurosibaTown_ProfessorsLab_EventScript_RivalWon_Text_1
+	goto KurosibaTown_ProfessorsLab_EventScript_RivalWon_5
 
 
 KurosibaTown_ProfessorsLab_EventScript_PlayerWon::
@@ -2255,6 +2269,15 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_24:
 
 KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_25:
 	.string "Eric: Darn, you're pretty good {PLAYER}.\nA nice head start!$"
+
+KurosibaTown_ProfessorsLab_EventScript_RivalWon_Text_0:
+	.string "Stephanie: It's alright, {PLAYER}.\nExperiencing defeat with your first\lpartner can be frustrating,\lbut I'm sure you'll both be able to\lraise your Pokémon well.$"
+
+KurosibaTown_ProfessorsLab_EventScript_RivalWon_Text_1:
+	.string "Stephanie: It's alright, Eirika.\nExperiencing defeat with your first\lpartner can be frustrating,\lbut I'm sure you'll both be able to\lraise your Pokémon well.$"
+
+KurosibaTown_ProfessorsLab_EventScript_RivalWon_Text_2:
+	.string "Stephanie: It's alright, Eric.\nExperiencing defeat with your first\lpartner can be frustrating,\lbut I'm sure you'll both be able to\lraise your Pokémon well.$"
 
 KurosibaTown_ProfessorsLab_EventScript_PlayerWon_Text_0:
 	.string "Which takes me to my next point. Come\n"
