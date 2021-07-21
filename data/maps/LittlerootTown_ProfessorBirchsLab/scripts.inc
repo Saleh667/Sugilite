@@ -727,6 +727,11 @@ KurosibaTown_ProfessorsLab_EventScript_PlayerWon_13:
 	applymovement 1, Common_Movement_FaceUp
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	waitmovement 0
+	special HealPlayerParty
+	setflag FLAG_HIDE_KUROSIBA_TOWN_PROFESSORS_LAB_SIMMERMAN
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_RIVAL
+	setvar VAR_BIRCH_LAB_STATE, 2
+	clearflag FLAG_KUROSIBA_TOWN_HIDE_LITTLE_GIRL
 	applymovement 1, KurosibaTown_ProfessorsLab_Movement_RivalLeaves
 	waitmovement 0
 	removeobject 1
@@ -740,10 +745,6 @@ KurosibaTown_ProfessorsLab_EventScript_PlayerWon_13:
 	call Prof_ShakeHead
 	msgbox KurosibaTown_ProfessorsLab_EventScript_PlayerWon_Text_23
 	closemessage
-	setflag FLAG_HIDE_KUROSIBA_TOWN_PROFESSORS_LAB_SIMMERMAN
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_RIVAL
-	setvar VAR_BIRCH_LAB_STATE, 2
-	clearflag FLAG_KUROSIBA_TOWN_HIDE_LITTLE_GIRL
 	end
 
 KurosibaTown_ProfessorsLab_EventScript_PlayerWon_2:
@@ -1082,11 +1083,11 @@ Common_Movement_WalkLeft:
 	walk_left
 	step_end
 
-.set LOCALID_AIDE, 1
-.set LOCALID_BIRCH, 2
-.set LOCALID_BALL_CYNDAQUIL, 4
-.set LOCALID_BALL_TOTODILE, 5
-.set LOCALID_BALL_CHIKORITA, 6
+.set LOCALID_AIDE, 8
+.set LOCALID_BIRCH, 8
+.set LOCALID_BALL_CYNDAQUIL, 8
+.set LOCALID_BALL_TOTODILE, 8
+.set LOCALID_BALL_CHIKORITA, 8
 
 	@ State descriptions for VAR_DEX_UPGRADE_JOHTO_STARTER_STATE
 	@ 1: Beat Elite Four, Dex upgrade ready

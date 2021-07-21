@@ -1,0 +1,6 @@
+const LOCALID_BIRCH = 2
+const LOCALID_ZIGZAGOON = 4
+
+mapscripts Route101_MapScripts{
+
+}
