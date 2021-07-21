@@ -696,7 +696,17 @@ script KurosibaTown_ProfessorsLab_EventScript_RivalWon{
 	applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteHeart)
 	waitmovement(0)
 
-	msgbox("Stephanie: It's alright, dear.\nExperiencing defeat with your first\lpartner can be frustrating,\lbut I'm sure you'll both be able to\lraise your Pokémon well.")
+	if(var(VAR_TEMP_0) == TRUE){
+			msgbox("Stephanie: It's alright, {PLAYER}.\nExperiencing defeat with your first\lpartner can be frustrating,\lbut I'm sure you'll both be able to\lraise your Pokémon well.")
+	} else {
+		checkplayergender
+		if (var(VAR_RESULT) == MALE) {
+			msgbox("Stephanie: It's alright, Eirika.\nExperiencing defeat with your first\lpartner can be frustrating,\lbut I'm sure you'll both be able to\lraise your Pokémon well.")
+		} else {
+			msgbox("Stephanie: It's alright, Eric.\nExperiencing defeat with your first\lpartner can be frustrating,\lbut I'm sure you'll both be able to\lraise your Pokémon well.")
+		}
+	}
+
 	setvar(VAR_BIRCH_LAB_STATE, 2)
 	releaseall
 	
