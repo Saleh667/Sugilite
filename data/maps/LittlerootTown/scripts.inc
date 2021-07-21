@@ -1333,3 +1333,16 @@ KurosibaTown_Sign_EventScript::
 KurosibaTown_Sign_Text:
 	.string "Kurosiba Town,\n"
 	.string "Where grass is dark\land the breeze is fresh.$"
+
+KurosibaTown_LittleGirl_EventScript::
+	lock
+	faceplayer
+	msgbox KurosibaTown_LittleGirl_Text, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+KurosibaTown_LittleGirl_Text:
+	.string "Hiya, {PLAYER}!\n"
+	.string "I hope you're staying safe!.$"
+

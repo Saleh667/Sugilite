@@ -17,6 +17,9 @@ mapscripts LittlerootTown_ProfessorBirchsLab_MapScripts {
             //turnobject(LOCALID_RIVAL, DIR_WEST)
             call(KurosibaTown_ProfessorsLab_EventScript_StarterSelection)
         }
+		VAR_BIRCH_LAB_STATE, 3 {
+            call(KurosibaTown_ProfessorsLab_EventScript_RivalWon)
+		}
     ]
 }
 
@@ -402,27 +405,27 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
 
 	fadescreen(1)
 
-	//setobjectxy(OBJ_EVENT_ID_PLAYER,4,11)
+	setobjectxy(OBJ_EVENT_ID_PLAYER,4,11)
 	setobjectxy(LOCALID_RIVAL,3,11)
 
 	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
 	applymovement(LOCALID_RIVAL, Common_Movement_FaceUp)
 	applymovement(LOCALID_STEPHANIE, Common_Movement_FaceDown)
 
-	//special(SpawnCameraObject)
+	special(SpawnCameraObject)
 
 	switch(var(VAR_STARTER_MON)){
 		case 1:
-			applymovement(OBJ_EVENT_ID_PLAYER, KurosibaTown_ProfessorsLab_Movement_CameraBeforeBattle_Cybio)
+			applymovement(OBJ_EVENT_ID_CAMERA, KurosibaTown_ProfessorsLab_Movement_CameraBeforeBattle_Cybio)
 		case 2:
-			applymovement(OBJ_EVENT_ID_PLAYER, KurosibaTown_ProfessorsLab_Movement_CameraBeforeBattle_Ignion)
+			applymovement(OBJ_EVENT_ID_CAMERA, KurosibaTown_ProfessorsLab_Movement_CameraBeforeBattle_Ignion)
 		case 3:
-			applymovement(OBJ_EVENT_ID_PLAYER, KurosibaTown_ProfessorsLab_Movement_CameraBeforeBattle_Jellosis)
+			applymovement(OBJ_EVENT_ID_CAMERA, KurosibaTown_ProfessorsLab_Movement_CameraBeforeBattle_Jellosis)
 		default:
 	}
 	waitmovement(0)
 
-	//special(RemoveCameraObject)
+	special(RemoveCameraObject)
 
 	fadescreen(0)
 
@@ -607,7 +610,7 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
 	setobjectxy(LOCALID_STEPHANIE, 8, 10)
 	setobjectxy(LOCALID_SIMMERMAN, 10, 10)
 	
-	applymovement(OBJ_EVENT_ID_CAMERA, KurosibaTown_ProfessorsLab_Movement_CameraBeforeBattle_Cybio)
+	applymovement(OBJ_EVENT_ID_CAMERA, KurosibaTown_ProfessorsLab_Movement_CameraBeforeBattle)
 
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
 	turnobject(LOCALID_RIVAL, DIR_WEST)
@@ -623,112 +626,215 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
 	if (var(VAR_RESULT) == MALE) {
 		playbgm(MUS_ENCOUNTER_MAY, TRUE)
 		
+		setflag(FLAG_PLAYER_CANNOT_LOSE)
+		setvar(VAR_BIRCH_LAB_STATE, 3)
+
 		switch (var(VAR_STARTER_MON)) {
 			case 1:
-				trainerbattle_single(TRAINER_EIRIKA_LAB_CYBIO, KurosibaTown_ProfessorsLab_Text_EirikaStart, KurosibaTown_ProfessorsLab_Text_EirikaDefeated, Player_Loose)
+				trainerbattle_single(TRAINER_EIRIKA_LAB_CYBIO, KurosibaTown_ProfessorsLab_Text_EirikaStart, KurosibaTown_ProfessorsLab_Text_EirikaDefeated)
 			case 2:
-				trainerbattle_single(TRAINER_EIRIKA_LAB_IGNION, KurosibaTown_ProfessorsLab_Text_EirikaStart,KurosibaTown_ProfessorsLab_Text_EirikaDefeated, Player_Loose)
+				trainerbattle_single(TRAINER_EIRIKA_LAB_IGNION, KurosibaTown_ProfessorsLab_Text_EirikaStart,KurosibaTown_ProfessorsLab_Text_EirikaDefeated)
 			case 3:
-				trainerbattle_single(TRAINER_EIRIKA_LAB_JELLOSIS, KurosibaTown_ProfessorsLab_Text_EirikaStart,KurosibaTown_ProfessorsLab_Text_EirikaDefeated, Player_Loose)
+				trainerbattle_single(TRAINER_EIRIKA_LAB_JELLOSIS, KurosibaTown_ProfessorsLab_Text_EirikaStart,KurosibaTown_ProfessorsLab_Text_EirikaDefeated)
 		}
 
 		//After a won battle
 		fadedefaultbgm
 		applymovement(LOCALID_RIVAL, Common_Movement_EmoteSweat)
 		msgbox(format("Eirika: Darn, you're pretty good {PLAYER}. Guess I gotta work on my skills more."))
-		bufferstring(1, "Eirika")
+			
+		delay(16)
+
+		applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteHeart)
+		waitmovement(0)
+		msgbox("Stephanie: It's alright, dear.\nExperiencing defeat with your first\lpartner can be frustrating,\lbut I'm sure you'll both be able to\lraise your Pokémon well.")
+
+		goto(KurosibaTown_ProfessorsLab_EventScript_PlayerWon)
 	}
 	else {
 		playbgm(MUS_ENCOUNTER_MAY, TRUE)
 		
+		setflag(FLAG_PLAYER_CANNOT_LOSE)
+		setvar(VAR_BIRCH_LAB_STATE, 3)
+
 		switch (var(VAR_STARTER_MON)) {
 			case 1:
-				trainerbattle_single(TRAINER_ERIC_LAB_IGNION, KurosibaTown_ProfessorsLab_Text_EricStart, KurosibaTown_ProfessorsLab_Text_EricDefeated, Player_Loose)
+				trainerbattle_single(TRAINER_ERIC_LAB_IGNION, KurosibaTown_ProfessorsLab_Text_EricStart, KurosibaTown_ProfessorsLab_Text_EricDefeated)
 			case 2:
-				trainerbattle_single(TRAINER_ERIC_LAB_JELLOSIS, KurosibaTown_ProfessorsLab_Text_EricStart,KurosibaTown_ProfessorsLab_Text_EricDefeated, Player_Loose)
+				trainerbattle_single(TRAINER_ERIC_LAB_JELLOSIS, KurosibaTown_ProfessorsLab_Text_EricStart,KurosibaTown_ProfessorsLab_Text_EricDefeated)
 			case 3:
-				trainerbattle_single(TRAINER_ERIC_LAB_CYBIO, KurosibaTown_ProfessorsLab_Text_EricStart,KurosibaTown_ProfessorsLab_Text_EricDefeated, Player_Loose)
+				trainerbattle_single(TRAINER_ERIC_LAB_CYBIO, KurosibaTown_ProfessorsLab_Text_EricStart,KurosibaTown_ProfessorsLab_Text_EricDefeated)
 		}
 
 		//After a won battle
 		fadedefaultbgm
 		applymovement(LOCALID_RIVAL, Common_Movement_EmoteSweat)
 		msgbox("Eric: Darn, you're pretty good {PLAYER}.\nA nice head start!")
-		bufferstring(1, "Eric")
+
+		delay(16)
+
+		applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteHeart)
+		waitmovement(0)
+		msgbox("Stephanie: It's alright, dear.\nExperiencing defeat with your first\lpartner can be frustrating,\lbut I'm sure you'll both be able to\lraise your Pokémon well.")
+
+		goto(KurosibaTown_ProfessorsLab_EventScript_PlayerWon)
+	}
+}
+
+script KurosibaTown_ProfessorsLab_EventScript_RivalWon{
+	lockall
+
+	if(var(VAR_TEMP_0) == TRUE){
+		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_EmoteSweat)
+		delay(60)
+	} else {
+		applymovement(LOCALID_RIVAL, Common_Movement_EmoteSweat)
+		delay(60)
 	}
 
-	msgbox(format("Stephanie: It's alright, {STR_VAR_2}. Experiencing defeat with your first partner can be frustrating, but I'm sure you'll both be able to raise your Pokémon well."))
+	delay(16)
+	applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteHeart)
+	waitmovement(0)
+
+	msgbox("Stephanie: It's alright, dear.\nExperiencing defeat with your first\lpartner can be frustrating,\lbut I'm sure you'll both be able to\lraise your Pokémon well.")
+	setvar(VAR_BIRCH_LAB_STATE, 2)
+	releaseall
+	
+	goto(KurosibaTown_ProfessorsLab_EventScript_PlayerWon)
+}
+
+script KurosibaTown_ProfessorsLab_EventScript_PlayerWon{
+	
 	msgbox(format("Which takes me to my next point. Come here, you two."))
 	closemessage
-	fadescreen(FADE_TO_BLACK)
-	setobjectxy(OBJ_EVENT_ID_PLAYER, 5, 11)
-	setobjectxy(LOCALID_RIVAL, 4, 10)
-	setobjectxy(LOCALID_STEPHANIE, 3, 10)
-	setobjectxy(LOCALID_SIMMERMAN, 2, 11)
+
+	fadescreen(1)
+
+	setobjectxy(OBJ_EVENT_ID_PLAYER,4,11)
+	setobjectxy(LOCALID_RIVAL,3,11)
+
+	setobjectxy(LOCALID_STEPHANIE,4,9)
+	setobjectxy(LOCALID_SIMMERMAN,3,9)
+
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+	applymovement(LOCALID_RIVAL, Common_Movement_FaceUp)
+	applymovement(LOCALID_STEPHANIE, Common_Movement_FaceDown)
+
 	special(SpawnCameraObject)
+
 	applymovement(OBJ_EVENT_ID_CAMERA, KurosibaTown_ProfessorsLab_Movement_CameraAfterBattle)
-	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
-	turnobject(LOCALID_RIVAL, DIR_WEST)
-	turnobject(LOCALID_STEPHANIE, DIR_EAST)
-	turnobject(LOCALID_SIMMERMAN, DIR_EAST)
 	waitmovement(0)
+
 	special(RemoveCameraObject)
-	fadescreen(FADE_FROM_BLACK)
-	msgbox(format("Stephanie: {PLAYER}. {STR_VAR_2}. There are many beautiful and interesting Pokémon in the Phantos region."))
-	msgbox(format("And I think that it's a great idea for you two to take the latest Pokédex technology, to record and discover all of the Pokémon here."))
+	fadescreen(0)
+	delay(30)
+		
+	checkplayergender
+	if (var(VAR_RESULT) == MALE) {
+		msgbox(format("Stephanie: {PLAYER}. Eirika. There are many beautiful and interesting POKéMON in the Phantos region."))
+	} else {
+		msgbox(format("Stephanie: {PLAYER}. Eric. There are many beautiful and interesting POKéMON in the Phantos region."))
+	}
+
+	msgbox(format("And I think that it's a great idea for you two to take the latest POKéDEX technology, to record and discover all of the POKéMON here."))
+	
 	checkplayergender
 	if (var(VAR_RESULT) == MALE) {
 		applymovement(LOCALID_RIVAL, Common_Movement_EmoteHappy)
 		delay(60)
-		msgbox("Eirika: Wow, I suppose that's also fun! Count us in, Mom.")
+		msgbox("Eirika: Wow, I suppose that's\nalso fun! Count us in, Mom.")
 	}
 	else {
 		applymovement(LOCALID_RIVAL, Common_Movement_EmoteHappy)
 		delay(60)
 		msgbox("Eric: A long journey to meet\nall kinds of Pokémon?\lCount me in!")
 	}
-	msgbox(format("Stephanie: That's the spirit! Simmerman, you can give it to them now."))
-	msgbox(format("Simmerman: Alright, kids. They're all yours. Just so we're clear though, these aren't edible."))
+
+	msgbox("Stephanie: That's the spirit!")
+	applymovement(LOCALID_STEPHANIE, Common_Movement_FaceLeft)
+	waitmovement(0)
+	msgbox("Simmerman, you can give it to them now.")
+	applymovement(LOCALID_STEPHANIE, Common_Movement_FaceDown)
+	waitmovement(0)
+
+	msgbox("Simmerman: Alright, kids.\nThey're all yours.\pJust so we're clear though,\nthese aren't edible.")
 	closemessage
+
 	applymovement(LOCALID_SIMMERMAN, KurosibaTown_ProfessorsLab_Movement_SimmermanToPlayer)
 	waitmovement(0)
-	applymovement(LOCALID_RIVAL, Common_Movement_FaceDown)
+
 	playfanfare(MUS_OBTAIN_TMHM)
-	message(format("Mr. Simmerman gives {PLAYER} and {STR_VAR_2} the Pokédex!"))
+	message(format("Mr. Simmerman gives {PLAYER} the Pokédex!"))
 	waitfanfare
 	waitmessage
 	setflag(FLAG_SYS_POKEDEX_GET)
 	special(SetUnlockedPokedexFlags)
 	setflag(FLAG_RECEIVED_POKEDEX_FROM_BIRCH)
 	closemessage
+
+	applymovement(LOCALID_SIMMERMAN, KurosibaTown_ProfessorsLab_Movement_ToRival)
+	waitmovement(0)
+
+	msgbox("Simmerman: Here, for you too.")
+	closemessage
+
+	applymovement(LOCALID_RIVAL, Common_Movement_EmoteHappy)
+	delay(60)
+
 	applymovement(LOCALID_SIMMERMAN, KurosibaTown_ProfessorsLab_Movement_SimmermanBack)
 	waitmovement(0)
-	msgbox(format("Stephanie: Aw, my two babies are leaving home already. A mother can't help but worry!"))
+
+	delay(60)
+
+	applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteGloom)
+	delay(60)
+	msgbox("Stephanie: Aw, my two babies are leaving \nhome already.\pA mother can't help but worry!")
+
 	checkplayergender
 	if (var(VAR_RESULT) == MALE) {
-		applymovement(LOCALID_RIVAL, Common_Movement_FaceLeft)
+
+		applymovement(LOCALID_RIVAL, KurosibaTown_ProfessorsLab_Movement_JumpInPlaceUp)
+		waitmovement(0)
+		applymovement(LOCALID_RIVAL, KurosibaTown_ProfessorsLab_Movement_JumpInPlaceUp)
+		waitmovement(0)
 		msgbox("Eirika: Mom! Stop embarrassing us!\nGosh...")
+
 	} else {
-		applymovement(LOCALID_RIVAL, Common_Movement_FaceLeft)
+
+		//applymovement(LOCALID_RIVAL, Common_Movement_FaceLeft)
 		msgbox("Eric: Mom, that's not...\nnecessary.")
+
 	}
-	msgbox(format("Stephanie: Honey, you be careful out there. You too, {PLAYER}. You can always come back here if you need anything."))
+
+	msgbox("Stephanie: Honey, you be careful\nout there.You too, {PLAYER}.\lYou can always come back here\lif you need anything.")
 	msgbox(format("Oh, I should also give you these."))
+
 	closemessage
 	applymovement(LOCALID_STEPHANIE, KurosibaTown_ProfessorsLab_Movement_StephanieToOthers)
 	waitmovement(0)
-	applymovement(LOCALID_RIVAL, Common_Movement_FaceDown)
+
 	playfanfare(MUS_OBTAIN_ITEM)
 	message(format("{PLAYER} received the Running Shoes!"))
 	setflag(FLAG_RECEIVED_RUNNING_SHOES)
 	setflag(FLAG_SYS_B_DASH)
 	waitfanfare
 	waitmessage
+
+	applymovement(LOCALID_STEPHANIE, Common_Movement_WalkUp)
+	waitmovement(0)
+	applymovement(LOCALID_STEPHANIE, Common_Movement_FaceDown)
+	waitmovement(0)
+
 	msgbox(format("Stephanie: I've got fitting models for both of you. They were on sale, too."))
 	closemessage
 	playse(SE_PIN)
 	applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteMusic)
 	delay(60)
+
+	applymovement(LOCALID_RIVAL, Common_Movement_FaceLeft)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+	waitmovement(0)
+
 	checkplayergender
 	if (var(VAR_RESULT) == MALE) {
 		msgbox("Eirika: That's... kind of cool.\nThanks Mom!")
@@ -738,24 +844,33 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
 		msgbox("Well then, it's time to head\nto Route 401.\lThis is gonna be exciting!")
 	}
 	closemessage
+
+	applymovement(LOCALID_RIVAL, Common_Movement_FaceUp)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+	waitmovement(0)
+
 	applymovement(LOCALID_RIVAL, KurosibaTown_ProfessorsLab_Movement_RivalLeaves)
 	waitmovement(0)
 	removeobject(LOCALID_RIVAL)
-	msgbox(format("Simmerman: HEY! Hold up! I'm supposed to teach you how to catch a Pokémon!"))
+
+	applymovement(LOCALID_SIMMERMAN, KurosibaTown_ProfessorsLab_Movement_JumpInPlaceDown)
+	waitmovement(0)
+
+	msgbox("Simmerman: HEY!\nHold up!\pI'm supposed to teach you how to\ncatch a Pokémon!")
 	closemessage
 	applymovement(LOCALID_SIMMERMAN, KurosibaTown_ProfessorsLab_Movement_SimmermanLeaves)
 	waitmovement(0)
 	removeobject(LOCALID_SIMMERMAN)
+
+	call(Prof_ShakeHead)
+
 	msgbox(format("Stephanie: How about you go join them, dear?"))
 	closemessage
-	setvar(VAR_BIRCH_LAB_STATE, 2)
-    end
-}
 
-script Player_Loose {
-	special(HealPlayerParty)
-	releaseall
-	end
+	setflag(FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_RIVAL)
+	setvar(VAR_BIRCH_LAB_STATE, 2)
+	clearflag(FLAG_KUROSIBA_TOWN_HIDE_LITTLE_GIRL)
+    end
 }
 
 script Prof_ShakeHead{
@@ -876,11 +991,11 @@ movement Prof_GetBall_MoveBack_Jellosis{
 }
 
 text KurosibaTown_ProfessorsLab_Text_EirikaStart {
-	"Eric: I won't go easy on you,\neven if you're my twin sister!"
+	"Eirika: I won't go easy on you,\neven if you're my twin brother!"
 }
 
 text KurosibaTown_ProfessorsLab_Text_EricStart {
-	"Eirika: I won't go easy on you,\neven if you're my twin brother!"
+	"Eric: I won't go easy on you,\neven if you're my twin sister!"
 }
 
 text KurosibaTown_ProfessorsLab_Text_EirikaDefeated {
@@ -897,6 +1012,10 @@ movement KurosibaTown_ProfessorsLab_Movement_JumpInPlaceRight {
 
 movement KurosibaTown_ProfessorsLab_Movement_JumpInPlaceDown {
 	jump_in_place_down
+}
+
+movement KurosibaTown_ProfessorsLab_Movement_JumpInPlaceUp {
+	jump_in_place_up
 }
 
 movement KurosibaTown_ProfessorsLab_Movement_PlayerToStephanie {
@@ -922,8 +1041,12 @@ movement KurosibaTown_ProfessorsLab_Movement_CameraBeforeBattle_Jellosis {
 	face_up
 	}
 
+movement KurosibaTown_ProfessorsLab_Movement_CameraBeforeBattle {
+	walk_right * 5
+}
+
 movement KurosibaTown_ProfessorsLab_Movement_CameraAfterBattle {
-	walk_left * 4
+	walk_left * 5
 }
 
 movement KurosibaTown_ProfessorsLab_Movement_PlayerToOthers {
@@ -934,29 +1057,40 @@ movement KurosibaTown_ProfessorsLab_Movement_PlayerToOthers {
 }
 
 movement KurosibaTown_ProfessorsLab_Movement_SimmermanToPlayer {
-	walk_right * 2
+	walk_down
+	walk_right
+	face_down
+}
+
+movement KurosibaTown_ProfessorsLab_Movement_ToRival {
+	face_left
+	walk_left
+	face_down
 }
 
 movement KurosibaTown_ProfessorsLab_Movement_SimmermanBack {
-	face_left
-	walk_left * 2
-	face_right
+	walk_up
+	face_down
 }
 
 movement KurosibaTown_ProfessorsLab_Movement_StephanieToOthers {
-	face_down
 	walk_down
-	face_right
+	walk_left
+	face_down
+	delay_16
+	delay_16
 	walk_right
+	face_down
 }
 
 movement KurosibaTown_ProfessorsLab_Movement_RivalLeaves {
-	walk_right * 9
+	walk_fast_up
+	walk_fast_right * 9
 }
 
 movement KurosibaTown_ProfessorsLab_Movement_SimmermanLeaves {
-	walk_up
-	walk_right * 11
+	walk_fast_down
+	walk_fast_right * 11
 }
 
 script KurosibaTown_ProfessorsLab_EventScript_Stephanie {
@@ -1025,6 +1159,10 @@ movement Common_Movement_WalkRight{
 movement Common_Movement_WalkLeft{
   walk_left
 }
+
+//movement Common_Movement_WalkUp{
+//  walk_up
+//}
 
 raw `
 .set LOCALID_AIDE, 1

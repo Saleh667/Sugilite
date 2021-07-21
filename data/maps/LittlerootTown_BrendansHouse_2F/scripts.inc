@@ -42,6 +42,7 @@ EventScript_Sugilite_Start_Boy_5:
 	removeobject 1
 	setvar VAR_UNUSED_0x404E, 1
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM
+	setflag FLAG_KUROSIBA_TOWN_HIDE_LITTLE_GIRL
 	return
 
 EventScript_Sugilite_Start_Boy_2:
