@@ -629,13 +629,15 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
 		setflag(FLAG_PLAYER_CANNOT_LOSE)
 		setvar(VAR_BIRCH_LAB_STATE, 3)
 
+		msgbox(KurosibaTown_ProfessorsLab_Text_EirikaStart)
+
 		switch (var(VAR_STARTER_MON)) {
 			case 1:
-				trainerbattle_single(TRAINER_EIRIKA_LAB_CYBIO, KurosibaTown_ProfessorsLab_Text_EirikaStart, KurosibaTown_ProfessorsLab_Text_EirikaDefeated)
+				trainerbattle_no_intro(TRAINER_EIRIKA_LAB_CYBIO, KurosibaTown_ProfessorsLab_Text_EirikaDefeated)
 			case 2:
-				trainerbattle_single(TRAINER_EIRIKA_LAB_IGNION, KurosibaTown_ProfessorsLab_Text_EirikaStart,KurosibaTown_ProfessorsLab_Text_EirikaDefeated)
+				trainerbattle_no_intro(TRAINER_EIRIKA_LAB_IGNION,KurosibaTown_ProfessorsLab_Text_EirikaDefeated)
 			case 3:
-				trainerbattle_single(TRAINER_EIRIKA_LAB_JELLOSIS, KurosibaTown_ProfessorsLab_Text_EirikaStart,KurosibaTown_ProfessorsLab_Text_EirikaDefeated)
+				trainerbattle_no_intro(TRAINER_EIRIKA_LAB_JELLOSIS,KurosibaTown_ProfessorsLab_Text_EirikaDefeated)
 		}
 
 		//After a won battle
@@ -652,18 +654,20 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
 		goto(KurosibaTown_ProfessorsLab_EventScript_PlayerWon)
 	}
 	else {
-		playbgm(MUS_ENCOUNTER_MAY, TRUE)
+		playbgm(MUS_ENCOUNTER_BRENDAN, TRUE)
 		
 		setflag(FLAG_PLAYER_CANNOT_LOSE)
 		setvar(VAR_BIRCH_LAB_STATE, 3)
 
+		msgbox(KurosibaTown_ProfessorsLab_Text_EricStart)
+
 		switch (var(VAR_STARTER_MON)) {
 			case 1:
-				trainerbattle_single(TRAINER_ERIC_LAB_IGNION, KurosibaTown_ProfessorsLab_Text_EricStart, KurosibaTown_ProfessorsLab_Text_EricDefeated)
+				trainerbattle_no_intro(TRAINER_ERIC_LAB_IGNION, KurosibaTown_ProfessorsLab_Text_EricDefeated)
 			case 2:
-				trainerbattle_single(TRAINER_ERIC_LAB_JELLOSIS, KurosibaTown_ProfessorsLab_Text_EricStart,KurosibaTown_ProfessorsLab_Text_EricDefeated)
+				trainerbattle_no_intro(TRAINER_ERIC_LAB_JELLOSIS,KurosibaTown_ProfessorsLab_Text_EricDefeated)
 			case 3:
-				trainerbattle_single(TRAINER_ERIC_LAB_CYBIO, KurosibaTown_ProfessorsLab_Text_EricStart,KurosibaTown_ProfessorsLab_Text_EricDefeated)
+				trainerbattle_no_intro(TRAINER_ERIC_LAB_CYBIO,KurosibaTown_ProfessorsLab_Text_EricDefeated)
 		}
 
 		//After a won battle
