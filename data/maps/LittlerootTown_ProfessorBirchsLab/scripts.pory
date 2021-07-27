@@ -1041,6 +1041,23 @@ movement KurosibaTown_ProfessorsLab_Movement_JumpInPlaceUp {
 	jump_in_place_up
 }
 
+movement Common_Movement_JumpInPlaceRight {
+	jump_in_place_right
+}
+
+movement Common_Movement_JumpInPlaceDown {
+	jump_in_place_down
+}
+
+movement Common_Movement_JumpInPlaceUp {
+	jump_in_place_up
+}
+
+movement Common_Movement_JumpInPlaceLeft {
+	jump_in_place_left
+}
+
+
 movement KurosibaTown_ProfessorsLab_Movement_PlayerToStephanie {
 	walk_left * 2
 	face_up

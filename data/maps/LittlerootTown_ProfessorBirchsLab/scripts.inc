@@ -897,6 +897,22 @@ KurosibaTown_ProfessorsLab_Movement_JumpInPlaceUp:
 	jump_in_place_up
 	step_end
 
+Common_Movement_JumpInPlaceRight:
+	jump_in_place_right
+	step_end
+
+Common_Movement_JumpInPlaceDown:
+	jump_in_place_down
+	step_end
+
+Common_Movement_JumpInPlaceUp:
+	jump_in_place_up
+	step_end
+
+Common_Movement_JumpInPlaceLeft:
+	jump_in_place_left
+	step_end
+
 KurosibaTown_ProfessorsLab_Movement_PlayerToStephanie:
 	walk_left
 	walk_left

@@ -1,6 +1,9 @@
 const LOCALID_YOUNGSTER = 4
 const LOCALID_DRAGBY = 5
 
+const LOCALID_SIMMERMAN = 1
+const LOCALID_SIBLING = 2
+
 mapscripts Route101_MapScripts{
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_ROUTE_401_STATE, 0 {
@@ -58,12 +61,340 @@ script Route401_CatchingTest{
 	lock
 	faceplayer
 	msgbox("Let's learn how to catch!")
-	special(SavePlayerParty)
-	special(PutZigzagoonInPlayerParty)
-	special(StartWallyTutorialBattle)
-	msgbox("That's how it's done!")
-	special(LoadPlayerParty)
+
 	closemessage
 	release
 	end
+}
+
+script Route401_MoveUp{
+	lock
+	delay(30)
+
+	applymovement(OBJ_EVENT_ID_PLAYER,Common_Movement_EmoteQuestionMark)
+	delay(60)
+	goto(Route401_DoMovement)
+}
+
+script Route401_MoveRight{
+	lock
+	delay(30)
+
+	applymovement(OBJ_EVENT_ID_PLAYER,Common_Movement_EmoteQuestionMark)
+	delay(60)
+	applymovement(OBJ_EVENT_ID_PLAYER,Common_Movement_WalkRight)
+	waitmovement(0)
+	goto(Route401_DoMovement)
+}
+
+
+script Route401_MoveLeft{
+	lock
+	delay(30)
+
+	applymovement(OBJ_EVENT_ID_PLAYER,Common_Movement_EmoteQuestionMark)
+	delay(60)
+	applymovement(OBJ_EVENT_ID_PLAYER,Common_Movement_WalkLeft)
+	waitmovement(0)
+	goto(Route401_DoMovement)
+}
+
+script Route401_MoveLeftLeft{
+	lock
+	delay(30)
+
+	applymovement(OBJ_EVENT_ID_PLAYER,Common_Movement_EmoteQuestionMark)
+	delay(60)
+	applymovement(OBJ_EVENT_ID_PLAYER,Common_Movement_WalkLeft)
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER,Common_Movement_WalkLeft)
+	waitmovement(0)
+	goto(Route401_DoMovement)
+}
+
+script Route401_DoMovement{
+
+	applymovement(OBJ_EVENT_ID_PLAYER, Route401_WalkToSim_1)
+	waitmovement(0)
+
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_EmoteExclamation)
+	delay(60)
+
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, Route401_CamUp)
+	waitmovement(0)
+
+	applymovement(LOCALID_SIMMERMAN, Common_Movement_JumpInPlaceDown)
+	waitmovement(0)
+	applymovement(LOCALID_SIMMERMAN, Common_Movement_EmoteFlex)
+	delay(60)
+	msgbox("Simmerman: Alright, step aside.\nLet the grown-up show you\lhow it's done.")
+	closemessage
+
+	checkplayergender
+	if (var(VAR_RESULT) == MALE) {
+		applymovement(LOCALID_SIBLING, Common_Movement_JumpInPlaceUp)
+		waitmovement(0)
+		msgbox("Eirika: How am I supposed to learn if\nyou're just going to catch a POKéMON\lwithout teaching me anything?")
+		msgbox("Simmerman: Look, do you want\nto catch one or not?")
+		msgbox("Eirika: I do, but how do we even know\nit's safe?")
+	} else {
+		applymovement(LOCALID_SIBLING, Common_Movement_EmoteEllipsis)
+		delay(60)
+		msgbox("Eric: Are you sure this is\nhow we should be learning?")
+		msgbox("Simmerman: Look, do you want\nto catch a POKéMON or not?")
+		msgbox("Eric: I do, but how do we even know\nit's safe?")
+	}
+	
+	closemessage
+
+	applymovement(LOCALID_SIMMERMAN, Common_Movement_EmoteSweat)
+	delay(60)
+	msgbox("Simmerman: You already have a\nPOKéMON, quit your whining!\lSheesh...")
+	closemessage
+
+	applymovement(OBJ_EVENT_ID_CAMERA, Route401_CamDown)
+	waitmovement(0)
+	special(RemoveCameraObject)
+
+	applymovement(OBJ_EVENT_ID_PLAYER, Route401_WalkToSim_2)
+	waitmovement(0)
+
+	delay(16)
+	applymovement(LOCALID_SIBLING, Common_Movement_EmoteExclamation)
+	delay(60)
+	delay(16)
+
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+	applymovement(LOCALID_SIBLING, Common_Movement_FaceRight)
+	waitmovement(0)
+
+	applymovement(LOCALID_SIBLING, Common_Movement_EmoteHappy)
+	delay(60)
+
+	checkplayergender
+	if (var(VAR_RESULT) == MALE) {
+		msgbox("Eirika: Oh, {PLAYER}!\nYou're just in time!")
+	}
+	else {
+		msgbox("Eric: Look. {PLAYER}'s here!\nYou're just in time.")
+	}
+	closemessage
+
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+	applymovement(LOCALID_SIBLING, Common_Movement_FaceUp)
+	waitmovement(0)
+
+	checkplayergender
+	if (var(VAR_RESULT) == MALE) {
+		msgbox("Eirika: Mr. Simmerman is gonna\nteach us how to catch a POKéMON!")
+	} else {
+		msgbox("Eric: Mr.Simmerman is going to\nteach us how to catch a POKéMON!")
+	}
+	closemessage
+
+	applymovement(LOCALID_SIMMERMAN, Common_Movement_SimmerLaugh)
+	waitmovement(0)
+
+	msgbox("Simmerman: Okay kids, so it's actually\npretty easy.")
+	closemessage
+
+	applymovement(LOCALID_SIMMERMAN, Route401_SimmerToGras)
+	waitmovement(0)
+
+	applymovement(LOCALID_SIBLING, Common_Movement_FaceLeft)
+	applymovement(OBJ_EVENT_ID_PLAYER, Route401_PlayerToSimmer)
+	waitmovement(0)
+
+	special(SpawnCameraObject)
+
+	applymovement(OBJ_EVENT_ID_CAMERA, Route401_CamToSim)
+	waitmovement(0)
+
+	special(RemoveCameraObject)
+
+	msgbox("Simmerman: You just take a little walk in\nthe grass...")
+	closemessage
+
+	applymovement(LOCALID_SIMMERMAN, Route401_SimmerInGras)
+	waitmovement(0)
+
+	delay(30)
+
+	applymovement(LOCALID_SIMMERMAN, Common_Movement_EmoteEllipsis)
+	delay(60)
+
+	msgbox("Simmerman: See? Nothing to worry about...\nWOAH!")
+	closemessage
+
+	special(SavePlayerParty)
+	special(PutZigzagoonInPlayerParty)
+	special(StartWallyTutorialBattle)
+	waitstate
+	//msgbox("That's how it's done!")
+		
+	delay(30)
+
+	applymovement(LOCALID_SIMMERMAN, Common_Movement_FaceRight)
+	waitmovement(0)
+	msgbox("Simmerman: Okay, not gonna lie,\nthat kind of caught me off guard!")
+	closemessage
+	
+	special(LoadPlayerParty)
+
+
+	checkplayergender
+	if (var(VAR_RESULT) == MALE) {
+		applymovement(LOCALID_SIBLING, Common_Movement_EmoteMusic)
+		delay(60)
+		msgbox("Eirika: Hahahahaha!\nYou're so stupid, Mr.Simmerman!")
+	} else {
+		applymovement(LOCALID_SIBLING, Common_Movement_EmoteSweat)
+		delay(60)
+		msgbox("Eric: You ought to be more cautious.\nHmph!")
+	}
+	closemessage
+
+	applymovement(LOCALID_SIMMERMAN, Common_Movement_EmoteAngry)
+	delay(60)
+	msgbox("Simmerman: R-Respect your elders,\nyou little...!")
+	closemessage
+
+	delay(30)
+
+	applymovement(LOCALID_SIMMERMAN, Common_Movement_FaceDown)
+	waitmovement(0)
+	applymovement(LOCALID_SIMMERMAN, Common_Movement_EmoteSweat)
+	delay(60)
+	msgbox("Simmerman: ...\nSigh.\pOkay, well, clearly you have to use\nyour POKéMON to fight before\lcatching something.")
+	closemessage
+
+	applymovement(LOCALID_SIMMERMAN, Common_Movement_FaceRight)
+	waitmovement(0)
+	delay(30)
+
+	checkplayergender
+	if (var(VAR_RESULT) == MALE) {
+		applymovement(LOCALID_SIBLING, Common_Movement_EmoteMusic)
+		delay(60)
+
+		msgbox("Eirika: Gotcha.\nAny other tips?\pOh, I got one for you.\nDon't be reckless.")
+		msgbox("Simmerman: ...\nVery funny.")
+		msgbox("Simmerman: Welp!\nI guess my work is done here.\pYou've got a ways to go, kids.\nI'll see you again when you're stronger.\lDon't count on it though, I'm usually\lvery busy.")
+		msgbox("Eirika: Okay then, bye Mr. Simmerman!")
+	} else {
+		applymovement(LOCALID_SIBLING, Common_Movement_EmoteEllipsis)
+		delay(60)
+
+		msgbox("Eric: Right, and maybe\nproceed with caution as well.")
+		msgbox("Simmerman: ...\nYeah, yeah, whatever.")
+		msgbox("Simmerman: Welp!\nI guess my work is done here.\pYou've got a ways to go, kids.\nI'll see you again when you're stronger.\lDon't count on it though, I'm usually\lvery busy.")
+		msgbox("Eric: Okay then, bye Mr. Simmerman!")
+	}
+	closemessage
+
+	applymovement(LOCALID_SIMMERMAN, Route401_SimmerLeave)
+	waitmovement(0)
+	removeobject(LOCALID_SIMMERMAN)
+
+	special(SpawnCameraObject)
+
+	applymovement(OBJ_EVENT_ID_CAMERA, Route401_CamFromSim)
+	waitmovement(0)
+
+	special(RemoveCameraObject)
+
+	applymovement(LOCALID_SIBLING, Route401_SiblingToPlayer)
+	waitmovement(0)
+
+	checkplayergender
+	if (var(VAR_RESULT) == MALE) {
+		msgbox("Eirika: I never knew that some adults\ncould be absolute airheads.\lI hope I don't end up like that!")
+		msgbox("Eirika: Well, {PLAYER},\nguess I'll see you around!\lDon't be too slow though!\pWe should battle again when we\nhave more POKéMON!")
+		closemessage
+		applymovement(LOCALID_SIBLING, Route401_SiblingLeave_Eirika)
+		waitmovement(0)
+	} else {
+		msgbox("Eric: I wouldn't want to be like him.\nNot at all.")
+		msgbox("Eric: Well, {PLAYER},\nguess I'll see you around!\pThere's a lot to do now that we're\ltrainers!")
+		closemessage
+		applymovement(LOCALID_SIBLING, Route401_SiblingLeave_Eric)
+		waitmovement(0)
+	}
+
+	removeobject(LOCALID_SIBLING)
+
+	setflag(FLAG_CATCHING_TUTORIAL_DONE)
+	setvar(VAR_CATCHING_TUTORIAL_STATE,1)
+	release
+	end
+}
+
+movement Route401_WalkToSim_1{
+	walk_up * 2
+}
+
+movement Route401_WalkToSim_2{
+	walk_up * 2
+	walk_left * 2
+	face_up
+}
+
+movement Route401_CamUp{
+	walk_up * 2
+	walk_left * 2
+}
+
+movement Route401_CamDown{
+	walk_right * 2
+	walk_down * 2
+	delay_16
+}
+
+movement Route401_CamToSim{
+	walk_left
+}
+
+movement Route401_CamFromSim{
+	walk_right
+}
+
+movement Route401_SimmerToGras{
+	walk_left * 3
+	face_down
+}
+
+movement Route401_SimmerInGras{
+	walk_left
+	walk_down
+	walk_right
+	walk_up
+	walk_left
+	face_down
+	delay_16
+}
+
+movement Route401_PlayerToSimmer{
+	walk_up
+	walk_left
+}
+
+movement Route401_SimmerLeave{
+	walk_up * 6
+}
+
+movement Route401_SiblingToPlayer {
+	walk_left
+	walk_up
+	face_right
+	delay_16
+}
+movement Route401_SiblingLeave_Eirika {
+	walk_fast_left * 2
+	walk_fast_up * 6
+}
+
+movement Route401_SiblingLeave_Eric{
+	walk_left * 2
+	walk_up * 6
 }

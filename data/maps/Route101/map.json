@@ -36,7 +36,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route401_CatchingTest",
-      "flag": "0"
+      "flag": "FLAG_CATCHING_TUTORIAL_DONE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
@@ -49,7 +49,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_CATCHING_TUTORIAL_DONE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
@@ -95,7 +95,42 @@
 
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_CATCHING_TUTORIAL_STATE",
+      "var_value": "0",
+      "script": "Route401_MoveRight"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_CATCHING_TUTORIAL_STATE",
+      "var_value": "0",
+      "script": "Route401_MoveUp"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_CATCHING_TUTORIAL_STATE",
+      "var_value": "0",
+      "script": "Route401_MoveLeft"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_CATCHING_TUTORIAL_STATE",
+      "var_value": "0",
+      "script": "Route401_MoveLeftLeft"
+    }
   ],
   "bg_events": [
     {
