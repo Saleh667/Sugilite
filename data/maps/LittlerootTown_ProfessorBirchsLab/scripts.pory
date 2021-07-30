@@ -694,6 +694,8 @@ script KurosibaTown_ProfessorsLab_EventScript_RivalWon{
 		}
 	}
 
+	clearflag(FLAG_DID_LOSE)
+
 	setvar(VAR_BIRCH_LAB_STATE, 2)
 	releaseall
 	
