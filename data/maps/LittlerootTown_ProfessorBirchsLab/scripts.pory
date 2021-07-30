@@ -640,17 +640,6 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
 				trainerbattle_no_intro(TRAINER_EIRIKA_LAB_JELLOSIS,KurosibaTown_ProfessorsLab_Text_EirikaDefeated)
 		}
 
-		//After a won battle
-		fadedefaultbgm
-		applymovement(LOCALID_RIVAL, Common_Movement_EmoteSweat)
-		msgbox(format("Eirika: Darn, you're pretty good {PLAYER}. Guess I gotta work on my skills more."))
-			
-		delay(16)
-
-		applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteHeart)
-		waitmovement(0)
-		msgbox("Stephanie: It's alright, dear.\nExperiencing defeat with your first\lpartner can be frustrating,\lbut I'm sure you'll both be able to\lraise your Pokémon well.")
-
 		goto(KurosibaTown_ProfessorsLab_EventScript_PlayerWon)
 	}
 	else {
@@ -670,18 +659,8 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
 				trainerbattle_no_intro(TRAINER_ERIC_LAB_CYBIO,KurosibaTown_ProfessorsLab_Text_EricDefeated)
 		}
 
-		//After a won battle
-		fadedefaultbgm
-		applymovement(LOCALID_RIVAL, Common_Movement_EmoteSweat)
-		msgbox("Eric: Darn, you're pretty good {PLAYER}.\nA nice head start!")
+		goto(KurosibaTown_ProfessorsLab_EventScript_RivalWon)
 
-		delay(16)
-
-		applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteHeart)
-		waitmovement(0)
-		msgbox("Stephanie: It's alright, dear.\nExperiencing defeat with your first\lpartner can be frustrating,\lbut I'm sure you'll both be able to\lraise your Pokémon well.")
-
-		goto(KurosibaTown_ProfessorsLab_EventScript_PlayerWon)
 	}
 }
 
@@ -692,7 +671,7 @@ script KurosibaTown_ProfessorsLab_EventScript_RivalWon{
 
 	fadedefaultbgm
 
-	if(var(VAR_TEMP_0) == TRUE){
+	if(var(FLAG_DID_LOSE) == TRUE){
 		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_EmoteSweat)
 		delay(60)
 	} else {
@@ -704,7 +683,7 @@ script KurosibaTown_ProfessorsLab_EventScript_RivalWon{
 	applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteHeart)
 	waitmovement(0)
 
-	if(var(VAR_TEMP_0) == TRUE){
+	if(var(FLAG_DID_LOSE) == TRUE){
 			msgbox("Stephanie: It's alright, {PLAYER}.\nExperiencing defeat with your first\lpartner can be frustrating,\lbut I'm sure you'll both be able to\lraise your Pokémon well.")
 	} else {
 		checkplayergender
@@ -715,6 +694,8 @@ script KurosibaTown_ProfessorsLab_EventScript_RivalWon{
 		}
 	}
 
+	clearflag(FLAG_DID_LOSE)
+
 	setvar(VAR_BIRCH_LAB_STATE, 2)
 	releaseall
 	
@@ -723,6 +704,8 @@ script KurosibaTown_ProfessorsLab_EventScript_RivalWon{
 
 script KurosibaTown_ProfessorsLab_EventScript_PlayerWon{
 	
+	special(HealPlayerParty)
+
 	msgbox(format("Which takes me to my next point. Come here, you two."))
 	closemessage
 
