@@ -671,6 +671,7 @@ KurosibaTown_ProfessorsLab_EventScript_PlayerWon_5:
 	message KurosibaTown_ProfessorsLab_EventScript_PlayerWon_Text_9
 	waitfanfare
 	waitmessage
+	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_SYS_POKEDEX_GET
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
