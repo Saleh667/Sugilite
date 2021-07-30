@@ -1027,7 +1027,7 @@ static bool32 IsPlayerDefeated(u32 battleOutcome)
 
     if (FlagGet(FLAG_PLAYER_CANNOT_LOSE))
     {
-        gSpecialVar_Result = TRUE;
+        FlagSet(FLAG_DID_LOSE);
         return FALSE;
     }
 
@@ -1389,7 +1389,7 @@ static void CB2_EndTrainerBattle(void)
             FlagClear(FLAG_PLAYER_CANNOT_LOSE);
 
             //So the NPC can comment on who won
-            gSpecialVar_Result = TRUE;
+            FlagSet(FLAG_DID_LOSE);
             HealPlayerParty();
 
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);

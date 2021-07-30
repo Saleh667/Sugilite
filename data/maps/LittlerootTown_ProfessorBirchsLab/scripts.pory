@@ -640,6 +640,12 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
 				trainerbattle_no_intro(TRAINER_EIRIKA_LAB_JELLOSIS,KurosibaTown_ProfessorsLab_Text_EirikaDefeated)
 		}
 
+		if(flag(FLAG_DID_LOSE) == TRUE){
+			msgbox("YOU LOSE, GOOD DAY SIR!")
+		} else {
+			
+		}
+
 		//After a won battle
 		fadedefaultbgm
 		applymovement(LOCALID_RIVAL, Common_Movement_EmoteSweat)

@@ -1304,7 +1304,7 @@
 #define FLAG_UNUSED_0x4EA 0x4EA            // Unused Flag
 #define FLAG_UNUSED_0x4EB 0x4EB            // Unused Flag
 #define FLAG_UNUSED_0x4EC 0x4EC            // Unused Flag
-#define FLAG_UNUSED_0x4ED 0x4ED            // Unused Flag
+#define FLAG_DID_LOSE     0x4ED            // Unused Flag
 #define FLAG_HIDE_PROFS_LAB_POKEBALL 0x4EE // Used to Check if the Pokeball selection is thru.
 #define FLAG_MAID_GIFT_READY 0x4EF         // Set to notify the maid to give an item (After EVERY GYM VICTORY)
 
