@@ -481,13 +481,14 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_10:
 	case 2, KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_25
 	case 3, KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_26
 KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_22:
+	goto_if_set FLAG_DID_LOSE, KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_31
 	fadedefaultbgm
 	applymovement 1, Common_Movement_EmoteSweat
-	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_26
+	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_25
 	delay 16
 	applymovement 7, Common_Movement_EmoteHeart
 	waitmovement 0
-	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_25
+	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_24
 	goto KurosibaTown_ProfessorsLab_EventScript_PlayerWon
 	return
 
@@ -555,14 +556,14 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_14:
 	case 3, KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_21
 KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_17:
 	goto_if_set FLAG_DID_LOSE, KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_28
-KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_27:
 	fadedefaultbgm
 	applymovement 1, Common_Movement_EmoteSweat
-	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_24
+	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_23
 	delay 16
 	applymovement 7, Common_Movement_EmoteHeart
 	waitmovement 0
-	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_25
+	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_24
+KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_27:
 	goto KurosibaTown_ProfessorsLab_EventScript_PlayerWon
 	return
 
@@ -591,8 +592,12 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_26:
 	goto KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_22
 
 KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_28:
-	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_23
+	goto KurosibaTown_ProfessorsLab_EventScript_RivalWon
 	goto KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_27
+
+KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_31:
+	goto KurosibaTown_ProfessorsLab_EventScript_RivalWon
+	return
 
 
 KurosibaTown_ProfessorsLab_EventScript_RivalWon::
@@ -2287,17 +2292,14 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_22:
 	.string "Eric: Okay.\nSounds good!$"
 
 KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_23:
-	.string "YOU LOSE, GOOD DAY SIR!$"
-
-KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_24:
 	.string "Eirika: Darn, you're pretty good\n"
 	.string "{PLAYER}. Guess I gotta work on my\l"
 	.string "skills more.$"
 
-KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_25:
+KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_24:
 	.string "Stephanie: It's alright, dear.\nExperiencing defeat with your first\lpartner can be frustrating,\lbut I'm sure you'll both be able to\lraise your Pokémon well.$"
 
-KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_26:
+KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_25:
 	.string "Eric: Darn, you're pretty good {PLAYER}.\nA nice head start!$"
 
 KurosibaTown_ProfessorsLab_EventScript_RivalWon_Text_0:
