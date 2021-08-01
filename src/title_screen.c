@@ -14,6 +14,7 @@
 #include "reset_rtc_screen.h"
 #include "berry_fix_program.h"
 #include "sound.h"
+#include "sound_check_menu.h"
 #include "sprite.h"
 #include "task.h"
 #include "scanline_effect.h"
@@ -749,8 +750,8 @@ static void Task_TitleScreenPhase3(u8 taskId)
     else if (JOY_HELD(BERRY_UPDATE_BUTTON_COMBO) == BERRY_UPDATE_BUTTON_COMBO)
     {
         FadeOutBGM(4);
-        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
-        SetMainCallback2(CB2_GoToBerryFixScreen);
+        BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 0x10, RGB_BLACK);
+        SetMainCallback2(CB2_StartSoundCheckMenu);
     }   
     else
     {
