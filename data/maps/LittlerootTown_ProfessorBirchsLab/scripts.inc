@@ -481,15 +481,7 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_10:
 	case 2, KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_25
 	case 3, KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_26
 KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_22:
-	goto_if_set FLAG_DID_LOSE, KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_31
-	fadedefaultbgm
-	applymovement 1, Common_Movement_EmoteSweat
-	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_25
-	delay 16
-	applymovement 7, Common_Movement_EmoteHeart
-	waitmovement 0
-	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_24
-	goto KurosibaTown_ProfessorsLab_EventScript_PlayerWon
+	goto KurosibaTown_ProfessorsLab_EventScript_RivalWon
 	return
 
 KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_3:
@@ -555,15 +547,6 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_14:
 	case 2, KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_20
 	case 3, KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_21
 KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_17:
-	goto_if_set FLAG_DID_LOSE, KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_28
-	fadedefaultbgm
-	applymovement 1, Common_Movement_EmoteSweat
-	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_23
-	delay 16
-	applymovement 7, Common_Movement_EmoteHeart
-	waitmovement 0
-	msgbox KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_24
-KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_27:
 	goto KurosibaTown_ProfessorsLab_EventScript_PlayerWon
 	return
 
@@ -591,20 +574,12 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_26:
 	trainerbattle_no_intro TRAINER_ERIC_LAB_CYBIO, KurosibaTown_ProfessorsLab_Text_EricDefeated
 	goto KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_22
 
-KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_28:
-	goto KurosibaTown_ProfessorsLab_EventScript_RivalWon
-	goto KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_27
-
-KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_31:
-	goto KurosibaTown_ProfessorsLab_EventScript_RivalWon
-	return
-
 
 KurosibaTown_ProfessorsLab_EventScript_RivalWon::
 	lockall
 	special HealPlayerParty
 	fadedefaultbgm
-	compare VAR_TEMP_0, TRUE
+	compare FLAG_DID_LOSE, TRUE
 	goto_if_eq KurosibaTown_ProfessorsLab_EventScript_RivalWon_2
 	applymovement 1, Common_Movement_EmoteSweat
 	delay 60
@@ -612,13 +587,14 @@ KurosibaTown_ProfessorsLab_EventScript_RivalWon_1:
 	delay 16
 	applymovement 7, Common_Movement_EmoteHeart
 	waitmovement 0
-	compare VAR_TEMP_0, TRUE
+	compare FLAG_DID_LOSE, TRUE
 	goto_if_eq KurosibaTown_ProfessorsLab_EventScript_RivalWon_6
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq KurosibaTown_ProfessorsLab_EventScript_RivalWon_9
 	msgbox KurosibaTown_ProfessorsLab_EventScript_RivalWon_Text_2
 KurosibaTown_ProfessorsLab_EventScript_RivalWon_5:
+	clearflag FLAG_DID_LOSE
 	setvar VAR_BIRCH_LAB_STATE, 2
 	releaseall
 	goto KurosibaTown_ProfessorsLab_EventScript_PlayerWon
@@ -639,6 +615,7 @@ KurosibaTown_ProfessorsLab_EventScript_RivalWon_9:
 
 
 KurosibaTown_ProfessorsLab_EventScript_PlayerWon::
+	special HealPlayerParty
 	msgbox KurosibaTown_ProfessorsLab_EventScript_PlayerWon_Text_0
 	closemessage
 	fadescreen 1
@@ -2290,17 +2267,6 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_21:
 
 KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_22:
 	.string "Eric: Okay.\nSounds good!$"
-
-KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_23:
-	.string "Eirika: Darn, you're pretty good\n"
-	.string "{PLAYER}. Guess I gotta work on my\l"
-	.string "skills more.$"
-
-KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_24:
-	.string "Stephanie: It's alright, dear.\nExperiencing defeat with your first\lpartner can be frustrating,\lbut I'm sure you'll both be able to\lraise your Pokémon well.$"
-
-KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_25:
-	.string "Eric: Darn, you're pretty good {PLAYER}.\nA nice head start!$"
 
 KurosibaTown_ProfessorsLab_EventScript_RivalWon_Text_0:
 	.string "Stephanie: It's alright, {PLAYER}.\nExperiencing defeat with your first\lpartner can be frustrating,\lbut I'm sure you'll both be able to\lraise your Pokémon well.$"

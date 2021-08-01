@@ -22,6 +22,11 @@
       "direction": "right",
       "offset": -8,
       "map": "MAP_IVYWOOD_TOWN"
+    },
+    {
+      "direction": "up",
+      "offset": 30,
+      "map": "MAP_ROUTE402B"
     }
   ],
   "object_events": [
