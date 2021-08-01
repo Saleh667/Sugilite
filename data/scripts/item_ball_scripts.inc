@@ -2,7 +2,11 @@ Route102_EventScript_ItemPotion:: @ 8290CD8
 	finditem ITEM_POTION
 	end
 
-Route103_EventScript_ItemGuardSpec:: @ 8290CE5
+Route402_EventScript_ItemGuardSpec:: @ 8290CE5
+	finditem ITEM_GUARD_SPEC
+	end
+
+Route402_EventScript_ItemPokeBall:: @ 8290CE5
 	finditem ITEM_GUARD_SPEC
 	end
 
