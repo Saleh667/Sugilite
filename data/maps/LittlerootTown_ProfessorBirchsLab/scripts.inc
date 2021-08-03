@@ -32,8 +32,8 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection::
 	waitmovement 0
 	applymovement 7, Common_Movement_FaceLeft
 	waitmovement 0
-	playse SE_BOO
 	delay 60
+	playse SE_BOO
 	applymovement 7, Common_Movement_EmoteAngry
 	delay 60
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_1
@@ -75,8 +75,8 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection_1:
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq KurosibaTown_ProfessorsLab_EventScript_StarterSelection_12
-	playse SE_PIN
 	applymovement 1, Common_Movement_EmoteIdea
+	playse SE_PIN
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_14
 KurosibaTown_ProfessorsLab_EventScript_StarterSelection_5:
 	closemessage
@@ -87,6 +87,7 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection_5:
 
 KurosibaTown_ProfessorsLab_EventScript_StarterSelection_2:
 	applymovement 1, Common_Movement_EmoteAngry
+	playse SE_BOO
 	waitmovement 0
 	delay 60
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_3
@@ -121,8 +122,8 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection_9:
 	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_5
 
 KurosibaTown_ProfessorsLab_EventScript_StarterSelection_12:
-	playse SE_PIN
 	applymovement 1, Common_Movement_EmoteX
+	playse SE_PIN
 	msgbox KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_13
 	goto KurosibaTown_ProfessorsLab_EventScript_StarterSelection_5
 

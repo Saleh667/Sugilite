@@ -188,6 +188,7 @@ Route401_DoMovement_9:
 	delay 60
 	msgbox Route401_DoMovement_Text_14
 	applymovement 1, Common_Movement_EmoteExclamation
+	playse SE_PIN
 	msgbox Route401_DoMovement_Text_15
 	closemessage
 	special SavePlayerParty
@@ -242,6 +243,7 @@ Route401_DoMovement_17:
 	removeitem ITEM_POKE_BALL, 5
 	msgbox Route401_DoMovement_Text_27
 	msgbox Route401_DoMovement_Text_30
+	closemessage
 Route401_DoMovement_21:
 	applymovement 1, Route401_SimmerLeave
 	waitmovement 0
@@ -301,6 +303,7 @@ Route401_DoMovement_22:
 	removeitem ITEM_POKE_BALL, 5
 	msgbox Route401_DoMovement_Text_27
 	msgbox Route401_DoMovement_Text_28
+	closemessage
 	goto Route401_DoMovement_21
 
 Route401_DoMovement_26:
