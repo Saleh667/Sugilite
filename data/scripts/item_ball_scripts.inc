@@ -7,7 +7,7 @@ Route402_EventScript_ItemGuardSpec:: @ 8290CE5
 	end
 
 Route402_EventScript_ItemPokeBall:: @ 8290CE5
-	finditem ITEM_GUARD_SPEC
+	finditem ITEM_POKE_BALL
 	end
 
 Route103_EventScript_ItemPPUp:: @ 8290CF2

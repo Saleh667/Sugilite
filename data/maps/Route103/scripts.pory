@@ -3,10 +3,28 @@ mapscripts Route103_MapScripts{
 
 }
 
-script Route103_LittleGirl{
+script Route402_LittleGirl{
     lock
     faceplayer
     msgbox("You should look at the ground carefully.\nYou might find some cool stuff!")
     closemessage
     release
+}
+
+script Route402_Fight_Killian{
+    trainerbattle_single(TRAINER_KILLIAN, "Haha, a trainer!\pWhen our eyes meet, you know\nwhat comes next!", "Darn it!")
+    msgbox("I'll win battles if I train harder!", MSGBOX_AUTOCLOSE)
+    end
+}
+
+script Route402_Fight_Thaley{
+    trainerbattle_single(TRAINER_THALEY, "Oh. Em. Gee.\nAre you a trainer?\pLet's like, battle!", "Tots ridic!")
+    msgbox("Like, I really adore cute Pokemon!", MSGBOX_AUTOCLOSE)
+    end
+}
+
+script Route402_Fight_Cindy{
+    trainerbattle_single(TRAINER_CINDY, "Fufufu...\nWant to take a closer look at my bugs?", "Eeeek!")
+    msgbox("M-My bugs...\nYou'll pay for this...", MSGBOX_AUTOCLOSE)
+    end
 }
