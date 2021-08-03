@@ -224,7 +224,11 @@ script Route401_DoMovement{
 	applymovement(LOCALID_SIMMERMAN, Common_Movement_EmoteEllipsis)
 	delay(60)
 
-	msgbox("Simmerman: See? Nothing to worry about...\nWOAH!")
+	msgbox("Simmerman: See? Nothing to worry about...")
+
+	applymovement(LOCALID_SIMMERMAN, Common_Movement_EmoteExclamation)
+	playse(SE_PIN)
+	msgbox("WOAH!")
 	closemessage
 
 	special(SavePlayerParty)
@@ -280,18 +284,40 @@ script Route401_DoMovement{
 
 		msgbox("Eirika: Gotcha.\nAny other tips?\pOh, I got one for you.\nDon't be reckless.")
 		msgbox("Simmerman: ...\nVery funny.")
-		msgbox("Simmerman: Welp!\nI guess my work is done here.\pYou've got a ways to go, kids.\nI'll see you again when you're stronger.\lDon't count on it though, I'm usually\lvery busy.")
-		msgbox("Eirika: Okay then, bye Mr. Simmerman!")
+
 	} else {
 		applymovement(LOCALID_SIBLING, Common_Movement_EmoteEllipsis)
 		delay(60)
 
 		msgbox("Eric: Right, and maybe\nproceed with caution as well.")
 		msgbox("Simmerman: ...\nYeah, yeah, whatever.")
-		msgbox("Simmerman: Welp!\nI guess my work is done here.\pYou've got a ways to go, kids.\nI'll see you again when you're stronger.\lDon't count on it though, I'm usually\lvery busy.")
-		msgbox("Eric: Okay then, bye Mr. Simmerman!")
+
 	}
 	closemessage
+
+	applymovement(LOCALID_SIMMERMAN,Route401_SimmerToPlayer)
+	waitmovement(0)
+
+	msgbox("Simmerman: Here, this is for you two.\nDon't, uh, spend it all at once.\lGot it?")
+	giveitem(ITEM_POKE_BALL, 10)
+
+
+	checkplayergender
+	if (var(VAR_RESULT) == MALE) {
+		msgbox("{PLAYER} gave half of the items to\nEirika.")
+		removeitem(ITEM_POKE_BALL, 5)
+		msgbox("Simmerman: Welp!\nI guess my work is done here.\pYou've got a ways to go, kids.\nI'll see you again when you're stronger.\lDon't count on it though, I'm usually\lvery busy.")
+		msgbox("Eirika: Okay then, bye Mr. Simmerman!")
+		closemessage
+	}
+	else
+	{
+		msgbox("{PLAYER} gave half of the items to\nEric.")
+		removeitem(ITEM_POKE_BALL, 5)
+		msgbox("Simmerman: Welp!\nI guess my work is done here.\pYou've got a ways to go, kids.\nI'll see you again when you're stronger.\lDon't count on it though, I'm usually\lvery busy.")
+		msgbox("Eric: Okay then, bye Mr. Simmerman!")
+		closemessage
+	}
 
 	applymovement(LOCALID_SIMMERMAN, Route401_SimmerLeave)
 	waitmovement(0)
@@ -379,7 +405,14 @@ movement Route401_PlayerToSimmer{
 	walk_left
 }
 
+movement Route401_SimmerToPlayer{
+	walk_down
+	walk_right * 2
+}
+
 movement Route401_SimmerLeave{
+	walk_up
+	walk_left * 2
 	walk_up * 6
 }
 

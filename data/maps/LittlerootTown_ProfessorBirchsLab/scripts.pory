@@ -44,10 +44,10 @@ script KurosibaTown_ProfessorsLab_EventScript_StarterSelection {
 
   applymovement(LOCALID_STEPHANIE, Common_Movement_FaceLeft)
   waitmovement(0)
-  playse(SE_BOO)
   delay(60)
 
-  	applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteAngry)
+  	playse(SE_BOO)
+	applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteAngry)
   	delay(60)
   	msgbox(format("Stephanie: Simmerman!"))
 	closemessage
@@ -65,6 +65,7 @@ script KurosibaTown_ProfessorsLab_EventScript_StarterSelection {
     checkplayergender
     if (var(VAR_RESULT) == MALE) {
         applymovement(LOCALID_RIVAL, Common_Movement_EmoteAngry)
+		playse(SE_BOO)
         waitmovement(0)
         delay(60)
 
@@ -145,14 +146,14 @@ script KurosibaTown_ProfessorsLab_EventScript_StarterSelection {
 		checkplayergender
         if (var(VAR_RESULT) == MALE) {
 
-			playse(SE_PIN)
             applymovement(LOCALID_RIVAL, Common_Movement_EmoteX)
+			playse(SE_PIN)
             msgbox("Eirika: I suppose I should let you pick first,\nit's not the first time I\lhave to do that anyway.\pI'm a nice sister that way,\nso yeah.")
         }
         else {
 
-			playse(SE_PIN)
             applymovement(LOCALID_RIVAL, Common_Movement_EmoteIdea)
+			playse(SE_PIN)
             msgbox("Eric: How about I let you pick first?\lI'm a nice brother that way!")
 
         }
@@ -640,7 +641,7 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
 				trainerbattle_no_intro(TRAINER_EIRIKA_LAB_JELLOSIS,KurosibaTown_ProfessorsLab_Text_EirikaDefeated)
 		}
 
-		goto(KurosibaTown_ProfessorsLab_EventScript_PlayerWon)
+		goto(KurosibaTown_ProfessorsLab_EventScript_RivalWon)
 	}
 	else {
 		playbgm(MUS_ENCOUNTER_BRENDAN, TRUE)
