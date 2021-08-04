@@ -651,7 +651,7 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_3 (FLAG_HIDDEN_ITEMS_START + 0x5E)
 
 #define FLAG_KUROSIBA_TOWN_HIDE_LITTLE_GIRL 0x264 // Unused Flag
-#define FLAG_UNUSED_0x265 0x265                   // Unused Flag
+#define FLAG_ITEM_ROUTE402B_PARALYZE_HEAL 0x265                   // Unused Flag
 #define FLAG_UNUSED_0x266 0x266                   // Unused Flag
 #define FLAG_UNUSED_0x267 0x267                   // Unused Flag
 #define FLAG_UNUSED_0x268 0x268                   // Unused Flag

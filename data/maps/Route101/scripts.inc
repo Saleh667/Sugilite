@@ -511,7 +511,7 @@ Route401_DoMovement_Text_24:
 	.string "Simmerman: ...\nYeah, yeah, whatever.$"
 
 Route401_DoMovement_Text_25:
-	.string "Simmerman: Here, this is for you two.\nDon't, uh, spend it all at once.\lGot it?$"
+	.string "Simmerman: Here, this is for you two.\nDon't, uh, throw them all at once.\lGot it?$"
 
 Route401_DoMovement_Text_26:
 	.string "{PLAYER} gave half of the items to\nEirika.$"

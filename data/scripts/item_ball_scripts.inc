@@ -10,6 +10,10 @@ Route402_EventScript_ItemPokeBall:: @ 8290CE5
 	finditem ITEM_POKE_BALL
 	end
 
+Route402B_EventScript_ItemParalyzeHeal:: @ 8290CE5
+	finditem ITEM_PARALYZE_HEAL
+	end
+
 Route103_EventScript_ItemPPUp:: @ 8290CF2
 	finditem ITEM_PP_UP
 	end

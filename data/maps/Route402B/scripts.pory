@@ -1,0 +1,32 @@
+mapscripts Route402B_MapScripts{}
+
+script Route402B_Dragby{
+    lock
+    msgbox("Dragby: ZZZ...\nZZZ...\lZZZ...")
+	msgbox("...")
+	msgbox("There seem to be a pair of\nDragby sleeping here.\lBest not to wake them up!")
+    closemessage
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
+	waitmovement(0)
+    release
+}
+
+script Route402B_LittleBoy{
+    lock
+    faceplayer
+    msgbox("Eldrifell City is sooo big!\nI heard there's a gym leader there!")
+    closemessage
+    release
+}
+
+script Route402B_Fight_Annie{
+    trainerbattle_single(TRAINER_ANNIE, "You wanna play too?\nIt'll be fun...", "Tibbers...")
+    msgbox("Hop, skip, jump!", MSGBOX_AUTOCLOSE)
+    end
+}
+
+script Route402B_Fight_Geoffrey{
+    trainerbattle_single(TRAINER_ANNIE, "Hey, you!\nLet's battle!", "Aw shucks!")
+    msgbox("I felt like that was a bit unfair...", MSGBOX_AUTOCLOSE)
+    end
+}

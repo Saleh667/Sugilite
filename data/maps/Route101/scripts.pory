@@ -298,7 +298,7 @@ script Route401_DoMovement{
 	applymovement(LOCALID_SIMMERMAN,Route401_SimmerToPlayer)
 	waitmovement(0)
 
-	msgbox("Simmerman: Here, this is for you two.\nDon't, uh, spend it all at once.\lGot it?")
+	msgbox("Simmerman: Here, this is for you two.\nDon't, uh, throw them all at once.\lGot it?")
 	giveitem(ITEM_POKE_BALL, 10)
 
 
