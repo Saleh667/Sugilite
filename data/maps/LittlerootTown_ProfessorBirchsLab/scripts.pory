@@ -672,7 +672,7 @@ script KurosibaTown_ProfessorsLab_EventScript_RivalWon{
 
 	fadedefaultbgm
 
-	if(var(FLAG_DID_LOSE) == TRUE){
+	if(flag(FLAG_DID_LOSE)){
 		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_EmoteSweat)
 		delay(60)
 	} else {
@@ -684,7 +684,7 @@ script KurosibaTown_ProfessorsLab_EventScript_RivalWon{
 	applymovement(LOCALID_STEPHANIE, Common_Movement_EmoteHeart)
 	waitmovement(0)
 
-	if(var(FLAG_DID_LOSE) == TRUE){
+	if(flag(FLAG_DID_LOSE)){
 			msgbox("Stephanie: It's alright, {PLAYER}.\nExperiencing defeat with your first\lpartner can be frustrating,\lbut I'm sure you'll both be able to\lraise your Pokémon well.")
 	} else {
 		checkplayergender
