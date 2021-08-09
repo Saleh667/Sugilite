@@ -580,16 +580,14 @@ KurosibaTown_ProfessorsLab_EventScript_RivalWon::
 	lockall
 	special HealPlayerParty
 	fadedefaultbgm
-	compare FLAG_DID_LOSE, TRUE
-	goto_if_eq KurosibaTown_ProfessorsLab_EventScript_RivalWon_2
+	goto_if_set FLAG_DID_LOSE, KurosibaTown_ProfessorsLab_EventScript_RivalWon_2
 	applymovement 1, Common_Movement_EmoteSweat
 	delay 60
 KurosibaTown_ProfessorsLab_EventScript_RivalWon_1:
 	delay 16
 	applymovement 7, Common_Movement_EmoteHeart
 	waitmovement 0
-	compare FLAG_DID_LOSE, TRUE
-	goto_if_eq KurosibaTown_ProfessorsLab_EventScript_RivalWon_6
+	goto_if_set FLAG_DID_LOSE, KurosibaTown_ProfessorsLab_EventScript_RivalWon_6
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq KurosibaTown_ProfessorsLab_EventScript_RivalWon_9
