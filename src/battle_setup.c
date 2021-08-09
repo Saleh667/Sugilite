@@ -1025,16 +1025,15 @@ static u16 GetTrainerBFlag(void)
 static bool32 IsPlayerDefeated(u32 battleOutcome)
 {
 
-    if (FlagGet(FLAG_PLAYER_CANNOT_LOSE))
-    {
-        FlagSet(FLAG_DID_LOSE);
-        return FALSE;
-    }
-
     switch (battleOutcome)
     {
     case B_OUTCOME_LOST:
     case B_OUTCOME_DREW:
+        if (FlagGet(FLAG_PLAYER_CANNOT_LOSE))
+        {
+            FlagSet(FLAG_DID_LOSE);
+            return FALSE;
+        }
         return TRUE;
     case B_OUTCOME_WON:
     case B_OUTCOME_RAN:
