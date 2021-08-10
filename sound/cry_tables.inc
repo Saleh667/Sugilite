@@ -915,6 +915,18 @@ gCryTable:: @ 869DCF4
 	cry_uncomp Cry_Horrimoth
 	cry_uncomp Cry_Graven
 	cry_uncomp Cry_Shirill
+	cry_uncomp Cry_Grimix
+    cry_uncomp Cry_Sorrogrime
+    cry_uncomp Cry_Kyootedi
+    cry_uncomp Cry_Jiltedi
+    cry_uncomp Cry_Juntrick
+    cry_uncomp Cry_Dumphile
+    cry_uncomp Cry_Totemi
+    cry_uncomp Cry_Tometic
+    cry_uncomp Cry_Hoodlin
+    cry_uncomp Cry_Slormag
+    cry_uncomp Cry_Clasdron
+    cry_uncomp Cry_Pladyjack
 	@ Megas
 	cry_uncomp Cry_VenusaurMega
 	cry_uncomp Cry_CharizardMegaX
