@@ -40,7 +40,9 @@ script Route401_NPC_Youngster{
 script Route401_NPC_Dragby{
 	lock
 	faceplayer
+	playmoncry(SPECIES_DRAGBY, 2)
 	msgbox("Bebebee!")
+	waitmoncry
 	applymovement(LOCALID_YOUNGSTER, Common_Movement_FaceRight)
 	waitmovement(0)
 	closemessage

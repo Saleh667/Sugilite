@@ -30,5 +30,8 @@ script Route402_Fight_Cindy{
 }
 
 script Route402_Sign{
-    msgbox("Route 402\lIvywood Town: East\lEldrifell City: North")
+    lock
+    msgbox("Route 402\nIvywood Town: East\lEldrifell City: North")
+    closemessage
+    release
 }

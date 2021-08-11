@@ -39,7 +39,9 @@ Route401_NPC_Youngster::
 Route401_NPC_Dragby::
 	lock
 	faceplayer
+	playmoncry SPECIES_DRAGBY, 2
 	msgbox Route401_NPC_Dragby_Text_0
+	waitmoncry
 	applymovement 4, Common_Movement_FaceRight
 	waitmovement 0
 	closemessage

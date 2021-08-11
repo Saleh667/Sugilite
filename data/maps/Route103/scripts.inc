@@ -30,7 +30,10 @@ Route402_Fight_Cindy::
 
 
 Route402_Sign::
+	lock
 	msgbox Route402_Sign_Text_0
+	closemessage
+	release
 	return
 
 
@@ -65,4 +68,4 @@ Route402_Fight_Cindy_Text_2:
 	.string "M-My bugs...\nYou'll pay for this...$"
 
 Route402_Sign_Text_0:
-	.string "Route 402\lIvywood Town ->\lEldrifell City$"
+	.string "Route 402\nIvywood Town: East\lEldrifell City: North$"
