@@ -29,6 +29,11 @@ Route402_Fight_Cindy::
 	end
 
 
+Route402_Sign::
+	msgbox Route402_Sign_Text_0
+	return
+
+
 Route402_LittleGirl_Text_0:
 	.string "You should look at the ground carefully.\nYou might find some cool stuff!$"
 
@@ -58,3 +63,6 @@ Route402_Fight_Cindy_Text_1:
 
 Route402_Fight_Cindy_Text_2:
 	.string "M-My bugs...\nYou'll pay for this...$"
+
+Route402_Sign_Text_0:
+	.string "Route 402\lIvywood Town ->\lEldrifell City$"
