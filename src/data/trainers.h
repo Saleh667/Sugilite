@@ -58,9 +58,9 @@ const struct Trainer gTrainers[] = {
     [TRAINER_ANNIE] =
         {
             .partyFlags = 0,
-            .trainerClass = TRAINER_CLASS_HEX_MANIAC,
+            .trainerClass = TRAINER_CLASS_NINJA_BOY,
             .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-            .trainerPic = TRAINER_PIC_TWINS,
+            .trainerPic = TRAINER_PIC_NINJA_BOY,
             .trainerName = _("ANNIE"),
             .items = {},
             .doubleBattle = FALSE,
