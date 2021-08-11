@@ -68,4 +68,4 @@ Route402_Fight_Cindy_Text_2:
 	.string "M-My bugs...\nYou'll pay for this...$"
 
 Route402_Sign_Text_0:
-	.string "Route 402\nIvywood Town: East\lEldrifell City: North$"
+	.string "Route 402\nIvywood Town {RIGHT_ARROW} \lEldrifell City {UP_ARROW} $"
