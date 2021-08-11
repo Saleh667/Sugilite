@@ -26,7 +26,7 @@ script Route402B_Fight_Annie{
 }
 
 script Route402B_Fight_Geoffrey{
-    trainerbattle_single(TRAINER_ANNIE, "Hey, you!\nLet's battle!", "Aw shucks!")
+    trainerbattle_single(TRAINER_GEOFFREY, "Hey, you!\nLet's battle!", "Aw shucks!")
     msgbox("I felt like that was a bit unfair...", MSGBOX_AUTOCLOSE)
     end
 }

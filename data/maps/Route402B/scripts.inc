@@ -30,7 +30,7 @@ Route402B_Fight_Annie::
 
 
 Route402B_Fight_Geoffrey::
-	trainerbattle_single TRAINER_ANNIE, Route402B_Fight_Geoffrey_Text_0, Route402B_Fight_Geoffrey_Text_1
+	trainerbattle_single TRAINER_GEOFFREY, Route402B_Fight_Geoffrey_Text_0, Route402B_Fight_Geoffrey_Text_1
 	msgbox Route402B_Fight_Geoffrey_Text_2, MSGBOX_AUTOCLOSE
 	end
 

@@ -28,3 +28,7 @@ script Route402_Fight_Cindy{
     msgbox("M-My bugs...\nYou'll pay for this...", MSGBOX_AUTOCLOSE)
     end
 }
+
+script Route402_Sign{
+    msgbox("Route 402\lIvywood Town: East\lEldrifell City: North")
+}
