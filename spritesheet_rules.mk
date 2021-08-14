@@ -47,23 +47,31 @@ $(OBJEVENTGFXDIR)/people/simmerman.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/prof_steph.4bpp: %.4bpp: %.png
 		$(GFX) $< $@ -mwidth 2 -mheight 4
 
-		$(OBJEVENTGFXDIR)/pokemon/dragbyow.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/pokemon/dragbyow.4bpp: %.4bpp: %.png
 		$(GFX) $< $@ -mwidth 2 -mheight 2
-		$(OBJEVENTGFXDIR)/people/fairygirlow.4bpp: %.4bpp: %.png
+
+$(OBJEVENTGFXDIR)/people/fairygirlow.4bpp: %.4bpp: %.png
 		$(GFX) $< $@ -mwidth 2 -mheight 2
-		$(OBJEVENTGFXDIR)/people/fat_guy.4bpp: %.4bpp: %.png
+
+$(OBJEVENTGFXDIR)/people/fat_guy.4bpp: %.4bpp: %.png
 		$(GFX) $< $@ -mwidth 2 -mheight 4
-		$(OBJEVENTGFXDIR)/pokemon/jiltediow.4bpp: %.4bpp: %.png
+
+$(OBJEVENTGFXDIR)/pokemon/jiltediow.4bpp: %.4bpp: %.png
 		$(GFX) $< $@ -mwidth 2 -mheight 2
-		$(OBJEVENTGFXDIR)/pokemon/juntrickow.4bpp: %.4bpp: %.png
+
+$(OBJEVENTGFXDIR)/pokemon/juntrickow.4bpp: %.4bpp: %.png
 		$(GFX) $< $@ -mwidth 2 -mheight 4
-		$(OBJEVENTGFXDIR)/people/little_boy1.4bpp: %.4bpp: %.png
+
+$(OBJEVENTGFXDIR)/people/little_boy1.4bpp: %.4bpp: %.png
 		$(GFX) $< $@ -mwidth 2 -mheight 2
-		$(OBJEVENTGFXDIR)/people/little_girl1.4bpp: %.4bpp: %.png
+
+$(OBJEVENTGFXDIR)/people/little_girl1.4bpp: %.4bpp: %.png
 		$(GFX) $< $@ -mwidth 2 -mheight 2
-		$(OBJEVENTGFXDIR)/people/old_lady1.4bpp: %.4bpp: %.png
+
+$(OBJEVENTGFXDIR)/people/old_lady1.4bpp: %.4bpp: %.png
 		$(GFX) $< $@ -mwidth 2 -mheight 4
-		$(OBJEVENTGFXDIR)/people/scientist.4bpp: %.4bpp: %.png
+
+$(OBJEVENTGFXDIR)/people/scientist.4bpp: %.4bpp: %.png
 		$(GFX) $< $@ -mwidth 2 -mheight 4
 
 $(OBJEVENTGFXDIR)/people/simmer_laugh.4bpp: %.4bpp: %.png
