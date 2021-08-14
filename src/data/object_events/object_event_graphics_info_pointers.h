@@ -251,6 +251,16 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Prof_Steph;
 //Simmerman Laughing
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SimmerLaugh;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Dragby;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Fairygirl;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Jiltedi;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Juntrick;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Little_Boy_1;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Little_Girl_1;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Old_Lady_1;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Scientist;
+ 
+
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
     [OBJ_EVENT_GFX_BRENDAN_MACH_BIKE] =        &gObjectEventGraphicsInfo_BrendanMachBike,
@@ -493,6 +503,16 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_HOOH] =                     &gObjectEventGraphicsInfo_HoOh,
     [OBJ_EVENT_GFX_SIMMERMAN] =                &gObjectEventGraphicsInfo_Simmerman,
     [OBJ_EVENT_GFX_PROF_STEPH] =               &gObjectEventGraphicsInfo_Prof_Steph,
+
+    [OBJ_EVENT_GFX_DRAGBY] =               &gObjectEventGraphicsInfo_Dragby,
+    [OBJ_EVENT_GFX_FAIRYGIRL] =               &gObjectEventGraphicsInfo_Fairygirl,
+    [OBJ_EVENT_GFX_JILTEDI] =               &gObjectEventGraphicsInfo_Jiltedi,
+    [OBJ_EVENT_GFX_JUNTRICK] =               &gObjectEventGraphicsInfo_Juntrick,
+    [OBJ_EVENT_GFX_LITTLE_BOY_1] =               &gObjectEventGraphicsInfo_Little_Boy_1,
+    [OBJ_EVENT_GFX_LITTLE_GIRL_1] =               &gObjectEventGraphicsInfo_Little_Girl_1,
+    [OBJ_EVENT_GFX_OLD_LADY_1] =               &gObjectEventGraphicsInfo_Old_Lady_1,
+    [OBJ_EVENT_GFX_SCIENTIST] =               &gObjectEventGraphicsInfo_Scientist,
+
 
     [OBJ_EVENT_GFX_SIMMERLAUGH] =              &gObjectEventGraphicsInfo_SimmerLaugh,
 };
