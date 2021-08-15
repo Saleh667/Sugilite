@@ -39,7 +39,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ZIGZAGOON_2",
+      "graphics_id": "OBJ_EVENT_GFX_DRAGBY",
       "x": 10,
       "y": 3,
       "elevation": 3,
@@ -52,7 +52,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ZIGZAGOON_2",
+      "graphics_id": "OBJ_EVENT_GFX_DRAGBY",
       "x": 11,
       "y": 3,
       "elevation": 3,
@@ -65,7 +65,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+      "graphics_id": "OBJ_EVENT_GFX_FAIRYGIRL",
       "x": 17,
       "y": 9,
       "elevation": 3,

@@ -4080,6 +4080,14 @@ Cry_Hoodlin::
 	.incbin "sound/direct_sound_samples/cries/sugi/uncomp_hoodlin.bin"
 
 	.align 2
+Cry_Chenballin::
+	.incbin "sound/direct_sound_samples/cries/sugi/uncomp_chenballin.bin"
+
+	.align 2
+Cry_Unshacklin::
+	.incbin "sound/direct_sound_samples/cries/sugi/uncomp_unshacklin.bin"
+
+	.align 2
 Cry_Slormag::
 	.incbin "sound/direct_sound_samples/cries/sugi/uncomp_slormag.bin"
 

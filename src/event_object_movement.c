@@ -466,6 +466,16 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_EMOTES                  0x1124
 #define OBJ_EVENT_PAL_TAG_SIMMERMAN               0x1125
 #define OBJ_EVENT_PAL_TAG_PROF_STEPH              0x1126
+
+#define OBJ_EVENT_PAL_TAG_DRAGBY              0x1127
+#define OBJ_EVENT_PAL_TAG_FAIRYGIRL              0x1128
+#define OBJ_EVENT_PAL_TAG_JILTEDI              0x1129
+#define OBJ_EVENT_PAL_TAG_JUNTRICK              0x112A
+#define OBJ_EVENT_PAL_TAG_LITTLE_BOY_1              0x112B
+#define OBJ_EVENT_PAL_TAG_LITTLE_GIRL_1              0x112C
+#define OBJ_EVENT_PAL_TAG_OLD_LADY_1              0x112D
+#define OBJ_EVENT_PAL_TAG_SCIENTIST              0x112E
+
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #include "data/field_effects/field_effect_object_template_pointers.h"
@@ -515,6 +525,16 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
 	{gObjectEventPal_Nurse, 				OBJ_EVENT_PAL_TAG_NURSE},
     {gObjectEventPal_Simmerman,             OBJ_EVENT_PAL_TAG_SIMMERMAN},
     {gObjectEventPal_Prof_Steph,            OBJ_EVENT_PAL_TAG_PROF_STEPH},
+
+    {gObjectEventPal_Dragby,            OBJ_EVENT_PAL_TAG_DRAGBY},
+    {gObjectEventPal_Fairygirl,            OBJ_EVENT_PAL_TAG_FAIRYGIRL},
+    {gObjectEventPal_Jiltedi,            OBJ_EVENT_PAL_TAG_JILTEDI},
+    {gObjectEventPal_Juntrick,            OBJ_EVENT_PAL_TAG_JUNTRICK},
+    {gObjectEventPal_Little_Boy_1,            OBJ_EVENT_PAL_TAG_LITTLE_BOY_1},
+    {gObjectEventPal_Little_Girl_1,            OBJ_EVENT_PAL_TAG_LITTLE_GIRL_1},
+    {gObjectEventPal_Old_Lady_1,            OBJ_EVENT_PAL_TAG_OLD_LADY_1},
+    {gObjectEventPal_Scientist,            OBJ_EVENT_PAL_TAG_SCIENTIST},
+
     {NULL,                                  0x0000},
 };
 

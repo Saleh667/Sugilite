@@ -245,7 +245,17 @@
 #define OBJ_EVENT_GFX_PROF_STEPH 240
 #define OBJ_EVENT_GFX_SIMMERLAUGH 241
 
-#define NUM_OBJ_EVENT_GFX 242
+#define OBJ_EVENT_GFX_DRAGBY 242
+#define OBJ_EVENT_GFX_FAIRYGIRL 243
+#define OBJ_EVENT_GFX_JILTEDI 244
+#define OBJ_EVENT_GFX_JUNTRICK 245
+#define OBJ_EVENT_GFX_LITTLE_BOY_1 246
+#define OBJ_EVENT_GFX_LITTLE_GIRL_1 247
+#define OBJ_EVENT_GFX_OLD_LADY_1 248
+#define OBJ_EVENT_GFX_SCIENTIST 249
+
+
+#define NUM_OBJ_EVENT_GFX 250
 
 // These are dynamic object gfx ids.
 // They correspond with the values of the VAR_OBJ_GFX_ID_X vars.
