@@ -382,7 +382,7 @@ static const struct WindowTemplate gNewGameBirchSpeechTextWindows[] =
         {.bg = 0,
          .tilemapLeft = 2,
          .tilemapTop = 15,
-         .width = 27,
+         .width = 26,
          .height = 4,
          .paletteNum = 15,
          .baseBlock = 1},
@@ -2412,19 +2412,188 @@ static void NewGameBirchSpeech_ShowDialogueWindow(u8 windowId, u8 copyToVram)
 
 static void NewGameBirchSpeech_CreateDialogueWindowBorder(u8 a, u8 b, u8 c, u8 d, u8 e, u8 f)
 {
-    FillBgTilemapBufferRect(a, 0xFD, b - 2, c - 1, 1, 1, f);
-    FillBgTilemapBufferRect(a, 0xFF, b - 1, c - 1, 1, 1, f);
-    FillBgTilemapBufferRect(a, 0x100, b, c - 1, d, 1, f);
-    FillBgTilemapBufferRect(a, 0x101, b + d - 1, c - 1, 1, 1, f);
-    FillBgTilemapBufferRect(a, 0x102, b + d, c - 1, 1, 1, f);
-    FillBgTilemapBufferRect(a, 0x103, b - 2, c, 1, 5, f);
-    FillBgTilemapBufferRect(a, 0x105, b - 1, c, d + 1, 5, f);
-    FillBgTilemapBufferRect(a, 0x106, b + d, c, 1, 5, f);
-    FillBgTilemapBufferRect(a, BG_TILE_V_FLIP(0xFD), b - 2, c + e, 1, 1, f);
-    FillBgTilemapBufferRect(a, BG_TILE_V_FLIP(0xFF), b - 1, c + e, 1, 1, f);
-    FillBgTilemapBufferRect(a, BG_TILE_V_FLIP(0x100), b, c + e, d - 1, 1, f);
-    FillBgTilemapBufferRect(a, BG_TILE_V_FLIP(0x101), b + d - 1, c + e, 1, 1, f);
-    FillBgTilemapBufferRect(a, BG_TILE_V_FLIP(0x102), b + d, c + e, 1, 1, f);
+    FillBgTilemapBufferRect(a,
+                            0xFC,
+                            b - 2,
+                            c - 1,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            0xFC + 1,
+                            b - 1,
+                            c - 1,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            0xFC + 2,
+                            b,
+                            c - 1,
+                            d,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            BG_TILE_H_FLIP(0xFC + 1),
+                            b + d,
+                            c - 1,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            BG_TILE_H_FLIP(0xFC),
+                            b + d + 1,
+                            c - 1,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            0xFC + 3,
+                            b - 2,
+                            c,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            0xFC + 4,
+                            b - 1,
+                            c,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            BG_TILE_H_FLIP(0xFC + 4),
+                            b + d,
+                            c,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            BG_TILE_H_FLIP(0xFC + 3),
+                            b + d + 1,
+                            c,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            0xFC + 6,
+                            b - 2,
+                            c + 1,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            0xFC + 7,
+                            b - 1,
+                            c + 1,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            BG_TILE_H_FLIP(0xFC + 7),
+                            b + d,
+                            c + 1,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            BG_TILE_H_FLIP(0xFC + 6),
+                            b + d + 1,
+                            c + 1,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            0xFC + 8,
+                            b - 2,
+                            c + 2,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            0xFC + 9,
+                            b - 1,
+                            c + 2,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            BG_TILE_H_FLIP(0xFC + 9),
+                            b + d,
+                            c + 2,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            BG_TILE_H_FLIP(0xFC + 8),
+                            b + d + 1,
+                            c + 2,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            0xFC + 10,
+                            b - 2,
+                            c + 3,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            0xFC + 11,
+                            b - 1,
+                            c + 3,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            BG_TILE_H_FLIP(0xFC + 11),
+                            b + d,
+                            c + 3,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            BG_TILE_H_FLIP(0xFC + 10),
+                            b + d + 1,
+                            c + 3,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            0xFC + 13,
+                            b - 2,
+                            c + 4,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            0xFC + 14,
+                            b - 1,
+                            c + 4,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            0xFC + 12,
+                            b,
+                            c + 4,
+                            d,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            BG_TILE_H_FLIP(0xFC + 14),
+                            b + d,
+                            c + 4,
+                            1,
+                            1,
+                            f);
+    FillBgTilemapBufferRect(a,
+                            BG_TILE_H_FLIP(0xFC + 13),
+                            b + d + 1,
+                            c + 4,
+                            1,
+                            1,
+                            f);
 }
 
 static void Task_NewGameBirchSpeech_ReturnFromNamingScreenShowTextbox(u8 taskId)
