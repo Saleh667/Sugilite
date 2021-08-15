@@ -924,6 +924,8 @@ gCryTable:: @ 869DCF4
     cry_uncomp Cry_Totemi
     cry_uncomp Cry_Tometic
     cry_uncomp Cry_Hoodlin
+    cry_uncomp Cry_Chenballin
+    cry_uncomp Cry_Unshacklin
     cry_uncomp Cry_Slormag
     cry_uncomp Cry_Clasdron
     cry_uncomp Cry_Pladyjack
@@ -2226,6 +2228,8 @@ gCryTable2:: @ 869EF24
     cry2_uncomp Cry_Totemi
     cry2_uncomp Cry_Tometic
     cry2_uncomp Cry_Hoodlin
+    cry2_uncomp Cry_Chenballin
+    cry2_uncomp Cry_Unshacklin
     cry2_uncomp Cry_Slormag
     cry2_uncomp Cry_Clasdron
     cry2_uncomp Cry_Pladyjack
