@@ -1,6 +1,3 @@
-// Do this yourselves :^)
-// - Mantager
-
 const u16 gPokedexOrder_Alphabetical[] =
 {};
 
