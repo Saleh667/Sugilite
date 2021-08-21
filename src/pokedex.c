@@ -313,7 +313,7 @@ static void PrintSearchParameterTitle(u32, const u8*);
 static void ClearSearchParameterBoxText(void);
 // new
 static void CreateTypeIcons(void);
-static void PrintMonTypeIcons(u16 species, bool32 seen);
+static void PrintMonTypeIcons(u16 species, bool8 seen);
 static void SetSpriteInvisibility(u8 spriteId, bool8 invisible);
 static void DestroyTypeIcons(void);
 
@@ -1814,7 +1814,7 @@ static void PrintMonListInfo(u16 num)
     UpdateMonFootprint(num);
     
     // type icons
-    PrintMonTypeIcons(species, sPokedexView->pokedexList[sPokedexView->selectedPokemon].seen);
+    PrintMonTypeIcons(species, GetSetPokedexFlag(num, FLAG_GET_SEEN));
     
     // name
     FillWindowPixelBuffer(WIN_NAME, PIXEL_FILL(0));
@@ -3058,14 +3058,14 @@ static void CreateTypeIcons(void)
 }
 
 #define TYPE_ICON_DELTA 16
-static void PrintMonTypeIcons(u16 species, bool32 seen)
+static void PrintMonTypeIcons(u16 species, bool8 seen)
 {
     u8 type1;
     u8 type2;
     u8 x = 76;
     u8 y = 22;
         
-    if (!seen)
+    if (!seen || species == SPECIES_NONE)
     {
         SetTypeSpritePosAndPal(TYPE_MYSTERY, x, y, sTypeIconSpriteIds[0]);
         SetTypeSpritePosAndPal(TYPE_MYSTERY, x, y + TYPE_ICON_DELTA, sTypeIconSpriteIds[1]);
