@@ -65,6 +65,7 @@ extern const u32 gOpenPokeballGfx[];
 // pokemon gfx
 extern const u16 gMonIconPalettes[][16];
 
+extern const u8 gMonFootprint_Empty[];
 extern const u32 gMonFrontPic_CircledQuestionMark[];
 extern const u32 gMonFrontPic_DoubleQuestionMark[];
 extern const u32 gMonFrontPic_Bulbasaur[];
@@ -6887,6 +6888,8 @@ extern const u32 gBattleTerrainPalette_StadiumWallace[];
 // pokedex
 extern const u32 gPokedexInterface_Gfx[];
 extern const u16 gPokedexBgHoenn_Pal[];
+extern const u16 gPokedexBgHoennUnderlay_Pal[];
+extern const u32 gPokedexMenuUnderlay_Gfx[];
 extern const u32 gPokedexMenu_Gfx[];
 extern const u8 gPokedexList_Tilemap[];
 extern const u8 gPokedexListUnderlay_Tilemap[];
@@ -6904,6 +6907,7 @@ extern const u32 gPokedexSearchMenu_Gfx[];
 extern const u32 gPokedexSearchMenuHoenn_Tilemap[];
 extern const u32 gPokedexSearchMenuNational_Tilemap[];
 extern const u16 gPokedexSearchMenu_Pal[];
+extern const u32 gPokedexSearchMenu_Tilemap[];
 
 // berry tag screen
 extern const u32 gBerryCheck_Gfx[];
