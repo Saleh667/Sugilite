@@ -4520,10 +4520,10 @@ static void SpriteCB_SlideCaughtMonToCenter(struct Sprite *sprite)
 #undef tPersonalityHi
 
 #define NAME_X  130
-#define NAME_Y  NUM_Y
+#define NAME_Y  7
 
 #define NUM_X   (NAME_X + 73)
-#define NUM_Y   8
+#define NUM_Y   NAME_Y
 
 #define CATEGORY_X  NAME_X
 #define CATEGORY_Y  (NUM_Y + 16)
