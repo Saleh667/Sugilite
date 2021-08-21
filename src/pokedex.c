@@ -1732,6 +1732,7 @@ void CB2_OpenPokedex(void)
     case 2:
         sPokedexView = AllocZeroed(sizeof(struct PokedexView));
         ResetPokedexView(sPokedexView);
+        PlaySE(SE_SUGI_DEX_PAGE);
         CreateTask(Task_OpenPokedexMainPage, 0);
         sPokedexView->dexMode = gSaveBlock2Ptr->pokedex.mode;
         if (!IsNationalPokedexEnabled())
@@ -1857,7 +1858,7 @@ static void Task_HandlePokedexInput(u8 taskId)
             BeginNormalPaletteFade(~(1 << (gSprites[sPokedexView->selectedMonSpriteId].oam.paletteNum + 16)), 0, 0, 0x10, RGB_BLACK);
             gSprites[sPokedexView->selectedMonSpriteId].callback = SpriteCB_MoveMonForInfoScreen;
             gTasks[taskId].func = Task_OpenInfoScreenAfterMonMovement;
-            PlaySE(SE_PIN);
+            PlaySE(SE_SUGI_DEX_PAGE);
             FreeWindowAndBgBuffers();
         }
         else if (JOY_NEW(START_BUTTON))
@@ -2082,7 +2083,7 @@ static void Task_HandleSearchResultsInput(u8 taskId)
             gSprites[sPokedexView->selectedMonSpriteId].callback = SpriteCB_MoveMonForInfoScreen;
             BeginNormalPaletteFade(~a, 0, 0, 0x10, RGB_BLACK);
             gTasks[taskId].func = Task_OpenSearchResultsInfoScreenAfterMonMovement;
-            PlaySE(SE_PIN);
+            PlaySE(SE_SUGI_DEX_PAGE);
             FreeWindowAndBgBuffers();
         }
         else if (JOY_NEW(START_BUTTON))
@@ -2860,7 +2861,7 @@ static u16 TryDoPokedexScroll(u16 selectedMon, u16 ignored)
         selectedMon = GetNextPosition(1, selectedMon, 0, sPokedexView->pokemonListCount - 1);
         CreateScrollingPokemonSprite(1, selectedMon);
         CreateMonListEntry(1, selectedMon, ignored);
-        PlaySE(SE_DEX_SCROLL);
+        PlaySE(SE_SUGI_DEX_SCROLL);
     }
     else if ((JOY_HELD(DPAD_DOWN)) && (selectedMon < sPokedexView->pokemonListCount - 1))
     {
@@ -2868,7 +2869,7 @@ static u16 TryDoPokedexScroll(u16 selectedMon, u16 ignored)
         selectedMon = GetNextPosition(0, selectedMon, 0, sPokedexView->pokemonListCount - 1);
         CreateScrollingPokemonSprite(2, selectedMon);
         CreateMonListEntry(2, selectedMon, ignored);
-        PlaySE(SE_DEX_SCROLL);
+        PlaySE(SE_SUGI_DEX_SCROLL);
     }
     else if ((JOY_NEW(DPAD_LEFT)) && (selectedMon > 0))
     {
@@ -3754,7 +3755,7 @@ static void Task_HandleInfoScreenInput(u8 taskId)
         // Scroll up/down
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         gTasks[taskId].func = Task_LoadInfoScreenWaitForFade;
-        PlaySE(SE_DEX_SCROLL);
+        PlaySE(SE_SUGI_DEX_SCROLL);
         return;
     }*/
     
@@ -3773,7 +3774,7 @@ static void Task_HandleInfoScreenInput(u8 taskId)
             BeginNormalPaletteFade(0xFFFFFFEB, 0, 0, 16, RGB_BLACK);
             //sPokedexView->screenSwitchState = 1;
             gTasks[taskId].func = Task_LoadAreaScreen;//Task_SwitchScreensFromInfoScreen;
-            PlaySE(SE_PIN);
+            PlaySE(SE_SUGI_DEX_PAGE);
             break;
         case CRY_SCREEN:
             PlayCry2(NationalPokedexNumToSpecies(sPokedexListItem->dexNum), 0, 125, 10);
@@ -3782,7 +3783,7 @@ static void Task_HandleInfoScreenInput(u8 taskId)
             /*BeginNormalPaletteFade(0xFFFFFFEB, 0, 0, 0x10, RGB_BLACK);
             sPokedexView->screenSwitchState = 2;
             gTasks[taskId].func = Task_SwitchScreensFromInfoScreen;
-            PlaySE(SE_PIN);
+            PlaySE(SE_SUGI_DEX_PAGE);
             break;*/
         case SIZE_SCREEN:
             if (!sPokedexListItem->owned)
@@ -3794,7 +3795,7 @@ static void Task_HandleInfoScreenInput(u8 taskId)
                 BeginNormalPaletteFade(0xFFFFFFEB, 0, 0, 0x10, RGB_BLACK);
                 //sPokedexView->screenSwitchState = 3;
                 gTasks[taskId].func = Task_LoadSizeScreen;//Task_SwitchScreensFromInfoScreen;
-                PlaySE(SE_PIN);
+                PlaySE(SE_SUGI_DEX_PAGE);
             }
             break;
         case CANCEL_SCREEN:
