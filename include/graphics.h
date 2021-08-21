@@ -33,6 +33,7 @@ extern const u32 gInterfacePal_PremierBall[];
 extern const u32 gOpenPokeballGfx[];
 
 // pokemon gfx
+extern const u8 gMonFootprint_Empty[];
 extern const u32 gMonFrontPic_Bulbasaur[];
 extern const u32 gMonPalette_Bulbasaur[];
 extern const u32 gMonBackPic_Bulbasaur[];
@@ -3303,6 +3304,7 @@ extern const u32 gPokedexSearchMenu_Gfx[];
 extern const u32 gPokedexSearchMenuHoenn_Tilemap[];
 extern const u32 gPokedexSearchMenuNational_Tilemap[];
 extern const u16 gPokedexSearchMenu_Pal[];
+extern const u32 gPokedexSearchMenu_Tilemap[];
 
 // berry tag screen
 extern const u32 gBerryCheck_Gfx[];

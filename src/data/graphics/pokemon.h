@@ -1,3 +1,5 @@
+const u8 gMonFootprint_Empty[] = INCBIN_U8("graphics/pokemon/question_mark/footprint_empty.1bpp");
+
 const u32 gMonStillFrontPic_Bulbasaur[] = INCBIN_U32("graphics/pokemon/bulbasaur/front.4bpp.lz");
 const u32 gMonPalette_Bulbasaur[] = INCBIN_U32("graphics/pokemon/bulbasaur/normal.gbapal.lz");
 const u32 gMonBackPic_Bulbasaur[] = INCBIN_U32("graphics/pokemon/bulbasaur/back.4bpp.lz");

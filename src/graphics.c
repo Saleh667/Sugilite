@@ -1775,7 +1775,7 @@ const u16 gFrontierPassMedalsGold_Pal[] = INCBIN_U16("graphics/frontier_pass/gol
 // Pokedex
 const u16 gPokedexBgHoenn_Pal[] = INCBIN_U16("graphics/pokedex/menu_list.gbapal");
 const u16 gPokedexBgHoennUnderlay_Pal[] = INCBIN_U16("graphics/pokedex/menu_list_underlay.gbapal");
-const u32 gPokedexMenuUnderlay_Gfx[] = INCBIN_U32("graphics/pokedex/menu_list_underlay.4bpp.lz");
+//const u32 gPokedexMenuUnderlay_Gfx[] = INCBIN_U32("graphics/pokedex/menu_list_underlay.4bpp.lz");
 const u16 gPokedexCaughtScreen_Pal[] = INCBIN_U16("graphics/pokedex/caught_screen.gbapal");
 const u16 gPokedexSearchResults_Pal[] = INCBIN_U16("graphics/pokedex/search_results_bg.gbapal");
 const u16 gPokedexBgNational_Pal[] = INCBIN_U16("graphics/pokedex/bg_national.gbapal");
