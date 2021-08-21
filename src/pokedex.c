@@ -3573,27 +3573,27 @@ static void UpdateInfoIcons(void)
     {
     case AREA_SCREEN: // highlight area
         // area
-        StartSpriteAnim(&gSprites[sPokedexView->areaSpriteId], 1);  // highlighted
-        // cry
-        StartSpriteAnim(&gSprites[sPokedexView->crySpriteId], 2);
-        // size
-        StartSpriteAnim(&gSprites[sPokedexView->sizeSpriteId], 4);
-        break;
-    case CRY_SCREEN: // highlight cry
-        // area
         StartSpriteAnim(&gSprites[sPokedexView->areaSpriteId], 0);  // highlighted
         // cry
         StartSpriteAnim(&gSprites[sPokedexView->crySpriteId], 3);
         // size
-        StartSpriteAnim(&gSprites[sPokedexView->sizeSpriteId], 4);
+        StartSpriteAnim(&gSprites[sPokedexView->sizeSpriteId], 5);
+        break;
+    case CRY_SCREEN: // highlight cry
+        // area
+        StartSpriteAnim(&gSprites[sPokedexView->areaSpriteId], 1);
+        // cry
+        StartSpriteAnim(&gSprites[sPokedexView->crySpriteId], 2);  // highlighted
+        // size
+        StartSpriteAnim(&gSprites[sPokedexView->sizeSpriteId], 5);
         break;
     case SIZE_SCREEN: // highlight size
         // area
-        StartSpriteAnim(&gSprites[sPokedexView->areaSpriteId], 0);  // highlighted
+        StartSpriteAnim(&gSprites[sPokedexView->areaSpriteId], 1);
         // cry
-        StartSpriteAnim(&gSprites[sPokedexView->crySpriteId], 2);
+        StartSpriteAnim(&gSprites[sPokedexView->crySpriteId], 3);
         // size
-        StartSpriteAnim(&gSprites[sPokedexView->sizeSpriteId], 5);
+        StartSpriteAnim(&gSprites[sPokedexView->sizeSpriteId], 4);  // highlighted
         break;
     }
 }
