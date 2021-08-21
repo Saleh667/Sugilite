@@ -4522,7 +4522,7 @@ static void SpriteCB_SlideCaughtMonToCenter(struct Sprite *sprite)
 #define NAME_X  130
 #define NAME_Y  NUM_Y
 
-#define NUM_X   (NAME_X + 72)
+#define NUM_X   (NAME_X + 73)
 #define NUM_Y   8
 
 #define CATEGORY_X  NAME_X
@@ -4562,7 +4562,7 @@ static void PrintMonInfo(u32 num, u32 value, u32 owned, u32 newEntry)
         name = gSpeciesNames[natNum];
     else
         name = sText_TenDashes2;
-    PrintInfoScreenText(name, NAME_X, NAME_Y);
+    PrintInfoScreenText(name, NAME_X + GetStringCenterAlignXOffset(1, name, 68), NAME_Y);
     if (owned)
     {
         CopyMonCategoryText(num, str2);
@@ -4572,7 +4572,7 @@ static void PrintMonInfo(u32 num, u32 value, u32 owned, u32 newEntry)
     {
         category = gText_5MarksPokemon;
     }
-    PrintInfoScreenText(category, CATEGORY_X, CATEGORY_Y);
+    PrintInfoScreenText(category, CATEGORY_X + GetStringCenterAlignXOffset(1, category, 105), CATEGORY_Y);
     PrintInfoScreenText(gText_HTHeight, HT_X, HT_Y);
     PrintInfoScreenText(gText_WTWeight, WT_X, WT_Y);
     if (owned)
