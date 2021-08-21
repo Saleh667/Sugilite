@@ -241,7 +241,7 @@ $(MID_SUBDIR)/mus_petalburg.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G165 -V127
 
 $(MID_SUBDIR)/mus_fortree.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G032 -V080
+	$(MID) $< $@ -E -R$(STD_REVERB) -G200 -V127
 
 $(MID_SUBDIR)/mus_oldale.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G019 -V127
