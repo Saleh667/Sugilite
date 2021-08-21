@@ -1262,3 +1262,9 @@ $(MID_SUBDIR)/se_m_leer.s: %.s: %.mid
 
 $(MID_SUBDIR)/se_dex_search.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G127 -v100 -P5
+
+$(MID_SUBDIR)/se_sugi_dex_page.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G127 -v127 -P5
+
+$(MID_SUBDIR)/se_sugi_dex_scroll.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G127 -v127 -P5

@@ -4738,3 +4738,11 @@ DirectSoundWaveData_mlrpg3_musicbox_48::
 	.align 2
 DirectSoundWaveData_mlrpg3_musicbox_60::
 	.incbin "sound/direct_sound_samples/mlrpg3_musicbox_60.bin"
+
+	.align 2
+DirectSoundWaveData_dppt_dex_page::
+	.incbin "sound/direct_sound_samples/dppt_dex_page.bin"
+
+	.align 2
+DirectSoundWaveData_dppt_dex_scroll::
+	.incbin "sound/direct_sound_samples/dppt_dex_scroll.bin"
