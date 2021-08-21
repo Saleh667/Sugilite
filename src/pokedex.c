@@ -1732,7 +1732,6 @@ void CB2_OpenPokedex(void)
     case 2:
         sPokedexView = AllocZeroed(sizeof(struct PokedexView));
         ResetPokedexView(sPokedexView);
-        PlaySE(SE_SUGI_DEX_PAGE);
         CreateTask(Task_OpenPokedexMainPage, 0);
         sPokedexView->dexMode = gSaveBlock2Ptr->pokedex.mode;
         if (!IsNationalPokedexEnabled())
@@ -2365,6 +2364,7 @@ static bool8 LoadPokedexListPage(u8 page)
     case 6:
         if (!gPaletteFade.active)
         {
+            PlaySE(SE_SUGI_DEX_PAGE);
             gMain.state = 0;
             return TRUE;
         }
