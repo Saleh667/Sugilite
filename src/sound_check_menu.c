@@ -382,7 +382,7 @@ static bool8 Task_ProcessSoundCheckMenuInput(u8 taskId) // sub_080E8688
         HighlightSelectedWindow(gTasks[taskId].tWindowSelected);
         return FALSE;
     }
-    else if (gMain.newAndRepeatedKeys & DPAD_RIGHT)
+    else if (gMain.newAndRepeatedKeys & DPAD_LEFT)
     {
         if (gTasks[taskId].tWindowSelected != TEST_MUS)
         {
@@ -400,7 +400,7 @@ static bool8 Task_ProcessSoundCheckMenuInput(u8 taskId) // sub_080E8688
         }
         return TRUE;
     }
-    else if (gMain.newAndRepeatedKeys & DPAD_LEFT)
+    else if (gMain.newAndRepeatedKeys & DPAD_RIGHT)
     {
         if (gTasks[taskId].tWindowSelected != TEST_MUS)
         {
@@ -890,14 +890,14 @@ static void Task_ProcessPanTestInput(u8 taskId) // sub_080E9284
             sSoundTestParams[CRY_TEST_PANPOT] = 4;
         PrintPanTestMenuText();
     }
-    if (gMain.newAndRepeatedKeys & DPAD_RIGHT)
+    if (gMain.newAndRepeatedKeys & DPAD_LEFT)
     {
         sSoundTestParams[CRY_TEST_VOICE]++;
         if (sSoundTestParams[CRY_TEST_VOICE] > SE_SUDOWOODO_SHAKE)
             sSoundTestParams[CRY_TEST_VOICE] = MUS_DUMMY;
         PrintPanTestMenuText();
     }
-    else if (gMain.newAndRepeatedKeys & DPAD_LEFT)
+    else if (gMain.newAndRepeatedKeys & DPAD_RIGHT)
     {
         sSoundTestParams[CRY_TEST_VOICE]--;
         if (sSoundTestParams[CRY_TEST_VOICE] < MUS_DUMMY)
