@@ -32,10 +32,10 @@
 
 
 #define MON_LIST_X  40
-#define MON_LIST_Y  40
+#define MON_LIST_Y  38
 
 #define INFO_SCREEN_X   76
-#define INFO_SCREEN_Y   40
+#define INFO_SCREEN_Y   38
 
 enum
 {
