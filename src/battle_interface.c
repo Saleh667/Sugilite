@@ -2103,7 +2103,7 @@ static void UpdateNickInHealthbox(u8 healthboxSpriteId, struct Pokemon *mon)
             ptr += spriteTileNum + 0x800;
         else
             ptr += spriteTileNum + 0x400;
-        TextIntoHealthboxObject(ptr, windowTileData + 0xE0, 1);
+        TextIntoHealthboxObject(ptr, windowTileData + 0xC0, 1);
     }
     else
     {
