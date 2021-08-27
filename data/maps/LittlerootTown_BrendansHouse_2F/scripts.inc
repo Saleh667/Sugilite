@@ -226,7 +226,7 @@ LittlerootTown_BrendansHouse_2F_Movement_PlayerWatchBrendanEast: @ 81F8609
 
 LittlerootTown_BrendansHouse_2F_EventScript_PC:: @ 81F860D
 	lockall
-	goto_if_eq LittlerootTown_BrendansHouse_2F_EventScript_CheckPlayersPC
+	goto LittlerootTown_BrendansHouse_2F_EventScript_CheckPlayersPC
 	end
 
 LittlerootTown_BrendansHouse_2F_EventScript_CheckPlayersPC:: @ 81F8626
