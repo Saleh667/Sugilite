@@ -2136,7 +2136,7 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_7:
 	.string "Stephanie: That's right!$"
 
 KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_8:
-	.string "Are you ready to get your first POKéMON?$"
+	.string "Are you ready to get your first\nPOKéMON?$"
 
 KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_9:
 	.string "Stephanie: Great!\nWhy don't you pick first then, honey?$"

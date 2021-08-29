@@ -97,7 +97,7 @@ script KurosibaTown_ProfessorsLab_EventScript_StarterSelection {
 	//applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
     //waitmovement(0)
 
-	msgbox("Are you ready to get your first POKéMON?", MSGBOX_YESNO)
+	msgbox("Are you ready to get your first\nPOKéMON?", MSGBOX_YESNO)
     
 	if (var(VAR_RESULT) == YES) {
 

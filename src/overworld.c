@@ -1534,9 +1534,9 @@ void CB2_NewGame(void)
     FlagSet(FLAG_SYS_POKEMON_GET);
     FlagSet(FLAG_SYS_POKEDEX_GET);
     
-    ScriptGiveMon(SPECIES_TREECKO, 5, 0, 0, 0, 0);
-    ScriptGiveMon(SPECIES_TORCHIC, 5, 0, 0, 0, 0);
-    ScriptGiveMon(SPECIES_MUDKIP, 5, 0, 0, 0, 0);
+    //ScriptGiveMon(SPECIES_TREECKO, 5, 0, 0, 0, 0);
+    //ScriptGiveMon(SPECIES_TORCHIC, 5, 0, 0, 0, 0);
+    //ScriptGiveMon(SPECIES_MUDKIP, 5, 0, 0, 0, 0);
     
     ScriptContext1_Init();
     ScriptContext2_Disable();
