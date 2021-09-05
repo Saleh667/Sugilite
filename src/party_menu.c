@@ -2134,13 +2134,13 @@ static void CreateCancelConfirmWindows(bool8 chooseHalf)
         // Branches are functionally identical. Second branch is never reached, Spin Trade wasnt fully implemented
         if (gPartyMenu.menuType != PARTY_MENU_TYPE_SPIN_TRADE)
         {
-            mainOffset = GetStringCenterAlignXOffset(0, gText_Cancel, 48);
-            AddTextPrinterParameterized3(cancelWindowId, 0, mainOffset + offset, 1, sFontColorTable[0], -1, gText_Cancel);
+            mainOffset = GetStringCenterAlignXOffset(0, gText_Cancel, 48) + 3;
+            AddTextPrinterParameterized3(cancelWindowId, 0, mainOffset + offset, 0, sFontColorTable[0], -1, gText_Cancel);
         }
         else
         {
-            mainOffset = GetStringCenterAlignXOffset(0, gText_Cancel2, 48);
-            AddTextPrinterParameterized3(cancelWindowId, 0, mainOffset + offset, 1, sFontColorTable[0], -1, gText_Cancel2);
+            mainOffset = GetStringCenterAlignXOffset(0, gText_Cancel2, 48) + 3;
+            AddTextPrinterParameterized3(cancelWindowId, 0, mainOffset + offset, 0, sFontColorTable[0], -1, gText_Cancel2);
         }
         PutWindowTilemap(cancelWindowId);
         CopyWindowToVram(cancelWindowId, 2);
