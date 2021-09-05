@@ -68,6 +68,24 @@ script PlayerToDoList_EventScript{
 	end
 }
 
+script SleepInBed_EventScript{
+	lock
+	msgbox("Would you like to take a rest?",MSGBOX_YESNO)
+  	if (var(VAR_RESULT) == YES) {
+		msgbox("{PLAYER} went to bed straight away...")
+		closemessage
+		call(Common_EventScript_OutOfCenterPartyHeal)
+		setrespawn(HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F)
+		delay(30)
+	} else {
+		closemessage
+	}
+	applymovement(OBJ_EVENT_ID_PLAYER, Player_OutOfBed_Movement)
+	waitmovement(0)
+	release
+	end
+}
+
 # Movements
 
 movement LittlerootTown_BrendansHouse_2F_Movement_RivalAngry {
@@ -325,7 +343,7 @@ Common_Text_LookCloserAtMap: @ 81F8820
 	.string "HOENN region map.$"
 
 PlayersHouse_2F_Text_ItsAGameCube: @ 81F884F
-	.string "A special Nintendo Switch is on the floor.\n"
+	.string "A special Nintendo Switch is on the \nfloor.\l"
 	.string "It has a picture of three cute \l"
 	.string "characters.$"
 
@@ -342,7 +360,7 @@ Kurosiba_Intro_Boy3:
 	.string "It's time to get our first Pokémon!$"
 
 BeanBagChair_Text:
-	.string "It's a bean bag. Pretty comfy to rest on!$"
+	.string "It's a bean bag.\nPretty comfy to rest on!$"
 
 PlayerTv_Text:
 	.string "It's a curved screen TV.\n"

@@ -68,6 +68,27 @@ PlayerToDoList_EventScript_2:
 	goto PlayerToDoList_EventScript_1
 
 
+SleepInBed_EventScript::
+	lock
+	msgbox SleepInBed_EventScript_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq SleepInBed_EventScript_2
+	closemessage
+SleepInBed_EventScript_1:
+	applymovement OBJ_EVENT_ID_PLAYER, Player_OutOfBed_Movement
+	waitmovement 0
+	release
+	end
+
+SleepInBed_EventScript_2:
+	msgbox SleepInBed_EventScript_Text_1
+	closemessage
+	call Common_EventScript_OutOfCenterPartyHeal
+	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
+	delay 30
+	goto SleepInBed_EventScript_1
+
+
 LittlerootTown_BrendansHouse_2F_Movement_RivalAngry:
 	emote_angry
 	step_end
@@ -291,7 +312,7 @@ Common_Text_LookCloserAtMap: @ 81F8820
 	.string "HOENN region map.$"
 
 PlayersHouse_2F_Text_ItsAGameCube: @ 81F884F
-	.string "A special Nintendo Switch is on the floor.\n"
+	.string "A special Nintendo Switch is on the \nfloor.\l"
 	.string "It has a picture of three cute \l"
 	.string "characters.$"
 
@@ -308,11 +329,17 @@ Kurosiba_Intro_Boy3:
 	.string "It's time to get our first Pokémon!$"
 
 BeanBagChair_Text:
-	.string "It's a bean bag. Pretty comfy to rest on!$"
+	.string "It's a bean bag.\nPretty comfy to rest on!$"
 
 PlayerTv_Text:
 	.string "It's a curved screen TV.\n"
 	.string "Really good for playing games, right?$"
+
+SleepInBed_EventScript_Text_0:
+	.string "Would you like to take a rest?$"
+
+SleepInBed_EventScript_Text_1:
+	.string "{PLAYER} went to bed straight away...$"
 
 Kurosiba_Intro_Girl2::
 	.string "Eric: {PLAYER}. I thought you wanted\n"

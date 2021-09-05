@@ -259,6 +259,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Little_Boy_1;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Little_Girl_1;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Old_Lady_1;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Scientist;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Maid;
  
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
@@ -513,6 +515,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_OLD_LADY_1] =               &gObjectEventGraphicsInfo_Old_Lady_1,
     [OBJ_EVENT_GFX_SCIENTIST] =               &gObjectEventGraphicsInfo_Scientist,
 
+    [OBJ_EVENT_GFX_MAID] =               &gObjectEventGraphicsInfo_Maid,
 
     [OBJ_EVENT_GFX_SIMMERLAUGH] =              &gObjectEventGraphicsInfo_SimmerLaugh,
 };

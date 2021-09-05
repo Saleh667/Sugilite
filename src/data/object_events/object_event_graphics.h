@@ -398,5 +398,16 @@ const u16 gObjectEventPal_Old_Lady_1[] = INCBIN_U16("graphics/object_events/pale
 const u32 gObjectEventPic_Scientist[] = INCBIN_U32("graphics/object_events/pics/people/scientist.4bpp");
 const u16 gObjectEventPal_Scientist[] = INCBIN_U16("graphics/object_events/palettes/scientist.gbapal");
 
+const u16 gObjectEventPal_Lass[] = INCBIN_U16("graphics/object_events/palettes/lass.gbapal");
+const u16 gObjectEventPal_Youngster[] = INCBIN_U16("graphics/object_events/palettes/youngster.gbapal");
+
+const u32 gObjectEventPic_Maid[] = INCBIN_U32("graphics/object_events/pics/people/maid.4bpp");
+const u16 gObjectEventPal_Maid[] = INCBIN_U16("graphics/object_events/palettes/maid.gbapal");
+
+const u16 gObjectEventPal_BugCatcher[] = INCBIN_U16("graphics/object_events/palettes/bugcatcher.gbapal");
+const u16 gObjectEventPal_ItemBall[] = INCBIN_U16("graphics/object_events/palettes/item_ball.gbapal");
+const u16 gObjectEventPal_LittleBoy[] = INCBIN_U16("graphics/object_events/palettes/little_boy.gbapal");
+const u16 gObjectEventPal_LittleGirl[] = INCBIN_U16("graphics/object_events/palettes/little_girl.gbapal");
+
 //Simmerman Laughing
 const u32 gObjectEventPic_SimmerLaugh[] = INCBIN_U32("graphics/object_events/pics/people/simmer_laugh.4bpp");

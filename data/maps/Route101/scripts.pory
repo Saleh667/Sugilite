@@ -215,7 +215,7 @@ script Route401_DoMovement{
 
 	special(RemoveCameraObject)
 
-	msgbox("Simmerman: You just take a little walk in\nthe grass...")
+	msgbox("Simmerman: You just take a little walk\nin the grass...")
 	closemessage
 
 	applymovement(LOCALID_SIMMERMAN, Route401_SimmerInGras)
@@ -226,7 +226,7 @@ script Route401_DoMovement{
 	applymovement(LOCALID_SIMMERMAN, Common_Movement_EmoteEllipsis)
 	delay(60)
 
-	msgbox("Simmerman: See? Nothing to worry about...")
+	msgbox("Simmerman: See? Nothing to worry\nabout...")
 
 	applymovement(LOCALID_SIMMERMAN, Common_Movement_EmoteExclamation)
 	playse(SE_PIN)
@@ -308,7 +308,7 @@ script Route401_DoMovement{
 	if (var(VAR_RESULT) == MALE) {
 		msgbox("{PLAYER} gave half of the items to\nEirika.")
 		removeitem(ITEM_POKE_BALL, 5)
-		msgbox("Simmerman: Welp!\nI guess my work is done here.\pYou've got a ways to go, kids.\nI'll see you again when you're stronger.\lDon't count on it though, I'm usually\lvery busy.")
+		msgbox("Simmerman: Welp!\nI guess my work is done here.\pYou've got a ways to go, kids.\nI'll see you again when you're\lstronger.\pDon't count on it though, I'm usually\lvery busy.")
 		msgbox("Eirika: Okay then, bye Mr. Simmerman!")
 		closemessage
 	}
@@ -316,7 +316,7 @@ script Route401_DoMovement{
 	{
 		msgbox("{PLAYER} gave half of the items to\nEric.")
 		removeitem(ITEM_POKE_BALL, 5)
-		msgbox("Simmerman: Welp!\nI guess my work is done here.\pYou've got a ways to go, kids.\nI'll see you again when you're stronger.\lDon't count on it though, I'm usually\lvery busy.")
+		msgbox("Simmerman: Welp!\nI guess my work is done here.\pYou've got a ways to go, kids.\nI'll see you again when you're\lstronger.\pDon't count on it though, I'm usually\lvery busy.")
 		msgbox("Eric: Okay then, bye Mr. Simmerman!")
 		closemessage
 	}
@@ -344,7 +344,7 @@ script Route401_DoMovement{
 		waitmovement(0)
 	} else {
 		msgbox("Eric: I wouldn't want to be like him.\nNot at all.")
-		msgbox("Eric: Well, {PLAYER},\nguess I'll see you around!\pThere's a lot to do now that we're\ltrainers!")
+		msgbox("Eric: Well, {PLAYER},\nguess I'll see you around!\pThere's a lot to do now that we're\ntrainers!")
 		closemessage
 		applymovement(LOCALID_SIBLING, Route401_SiblingLeave_Eric)
 		waitmovement(0)

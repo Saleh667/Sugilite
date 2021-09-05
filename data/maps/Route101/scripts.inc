@@ -477,10 +477,10 @@ Route401_DoMovement_Text_12:
 	.string "Simmerman: Okay kids, so it's actually\npretty easy.$"
 
 Route401_DoMovement_Text_13:
-	.string "Simmerman: You just take a little walk in\nthe grass...$"
+	.string "Simmerman: You just take a little walk\nin the grass...$"
 
 Route401_DoMovement_Text_14:
-	.string "Simmerman: See? Nothing to worry about...$"
+	.string "Simmerman: See? Nothing to worry\nabout...$"
 
 Route401_DoMovement_Text_15:
 	.string "WOAH!$"
@@ -519,7 +519,7 @@ Route401_DoMovement_Text_26:
 	.string "{PLAYER} gave half of the items to\nEirika.$"
 
 Route401_DoMovement_Text_27:
-	.string "Simmerman: Welp!\nI guess my work is done here.\pYou've got a ways to go, kids.\nI'll see you again when you're stronger.\lDon't count on it though, I'm usually\lvery busy.$"
+	.string "Simmerman: Welp!\nI guess my work is done here.\pYou've got a ways to go, kids.\nI'll see you again when you're\lstronger.\pDon't count on it though, I'm usually\lvery busy.$"
 
 Route401_DoMovement_Text_28:
 	.string "Eirika: Okay then, bye Mr. Simmerman!$"
@@ -540,4 +540,4 @@ Route401_DoMovement_Text_33:
 	.string "Eric: I wouldn't want to be like him.\nNot at all.$"
 
 Route401_DoMovement_Text_34:
-	.string "Eric: Well, {PLAYER},\nguess I'll see you around!\pThere's a lot to do now that we're\ltrainers!$"
+	.string "Eric: Well, {PLAYER},\nguess I'll see you around!\pThere's a lot to do now that we're\ntrainers!$"

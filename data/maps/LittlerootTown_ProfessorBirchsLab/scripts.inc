@@ -2151,7 +2151,7 @@ KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_12:
 	.string "Stephanie: There's no rush to make your\nfirst decision.\lSo, think wisely.$"
 
 KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_13:
-	.string "Eirika: I suppose I should let you pick first,\nit's not the first time I\lhave to do that anyway.\pI'm a nice sister that way,\nso yeah.$"
+	.string "Eirika: I suppose I should let you pick\nfirst, it's not the first time I\lhave to do that anyway.\pI'm a nice sister that way,\nso yeah.$"
 
 KurosibaTown_ProfessorsLab_EventScript_StarterSelection_Text_14:
 	.string "Eric: How about I let you pick first?\lI'm a nice brother that way!$"

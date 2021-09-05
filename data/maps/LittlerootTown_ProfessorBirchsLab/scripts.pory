@@ -148,7 +148,7 @@ script KurosibaTown_ProfessorsLab_EventScript_StarterSelection {
 
             applymovement(LOCALID_RIVAL, Common_Movement_EmoteX)
 			playse(SE_PIN)
-            msgbox("Eirika: I suppose I should let you pick first,\nit's not the first time I\lhave to do that anyway.\pI'm a nice sister that way,\nso yeah.")
+            msgbox("Eirika: I suppose I should let you pick\nfirst, it's not the first time I\lhave to do that anyway.\pI'm a nice sister that way,\nso yeah.")
         }
         else {
 
