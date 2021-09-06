@@ -47,12 +47,6 @@ $(OBJEVENTGFXDIR)/people/simmerman.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/prof_steph.4bpp: %.4bpp: %.png
 		$(GFX) $< $@ -mwidth 2 -mheight 4
 
-$(OBJEVENTGFXDIR)/pokemon/dragbyow.4bpp: %.4bpp: %.png
-		$(GFX) $< $@ -mwidth 2 -mheight 2
-
-$(OBJEVENTGFXDIR)/people/fairygirlow.4bpp: %.4bpp: %.png
-		$(GFX) $< $@ -mwidth 2 -mheight 2
-
 $(OBJEVENTGFXDIR)/people/fat_guy.4bpp: %.4bpp: %.png
 		$(GFX) $< $@ -mwidth 2 -mheight 4
 
@@ -743,4 +737,10 @@ $(FLDEFFGFXDIR)/record_mix_lights.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 1
 
 $(OBJEVENTGFXDIR)/people/maid.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
+$(OBJEVENTGFXDIR)/people/fairygirl.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
+$(OBJEVENTGFXDIR)/pokemon/dragby.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4

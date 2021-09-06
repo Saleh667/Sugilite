@@ -2225,7 +2225,6 @@ static const struct SpriteFrameImage sPicTable_Jiltedi[] = {
     overworld_frame(gObjectEventPic_Jiltedi, 2, 4, 2),
 };
 
-
 static const struct SpriteFrameImage sPicTable_Juntrick[] = {
     overworld_frame(gObjectEventPic_Juntrick, 2, 4, 0),
     overworld_frame(gObjectEventPic_Juntrick, 2, 4, 1),

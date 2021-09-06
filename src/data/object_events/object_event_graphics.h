@@ -381,10 +381,10 @@ const u16 gObjectEventPal_Simmerman[] = INCBIN_U16("graphics/object_events/palet
 const u32 gObjectEventPic_Prof_Steph[] = INCBIN_U32("graphics/object_events/pics/people/prof_steph.4bpp");
 const u16 gObjectEventPal_Prof_Steph[] = INCBIN_U16("graphics/object_events/palettes/professor_steph.gbapal");
 
-const u32 gObjectEventPic_Dragby[] = INCBIN_U32("graphics/object_events/pics/pokemon/dragbyow.4bpp");
-const u16 gObjectEventPal_Dragby[] = INCBIN_U16("graphics/object_events/palettes/dragbyow.gbapal");
-const u32 gObjectEventPic_Fairygirl[] = INCBIN_U32("graphics/object_events/pics/people/fairygirlow.4bpp");
-const u16 gObjectEventPal_Fairygirl[] = INCBIN_U16("graphics/object_events/palettes/fairygirlow.gbapal");
+const u32 gObjectEventPic_Dragby[] = INCBIN_U32("graphics/object_events/pics/pokemon/dragby.4bpp");
+const u16 gObjectEventPal_Dragby[] = INCBIN_U16("graphics/object_events/palettes/dragby.gbapal");
+const u32 gObjectEventPic_Fairygirl[] = INCBIN_U32("graphics/object_events/pics/people/fairygirl.4bpp");
+const u16 gObjectEventPal_Fairygirl[] = INCBIN_U16("graphics/object_events/palettes/fairygirl.gbapal");
 const u32 gObjectEventPic_Jiltedi[] = INCBIN_U32("graphics/object_events/pics/pokemon/jiltediow.4bpp");
 const u16 gObjectEventPal_Jiltedi[] = INCBIN_U16("graphics/object_events/palettes/jiltediow.gbapal");
 const u32 gObjectEventPic_Juntrick[] = INCBIN_U32("graphics/object_events/pics/pokemon/juntrickow.4bpp");
