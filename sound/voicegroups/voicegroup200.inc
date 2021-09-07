@@ -66,7 +66,7 @@ voicegroup200:: @ 8F00000 Custom Voicegroup (Output Device Base Note, Duty Cycle
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_60, 255, 0, 224, 165  @ 63
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 255, 0, 255, 165  @ 64
 @	voice_keysplit voicegroup203, KeySplitTable7  @ 65 commented it out for now because it sounds bad
-	voice_directsound 60, 0, DirectSoundWaveData_alto_sax_59, 248, 241, 248, 166 @ 65
+	voice_directsound 60, 0, DirectSoundWaveData_alto_sax_59, 255, 241, 255, 196 @ 65
 	voice_directsound 60, 0, Cry_Paras, 255, 240, 180, 165  @ 66
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tuba_39, 248, 127, 255, 165  @ 67
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 64, 0, 255, 127  @ 68
@@ -98,7 +98,7 @@ voicegroup200:: @ 8F00000 Custom Voicegroup (Output Device Base Note, Duty Cycle
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 94
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 95
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 96
-	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4890, 0, 0, 15, 1  @ 97
+	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4870, 0, 7, 12, 0  @ 97
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 98
 	voice_keysplit voicegroup205, KeySplitTable9  @ 99
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 100

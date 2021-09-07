@@ -628,7 +628,7 @@ $(MID_SUBDIR)/mus_vs_mew.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G157 -V127 -P1
 
 $(MID_SUBDIR)/mus_vs_rayquaza.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G114 -V080 -P1
+	$(MID) $< $@ -E -R$(STD_REVERB) -G200 -V127 -P1
 
 $(MID_SUBDIR)/mus_encounter_hiker.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G097 -V076
