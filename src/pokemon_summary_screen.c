@@ -117,7 +117,12 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u8 pp[MAX_MON_MOVES]; // 0x1C
         u32 currentHP; // 0x20
         u32 maxHP; // 0x22
-        u16 stat[5]; // 0x24
+        u16 stat[5];
+        u16 atk; // 0x24
+        u16 def;
+        u16 speed;
+        u16 spatk;
+        u16 spdef;
         u16 item; // 0x2E
         u16 friendship; // 0x30
         u8 OTGender; // 0x32
@@ -1437,9 +1442,9 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
             sum->maxHP = GetMonData(mon, MON_DATA_MAX_HP);
             sum->stat[0] = GetMonData(mon, MON_DATA_ATK);
             sum->stat[1] = GetMonData(mon, MON_DATA_DEF);
-            sum->stat[2] = GetMonData(mon, MON_DATA_SPATK);
-            sum->stat[3] = GetMonData(mon, MON_DATA_SPDEF);
             sum->stat[4] = GetMonData(mon, MON_DATA_SPEED);
+            sum->stat[3] = GetMonData(mon, MON_DATA_SPATK);
+            sum->stat[2] = GetMonData(mon, MON_DATA_SPDEF);
         }
         else
         {
@@ -1448,9 +1453,9 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
             sum->maxHP = GetMonData(mon, MON_DATA_MAX_HP);
             sum->stat[0] = GetMonData(mon, MON_DATA_ATK2);
             sum->stat[1] = GetMonData(mon, MON_DATA_DEF2);
-            sum->stat[2] = GetMonData(mon, MON_DATA_SPATK2);
-            sum->stat[3] = GetMonData(mon, MON_DATA_SPDEF2);
             sum->stat[4] = GetMonData(mon, MON_DATA_SPEED2);
+            sum->stat[3] = GetMonData(mon, MON_DATA_SPATK2);
+            sum->stat[2] = GetMonData(mon, MON_DATA_SPDEF2);
         }
         break;
     case 3:
@@ -3072,7 +3077,7 @@ static void Task_PrintSkillsPage(u8 taskId)
 static const u8 sText_NeutralNature[] = _("{COLOR}{02}{SHADOW}{03}{STR_VAR_1}");
 static const u8 sTextNatureDown[] = _("{COLOR}{13}{SHADOW}{03}{STR_VAR_1}");
 static const u8 sTextNatureUp[] = _("{COLOR}{15}{SHADOW}{03}{STR_VAR_1}");
-static void BufferStat(u8 *dst, u32 stat, s8 natureMod)
+static u8 *BufferStat(u8 *dst, u32 stat, s8 natureMod)
 {
     u8 *txtPtr;
     
@@ -3083,18 +3088,27 @@ static void BufferStat(u8 *dst, u32 stat, s8 natureMod)
     else
         txtPtr = StringCopy(dst, sTextNatureDown);
     
-    ConvertIntToDecimalStringN(txtPtr, stat, STR_CONV_MODE_RIGHT_ALIGN, 3);
+    return ConvertIntToDecimalStringN(txtPtr, stat, STR_CONV_MODE_RIGHT_ALIGN, 3);
 }
 
+static const u8 sStatIdToTablePos[] = {
+    [0] = 0,    //atk
+    [1] = 1,    //def
+    [2] = 3,    //spatk. 3rd in summary screen, 4th in nature table
+    [3] = 4,    //spdef
+    [4] = 2,    //speed. last in summary screen, 3rd in nature table
+};
+#define STAT_Y(i)   (6 + (13 * i))
 static void PrintMonStats(void)
 {
-    u32 i;
     const s8 *natureMod = gNatureStatTable[sMonSummaryScreen->summary.nature];
+    u8 windowId = AddWindowFromTemplateList(sPageSkillsTemplate, WIN_STATS);
+    u32 i;
     
-    for (i = 0; i < NUM_STATS; i++)
+    for (i = 0; i < 5; i++)
     {
-        BufferStat(gStringVar2, sMonSummaryScreen->summary.stat[i], natureMod[i]);
-        PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, WIN_STATS), gStringVar2, 6, 6 + (13 * i), 0, PSS_TEXT_COLOR_DARK_GRAY);
+        BufferStat(gStringVar2, sMonSummaryScreen->summary.stat[i], natureMod[sStatIdToTablePos[i]]);
+        PrintTextOnWindow(windowId, gStringVar2, 6, STAT_Y(i), 0, PSS_TEXT_COLOR_DARK_GRAY);
     }
 }
 
