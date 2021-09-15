@@ -2867,6 +2867,8 @@ static void ClearHeldItemText(void)
     CopyWindowToVram(windowId, 2);
 }
 
+static const u8 sText_ColorRed[] = _("{COLOR}{13}");
+static const u8 sText_ColorNormal[] = _("{COLOR DARK_GRAY}");
 static void BufferMonTrainerMemo(void)
 {
     struct PokeSummary *sum = &sMonSummaryScreen->summary;
@@ -2884,6 +2886,10 @@ static void BufferMonTrainerMemo(void)
         u8 *metLevelString = Alloc(32);
         u8 *metLocationString = Alloc(32);
         GetMetLevelString(metLevelString);
+        
+        DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, sText_ColorRed);
+        DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, sText_ColorNormal);
+        
 
         if (sum->metLocation < MAPSEC_NONE)
         {
