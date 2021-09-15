@@ -220,6 +220,14 @@ struct BattleMsgData
     u8 textBuffs[3][TEXT_BUFF_ARRAY_COUNT];
 };
 
+enum PPStates
+{
+    PP_STATE_LESS_THAN_HALF,
+    PP_STATE_LESS_THAN_QUARTER,
+    PP_STATE_ZERO,
+    PP_STATE_MORE_THAN_HALF,
+};
+
 enum
 {
     TRAINER_SLIDE_LAST_SWITCHIN,

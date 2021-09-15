@@ -327,6 +327,8 @@ TALL_PLUS   = FC 0C FB
 '⋯' = B0
 
 STRING = FD
+POKEMON = CA E3 DF 1B E1 E3 E2
+POKEMON_CAPS = CA C9 C5 1B C7 C9 C8
 
 @ string placeholders
 PLAYER         = FD 01
