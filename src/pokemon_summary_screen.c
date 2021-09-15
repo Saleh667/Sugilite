@@ -246,9 +246,6 @@ static void PrintMonAbilityDescription(void);
 static void PrintBattleMoves(void);
 static void Task_PrintBattleMoves(u8 taskId);
 static void PrintMoveNameAndPP(u8 a);
-static void PrintContestMoves(void);
-static void Task_PrintContestMoves(u8 taskId);
-static void PrintContestMoveDescription(u8 a);
 static void PrintMoveDetails(u16 a);
 static void PrintNewMoveDetailsOrCancelText(void);
 static void SwapMovesNamesPP(u8 moveIndex1, u8 moveIndex2);
@@ -298,7 +295,7 @@ static const u32 sPageInfo_BgTilemap[]                     = INCBIN_U32("graphic
 static const u32 sPageSkills_BgTilemap[]                   = INCBIN_U32("graphics/summary_screen/pg2_skills/bg.bin.lz");
 static const u32 sPageSkills_LabelsTilemap[]               = INCBIN_U32("graphics/summary_screen/pg2_skills/labels.bin.lz");
 static const u32 sPageMoves_BgTilemap[]                    = INCBIN_U32("graphics/summary_screen/pg3_battle_moves/bg.bin.lz");
-static const u16 sPageMoves_BgTilemap_FiveMoves[]          = INCBIN_U16("graphics/summary_screen/pg3_battle_moves/five_moves.bin");
+static const u32 sPageMoves_BgTilemap_FiveMoves[]          = INCBIN_U32("graphics/summary_screen/pg3_battle_moves/five_moves.bin.lz");
 
 static const u32 sSplitIcons_Gfx[]         = INCBIN_U32("graphics/summary_screen/sprites/split_icons.4bpp.lz");
 static const u32 sSplitIcons_Pal[]         = INCBIN_U32("graphics/summary_screen/sprites/split_icons.gbapal.lz");
@@ -1218,7 +1215,6 @@ static bool8 LoadGraphics(void)
         gMain.state++;
         break;
     case 13:
-        SetDefaultTilemaps();
         gMain.state++;
         break;
     case 14:
@@ -1332,11 +1328,13 @@ static bool8 DecompressGraphics(void)
         sMonSummaryScreen->switchCounter++;
         break;
     case 3:
-        LZDecompressWram(sPageMoves_BgTilemap,           sMonSummaryScreen->bgTilemapBuffers[1][SUMMARY_BG_BATTLE_MOVES_PAGE]);
+        if (sMonSummaryScreen->mode == PSS_MODE_SELECT_MOVE)
+            LZDecompressWram(sPageMoves_BgTilemap_FiveMoves, sMonSummaryScreen->bgTilemapBuffers[1][SUMMARY_BG_BATTLE_MOVES_PAGE]);
+        else
+            LZDecompressWram(sPageMoves_BgTilemap, sMonSummaryScreen->bgTilemapBuffers[1][SUMMARY_BG_BATTLE_MOVES_PAGE]);
         sMonSummaryScreen->switchCounter++;
         break;
     case 4:
-        LZDecompressWram(sPageMoves_BgTilemap,            sMonSummaryScreen->bgTilemapBuffers[1][SUMMARY_BG_CONTEST_MOVES_PAGE]);
         sMonSummaryScreen->switchCounter++;
         break;
     case 5:
@@ -1472,29 +1470,6 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
     }
     sMonSummaryScreen->switchCounter++;
     return FALSE;
-}
-
-static void SetDefaultTilemaps(void)
-{
-    if (sMonSummaryScreen->currPageIndex >= PSS_PAGE_BATTLE_MOVES)
-    {
-        TilemapFiveMovesDisplay();
-        ScheduleBgCopyTilemapToVram(1);
-        ScheduleBgCopyTilemapToVram(2);
-        if (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES)
-        {
-            SetBgTilemapBuffer(1, sMonSummaryScreen->bgTilemapBuffers[0][SUMMARY_BG_BATTLE_MOVES_DETAILS_PAGE]);
-            SetBgTilemapBuffer(2, sMonSummaryScreen->bgTilemapBuffers[1][SUMMARY_BG_BATTLE_MOVES_DETAILS_PAGE]);
-        }
-        else
-        {
-            SetBgTilemapBuffer(1, sMonSummaryScreen->bgTilemapBuffers[0][SUMMARY_BG_CONTEST_MOVES_DETAILS_PAGE]);
-            SetBgTilemapBuffer(2, sMonSummaryScreen->bgTilemapBuffers[1][SUMMARY_BG_CONTEST_MOVES_DETAILS_PAGE]);
-        }
-        ShowBg(2);
-    }
-
-    LimitEggSummaryPageDisplay();
 }
 
 static void FreeSummaryScreen(void)
@@ -1984,18 +1959,11 @@ static void CloseMoveSelectMode(u8 taskId)
         DestroySplitIcon();
     
     ScheduleBgCopyTilemapToVram(0);
-    ScheduleBgCopyTilemapToVram(1);
+    //ScheduleBgCopyTilemapToVram(1);
     ScheduleBgCopyTilemapToVram(2);
-    if (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES)
-    {
-        SetBgTilemapBuffer(1, sMonSummaryScreen->bgTilemapBuffers[0][SUMMARY_BG_BATTLE_MOVES_PAGE]);
-        SetBgTilemapBuffer(2, sMonSummaryScreen->bgTilemapBuffers[1][SUMMARY_BG_BATTLE_MOVES_PAGE]);
-    }
-    else
-    {
-        SetBgTilemapBuffer(1, sMonSummaryScreen->bgTilemapBuffers[0][SUMMARY_BG_CONTEST_MOVES_PAGE]);
-        SetBgTilemapBuffer(2, sMonSummaryScreen->bgTilemapBuffers[1][SUMMARY_BG_CONTEST_MOVES_PAGE]);
-    }
+
+    SetBgTilemapBuffer(1, sMonSummaryScreen->bgTilemapBuffers[0][SUMMARY_BG_BATTLE_MOVES_PAGE]);
+    SetBgTilemapBuffer(2, sMonSummaryScreen->bgTilemapBuffers[1][SUMMARY_BG_BATTLE_MOVES_PAGE]);
     ShowBg(2);
     gTasks[taskId].func = Task_HandleInput;
 }
@@ -2264,10 +2232,9 @@ u8 GetMoveSlotToReplace(void)
 
 static void TilemapFiveMovesDisplay(void)
 {
-    u16 *dst = sMonSummaryScreen->bgTilemapBuffers[0][SUMMARY_BG_CONTEST_MOVES_DETAILS_PAGE];
+    u16 *dst;
     u16 x, y, id;
-    if (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES)
-        dst = sMonSummaryScreen->bgTilemapBuffers[0][SUMMARY_BG_BATTLE_MOVES_DETAILS_PAGE];
+    dst = sMonSummaryScreen->bgTilemapBuffers[0][SUMMARY_BG_BATTLE_MOVES_DETAILS_PAGE];
     
     id = 384;
     for (y = 0; y < 3; y++)
@@ -3337,121 +3304,6 @@ static void PrintMovePowerAndAccuracy(u8 windowId, u16 moveIndex)
     PrintTextOnWindow(windowId, text, 7, 15, 0, PSS_TEXT_COLOR_DARK_GRAY);
 }
 
-static void DrawContestMoveHearts(u16 move)
-{
-    u16 *tilemap = sMonSummaryScreen->bgTilemapBuffers[0][SUMMARY_BG_CONTEST_MOVES_DETAILS_PAGE];
-    u8 i;
-
-    if (move != MOVE_NONE)
-    {
-        // Draw appeal hearts
-        u8 effectValue = gContestEffects[gContestMoves[move].effect].appeal;
-        if (effectValue != 0xFF)
-            effectValue /= 10;
-
-        for (i = 0; i < MAX_CONTEST_MOVE_HEARTS; i++)
-        {
-            if (effectValue != 0xFF && i < effectValue)
-                tilemap[(i / 4 * 32) + (i & 3) + 312] = TILE_FILLED_HEART;
-            else
-                tilemap[(i / 4 * 32) + (i & 3) + 312] = TILE_EMPTY_HEART;
-        }
-
-        // Draw jam hearts
-        effectValue = gContestEffects[gContestMoves[move].effect].jam;
-        if (effectValue != 0xFF)
-            effectValue /= 10;
-
-        for (i = 0; i < MAX_CONTEST_MOVE_HEARTS; i++)
-        {
-            if (effectValue != 0xFF && i < effectValue)
-                tilemap[(i / 4 * 32) + (i & 3) + 440] = TILE_FILLED_HEART;
-            else
-                tilemap[(i / 4 * 32) + (i & 3) + 440] = TILE_EMPTY_HEART;
-        }
-    }
-}
-
-static void ClearContestMoveHearts(void)
-{
-    u16 *tilemap = sMonSummaryScreen->bgTilemapBuffers[0][SUMMARY_BG_CONTEST_MOVES_DETAILS_PAGE];
-    u8 i;
-    
-    // Clear appeal hearts
-    for (i = 0; i < MAX_CONTEST_MOVE_HEARTS; i++)
-        tilemap[(i / 4 * 32) + (i & 3) + 312] = TILE_EMPTY;
-
-    // Clear jam hearts
-    for (i = 0; i < MAX_CONTEST_MOVE_HEARTS; i++)
-        tilemap[(i / 4 * 32) + (i & 3) + 440] = TILE_EMPTY;
-}
-
-static void PrintContestMoves(void)
-{
-    PrintMoveNameAndPP(0);
-    PrintMoveNameAndPP(1);
-    PrintMoveNameAndPP(2);
-    PrintMoveNameAndPP(3);
-
-    if (sMonSummaryScreen->mode == PSS_MODE_SELECT_MOVE)
-    {
-        PrintNewMoveDetailsOrCancelText();
-        PrintContestMoveDescription(sMonSummaryScreen->firstMoveIndex);
-    }
-}
-
-static void Task_PrintContestMoves(u8 taskId)
-{
-    s16 *data = gTasks[taskId].data;
-
-    switch (data[0])
-    {
-    case 1:
-        PrintMoveNameAndPP(0);
-        break;
-    case 2:
-        PrintMoveNameAndPP(1);
-        break;
-    case 3:
-        PrintMoveNameAndPP(2);
-        break;
-    case 4:
-        PrintMoveNameAndPP(3);
-        break;
-    case 5:
-        if (sMonSummaryScreen->mode == PSS_MODE_SELECT_MOVE)
-            PrintNewMoveDetailsOrCancelText();
-        break;
-    case 6:
-        if (sMonSummaryScreen->mode == PSS_MODE_SELECT_MOVE)
-        {
-            if (sMonSummaryScreen->newMove != MOVE_NONE || sMonSummaryScreen->firstMoveIndex != MAX_MON_MOVES)
-                PrintContestMoveDescription(sMonSummaryScreen->firstMoveIndex);
-        }
-        break;
-    case 7:
-        DestroyTask(taskId);
-        return;
-    }
-    data[0]++;
-}
-
-static void PrintContestMoveDescription(u8 moveSlot)
-{
-    u16 move;
-
-    if (moveSlot == MAX_MON_MOVES)
-        move = sMonSummaryScreen->newMove;
-    else
-        move = sMonSummaryScreen->summary.moves[moveSlot];
-
-    if (move != MOVE_NONE)
-    {
-        u8 windowId = AddWindowFromTemplateList(sPageMovesTemplate, WIN_MOVE_DESCRIPTION);
-        PrintTextOnWindow(windowId, gContestEffectDescriptionPointers[gContestMoves[move].effect], 6, 1, 0, 0);
-    }
-}
-
 static void PrintMoveDetails(u16 move)
 {
     u8 windowId = AddWindowFromTemplateList(sPageMovesTemplate, WIN_MOVE_DETAILS);
@@ -3470,7 +3322,7 @@ static void PrintMoveDetails(u16 move)
     else
     {
         ClearWindowTilemap(windowId);
-        ClearContestMoveHearts();
+        //ClearContestMoveHearts();
         windowId = AddWindowFromTemplateList(sPageMovesTemplate, WIN_MOVE_DESCRIPTION);
         ClearWindowTilemap(windowId);
     }
@@ -3688,7 +3540,7 @@ static void SetNewMoveTypeIcon(void)
     if (sMonSummaryScreen->newMove == MOVE_NONE)
         SetSpriteInvisibility(SPRITE_ARR_ID_MOVE_5_TYPE, TRUE);
     else
-        SetTypeSpritePosAndPal(gBattleMoves[sMonSummaryScreen->newMove].type, 83, 20 + (4 * 20), SPRITE_ARR_ID_MOVE_5_TYPE);
+        SetTypeSpritePosAndPal(gBattleMoves[sMonSummaryScreen->newMove].type, 124, 20 + (4 * MOVE_SLOT_DELTA), SPRITE_ARR_ID_MOVE_5_TYPE);
 }
 
 static void SwapMovesTypeSprites(u8 moveIndex1, u8 moveIndex2)
