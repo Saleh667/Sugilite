@@ -257,6 +257,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Old_Lady_1 = {0xFF
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Scientist = {0xFFFF, OBJ_EVENT_PAL_TAG_SCIENTIST, OBJ_EVENT_PAL_TAG_NONE, 256, 16, 32, 5, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_Standard, sPicTable_Scientist, gDummySpriteAffineAnimTable};
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Maid = {0xFFFF, OBJ_EVENT_PAL_TAG_MAID, OBJ_EVENT_PAL_TAG_NONE, 256, 16, 32, 3, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_Standard, sPicTable_Maid, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Chest = {0xFFFF, OBJ_EVENT_PAL_TAG_CHEST, OBJ_EVENT_PAL_TAG_NONE, 128, 16, 32, 4, SHADOW_SIZE_S, TRUE, FALSE, TRACKS_NONE, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_Standard, sPicTable_Chest, gDummySpriteAffineAnimTable};
 
 //Simmerman Laughing
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SimmerLaugh = {0xFFFF, OBJ_EVENT_PAL_TAG_NPC_4, OBJ_EVENT_PAL_TAG_NONE, 256, 16, 32, 5, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_Standard, sPicTable_SimmerLaugh, gDummySpriteAffineAnimTable};

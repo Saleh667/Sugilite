@@ -1,3 +1,5 @@
+const LOCALID_CHEST = 3
+
 mapscripts LittlerootTown_MaysHouse_1F_MapScripts{}
 
 script Neighbours_House_OldLady_EventScript{
@@ -9,10 +11,151 @@ script Neighbours_House_OldLady_EventScript{
 	end
 }
 
+script Neighbours_House_Klaus_EventScript{
+	lock
+	faceplayer
+
+	//Check if there's a key in the inventory:
+	checkitem(ITEM_CHESTKEY, 1)
+	//If there is:
+	if(var(VAR_RESULT) == YES){
+		msgbox("You already have a key, BIG SHOT!", MSGBOX_AUTOCLOSE)
+		release
+		end
+	}
+
+	//If the chest worked:
+	if(flag(FLAG_DEBUG_CHEST)){
+		msgbox("Did it work, BIG SHOT?", MSGBOX_AUTOCLOSE)
+		release
+		end
+	}
+
+	msgbox(Neighbours_House_Klaus_Text, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES){
+		msgbox(Neighbours_House_KeyGet_Text, MSGBOX_AUTOCLOSE)
+		giveitem(ITEM_CHESTKEY, 1)
+	} else {
+		msgbox(Neighbours_House_Bye_Text, MSGBOX_AUTOCLOSE)
+		warp(MAP_LITTLEROOT_TOWN, 0, 0,0)
+	}
+	release
+	end
+}
+
+//A sample chest script
+script Neighbours_House_Chest_EventScript{
+	lock
+
+	//If the chest has been opened:
+	if(flag(FLAG_DEBUG_CHEST)){
+		msgbox(Chest_HasBeenOpened_Text, MSGBOX_AUTOCLOSE)
+		release
+		end
+	}
+
+	msgbox(Chest_Text)
+
+	//Check if there's a key in the inventory:
+	checkitem(ITEM_CHESTKEY, 1)
+	//If there is:
+	if(var(VAR_RESULT) == YES){
+
+		//Ask if the player WANTS to use the key
+		msgbox(Chest_WantToOpen_Text, MSGBOX_YESNO)
+			//If yes...
+			if(var(VAR_RESULT) == YES){
+				//Remove a key
+				removeitem(ITEM_CHESTKEY, 1)
+
+				msgbox(Chest_Opens_Text)
+				msgbox(Chest_Kerchunk_Text, MSGBOX_AUTOCLOSE)
+
+				applymovement(LOCALID_CHEST,Common_Movement_FaceUp)
+				playse(SE_APPLAUSE)
+				waitse
+
+				msgbox(Chest_Opened_Text)
+				giveitem(ITEM_ABILITY_CAPSULE, 1)
+				setflag(FLAG_DEBUG_CHEST)
+				closemessage
+			} 
+			//If no...
+			else {
+				//End the interaction...
+				release
+				end
+			}
+
+	} 
+	//If there isn't:
+	else {
+		//Tell the player
+		msgbox(Chest_NoKey_Text, MSGBOX_AUTOCLOSE)
+	}
+	//... and end the interaction.
+	release
+	end
+}
+
+text Chest_Text{
+	"It's a chest that seems\n"
+	"to be locked."
+}
+
+text Chest_WantToOpen_Text{
+	"Use a Chest Key?"
+}
+
+text Chest_Opens_Text{
+	"{PLAYER} used a Chest Key.\n"
+	"..."
+}
+
+text Chest_Kerchunk_Text{
+	"Ker-Chunk!"
+}
+
+text Chest_Opened_Text{
+	"The chest opened!"
+}
+
+text Chest_NoKey_Text{
+	"I wonder where the key\nmight be..."
+}
+
+text Chest_HasBeenOpened_Text{
+	"It's a chest that seems\n"
+	"to have been emptied."
+}
+
+text Neighbours_House_Klaus_Text{
+	"Hi there! I'm Klaus,\n"
+	"from the DEBUG hous(e).\p"
+    "This room is for DEVS ONLY!\n"
+	"You're a SUGI DEV, right?"
+}
+
+text Neighbours_House_KeyGet_Text{
+	"Ah! I could see from the start\n"
+	"start that you're a real BIG SHOT.\p"
+    "Listen, we're testing the CHEST\n"
+	"FEATURE at the moment.\p"
+	"Here, take this and check\n"
+	"out the chest back there, m'kay?"
+}
+
+text Neighbours_House_Bye_Text{
+	"WHAT?!\p"
+	"Sorry, but I'm going to\n"
+    "have to ask you to leave.\p"
+	"BYEEEEEE!"
+}
+
 text Neighbours_House_OldLady_Text{
 	"Why hello there, dear.\n"
 	"Thank you so much for stopping by.\p"
-  "It's always nice having guests,\n"
+	"It's always nice having guests,\n"
 	"so make yourself at home."
 }
 
