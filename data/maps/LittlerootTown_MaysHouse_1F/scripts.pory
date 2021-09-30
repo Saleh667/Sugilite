@@ -139,6 +139,7 @@ script Common_Juntrick_EventScript{
 	
 	msgbox(Common_Juntrick,MSGBOX_AUTOCLOSE)
 	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+	playse(SE_PIN)
 	delay(60)
 	msgbox(Common_Juntrick_Movement,MSGBOX_AUTOCLOSE)
 	
