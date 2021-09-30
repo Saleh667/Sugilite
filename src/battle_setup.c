@@ -573,7 +573,7 @@ void BattleSetup_StartLegendaryBattle(void)
         CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_MEW);
         break;
     case SPECIES_JUNTRICK:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_ABANDONED_SHIP);
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_WILD);
         break;
     }
 
