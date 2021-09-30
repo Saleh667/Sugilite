@@ -1,4 +1,5 @@
 const LOCALID_CHEST = 3
+const LOCALID_JUNTRICK = 4
 
 mapscripts LittlerootTown_MaysHouse_1F_MapScripts{}
 
@@ -96,6 +97,95 @@ script Neighbours_House_Chest_EventScript{
 	//... and end the interaction.
 	release
 	end
+}
+
+script Neighbours_House_Trashcan_EventScript {
+	lock
+	msgbox(Common_Trashcan_Empty ,MSGBOX_AUTOCLOSE)
+	release
+	end
+}
+
+script Neighbours_House_Trashcan_Item_EventScript {
+	lock
+	if(flag(FLAG_DEBUG_TRASHCAN)){
+		msgbox(Common_Trashcan_Empty ,MSGBOX_AUTOCLOSE)
+	} else {
+		msgbox(Common_Trashcan_Item ,MSGBOX_AUTOCLOSE)
+
+		checkitemspace(ITEM_BLACK_SLUDGE, 1)
+		compare(VAR_RESULT, 0)
+		goto_if_eq(Script_NotEnoughSpaceInBag)
+
+		giveitem(ITEM_BLACK_SLUDGE, 1)
+		setflag(FLAG_DEBUG_TRASHCAN)
+	}
+	release
+	end
+}
+
+script Neighbours_House_Juntrick_EventScript {
+	lock
+	
+	call(Common_Juntrick_EventScript)
+	setflag(FLAG_DEBUG_JUNTRICK)
+	removeobject(LOCALID_JUNTRICK)
+
+	release
+	end
+}
+
+script Common_Juntrick_EventScript{
+	
+	msgbox(Common_Juntrick,MSGBOX_AUTOCLOSE)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+	delay(60)
+	msgbox(Common_Juntrick_Movement,MSGBOX_AUTOCLOSE)
+	
+	applymovement(LOCALID_JUNTRICK,Common_Movement_FaceUp)
+	playmoncry(LOCALID_JUNTRICK,2)
+	delay(40)
+
+	setwildbattle(SPECIES_JUNTRICK, 8, ITEM_NONE)
+	
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	special(BattleSetup_StartLegendaryBattle)
+	waitstate
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	compare(VAR_RESULT, B_OUTCOME_RAN)
+	goto_if_eq(Common_Juntrick_Lost_EventScript)
+	compare(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED)
+	goto_if_eq(Common_Juntrick_Lost_EventScript)
+
+	return
+}
+
+script Common_Juntrick_Lost_EventScript{
+	release
+	end
+}
+
+script Script_NotEnoughSpaceInBag{
+	msgbox("I'd take it, but my\nbag is full!",MSGBOX_AUTOCLOSE)
+	release
+	end
+}
+
+text Common_Juntrick{
+	"It's a trash can.\n..."
+}
+text Common_Juntrick_Movement{
+	"The trash can started moving!"
+}
+
+text Common_Trashcan_Empty{
+	"It's a trash can.\nNothing unusual here!"
+}
+
+text Common_Trashcan_Item{
+	"It's a trash can.\nThere's something inside!"
 }
 
 text Chest_Text{

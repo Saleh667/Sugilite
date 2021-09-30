@@ -1301,8 +1301,8 @@
 #define FLAG_UNUSED_0x4E7 0x4E7               // Unused Flag
 #define FLAG_UNUSED_0x4E8 0x4E8               // Unused Flag
 #define FLAG_UNUSED_0x4E9 0x4E9               // Unused Flag
-#define FLAG_UNUSED_0x4EA 0x4EA               // Unused Flag
-#define FLAG_UNUSED_0x4EB 0x4EB               // Unused Flag
+#define FLAG_DEBUG_JUNTRICK 0x4EA             // Unused Flag
+#define FLAG_DEBUG_TRASHCAN 0x4EB             // Unused Flag
 #define FLAG_DEBUG_CHEST 0x4EC                // Unused Flag
 #define FLAG_DID_LOSE 0x4ED                   // Unused Flag
 #define FLAG_HIDE_PROFS_LAB_POKEBALL 0x4EE    // Used to Check if the Pokeball selection is thru.
