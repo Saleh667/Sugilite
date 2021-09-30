@@ -563,12 +563,12 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
     	
 		call(Simmerman_Laugh)
 		
-		msgbox("I've got that and much more!\nBut it's too early for you to think ahead.")
+		msgbox("I've got that and much more!\nBut it's too early for you to\lthink ahead.")
     	closemessage
 
     	playse(SE_BOO)
 		applymovement(LOCALID_RIVAL, Common_Movement_EmoteSweat)
-		msgbox("Eric: ...aaand I'm suddenly not convinced.")
+		msgbox("Eric: ...aaand I'm suddenly not\nconvinced.")
 
 		msgbox("Simmerman: H-Hey!")
 		closemessage

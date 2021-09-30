@@ -308,7 +308,7 @@ script Route401_DoMovement{
 	if (var(VAR_RESULT) == MALE) {
 		msgbox("{PLAYER} gave half of the items to\nEirika.")
 		removeitem(ITEM_POKE_BALL, 5)
-		msgbox("Simmerman: Welp!\nI guess my work is done here.\pYou've got a ways to go, kids.\nI'll see you again when you're\lstronger.\pDon't count on it though, I'm usually\lvery busy.")
+		msgbox("Simmerman: Welp!\nI guess my work is done here.\pYou've got a ways to go, kids.\nI'll see you again when you're\lstronger.\pDon't count on it though, I'm usually\nvery busy.")
 		msgbox("Eirika: Okay then, bye Mr. Simmerman!")
 		closemessage
 	}
@@ -316,7 +316,7 @@ script Route401_DoMovement{
 	{
 		msgbox("{PLAYER} gave half of the items to\nEric.")
 		removeitem(ITEM_POKE_BALL, 5)
-		msgbox("Simmerman: Welp!\nI guess my work is done here.\pYou've got a ways to go, kids.\nI'll see you again when you're\lstronger.\pDon't count on it though, I'm usually\lvery busy.")
+		msgbox("Simmerman: Welp!\nI guess my work is done here.\pYou've got a ways to go, kids.\nI'll see you again when you're\lstronger.\pDon't count on it though, I'm usually\nvery busy.")
 		msgbox("Eric: Okay then, bye Mr. Simmerman!")
 		closemessage
 	}
