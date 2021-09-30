@@ -3081,8 +3081,8 @@ static void Task_PrintSkillsPage(u8 taskId)
 }
 
 static const u8 sText_NeutralNature[] = _("{COLOR}{02}{SHADOW}{03}{STR_VAR_1}");
-static const u8 sTextNatureDown[] = _("{COLOR}{13}{SHADOW}{03}{STR_VAR_1}");
-static const u8 sTextNatureUp[] = _("{COLOR}{15}{SHADOW}{03}{STR_VAR_1}");
+static const u8 sTextNatureDown[] = _("{COLOR}{15}{SHADOW}{03}{STR_VAR_1}");
+static const u8 sTextNatureUp[] = _("{COLOR}{13}{SHADOW}{03}{STR_VAR_1}");
 static u8 *BufferStat(u8 *dst, u32 stat, s8 natureMod)
 {
     u8 *txtPtr;

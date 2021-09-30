@@ -1073,11 +1073,14 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Machine::
 	end
 
 
+<<<<<<< HEAD
+=======
 LittlerootTown_ProfessorBirchsLab_EventScript_Sign::
 	msgbox LittlerootTown_ProfessorBirchsLab_EventScript_Sign_Text_0, MSGBOX_SIGN
 	end
 
 
+>>>>>>> f38448e699937ca52f0a1b741de1570dcbc2418e
 Common_Movement_WalkDown:
 	walk_down
 	step_end
@@ -2403,10 +2406,15 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Book_Text_0:
 	.string "floor. Could they also be for research?$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Machine_Text_0:
+<<<<<<< HEAD
+	.string "It's a machine used to store Pokéballs.\n"
+	.string "It's empty right now, though...$"
+=======
 	.string "It's a machine used to store\nPokéballs.\pIt's empty right now, though...$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Sign_Text_0:
 	.string "It's a sign showing the lab's\ndaily schedule.$"
+>>>>>>> f38448e699937ca52f0a1b741de1570dcbc2418e
 
 Prof_NoChoice::
 	.string "Stephanie: That's alright.\pThink it through for as long\nas you need.$"
