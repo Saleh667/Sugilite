@@ -1785,7 +1785,6 @@ static const u8 sTM50Desc[] = _(
     "attack, but sharply\n"
     "lowers Sp. Atk.");
 
-
 static const u8 sHM01Desc[] = _(
     "Attacks the foe\n"
     "with sharp blades\n"
@@ -1998,7 +1997,7 @@ static const u8 sOldSeaMapDesc[] = _(
     "that shows the way\n"
     "to a certain island.");
 
-	// New items
+// New items
 static const u8 sWideLensDesc[] = _(
     "A magnifying lens\n"
     "that boosts the\n"
@@ -2820,10 +2819,10 @@ static const u8 sPrettyFeatherDesc[] = _(
     "does nothing.");
 
 static const u8 sShinyCharmDesc[] = _(
-	"A charm that will\n"
+    "A charm that will\n"
     "raise the chance\n"
     "of Shiny Pokémon.");
-    
+
 static const u8 sOvalCharmDesc[] = _(
     "Raises the chance\n"
     "of finding eggs\n"
@@ -2843,7 +2842,7 @@ static const u8 sFightiniumZDesc[] = _(
     "Upgrade Fighting-\n"
     "type moves into\n"
     "Z-Moves.");
-    
+
 static const u8 sFlyiniumZDesc[] = _(
     "Upgrade Flying-\n"
     "type moves into\n"
@@ -3008,3 +3007,8 @@ static const u8 sUltranecroziumZDesc[] = _(
     "A crystal to turn\n"
     "fused Necrozma\n"
     "into a new form.");
+
+static const u8 sChestKeyDesc[] = _(
+    "A rare key that\n"
+    "is used to open\n"
+    "special chests.");

@@ -563,12 +563,12 @@ script KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection{
     	
 		call(Simmerman_Laugh)
 		
-		msgbox("I've got that and much more!\nBut it's too early for you to think ahead.")
+		msgbox("I've got that and much more!\nBut it's too early for you to\lthink ahead.")
     	closemessage
 
     	playse(SE_BOO)
 		applymovement(LOCALID_RIVAL, Common_Movement_EmoteSweat)
-		msgbox("Eric: ...aaand I'm suddenly not convinced.")
+		msgbox("Eric: ...aaand I'm suddenly not\nconvinced.")
 
 		msgbox("Simmerman: H-Hey!")
 		closemessage
@@ -1171,7 +1171,12 @@ script LittlerootTown_ProfessorBirchsLab_EventScript_Book {
 }
 
 script LittlerootTown_ProfessorBirchsLab_EventScript_Machine {
-	msgbox(format("It's a machine used to store Pokéballs. It's empty right now, though..."), MSGBOX_SIGN)
+	msgbox("It's a machine used to store\nPokéballs.\pIt's empty right now, though...", MSGBOX_SIGN)
+	end
+}
+
+script LittlerootTown_ProfessorBirchsLab_EventScript_Sign {
+	msgbox("It's a sign showing the lab's\ndaily schedule.", MSGBOX_SIGN)
 	end
 }
 

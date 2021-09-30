@@ -409,5 +409,8 @@ const u16 gObjectEventPal_ItemBall[] = INCBIN_U16("graphics/object_events/palett
 const u16 gObjectEventPal_LittleBoy[] = INCBIN_U16("graphics/object_events/palettes/little_boy.gbapal");
 const u16 gObjectEventPal_LittleGirl[] = INCBIN_U16("graphics/object_events/palettes/little_girl.gbapal");
 
+const u16 gObjectEventPic_Chest[] = INCBIN_U16("graphics/object_events/pics/misc/chest.4bpp");
+const u16 gObjectEventPal_Chest[] = INCBIN_U16("graphics/object_events/palettes/chest.gbapal");
+
 //Simmerman Laughing
 const u32 gObjectEventPic_SimmerLaugh[] = INCBIN_U32("graphics/object_events/pics/people/simmer_laugh.4bpp");

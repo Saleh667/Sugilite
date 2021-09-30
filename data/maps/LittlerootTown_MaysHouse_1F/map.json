@@ -2,7 +2,7 @@
   "id": "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F",
   "name": "LittlerootTown_MaysHouse_1F",
   "layout": "LAYOUT_LITTLEROOT_TOWN_MAYS_HOUSE_1F",
-  "music": "MUS_VS_GYM_LEADER",
+  "music": "MUS_LITTLEROOT",
   "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -25,6 +25,71 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Neighbours_House_OldLady_EventScript",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
+      "x": 3,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Neighbours_House_Klaus_EventScript",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CHEST",
+      "x": 8,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Neighbours_House_Chest_EventScript",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_JUNTRICK",
+      "x": 10,
+      "y": 4,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Neighbours_House_Juntrick_EventScript",
+      "flag": "FLAG_DEBUG_JUNTRICK"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_JUNTRICK",
+      "x": 9,
+      "y": 4,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Neighbours_House_Trashcan_Item_EventScript",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_JUNTRICK",
+      "x": 8,
+      "y": 4,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Neighbours_House_Trashcan_EventScript",
       "flag": "0"
     }
   ],
@@ -51,7 +116,7 @@
     {
       "type": "sign",
       "x": 0,
-      "y": 1,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "KitchenSet_EventScript"
@@ -59,7 +124,7 @@
     {
       "type": "sign",
       "x": 7,
-      "y": 1,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Cupboards_EventScript"
@@ -67,7 +132,7 @@
     {
       "type": "sign",
       "x": 6,
-      "y": 1,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Cupboards_EventScript"
@@ -75,7 +140,7 @@
     {
       "type": "sign",
       "x": 5,
-      "y": 1,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "OldLady_Television_EventScript"
@@ -83,7 +148,7 @@
     {
       "type": "sign",
       "x": 1,
-      "y": 1,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "KitchenSet_EventScript"
@@ -91,7 +156,7 @@
     {
       "type": "sign",
       "x": 2,
-      "y": 1,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "KitchenSet_EventScript"
@@ -115,14 +180,6 @@
     {
       "type": "sign",
       "x": 10,
-      "y": 4,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "TrashCan_EventScript"
-    },
-    {
-      "type": "sign",
-      "x": 10,
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -131,7 +188,7 @@
     {
       "type": "sign",
       "x": 9,
-      "y": 1,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Bookshelves_EventScript"
@@ -139,7 +196,7 @@
     {
       "type": "sign",
       "x": 8,
-      "y": 1,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Bookshelves_EventScript"
