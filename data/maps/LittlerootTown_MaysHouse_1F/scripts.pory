@@ -143,7 +143,7 @@ script Common_Juntrick_EventScript{
 	msgbox(Common_Juntrick_Movement,MSGBOX_AUTOCLOSE)
 	
 	applymovement(LOCALID_JUNTRICK,Common_Movement_FaceUp)
-	playmoncry(LOCALID_JUNTRICK,2)
+	playmoncry(SPECIES_JUNTRICK,2)
 	delay(40)
 
 	setwildbattle(SPECIES_JUNTRICK, 8, ITEM_NONE)
