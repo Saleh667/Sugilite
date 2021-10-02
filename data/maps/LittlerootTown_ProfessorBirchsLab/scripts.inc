@@ -1073,14 +1073,11 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Machine::
 	end
 
 
-<<<<<<< HEAD
-=======
 LittlerootTown_ProfessorBirchsLab_EventScript_Sign::
 	msgbox LittlerootTown_ProfessorBirchsLab_EventScript_Sign_Text_0, MSGBOX_SIGN
 	end
 
 
->>>>>>> f38448e699937ca52f0a1b741de1570dcbc2418e
 Common_Movement_WalkDown:
 	walk_down
 	step_end
@@ -2264,10 +2261,10 @@ KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_18:
 	.string "Eric: Really?\nPerhaps he might have some insight\lon what makes a good POKéMON trainer.$"
 
 KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_19:
-	.string "I've got that and much more!\nBut it's too early for you to think ahead.$"
+	.string "I've got that and much more!\nBut it's too early for you to\lthink ahead.$"
 
 KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_20:
-	.string "Eric: ...aaand I'm suddenly not convinced.$"
+	.string "Eric: ...aaand I'm suddenly not\nconvinced.$"
 
 KurosibaTown_ProfessorsLab_EventScript_FinishStarterSelection_Text_21:
 	.string "Eric: Mom, I think {PLAYER} would enjoy\nit if we had a little battle here,\lis that alright?$"
@@ -2406,15 +2403,10 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Book_Text_0:
 	.string "floor. Could they also be for research?$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Machine_Text_0:
-<<<<<<< HEAD
-	.string "It's a machine used to store Pokéballs.\n"
-	.string "It's empty right now, though...$"
-=======
 	.string "It's a machine used to store\nPokéballs.\pIt's empty right now, though...$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Sign_Text_0:
 	.string "It's a sign showing the lab's\ndaily schedule.$"
->>>>>>> f38448e699937ca52f0a1b741de1570dcbc2418e
 
 Prof_NoChoice::
 	.string "Stephanie: That's alright.\pThink it through for as long\nas you need.$"

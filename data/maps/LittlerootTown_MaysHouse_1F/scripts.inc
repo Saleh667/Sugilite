@@ -11,8 +11,6 @@ Neighbours_House_OldLady_EventScript::
 	end
 
 
-<<<<<<< HEAD
-=======
 Neighbours_House_Klaus_EventScript::
 	lock
 	faceplayer
@@ -120,10 +118,11 @@ Neighbours_House_Juntrick_EventScript::
 Common_Juntrick_EventScript::
 	msgbox Common_Juntrick, MSGBOX_AUTOCLOSE
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	playse SE_PIN
 	delay 60
 	msgbox Common_Juntrick_Movement, MSGBOX_AUTOCLOSE
 	applymovement 4, Common_Movement_FaceUp
-	playmoncry 4, 2
+	playmoncry SPECIES_JUNTRICK, 2
 	delay 40
 	setwildbattle SPECIES_JUNTRICK, 8, ITEM_NONE
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -149,7 +148,6 @@ Script_NotEnoughSpaceInBag::
 	end
 
 
->>>>>>> f38448e699937ca52f0a1b741de1570dcbc2418e
 OldLady_Television_EventScript::
 	msgbox OldLady_Television_Text
 	closemessage
@@ -160,8 +158,6 @@ RivalsHouse_2F_EventScript_Rival::
 	end
 
 
-<<<<<<< HEAD
-=======
 Neighbours_House_Klaus_EventScript_Text_0:
 	.string "You already have a key, BIG SHOT!$"
 
@@ -227,7 +223,6 @@ Neighbours_House_Bye_Text::
 	.string "have to ask you to leave.\p"
 	.string "BYEEEEEE!$"
 
->>>>>>> f38448e699937ca52f0a1b741de1570dcbc2418e
 Neighbours_House_OldLady_Text::
 	.string "Why hello there, dear.\n"
 	.string "Thank you so much for stopping by.\p"

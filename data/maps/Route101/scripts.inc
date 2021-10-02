@@ -519,7 +519,7 @@ Route401_DoMovement_Text_26:
 	.string "{PLAYER} gave half of the items to\nEirika.$"
 
 Route401_DoMovement_Text_27:
-	.string "Simmerman: Welp!\nI guess my work is done here.\pYou've got a ways to go, kids.\nI'll see you again when you're\lstronger.\pDon't count on it though, I'm usually\lvery busy.$"
+	.string "Simmerman: Welp!\nI guess my work is done here.\pYou've got a ways to go, kids.\nI'll see you again when you're\lstronger.\pDon't count on it though, I'm usually\nvery busy.$"
 
 Route401_DoMovement_Text_28:
 	.string "Eirika: Okay then, bye Mr. Simmerman!$"
