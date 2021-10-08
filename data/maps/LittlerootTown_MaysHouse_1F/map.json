@@ -54,7 +54,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_JUNTRICK",
+      "graphics_id": "OBJ_EVENT_GFX_FLANNERY",
       "x": 10,
       "y": 4,
       "elevation": 3,
@@ -67,7 +67,7 @@
       "flag": "FLAG_DEBUG_JUNTRICK"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_JUNTRICK",
+      "graphics_id": "OBJ_EVENT_GFX_FLANNERY",
       "x": 9,
       "y": 4,
       "elevation": 3,
@@ -80,7 +80,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_JUNTRICK",
+      "graphics_id": "OBJ_EVENT_GFX_FLANNERY",
       "x": 8,
       "y": 4,
       "elevation": 3,
