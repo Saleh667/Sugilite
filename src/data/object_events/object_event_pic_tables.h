@@ -2200,15 +2200,15 @@ static const struct SpriteFrameImage sPicTable_Dragby[] = {
 };
 
 static const struct SpriteFrameImage sPicTable_Chest[] = {
-    overworld_frame(gObjectEventPic_Chest, 2, 4, 0),
-    overworld_frame(gObjectEventPic_Chest, 2, 4, 1),
-    overworld_frame(gObjectEventPic_Chest, 2, 4, 1),
-    overworld_frame(gObjectEventPic_Chest, 2, 4, 1),
-    overworld_frame(gObjectEventPic_Chest, 2, 4, 1),
-    overworld_frame(gObjectEventPic_Chest, 2, 4, 1),
-    overworld_frame(gObjectEventPic_Chest, 2, 4, 1),
-    overworld_frame(gObjectEventPic_Chest, 2, 4, 1),
-    overworld_frame(gObjectEventPic_Chest, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Chest, 2, 2, 0),
+    overworld_frame(gObjectEventPic_Chest, 2, 2, 1),
+    overworld_frame(gObjectEventPic_Chest, 2, 2, 1),
+    overworld_frame(gObjectEventPic_Chest, 2, 2, 1),
+    overworld_frame(gObjectEventPic_Chest, 2, 2, 1),
+    overworld_frame(gObjectEventPic_Chest, 2, 2, 1),
+    overworld_frame(gObjectEventPic_Chest, 2, 2, 1),
+    overworld_frame(gObjectEventPic_Chest, 2, 2, 1),
+    overworld_frame(gObjectEventPic_Chest, 2, 2, 1),
 };
 
 static const struct SpriteFrameImage sPicTable_Fairygirl[] = {
