@@ -1527,7 +1527,7 @@ static void Task_NewGameBirchSpeech_StartBirchLotadPlatformFade(u8 taskId)
         gSprites[gTasks[taskId].tBirchSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
         gSprites[gTasks[taskId].tLotadSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
         NewGameBirchSpeech_StartFadeOutTarget1InTarget2(taskId, 2);
-        NewGameBirchSpeech_StartFadePlatformIn(taskId, 1);
+        //NewGameBirchSpeech_StartFadePlatformIn(taskId, 1);
         gTasks[taskId].tTimer = 64;
         gTasks[taskId].func = Task_NewGameBirchSpeech_SlidePlatformAway;
     }
@@ -1568,7 +1568,7 @@ static void Task_NewGameBirchSpeech_StartPlayerFadeIn(u8 taskId)
             gTasks[taskId].tPlayerSpriteId = spriteId;
             gTasks[taskId].tPlayerGender = MALE;
             NewGameBirchSpeech_StartFadeInTarget1OutTarget2(taskId, 2);
-            NewGameBirchSpeech_StartFadePlatformOut(taskId, 1);
+            //NewGameBirchSpeech_StartFadePlatformOut(taskId, 1);
             gTasks[taskId].func = Task_NewGameBirchSpeech_WaitForPlayerFadeIn;
         }
     }
