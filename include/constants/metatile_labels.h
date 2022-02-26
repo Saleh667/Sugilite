@@ -100,10 +100,6 @@
 
 // gTileset_BrendansMaysHouse
 #define METATILE_BrendansMaysHouse_BookOnTable       0x293
-#define METATILE_BrendansMaysHouse_BrendanPC_Off     0x059
-#define METATILE_BrendansMaysHouse_BrendanPC_On      0x051
-#define METATILE_BrendansMaysHouse_MayPC_Off         0x059
-#define METATILE_BrendansMaysHouse_MayPC_On          0x051
 #define METATILE_BrendansMaysHouse_MovingBox_Closed  0x268
 #define METATILE_BrendansMaysHouse_MovingBox_Open    0x270
 
