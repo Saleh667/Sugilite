@@ -4510,6 +4510,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Intro_SleepMap/border.bin",
       "blockdata_filepath": "data/layouts/Intro_SleepMap/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKE_CENTER_TILES",
+      "name": "PokeCenterTiles_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_NewPokeCenter",
+      "border_filepath": "data/layouts/PokeCenterTiles/border.bin",
+      "blockdata_filepath": "data/layouts/PokeCenterTiles/map.bin"
     }
   ]
 }

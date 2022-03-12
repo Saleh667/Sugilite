@@ -96,22 +96,6 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 6,
-      "y": 2,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Cupboards_EventScript"
-    },
-    {
-      "type": "sign",
-      "x": 7,
-      "y": 2,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Cupboards_EventScript"
-    },
-    {
-      "type": "sign",
       "x": 2,
       "y": 6,
       "elevation": 0,

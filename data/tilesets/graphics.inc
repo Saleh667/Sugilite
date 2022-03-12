@@ -1869,3 +1869,23 @@ gTilesetPalettes_BlackTileset::
 	.align 2
 gTilesetTiles_BlackTileset::
 	.incbin "data/tilesets/primary/blacktileset/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_NewPokeCenter::
+	.incbin "data/tilesets/secondary/newpokecenter/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/newpokecenter/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/newpokecenter/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/newpokecenter/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/newpokecenter/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/newpokecenter/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/newpokecenter/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/newpokecenter/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/newpokecenter/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/newpokecenter/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/newpokecenter/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/newpokecenter/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/newpokecenter/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_NewPokeCenter::
+	.incbin "data/tilesets/secondary/newpokecenter/tiles.4bpp.lz"

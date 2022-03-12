@@ -1082,3 +1082,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 
 
 	.include "data/maps/Intro_SleepMap/scripts.inc"
+
+	.include "data/maps/PokeCenterTiles/scripts.inc"

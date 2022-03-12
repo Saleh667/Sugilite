@@ -607,3 +607,10 @@ gMetatiles_BlackTileset::
 	.align 1
 gMetatileAttributes_BlackTileset::
 	.incbin "data/tilesets/primary/blacktileset/metatile_attributes.bin"
+	.align 1
+gMetatiles_NewPokeCenter::
+	.incbin "data/tilesets/secondary/newpokecenter/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_NewPokeCenter::
+	.incbin "data/tilesets/secondary/newpokecenter/metatile_attributes.bin"
