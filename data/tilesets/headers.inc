@@ -907,3 +907,14 @@ gTileset_BlackTileset::
 	.4byte gMetatiles_BlackTileset
 	.4byte gMetatileAttributes_BlackTileset
 	.4byte NULL
+
+	.align 2
+gTileset_NewPokeCenter::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_NewPokeCenter
+	.4byte gTilesetPalettes_NewPokeCenter
+	.4byte gMetatiles_NewPokeCenter
+	.4byte gMetatileAttributes_NewPokeCenter
+	.4byte NULL

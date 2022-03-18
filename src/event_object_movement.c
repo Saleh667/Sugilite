@@ -483,6 +483,7 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_LITTLE_GIRL 0x1135
 
 #define OBJ_EVENT_PAL_TAG_CHEST 0x1136
+#define OBJ_EVENT_PAL_TAG_KYOOTEDI 0x1137
 
 #define OBJ_EVENT_PAL_TAG_NONE 0x11FF
 
@@ -550,6 +551,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_ItemBall, OBJ_EVENT_PAL_TAG_ITEM_BALL},
     {gObjectEventPal_LittleBoy, OBJ_EVENT_PAL_TAG_LITTLE_BOY},
     {gObjectEventPal_LittleGirl, OBJ_EVENT_PAL_TAG_LITTLE_GIRL},
+    {gObjectEventPal_Kyootedi, OBJ_EVENT_PAL_TAG_KYOOTEDI},
 
     {gObjectEventPal_Chest, OBJ_EVENT_PAL_TAG_CHEST},
 

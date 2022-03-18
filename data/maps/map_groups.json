@@ -633,6 +633,7 @@
     "Route124_DivingTreasureHuntersHouse"
   ],
   "gMapGroupDebug": [
-    "TilesetTestIndoors"
+    "TilesetTestIndoors",
+    "PokeCenterTiles"
   ]
 }

@@ -602,6 +602,7 @@
 
 // gMapGroupDebug
 #define MAP_TILESET_TEST_INDOORS (0 | (34 << 8))
+#define MAP_POKE_CENTER_TILES    (1 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 

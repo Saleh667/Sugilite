@@ -262,6 +262,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Scientist;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Maid;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Chest;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kyootedi;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] = &gObjectEventGraphicsInfo_BrendanNormal,
@@ -517,6 +518,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
 
     [OBJ_EVENT_GFX_MAID] = &gObjectEventGraphicsInfo_Maid,
     [OBJ_EVENT_GFX_CHEST] = &gObjectEventGraphicsInfo_Chest,
+    [OBJ_EVENT_GFX_KYOOTEDI] = &gObjectEventGraphicsInfo_Kyootedi,
 
     [OBJ_EVENT_GFX_SIMMERLAUGH] = &gObjectEventGraphicsInfo_SimmerLaugh,
 };
