@@ -1061,6 +1061,7 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/text/frontier_brain.inc"
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
+	.include "data/scripts/debug.inc"
 
 	.include "data/maps/KurosibaTown/scripts.inc"
 
