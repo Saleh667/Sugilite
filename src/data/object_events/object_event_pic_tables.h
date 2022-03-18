@@ -2199,6 +2199,18 @@ static const struct SpriteFrameImage sPicTable_Dragby[] = {
     overworld_frame(gObjectEventPic_Dragby, 2, 4, 2),
 };
 
+static const struct SpriteFrameImage sPicTable_Kyootedi[] = {
+    overworld_frame(gObjectEventPic_Kyootedi, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kyootedi, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kyootedi, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kyootedi, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kyootedi, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kyootedi, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kyootedi, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kyootedi, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kyootedi, 2, 4, 2),
+};
+
 static const struct SpriteFrameImage sPicTable_Chest[] = {
     overworld_frame(gObjectEventPic_Chest, 2, 2, 0),
     overworld_frame(gObjectEventPic_Chest, 2, 2, 1),

@@ -256,8 +256,9 @@
 
 #define OBJ_EVENT_GFX_MAID 250
 #define OBJ_EVENT_GFX_CHEST 251
+#define OBJ_EVENT_GFX_KYOOTEDI 252
 
-#define NUM_OBJ_EVENT_GFX 252
+#define NUM_OBJ_EVENT_GFX 253
 
 // These are dynamic object gfx ids.
 // They correspond with the values of the VAR_OBJ_GFX_ID_X vars.
