@@ -4516,7 +4516,7 @@
       "name": "PokeCenterTiles_Layout",
       "width": 20,
       "height": 20,
-      "primary_tileset": "gTileset_Building",
+      "primary_tileset": "gTileset_Indoors",
       "secondary_tileset": "gTileset_NewPokeCenter",
       "border_filepath": "data/layouts/PokeCenterTiles/border.bin",
       "blockdata_filepath": "data/layouts/PokeCenterTiles/map.bin"
