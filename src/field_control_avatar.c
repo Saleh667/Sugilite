@@ -3,6 +3,7 @@
 #include "bike.h"
 #include "coord_event_weather.h"
 #include "daycare.h"
+#include "debug_menu.h"
 #include "faraway_island.h"
 #include "event_data.h"
 #include "event_object_movement.h"
@@ -82,7 +83,7 @@ void FieldClearPlayerInput(struct FieldInput *input)
     input->pressedBButton = FALSE;
     input->input_field_1_0 = FALSE;
     input->input_field_1_1 = FALSE;
-    input->input_field_1_2 = FALSE;
+    input->openDebugMenu = FALSE;
     input->input_field_1_3 = FALSE;
     input->dpadDirection = 0;
 }
@@ -121,6 +122,14 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
         if (forcedMove == FALSE && tileTransitionState == T_TILE_CENTER)
             input->checkStandardWildEncounter = TRUE;
     }
+    
+#if DEBUG_MODE == TRUE
+    if ((heldKeys & R_BUTTON) && input->pressedStartButton)
+    {
+        input->openDebugMenu = TRUE;
+        input->pressedStartButton = FALSE;
+    }
+#endif
 
     if (heldKeys & DPAD_UP)
         input->dpadDirection = DIR_NORTH;
@@ -188,6 +197,15 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     }
     if (input->pressedSelectButton && UseRegisteredKeyItemOnField() == TRUE)
         return TRUE;
+
+#if DEBUG_MODE == TRUE
+    if (input->openDebugMenu)
+    {
+        PlaySE(SE_WIN_OPEN);
+        Debug_ShowMainMenu();
+        return TRUE;
+    }
+#endif
 
     return FALSE;
 }
@@ -700,6 +718,11 @@ void RestartWildEncounterImmunitySteps(void)
 
 static bool8 CheckStandardWildEncounter(u16 metatileBehavior)
 {
+    #if DEBUG_MODE == TRUE
+    if (FlagGet(FLAG_SYS_NO_ENCOUNTER))
+        return FALSE;//
+    #endif
+    
     if (sWildEncounterImmunitySteps < 4)
     {
         sWildEncounterImmunitySteps++;
