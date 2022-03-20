@@ -1889,3 +1889,23 @@ gTilesetPalettes_NewPokeCenter::
 	.align 2
 gTilesetTiles_NewPokeCenter::
 	.incbin "data/tilesets/secondary/newpokecenter/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_IvywoodIndoors::
+	.incbin "data/tilesets/secondary/ivywoodindoors/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/ivywoodindoors/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/ivywoodindoors/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/ivywoodindoors/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/ivywoodindoors/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/ivywoodindoors/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/ivywoodindoors/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/ivywoodindoors/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/ivywoodindoors/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/ivywoodindoors/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/ivywoodindoors/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/ivywoodindoors/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/ivywoodindoors/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_IvywoodIndoors::
+	.incbin "data/tilesets/secondary/ivywoodindoors/tiles.4bpp.lz"

@@ -634,6 +634,7 @@
   ],
   "gMapGroupDebug": [
     "TilesetTestIndoors",
-    "PokeCenterTiles"
+    "PokeCenterTiles",
+    "IvywoodInsideDebug"
   ]
 }

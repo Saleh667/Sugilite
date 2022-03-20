@@ -918,3 +918,14 @@ gTileset_NewPokeCenter::
 	.4byte gMetatiles_NewPokeCenter
 	.4byte gMetatileAttributes_NewPokeCenter
 	.4byte NULL
+
+	.align 2
+gTileset_IvywoodIndoors::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_IvywoodIndoors
+	.4byte gTilesetPalettes_IvywoodIndoors
+	.4byte gMetatiles_IvywoodIndoors
+	.4byte gMetatileAttributes_IvywoodIndoors
+	.4byte NULL

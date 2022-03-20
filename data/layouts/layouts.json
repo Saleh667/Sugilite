@@ -4520,6 +4520,16 @@
       "secondary_tileset": "gTileset_NewPokeCenter",
       "border_filepath": "data/layouts/PokeCenterTiles/border.bin",
       "blockdata_filepath": "data/layouts/PokeCenterTiles/map.bin"
+    },
+    {
+      "id": "LAYOUT_IVYWOOD_INSIDE_DEBUG",
+      "name": "IvywoodInsideDebug_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Indoors",
+      "secondary_tileset": "gTileset_IvywoodIndoors",
+      "border_filepath": "data/layouts/IvywoodInsideDebug/border.bin",
+      "blockdata_filepath": "data/layouts/IvywoodInsideDebug/map.bin"
     }
   ]
 }

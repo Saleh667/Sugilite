@@ -614,3 +614,10 @@ gMetatiles_NewPokeCenter::
 	.align 1
 gMetatileAttributes_NewPokeCenter::
 	.incbin "data/tilesets/secondary/newpokecenter/metatile_attributes.bin"
+	.align 1
+gMetatiles_IvywoodIndoors::
+	.incbin "data/tilesets/secondary/ivywoodindoors/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_IvywoodIndoors::
+	.incbin "data/tilesets/secondary/ivywoodindoors/metatile_attributes.bin"
