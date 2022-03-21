@@ -1087,3 +1087,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/PokeCenterTiles/scripts.inc"
 
 	.include "data/maps/IvywoodInsideDebug/scripts.inc"
+
+	.include "data/maps/PokemonCenter/scripts.inc"
