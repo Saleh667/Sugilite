@@ -55,17 +55,6 @@ EventScript_Sugilite_Start_Boy_6:
 
 
 PlayerToDoList_EventScript::
-
-	setflag FLAG_SYS_POKEMON_GET
-	givemon SPECIES_CYBIO, 5, 0
-	setmonmove 0, 0, MOVE_FLY
-
-	special FieldShowRegionMap
-	waitstate
-
-	release
-	end
-
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq PlayerToDoList_EventScript_2
