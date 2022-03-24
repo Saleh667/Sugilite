@@ -41,7 +41,7 @@ LittlerootTown_MapScripts:: @ 81E7DCB
 
 
 LittlerootTown_OnTransition: @ 81E7DDB
-	setflag FLAG_VISITED_LITTLEROOT_TOWN
+	setflag FLAG_VISITED_KUROSIBA_TOWN
 	call Common_EventScript_SetupRivalGfxId
 	end
 

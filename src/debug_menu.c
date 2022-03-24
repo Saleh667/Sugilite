@@ -788,9 +788,9 @@ static void DebugAction_Util_HealParty(u8 taskId)
 }
 static void DebugAction_Util_Fly(u8 taskId)
 {
-    FlagSet(FLAG_VISITED_LITTLEROOT_TOWN);
-    FlagSet(FLAG_VISITED_OLDALE_TOWN);
-    FlagSet(FLAG_VISITED_DEWFORD_TOWN);
+    FlagSet(FLAG_VISITED_KUROSIBA_TOWN);
+    FlagSet(FLAG_VISITED_IVYWOOD_TOWN);
+    FlagSet(FLAG_VISITED_ELDRIFELL_CITY);
     FlagSet(FLAG_VISITED_LAVARIDGE_TOWN);
     FlagSet(FLAG_VISITED_FALLARBOR_TOWN);
     FlagSet(FLAG_VISITED_VERDANTURF_TOWN);
@@ -1246,9 +1246,9 @@ static void DebugAction_Flags_ToggleFlyFlags(u8 taskId)
         PlaySE(SE_PC_OFF);
     else
         PlaySE(SE_PC_LOGIN);
-    FlagToggle(FLAG_VISITED_LITTLEROOT_TOWN);
-    FlagToggle(FLAG_VISITED_OLDALE_TOWN);
-    FlagToggle(FLAG_VISITED_DEWFORD_TOWN);
+    FlagToggle(FLAG_VISITED_KUROSIBA_TOWN);
+    FlagToggle(FLAG_VISITED_IVYWOOD_TOWN);
+    FlagToggle(FLAG_VISITED_ELDRIFELL_CITY);
     FlagToggle(FLAG_VISITED_LAVARIDGE_TOWN);
     FlagToggle(FLAG_VISITED_FALLARBOR_TOWN);
     FlagToggle(FLAG_VISITED_VERDANTURF_TOWN);
