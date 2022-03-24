@@ -1728,7 +1728,7 @@ static void DebugAction_Give_PokemonSimple(u8 taskId)
 
     //Display initial ID
     StringCopy(gStringVar2, gText_DigitIndicator[0]);
-    ConvertIntToDecimalStringN(gStringVar3, 1, STR_CONV_MODE_LEADING_ZEROS, 3);
+    ConvertIntToDecimalStringN(gStringVar3, SPECIES_CYBIO, STR_CONV_MODE_LEADING_ZEROS, 3);
     StringCopy(gStringVar1, gSpeciesNames[1]);
     StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
     StringExpandPlaceholders(gStringVar4, gDebugText_PokemonID);
@@ -1737,7 +1737,7 @@ static void DebugAction_Give_PokemonSimple(u8 taskId)
     //Set task data
     gTasks[taskId].func = DebugAction_Give_Pokemon_SelectId;
     gTasks[taskId].data[2] = windowId;
-    gTasks[taskId].data[3] = 1;            //Current ID
+    gTasks[taskId].data[3] = SPECIES_CYBIO;            //Current ID
     gTasks[taskId].data[4] = 0;            //Digit Selected
     gTasks[taskId].data[5] = 0;            //Complex?
     FreeMonIconPalettes();                 //Free space for new pallete
