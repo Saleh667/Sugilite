@@ -1,12 +1,14 @@
 #ifndef GUARD_REGIONMAPSEC_H
 #define GUARD_REGIONMAPSEC_H
 
-#define MAPSEC_LITTLEROOT_TOWN              0x00
-#define MAPSEC_OLDALE_TOWN                  0x01
-#define MAPSEC_DEWFORD_TOWN                 0x02
-#define MAPSEC_LAVARIDGE_TOWN               0x03
-#define MAPSEC_FALLARBOR_TOWN               0x04
-#define MAPSEC_VERDANTURF_TOWN              0x05
+#define MAPSEC_KUROSIBA_TOWN                0x00
+#define MAPSEC_ROUTE_401                    0x01
+#define MAPSEC_ROUTE_402                    0x02
+#define MAPSEC_IVYWOOD_TOWN                 0x03
+#define MAPSEC_ELDRIFELL_CITY               0x04
+#define MAPSEC_THE_DARKWOODS                0x05
+
+// emerald map sec IDs. TODO replace
 #define MAPSEC_PACIFIDLOG_TOWN              0x06
 #define MAPSEC_PETALBURG_CITY               0x07
 #define MAPSEC_SLATEPORT_CITY               0x08

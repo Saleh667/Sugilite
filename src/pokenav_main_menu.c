@@ -823,7 +823,7 @@ static void MoveLeftHeader(struct Sprite *sprite, s32 startX, s32 endX, s32 dura
     sprite->data[1] = (endX - startX) * 16 / duration;
     sprite->data[2] = duration;
     sprite->data[7] = endX;
-    sprite->callback = SpriteCB_MoveLeftHeader;
+    sprite->callback = SpriteCallbackDummy;//SpriteCB_MoveLeftHeader;
 }
 
 static void SpriteCB_MoveLeftHeader(struct Sprite *sprite)

@@ -3,7 +3,7 @@
   "name": "IvywoodInsideDebug",
   "layout": "LAYOUT_IVYWOOD_INSIDE_DEBUG",
   "music": "MUS_ABANDONED_SHIP",
-  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "region_map_section": "MAPSEC_KUROSIBA_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",

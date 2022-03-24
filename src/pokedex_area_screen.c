@@ -834,7 +834,7 @@ static void CreateAreaUnknownSprites(void)
     {
         for (i = 0; i < 3; i++)
         {
-            spriteId = CreateSprite(&sAreaUnknownSpriteTemplate, i * 32 + 0xa0, 0x8c, 0);
+            spriteId = CreateSprite(&sAreaUnknownSpriteTemplate, i * 32 + 0xa0, 148, 0);
             if (spriteId != MAX_SPRITES)
             {
                 gSprites[spriteId].oam.tileNum += i * 16;
