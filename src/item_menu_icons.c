@@ -447,7 +447,7 @@ void RemoveBagSprite(u8 id)
 void AddBagVisualSprite(u8 bagPocketId)
 {
     u8 *spriteId = &gBagMenu->spriteId[0];
-    *spriteId = CreateSprite(&gBagSpriteTemplate, 68, 66, 0);
+    *spriteId = CreateSprite(&gBagSpriteTemplate, 40, 66, 0);
     SetBagVisualPocketId(bagPocketId, FALSE);
 }
 
@@ -551,7 +551,7 @@ void AddBagItemIconSprite(u16 itemId, u8 id)
         {
             *spriteId = iconSpriteId;
             gSprites[iconSpriteId].pos2.x = 24;
-            gSprites[iconSpriteId].pos2.y = 88;
+            gSprites[iconSpriteId].pos2.y = 140;
         }
     }
 }
@@ -573,7 +573,7 @@ void SetItemMenuSwapLineInvisibility(bool8 invisible)
 
 void UpdateItemMenuSwapLinePos(u8 y)
 {
-    UpdateSwapLineSpritesPos(&gBagMenu->spriteId[4], 136, 120, (y + 1) * 16);
+    UpdateSwapLineSpritesPos(&gBagMenu->spriteId[4], 144, 100, (y + 1) * 16 + 8);
 }
 
 static void sub_80D5018(void *mem0, void *mem1)

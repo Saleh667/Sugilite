@@ -8065,10 +8065,7 @@ extern const u16 gFireRedMenuElements3_Pal[16];
 extern const u8 gFireRedMenuElements_Gfx[];
 
 // item menu graphics
-extern const u32 gBagScreen_Gfx[];
-extern const u32 gBagScreen_GfxTileMap[];
-extern const u32 gBagScreenFemale_Pal[];
-extern const u32 gBagScreenMale_Pal[];
+extern const u32 gItemMenu_Tiles[];
 extern const u8 gBagMenuHMIcon_Gfx[];
 
 // item menu icons graphics
