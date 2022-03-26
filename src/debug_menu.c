@@ -1211,9 +1211,11 @@ static void DebugAction_Flags_SwitchDex(u8 taskId)
     if(FlagGet(FLAG_SYS_POKEDEX_GET))
     {
         FlagClear(FLAG_SYS_POKEDEX_GET);
+        FlagClear(FLAG_SYS_POKEMON_GET);
         PlaySE(SE_PC_OFF);
     }else{
         FlagSet(FLAG_SYS_POKEDEX_GET);
+        FlagSet(FLAG_SYS_POKEMON_GET);
         PlaySE(SE_PC_LOGIN);
     }
 }

@@ -46,6 +46,8 @@
 #include "union_room.h"
 #include "constants/rgb.h"
 
+#define START_MENU_FADE_LEVEL   8
+
 // Menu actions
 enum
 {
@@ -57,6 +59,7 @@ enum
     MENU_ACTION_SAVE,
     MENU_ACTION_OPTION,
     MENU_ACTION_EXIT,
+    
     MENU_ACTION_RETIRE_SAFARI,
     MENU_ACTION_PLAYER_LINK,
     MENU_ACTION_REST_FRONTIER,
@@ -136,6 +139,12 @@ static void Task_SaveAfterLinkBattle(u8 taskId);
 static void Task_WaitForBattleTowerLinkSave(u8 taskId);
 static bool8 FieldCB_ReturnToFieldStartMenu(void);
 
+static void PrintCurrentActionName(void);
+static void CreateStartMenuCursor(void);
+static void UpdateCursorPosition(void);
+static void CorrectStartMenuCursorPosition(void);
+static void SpriteCB_StartMenuCursor(struct Sprite *sprite);
+
 static const struct WindowTemplate sSafariBallsWindowTemplate = {0, 1, 1, 9, 4, 0xF, 8};
 
 static const u8* const sPyramidFloorNames[] =
@@ -207,6 +216,80 @@ static const struct WindowTemplate sSaveInfoWindowTemplate = {
     .baseBlock = 8
 };
 
+
+static const u16 sStartMenuPal[] = INCBIN_U16("graphics/start_menu/pal.gbapal");
+static const u32 sStartMenuTiles_Initial[] = INCBIN_U32("graphics/start_menu/menu_initial.4bpp.lz");
+static const u32 sStartMenuTiles_Pokemon[] = INCBIN_U32("graphics/start_menu/menu_pokemon.4bpp.lz");
+static const u32 sStartMenuTiles_Full[] = INCBIN_U32("graphics/start_menu/menu_all.4bpp.lz");
+
+#define MENU_CURSOR_TAG     10000
+static const struct OamData sStartMenuCursorOam =
+{
+    .y = 0,
+    .affineMode = 0,
+    .objMode = 0,
+    .mosaic = 0,
+    .bpp = 0,
+    .shape = SPRITE_SHAPE(64x32),
+    .x = 0,
+    .matrixNum = 0,
+    .size = SPRITE_SIZE(64x32),
+    .tileNum = 0,
+    .priority = 0, // above BG layers
+    .paletteNum = 0,
+    .affineParam = 0
+};
+
+static const struct SpriteTemplate sStartMenuCursorSpriteTemplate = {
+    .tileTag = MENU_CURSOR_TAG,
+    .paletteTag = MENU_CURSOR_TAG,  //0x1100 for brendan
+    .oam = &sStartMenuCursorOam,
+    .anims =  gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCB_StartMenuCursor,
+};
+
+static EWRAM_DATA u8 sStartMenuCursorSprite = 0;
+static EWRAM_DATA u8 sStartMenuLabelWindowId = 0;
+
+#include "decompress.h"
+
+static const u32 sStartMenuCursorGfx[] = INCBIN_U32("graphics/start_menu/cursor.4bpp.lz");
+static const u16 sStartMenuCursorPal[] = INCBIN_U16("graphics/start_menu/cursor.gbapal");
+
+static const struct SpritePalette sStartMenuCursorSpritePalette = {sStartMenuCursorPal, MENU_CURSOR_TAG};
+
+#define CURSOR_COL_1        35
+#define CURSOR_COL_2        (CURSOR_COL_1 + 179)
+#define CURSOR_ROW_DELTA    30
+#define CURSOR_ROW_1        50
+#define CURSOR_ROW_2        (CURSOR_ROW_1 + CURSOR_ROW_DELTA)
+#define CURSOR_ROW_3        (CURSOR_ROW_2 + CURSOR_ROW_DELTA)
+#define CURSOR_ROW_4        (CURSOR_ROW_3 + CURSOR_ROW_DELTA)
+
+static const s16 sCursorPositionsByAction[][2] = {
+    [MENU_ACTION_POKEDEX]   = {CURSOR_COL_1, CURSOR_ROW_1},
+    [MENU_ACTION_POKEMON]   = {CURSOR_COL_1, CURSOR_ROW_2},
+    [MENU_ACTION_BAG]       = {CURSOR_COL_1, CURSOR_ROW_3 + 1},
+    //[MENU_ACTION_POKENAV]   = {CURSOR_COL_2, CURSOR_ROW_4 + 1},
+    
+    [MENU_ACTION_PLAYER]    = {CURSOR_COL_2, CURSOR_ROW_1},
+    [MENU_ACTION_SAVE]      = {CURSOR_COL_2, CURSOR_ROW_2},
+    [MENU_ACTION_OPTION]    = {CURSOR_COL_2, CURSOR_ROW_3 + 1},
+    [MENU_ACTION_EXIT]      = {CURSOR_COL_2, CURSOR_ROW_4 + 1}, // 1px difference
+};
+
+static const struct WindowTemplate sStartMenuLabelWindowTemplate = {
+    .bg = 0,
+    .tilemapLeft = 10,
+    .tilemapTop = 17,
+    .width = 10,
+    .height = 2,
+    .paletteNum = 15,
+    .baseBlock = 20
+};
+
 // Local functions
 static void BuildStartMenuActions(void);
 static void AddStartMenuAction(u8 action);
@@ -222,8 +305,7 @@ static void ShowPyramidFloorWindow(void);
 static void RemoveExtraStartMenuWindows(void);
 static bool32 PrintStartMenuActions(s8 *pIndex, u32 count);
 static bool32 InitStartMenuStep(void);
-static void InitStartMenu(void);
-static void CreateStartMenuTask(TaskFunc followupFunc);
+static void InitStartMenu(bool8);
 static void InitSave(void);
 static u8 RunSaveCallback(void);
 static void ShowSaveMessage(const u8 *message, u8 (*saveCallback)(void));
@@ -490,12 +572,88 @@ static bool32 InitStartMenuStep(void)
     return FALSE;
 }
 
-static void InitStartMenu(void)
+static void UpdateCursorPosition(void)
 {
-    sInitStartMenuData[0] = 0;
+    CorrectStartMenuCursorPosition();
+    gSprites[sStartMenuCursorSprite].pos1.x = sCursorPositionsByAction[sStartMenuCursorPos][0];
+    gSprites[sStartMenuCursorSprite].pos1.y = sCursorPositionsByAction[sStartMenuCursorPos][1];
+    
+    PrintCurrentActionName();
+}
+
+static void CreateStartMenuCursor(void)
+{
+    struct CompressedSpriteSheet spriteSheet;
+    
+    spriteSheet.data = sStartMenuCursorGfx;
+    spriteSheet.size = (64 * 32);
+    spriteSheet.tag = MENU_CURSOR_TAG;
+    LoadCompressedSpriteSheet(&spriteSheet);
+    LoadSpritePalette(&sStartMenuCursorSpritePalette);
+    sStartMenuCursorSprite = CreateSprite(&sStartMenuCursorSpriteTemplate, 0, 0, 0);
+    UpdateCursorPosition();
+}
+
+static void PrintCurrentActionName(void)
+{
+    const u8 *str = sStartMenuItems[sStartMenuCursorPos].text;
+    u8 color[3] = {0, 2, 3};
+    
+    StringExpandPlaceholders(gStringVar4, str);
+    FillWindowPixelBuffer(sStartMenuLabelWindowId, PIXEL_FILL(1));
+    AddTextPrinterParameterized4(sStartMenuLabelWindowId, 1, GetStringCenterAlignXOffset(1, gStringVar4, 80), 1, 0, 0, color, 0xFF, gStringVar4);
+    CopyWindowToVram(sStartMenuLabelWindowId, 2);
+}
+
+static void InitStartMenu(bool8 fromFade)
+{
+    /*sInitStartMenuData[0] = 0;
     sInitStartMenuData[1] = 0;
     while (!InitStartMenuStep())
         ;
+    */
+    
+    u8 windowId;
+    bool32 haveMon = FlagGet(FLAG_SYS_POKEMON_GET);
+    bool32 haveDex = FlagGet(FLAG_SYS_POKEDEX_GET);
+    
+    PlaySE(SE_WIN_OPEN);
+    if (!fromFade) {
+        BlendPalettes(-1, START_MENU_FADE_LEVEL, 0);
+    }
+    
+    windowId = AddStartMenuWindow();
+    PutWindowTilemap(windowId);
+    
+    LoadPalette(&sStartMenuPal, 14 * 16, 32);
+    if (!haveMon && !haveDex) {
+        if (sStartMenuCursorPos < MENU_ACTION_BAG)
+            sStartMenuCursorPos = MENU_ACTION_BAG;
+        CopyToWindowPixelBuffer(windowId, sStartMenuTiles_Initial, 0, 0);
+    } else if (haveMon && !haveDex) {
+        if (sStartMenuCursorPos < MENU_ACTION_POKEMON)
+            sStartMenuCursorPos = MENU_ACTION_POKEMON;
+        CopyToWindowPixelBuffer(windowId, sStartMenuTiles_Pokemon, 0, 0);
+    } else {
+        CopyToWindowPixelBuffer(windowId, sStartMenuTiles_Full, 0, 0);
+    }
+    PutWindowRectTilemap(windowId, 0, 0, 30, 20);    
+    CopyWindowToVram(windowId, 3);
+
+    // label window
+    sStartMenuLabelWindowId = AddWindow(&sStartMenuLabelWindowTemplate);
+    LoadUserWindowBorderGfx(sStartMenuLabelWindowId, 8, 13 * 16);
+    LoadPalette(GetOverworldTextboxPalettePtr(), 15 * 16, 32);
+    DrawStdFrameWithCustomTileAndPalette(sStartMenuLabelWindowId, FALSE, 8, 13);
+    FillWindowPixelBuffer(sStartMenuLabelWindowId, PIXEL_FILL(1));
+    PutWindowTilemap(sStartMenuLabelWindowId);
+    CopyWindowToVram(sStartMenuLabelWindowId, 3);
+    PrintCurrentActionName();    
+    if (fromFade) {
+        BlendPalettes(0xE000, 16, 0 );
+    }
+    
+    CreateStartMenuCursor();
 }
 
 static void StartMenuTask(u8 taskId)
@@ -504,23 +662,39 @@ static void StartMenuTask(u8 taskId)
         SwitchTaskToFollowupFunc(taskId);
 }
 
-static void CreateStartMenuTask(TaskFunc followupFunc)
+static void SpriteCB_StartMenuCursor(struct Sprite *sprite)
 {
-    u8 taskId;
+    sprite->data[1] = (sprite->data[1] + 1) & 0x1F;
+    if (sprite->data[1] > 24)
+        sprite->invisible = TRUE;
+    else
+        sprite->invisible = FALSE;
+}
 
+static void CorrectStartMenuCursorPosition(void)
+{
+    if (sStartMenuCursorPos == MENU_ACTION_POKENAV)
+        sStartMenuCursorPos--;  // empty slot
+    
+    if (sStartMenuCursorPos == MENU_ACTION_POKEDEX && !FlagGet(FLAG_SYS_POKEDEX_GET)) {
+        sStartMenuCursorPos++;
+    }
+    if (sStartMenuCursorPos == MENU_ACTION_POKEMON && !FlagGet(FLAG_SYS_POKEMON_GET)) {
+        sStartMenuCursorPos++;
+    }
+}
+
+void CreateStartMenuTask(TaskFunc followupFunc, bool8 fromFade)
+{
     sInitStartMenuData[0] = 0;
     sInitStartMenuData[1] = 0;
-    taskId = CreateTask(StartMenuTask, 0x50);
-    SetTaskFuncWithFollowupFunc(taskId, StartMenuTask, followupFunc);
+    
+    InitStartMenu(fromFade);
+    CreateTask(followupFunc, 0x50);
 }
 
 static bool8 FieldCB_ReturnToFieldStartMenu(void)
 {
-    if (InitStartMenuStep() == FALSE)
-    {
-        return FALSE;
-    }
-
     ReturnToFieldOpenStartMenu();
     return TRUE;
 }
@@ -560,41 +734,76 @@ void ShowStartMenu(void)
         PlayerFreeze();
         sub_808BCF4();
     }
-    CreateStartMenuTask(Task_ShowStartMenu);
+    CreateStartMenuTask(Task_ShowStartMenu, FALSE);
     ScriptContext2_Enable();
 }
 
 static bool8 HandleStartMenuInput(void)
 {
-    if (JOY_NEW(DPAD_UP))
-    {
+    if (JOY_NEW(DPAD_UP)) {
         PlaySE(SE_SELECT);
-        sStartMenuCursorPos = Menu_MoveCursor(-1);
+        if (sStartMenuCursorPos == MENU_ACTION_POKEDEX) {
+            sStartMenuCursorPos = MENU_ACTION_BAG;
+        } else if (sStartMenuCursorPos == MENU_ACTION_PLAYER) {
+            sStartMenuCursorPos = MENU_ACTION_EXIT;
+        } else {
+            sStartMenuCursorPos--;
+        }
+        //sStartMenuCursorPos = Menu_MoveCursor(-1);
+        UpdateCursorPosition();
     }
 
-    if (JOY_NEW(DPAD_DOWN))
-    {
+    if (JOY_NEW(DPAD_DOWN)) {
         PlaySE(SE_SELECT);
-        sStartMenuCursorPos = Menu_MoveCursor(1);
+        if (sStartMenuCursorPos == MENU_ACTION_BAG) {
+            sStartMenuCursorPos = MENU_ACTION_POKEDEX;
+        } else if (sStartMenuCursorPos == MENU_ACTION_EXIT) {
+            sStartMenuCursorPos = MENU_ACTION_PLAYER;
+        } else {
+            sStartMenuCursorPos++;
+        }
+        //sStartMenuCursorPos = Menu_MoveCursor(1);
+        UpdateCursorPosition();
+    }
+    
+    if (JOY_NEW(DPAD_RIGHT)) {
+        PlaySE(SE_SELECT);
+        if (sStartMenuCursorPos < MENU_ACTION_PLAYER) {
+            sStartMenuCursorPos += MENU_ACTION_PLAYER;
+        } else {
+            sStartMenuCursorPos -= MENU_ACTION_PLAYER;
+        }
+        UpdateCursorPosition();
+    }
+    
+    if (JOY_NEW(DPAD_LEFT)) {
+        PlaySE(SE_SELECT);
+        if (sStartMenuCursorPos > MENU_ACTION_BAG) {
+            sStartMenuCursorPos -= MENU_ACTION_PLAYER;
+        } else {
+            sStartMenuCursorPos += MENU_ACTION_PLAYER;
+        }
+        UpdateCursorPosition();
     }
 
     if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_SELECT);
-        if (sStartMenuItems[sCurrentStartMenuActions[sStartMenuCursorPos]].func.u8_void == StartMenuPokedexCallback)
+        if (sStartMenuItems[sStartMenuCursorPos].func.u8_void == StartMenuPokedexCallback)
         {
             if (GetNationalPokedexCount(FLAG_GET_SEEN) == 0)
                 return FALSE;
         }
 
-        gMenuCallback = sStartMenuItems[sCurrentStartMenuActions[sStartMenuCursorPos]].func.u8_void;
+        gMenuCallback = sStartMenuItems[sStartMenuCursorPos].func.u8_void;
 
         if (gMenuCallback != StartMenuSaveCallback
             && gMenuCallback != StartMenuExitCallback
             && gMenuCallback != StartMenuSafariZoneRetireCallback
             && gMenuCallback != StartMenuBattlePyramidRetireCallback)
         {
-           FadeScreen(FADE_TO_BLACK, 0);
+            BlendPalettes(-1, 0, START_MENU_FADE_LEVEL);
+            FadeScreen(FADE_TO_BLACK, 0);
         }
 
         return FALSE;
@@ -761,7 +970,7 @@ void ShowBattlePyramidStartMenu(void)
 {
     ClearDialogWindowAndFrameToTransparent(0, FALSE);
     ScriptUnfreezeObjectEvents();
-    CreateStartMenuTask(Task_ShowStartMenu);
+    CreateStartMenuTask(Task_ShowStartMenu, FALSE);
     ScriptContext2_Enable();
 }
 
@@ -796,11 +1005,13 @@ static bool8 SaveCallback(void)
         return FALSE;
     case SAVE_CANCELED: // Back to start menu
         ClearDialogWindowAndFrameToTransparent(0, FALSE);
-        InitStartMenu();
+        //CreateStartMenuTask(Task_ShowStartMenu, FALSE);
+        InitStartMenu(FALSE);
         gMenuCallback = HandleStartMenuInput;
         return FALSE;
     case SAVE_SUCCESS:
     case SAVE_ERROR:    // Close start menu
+        BlendPalettes(-1, 0, START_MENU_FADE_LEVEL);
         ClearDialogWindowAndFrameToTransparent(0, TRUE);
         ScriptUnfreezeObjectEvents();
         ScriptContext2_Disable();
@@ -821,7 +1032,7 @@ static bool8 BattlePyramidRetireStartCallback(void)
 
 static bool8 BattlePyramidRetireReturnCallback(void)
 {
-    InitStartMenu();
+    InitStartMenu(FALSE);
     gMenuCallback = HandleStartMenuInput;
 
     return FALSE;
@@ -949,10 +1160,22 @@ static bool8 SaveErrorTimer(void)
     return FALSE;
 }
 
+static void ClearStartMenuWindow(void)
+{
+    DestroySpriteAndFreeResources(&gSprites[sStartMenuCursorSprite]);
+    ClearStdWindowAndFrame(sStartMenuLabelWindowId, TRUE);
+    if (sStartMenuLabelWindowId != WINDOW_NONE) {
+        RemoveWindow(sStartMenuLabelWindowId);
+        sStartMenuLabelWindowId = WINDOW_NONE;
+    }
+    
+    ClearStdWindowAndFrame(GetStartMenuWindowId(), TRUE);
+    RemoveStartMenuWindow();
+}
+
 static u8 SaveConfirmSaveCallback(void)
 {
-    ClearStdWindowAndFrame(GetStartMenuWindowId(), FALSE);
-    RemoveStartMenuWindow();
+    ClearStartMenuWindow();
     ShowSaveInfoWindow();
 
     if (InBattlePyramid())
@@ -1315,8 +1538,9 @@ static void ShowSaveInfoWindow(void)
     {
         saveInfoWindow.height -= 2;
     }
-
+    
     sSaveInfoWindowId = AddWindow(&saveInfoWindow);
+    LoadUserWindowBorderGfx(sSaveInfoWindowId, 0x214, 0xE0);
     DrawStdWindowFrame(sSaveInfoWindowId, FALSE);
 
     gender = gSaveBlock2Ptr->playerGender;
@@ -1394,8 +1618,7 @@ void SaveForBattleTowerLink(void)
 
 static void HideStartMenuWindow(void)
 {
-    ClearStdWindowAndFrame(GetStartMenuWindowId(), TRUE);
-    RemoveStartMenuWindow();
+    ClearStartMenuWindow();
     ScriptUnfreezeObjectEvents();
     ScriptContext2_Disable();
 }
@@ -1404,6 +1627,7 @@ void HideStartMenu(void)
 {
     PlaySE(SE_SELECT);
     HideStartMenuWindow();
+    BlendPalettes(-1, 0, START_MENU_FADE_LEVEL);
 }
 
 void AppendToList(u8 *list, u8 *pos, u8 newEntry)
