@@ -3064,7 +3064,7 @@ static void PrintBattlerOnAbilityPopUp(u8 battlerId, u8 spriteId1, u8 spriteId2)
                         (void*)(OBJ_VRAM0) + (gSprites[spriteId2].oam.tileNum * 32),
                         7, 0,
                         0,
-                        2, 7, 1);
+                        2, 6, 3);
 }
 
 static void PrintAbilityOnAbilityPopUp(u32 ability, u8 spriteId1, u8 spriteId2)
@@ -3074,7 +3074,7 @@ static void PrintAbilityOnAbilityPopUp(u32 ability, u8 spriteId1, u8 spriteId2)
                         (void*)(OBJ_VRAM0) + (gSprites[spriteId2].oam.tileNum * 32) + 256,
                         7, 1,
                         4,
-                        7, 9, 1);
+                        5, 1, 4);
 }
 
 #define PIXEL_COORDS_TO_OFFSET(x, y)(            \
