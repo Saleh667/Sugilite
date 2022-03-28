@@ -1731,7 +1731,7 @@ static void DebugAction_Give_PokemonSimple(u8 taskId)
     //Display initial ID
     StringCopy(gStringVar2, gText_DigitIndicator[0]);
     ConvertIntToDecimalStringN(gStringVar3, SPECIES_CYBIO, STR_CONV_MODE_LEADING_ZEROS, 3);
-    StringCopy(gStringVar1, gSpeciesNames[1]);
+    StringCopy(gStringVar1, gSpeciesNames[SPECIES_CYBIO]);
     StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
     StringExpandPlaceholders(gStringVar4, gDebugText_PokemonID);
     AddTextPrinterParameterized(windowId, 1, gStringVar4, 1, 1, 0, NULL);
