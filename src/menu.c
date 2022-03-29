@@ -634,6 +634,13 @@ void RemoveMapNamePopUpWindow(void)
     }
 }
 
+u8 AddStartMenuWindow(void)
+{
+    if (sStartMenuWindowId == WINDOW_NONE)
+        sStartMenuWindowId = sub_8198AA4(0, 0, 0, 30, 20, 14, 50);
+    return sStartMenuWindowId;
+}
+
 void AddTextPrinterWithCallbackForMessage(bool8 a1, void (*callback)(struct TextPrinterTemplate *, u16))
 {
     gTextFlags.canABSpeedUpPrint = a1;

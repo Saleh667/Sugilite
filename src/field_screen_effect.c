@@ -432,13 +432,15 @@ static void Task_WaitForFadeShowStartMenu(u8 taskId)
     if (WaitForWeatherFadeIn() == TRUE)
     {
         DestroyTask(taskId);
-        CreateTask(Task_ShowStartMenu, 80);
+        //CreateStartMenuTask(Task_ShowStartMenu, TRUE);
+        //CreateTask(Task_ShowStartMenu, 80);
     }
 }
 
 void ReturnToFieldOpenStartMenu(void)
 {
     FadeInFromBlack();
+    CreateStartMenuTask(Task_ShowStartMenu, TRUE);
     CreateTask(Task_WaitForFadeShowStartMenu, 0x50);
     ScriptContext2_Enable();
 }
