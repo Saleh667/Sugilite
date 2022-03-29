@@ -1909,3 +1909,23 @@ gTilesetPalettes_IvywoodIndoors::
 	.align 2
 gTilesetTiles_IvywoodIndoors::
 	.incbin "data/tilesets/secondary/ivywoodindoors/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_EdrifellGym::
+	.incbin "data/tilesets/secondary/edrifellgym/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/edrifellgym/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/edrifellgym/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/edrifellgym/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/edrifellgym/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/edrifellgym/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/edrifellgym/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/edrifellgym/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/edrifellgym/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/edrifellgym/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/edrifellgym/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/edrifellgym/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/edrifellgym/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_EdrifellGym::
+	.incbin "data/tilesets/secondary/edrifellgym/tiles.4bpp.lz"

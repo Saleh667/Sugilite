@@ -4540,6 +4540,16 @@
       "secondary_tileset": "gTileset_NewPokeCenter",
       "border_filepath": "data/layouts/PokemonCenter/border.bin",
       "blockdata_filepath": "data/layouts/PokemonCenter/map.bin"
+    },
+    {
+      "id": "LAYOUT_EDRIFELL_GYM_TEST",
+      "name": "EdrifellGymTest_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Indoors",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/EdrifellGymTest/border.bin",
+      "blockdata_filepath": "data/layouts/EdrifellGymTest/map.bin"
     }
   ]
 }

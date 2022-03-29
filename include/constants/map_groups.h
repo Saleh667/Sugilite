@@ -605,6 +605,7 @@
 #define MAP_POKE_CENTER_TILES    (1 | (34 << 8))
 #define MAP_IVYWOOD_INSIDE_DEBUG (2 | (34 << 8))
 #define MAP_POKEMON_CENTER       (3 | (34 << 8))
+#define MAP_EDRIFELL_GYM_TEST    (4 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 

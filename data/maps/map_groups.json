@@ -636,6 +636,7 @@
     "TilesetTestIndoors",
     "PokeCenterTiles",
     "IvywoodInsideDebug",
-    "PokemonCenter"
+    "PokemonCenter",
+    "EdrifellGymTest"
   ]
 }
