@@ -621,3 +621,10 @@ gMetatiles_IvywoodIndoors::
 	.align 1
 gMetatileAttributes_IvywoodIndoors::
 	.incbin "data/tilesets/secondary/ivywoodindoors/metatile_attributes.bin"
+	.align 1
+gMetatiles_EdrifellGym::
+	.incbin "data/tilesets/secondary/edrifellgym/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_EdrifellGym::
+	.incbin "data/tilesets/secondary/edrifellgym/metatile_attributes.bin"
