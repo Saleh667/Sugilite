@@ -3336,7 +3336,7 @@ static void PrintMoveDetails(u16 move)
         
         windowId = AddWindowFromTemplateList(sPageMovesTemplate, WIN_MOVE_DESCRIPTION);
         FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
-        PrintTextOnWindow(windowId, gMoveDescriptionPointers[move - 1], 6, 2, 0, PSS_TEXT_COLOR_DARK_GRAY);
+        PrintTextOnWindow(windowId, gMoveDescriptionPointers[move], 6, 2, 0, PSS_TEXT_COLOR_DARK_GRAY);
         PutWindowTilemap(windowId);
     }
     else
