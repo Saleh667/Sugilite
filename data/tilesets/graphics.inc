@@ -1929,3 +1929,23 @@ gTilesetPalettes_EdrifellGym::
 	.align 2
 gTilesetTiles_EdrifellGym::
 	.incbin "data/tilesets/secondary/edrifellgym/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_GateHouseInterior::
+	.incbin "data/tilesets/secondary/gatehouseinterior/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/gatehouseinterior/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/gatehouseinterior/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/gatehouseinterior/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/gatehouseinterior/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/gatehouseinterior/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/gatehouseinterior/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/gatehouseinterior/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/gatehouseinterior/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/gatehouseinterior/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/gatehouseinterior/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/gatehouseinterior/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/gatehouseinterior/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_GateHouseInterior::
+	.incbin "data/tilesets/secondary/gatehouseinterior/tiles.4bpp.lz"

@@ -940,3 +940,14 @@ gTileset_EdrifellGym::
 	.4byte gMetatiles_EdrifellGym
 	.4byte gMetatileAttributes_EdrifellGym
 	.4byte NULL
+
+	.align 2
+gTileset_GateHouseInterior::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_GateHouseInterior
+	.4byte gTilesetPalettes_GateHouseInterior
+	.4byte gMetatiles_GateHouseInterior
+	.4byte NULL
+	.4byte gMetatileAttributes_GateHouseInterior

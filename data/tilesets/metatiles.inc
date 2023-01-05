@@ -628,3 +628,10 @@ gMetatiles_EdrifellGym::
 	.align 1
 gMetatileAttributes_EdrifellGym::
 	.incbin "data/tilesets/secondary/edrifellgym/metatile_attributes.bin"
+	.align 1
+gMetatiles_GateHouseInterior::
+	.incbin "data/tilesets/secondary/gatehouseinterior/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_GateHouseInterior::
+	.incbin "data/tilesets/secondary/gatehouseinterior/metatile_attributes.bin"
