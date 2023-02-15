@@ -1949,3 +1949,23 @@ gTilesetPalettes_GateHouseInterior::
 	.align 2
 gTilesetTiles_GateHouseInterior::
 	.incbin "data/tilesets/secondary/gatehouseinterior/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_PokeMartInterior::
+	.incbin "data/tilesets/secondary/pokemartinterior/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/pokemartinterior/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/pokemartinterior/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/pokemartinterior/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/pokemartinterior/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/pokemartinterior/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/pokemartinterior/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/pokemartinterior/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/pokemartinterior/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/pokemartinterior/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/pokemartinterior/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/pokemartinterior/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/pokemartinterior/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_PokeMartInterior::
+	.incbin "data/tilesets/secondary/pokemartinterior/tiles.4bpp.lz"
