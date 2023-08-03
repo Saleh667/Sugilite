@@ -607,12 +607,6 @@ static void PrintCurrentActionName(void)
 
 static void InitStartMenu(bool8 fromFade)
 {
-    /*sInitStartMenuData[0] = 0;
-    sInitStartMenuData[1] = 0;
-    while (!InitStartMenuStep())
-        ;
-    */
-    
     u8 windowId;
     bool32 haveMon = FlagGet(FLAG_SYS_POKEMON_GET);
     bool32 haveDex = FlagGet(FLAG_SYS_POKEDEX_GET);
@@ -620,6 +614,10 @@ static void InitStartMenu(bool8 fromFade)
     PlaySE(SE_WIN_OPEN);
     if (!fromFade) {
         BlendPalettes(-1, START_MENU_FADE_LEVEL, 0);
+    }
+    
+    if (GetMapNamePopUpWindowId() != 0xFF) {
+        RemoveMapNamePopUpWindow();
     }
     
     windowId = AddStartMenuWindow();
