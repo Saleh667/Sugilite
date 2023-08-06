@@ -635,3 +635,10 @@ gMetatiles_GateHouseInterior::
 	.align 1
 gMetatileAttributes_GateHouseInterior::
 	.incbin "data/tilesets/secondary/gatehouseinterior/metatile_attributes.bin"
+	.align 1
+gMetatiles_PokeMartInterior::
+	.incbin "data/tilesets/secondary/pokemartinterior/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_PokeMartInterior::
+	.incbin "data/tilesets/secondary/pokemartinterior/metatile_attributes.bin"

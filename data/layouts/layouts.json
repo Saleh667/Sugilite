@@ -4457,7 +4457,7 @@
       "width": 20,
       "height": 20,
       "primary_tileset": "gTileset_Indoors",
-      "secondary_tileset": "gTileset_GateHouseInterior",
+      "secondary_tileset": "gTileset_PokeMartInterior",
       "border_filepath": "data/layouts/TestMap/border.bin",
       "blockdata_filepath": "data/layouts/TestMap/map.bin"
     },

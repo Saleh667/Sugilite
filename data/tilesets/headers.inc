@@ -951,3 +951,14 @@ gTileset_GateHouseInterior::
 	.4byte gMetatiles_GateHouseInterior
 	.4byte NULL
 	.4byte gMetatileAttributes_GateHouseInterior
+
+	.align 2
+gTileset_PokeMartInterior::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_PokeMartInterior
+	.4byte gTilesetPalettes_PokeMartInterior
+	.4byte gMetatiles_PokeMartInterior
+	.4byte NULL
+	.4byte gMetatileAttributes_PokeMartInterior
