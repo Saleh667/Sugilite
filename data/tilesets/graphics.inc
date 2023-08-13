@@ -1949,3 +1949,43 @@ gTilesetPalettes_GateHouseInterior::
 	.align 2
 gTilesetTiles_GateHouseInterior::
 	.incbin "data/tilesets/secondary/gatehouseinterior/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_EldrifellCityIndoor::
+	.incbin "data/tilesets/secondary/eldrifell_city_indoor/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_city_indoor/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_city_indoor/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_city_indoor/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_city_indoor/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_city_indoor/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_city_indoor/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_city_indoor/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_city_indoor/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_city_indoor/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_city_indoor/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_city_indoor/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_city_indoor/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_EldrifellCityIndoor::
+	.incbin "data/tilesets/secondary/eldrifell_city_indoor/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_EldrifellCathedralIndoors::
+	.incbin "data/tilesets/secondary/eldrifell_cathedral_indoors/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_cathedral_indoors/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_cathedral_indoors/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_cathedral_indoors/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_cathedral_indoors/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_cathedral_indoors/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_cathedral_indoors/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_cathedral_indoors/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_cathedral_indoors/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_cathedral_indoors/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_cathedral_indoors/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_cathedral_indoors/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/eldrifell_cathedral_indoors/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_EldrifellCathedralIndoors::
+	.incbin "data/tilesets/secondary/eldrifell_cathedral_indoors/tiles.4bpp.lz"

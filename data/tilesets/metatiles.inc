@@ -628,6 +628,7 @@ gMetatiles_EdrifellGym::
 	.align 1
 gMetatileAttributes_EdrifellGym::
 	.incbin "data/tilesets/secondary/edrifellgym/metatile_attributes.bin"
+	
 	.align 1
 gMetatiles_GateHouseInterior::
 	.incbin "data/tilesets/secondary/gatehouseinterior/metatiles.bin"
@@ -635,3 +636,19 @@ gMetatiles_GateHouseInterior::
 	.align 1
 gMetatileAttributes_GateHouseInterior::
 	.incbin "data/tilesets/secondary/gatehouseinterior/metatile_attributes.bin"
+
+	.align 1
+gMetatiles_EldrifellCityIndoor::
+	.incbin "data/tilesets/secondary/eldrifell_city_indoor/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_EldrifellCityIndoor::
+	.incbin "data/tilesets/secondary/eldrifell_city_indoor/metatile_attributes.bin"
+
+	.align 1
+gMetatiles_EldrifellCathedralIndoors::
+	.incbin "data/tilesets/secondary/eldrifell_cathedral_indoors/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_EldrifellCathedralIndoors::
+	.incbin "data/tilesets/secondary/eldrifell_cathedral_indoors/metatile_attributes.bin"

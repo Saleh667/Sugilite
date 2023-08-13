@@ -951,3 +951,25 @@ gTileset_GateHouseInterior::
 	.4byte gMetatiles_GateHouseInterior
 	.4byte NULL
 	.4byte gMetatileAttributes_GateHouseInterior
+
+	.align 2
+gTileset_EldrifellCityIndoor::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0 @ padding
+	.4byte gTilesetTiles_EldrifellCityIndoor
+	.4byte gTilesetPalettes_EldrifellCityIndoor
+	.4byte gMetatiles_EldrifellCityIndoor
+	.4byte gMetatileAttributes_EldrifellCityIndoor
+	.4byte NULL @ animation callback
+
+	.align 2
+gTileset_EldrifellCathedralIndoors::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0 @ padding
+	.4byte gTilesetTiles_EldrifellCathedralIndoors
+	.4byte gTilesetPalettes_EldrifellCathedralIndoors
+	.4byte gMetatiles_EldrifellCathedralIndoors
+	.4byte gMetatileAttributes_EldrifellCathedralIndoors
+	.4byte InitTilesetAnim_EldrifellCathedralIndoors

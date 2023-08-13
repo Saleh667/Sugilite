@@ -44,6 +44,7 @@ static void TilesetAnim_MauvilleGym(u16);
 static void TilesetAnim_BikeShop(u16);
 static void TilesetAnim_BattlePyramid(u16);
 static void TilesetAnim_BattleDome(u16);
+static void TilesetAnim_EldrifellCathedralIndoors(u16 timer);
 static void QueueAnimTiles_General_Flower(u16);
 static void QueueAnimTiles_General_Water(u16);
 static void QueueAnimTiles_General_SandWaterEdge(u16);
@@ -74,6 +75,10 @@ static void QueueAnimTiles_MauvilleGym_ElectricGates(u16);
 static void QueueAnimTiles_SootopolisGym_Waterfalls(u16);
 static void QueueAnimTiles_EliteFour_GroundLights(u16);
 static void QueueAnimTiles_EliteFour_WallLights(u16);
+static void QueueAnimTiles_Eldriffel_Cathedral_Indoors_Candle_1(u16);
+static void QueueAnimTiles_Eldriffel_Cathedral_Indoors_Candle_2(u16);
+static void QueueAnimTiles_Eldriffel_Cathedral_Indoors_Candle_3(u16);
+static void QueueAnimTiles_Eldriffel_Cathedral_Indoors_Candle_4(u16);
 
 const u16 gTilesetAnims_General_Flower_Frame1[] = INCBIN_U16("data/tilesets/primary/general/anim/flower/1.4bpp");
 const u16 gTilesetAnims_General_Flower_Frame0[] = INCBIN_U16("data/tilesets/primary/general/anim/flower/0.4bpp");
@@ -611,6 +616,38 @@ static const u16 *const gTilesetAnims_BattleDomeFloorLightPals[] = {
     gTilesetAnims_BattleDomePals0_1,
     gTilesetAnims_BattleDomePals0_2,
     gTilesetAnims_BattleDomePals0_3,
+};
+
+const u16 gTilesetAnims_EldriffelCathedralIndoors_Candle1_Frame0[] = INCBIN_U16("data/tilesets/secondary/eldrifell_cathedral_indoors/anim/candles/candle_1_frame_0.4bpp");
+const u16 gTilesetAnims_EldriffelCathedralIndoors_Candle1_Frame1[] = INCBIN_U16("data/tilesets/secondary/eldrifell_cathedral_indoors/anim/candles/candle_1_frame_1.4bpp");
+
+const u16 *const gTilesetAnims_Eldriffel_Cathedral_Indoors_Candle_1[] = {
+    gTilesetAnims_EldriffelCathedralIndoors_Candle1_Frame0,
+    gTilesetAnims_EldriffelCathedralIndoors_Candle1_Frame1,
+};
+
+const u16 gTilesetAnims_EldriffelCathedralIndoors_Candle2_Frame0[] = INCBIN_U16("data/tilesets/secondary/eldrifell_cathedral_indoors/anim/candles/candle_2_frame_0.4bpp");
+const u16 gTilesetAnims_EldriffelCathedralIndoors_Candle2_Frame1[] = INCBIN_U16("data/tilesets/secondary/eldrifell_cathedral_indoors/anim/candles/candle_2_frame_1.4bpp");
+
+const u16 *const gTilesetAnims_Eldriffel_Cathedral_Indoors_Candle_2[] = {
+    gTilesetAnims_EldriffelCathedralIndoors_Candle2_Frame0,
+    gTilesetAnims_EldriffelCathedralIndoors_Candle2_Frame1,
+};
+
+const u16 gTilesetAnims_EldriffelCathedralIndoors_Candle3_Frame0[] = INCBIN_U16("data/tilesets/secondary/eldrifell_cathedral_indoors/anim/candles/candle_3_frame_0.4bpp");
+const u16 gTilesetAnims_EldriffelCathedralIndoors_Candle3_Frame1[] = INCBIN_U16("data/tilesets/secondary/eldrifell_cathedral_indoors/anim/candles/candle_3_frame_1.4bpp");
+
+const u16 *const gTilesetAnims_Eldriffel_Cathedral_Indoors_Candle_3[] = {
+    gTilesetAnims_EldriffelCathedralIndoors_Candle3_Frame0,
+    gTilesetAnims_EldriffelCathedralIndoors_Candle3_Frame1,
+};
+
+const u16 gTilesetAnims_EldriffelCathedralIndoors_Candle4_Frame0[] = INCBIN_U16("data/tilesets/secondary/eldrifell_cathedral_indoors/anim/candles/candle_4_frame_0.4bpp");
+const u16 gTilesetAnims_EldriffelCathedralIndoors_Candle4_Frame1[] = INCBIN_U16("data/tilesets/secondary/eldrifell_cathedral_indoors/anim/candles/candle_4_frame_1.4bpp");
+
+const u16 *const gTilesetAnims_Eldriffel_Cathedral_Indoors_Candle_4[] = {
+    gTilesetAnims_EldriffelCathedralIndoors_Candle4_Frame0,
+    gTilesetAnims_EldriffelCathedralIndoors_Candle4_Frame1,
 };
 
 static void ResetTilesetAnimBuffer(void)
@@ -1297,4 +1334,47 @@ static void BlendAnimPalette_BattleDome_FloorLightsNoBlend(u16 timer)
         if (!--sSecondaryTilesetAnimCounterMax)
             sSecondaryTilesetAnimCallback = NULL;
     }
+}
+
+void InitTilesetAnim_EldrifellCathedralIndoors(void)
+{
+    sPrimaryTilesetAnimCounter = 0;
+    sPrimaryTilesetAnimCounterMax = 256;
+    sPrimaryTilesetAnimCallback = TilesetAnim_EldrifellCathedralIndoors;
+}
+
+static void TilesetAnim_EldrifellCathedralIndoors(u16 timer)
+{
+    if (timer % 16 == 0)
+        QueueAnimTiles_Eldriffel_Cathedral_Indoors_Candle_1(timer >> 4);
+    if (timer % 16 == 1)
+        QueueAnimTiles_Eldriffel_Cathedral_Indoors_Candle_2(timer >> 4);
+    if (timer % 16 == 2)
+        QueueAnimTiles_Eldriffel_Cathedral_Indoors_Candle_3(timer >> 4);
+    if (timer % 16 == 3)
+        QueueAnimTiles_Eldriffel_Cathedral_Indoors_Candle_4(timer >> 4);
+}
+
+static void QueueAnimTiles_Eldriffel_Cathedral_Indoors_Candle_1(u16 timer)
+{
+    u16 i = timer % 2;
+    AppendTilesetAnimToBuffer(gTilesetAnims_Eldriffel_Cathedral_Indoors_Candle_1[i], (u16*)(BG_VRAM + TILE_OFFSET_4BPP(0x340)), 0x40);
+}
+
+static void QueueAnimTiles_Eldriffel_Cathedral_Indoors_Candle_2(u16 timer)
+{
+    u16 i = timer % 2;
+    AppendTilesetAnimToBuffer(gTilesetAnims_Eldriffel_Cathedral_Indoors_Candle_2[i], (u16*)(BG_VRAM + TILE_OFFSET_4BPP(0x342)), 0x80);
+}
+
+static void QueueAnimTiles_Eldriffel_Cathedral_Indoors_Candle_3(u16 timer)
+{
+    u16 i = timer % 2;
+    AppendTilesetAnimToBuffer(gTilesetAnims_Eldriffel_Cathedral_Indoors_Candle_3[i], (u16*)(BG_VRAM + TILE_OFFSET_4BPP(0x346)), 0x40);
+}
+
+static void QueueAnimTiles_Eldriffel_Cathedral_Indoors_Candle_4(u16 timer)
+{
+    u16 i = timer % 2;
+    AppendTilesetAnimToBuffer(gTilesetAnims_Eldriffel_Cathedral_Indoors_Candle_4[i], (u16*)(BG_VRAM + TILE_OFFSET_4BPP(0x348)), 0x40);
 }
